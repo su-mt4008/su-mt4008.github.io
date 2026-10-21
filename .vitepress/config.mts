@@ -13,6 +13,10 @@ export default defineConfig({
   markdown: {
     math: true,
   },
+  vite: {
+    // Same value in the server and client bundles, so hydration matches.
+    define: { __BUILD_TIME__: JSON.stringify(Date.now()) },
+  },
   themeConfig: {
     editLink: {
       pattern: "https://github.com/su-mt4008/su-mt4008.github.io/issues/new?title=:path",
