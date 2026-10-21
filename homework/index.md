@@ -1,4 +1,4 @@
-# Homework
+# Assignments
 
 The homework component has **5 assignments**, each paired with a **peer review** of a classmate’s work.
 To **pass**, you must submit **every assignment** and complete **its peer review** by the stated deadlines.
@@ -54,17 +54,11 @@ Address at least:
 
 **Peer-review deadline:** **Thursdays 23:59 (Europe/Stockholm)** for the corresponding homework.
 
-## Schedule (2025)
+## Schedule
 
 All times are **Europe/Stockholm**. Assignments are due **Monday 23:59**; peer reviews are due **Thursdays 23:59**.
 
-| Homework                                         | Assignment deadline       | Peer-review deadline      |
-| :----------------------------------------------- | :------------------------ | :------------------------ |
-| [HW1: GitHub Test-Run](/homework/1)              | **Mon, 2025-11-10 23:59** | **Thu, 2025-11-13 23:59** |
-| [HW2: Tables & Plots — Basic](/homework/2)       | **Mon, 2025-11-17 23:59** | **Thu, 2025-11-20 23:59** |
-| [HW3: Exploring & Visualising Data](/homework/3) | **Mon, 2025-11-24 23:59** | **Thu, 2025-11-27 23:59** |
-| [HW4: SQL & Regex](/homework/4)                  | **Mon, 2025-12-01 23:59** | **Thu, 2025-12-04 23:59** |
-| [HW5: Data from the Web](/homework/5)            | **Mon, 2025-12-08 23:59** | **Thu, 2025-12-11 23:59** |
+<AssignmentSchedule />
 
 ---
 

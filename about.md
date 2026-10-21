@@ -19,7 +19,21 @@ once a week for a **live demo** of last week’s material—think short walk‑t
 hours for questions.
 
 * Exact days/times/links are on the relevant pages:
-  **[Lectures](/lectures/)** • **[Homework](/homework/)** • **[Project](/project)** • **[Exam](/exam/)**
+  **[Lectures](/lectures/)** • **[Assignments](/homework/)** • **[Project](/project)** • **[Exam](/exam/)**
+
+## How a week works
+
+<!-- TODO(owner): review this section. -->
+
+All times are Stockholm time.
+
+1. **Any time during the week:** work through the week’s material (and its quiz, once quizzes are available).
+2. **Monday 13–16, on campus:** live demo of last week’s material, then help with assignments.
+3. **Thursday 13–16, on [Zoom](https://stockholmuniversity.zoom.us/j/6254185246):** open Q&A.
+4. **Next Monday 23:59:** hand in the week’s assignment on Moodle.
+5. **Next Thursday 23:59:** peer review a classmate’s assignment.
+
+The exact dates for every week are on the [home page](/) and in the [assignment schedule](/homework/#schedule).
 
 ## What you’ll be able to do
 

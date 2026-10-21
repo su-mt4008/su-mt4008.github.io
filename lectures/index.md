@@ -18,19 +18,4 @@ Attendance at the live demos is **not** mandatory, but highly recommended—you�
 
 ## Schedule
 
-|   Week    | Date                            |Topic                                                                |
-|----------:|:-------------------------------|:---------------------------------------------------------------------:|
-|        1  | Mon, 2025-11-03,  13:00 - 16:00 | [Reproducible Analysis with GitHub, Jupyter, and Functional Programming](/lectures/week-1) |
-|           | Thu, 2025-11-06,  13:00 - 16:00 | Zoom Q&A                                                            |
-|        2  | Mon, 2025-11-10,  13:00 - 16:00 | [DataFrames & Visualising Data with Plots](/lectures/week-2)        |
-|           | Thu, 2025-11-13,  13:00 - 16:00 | Zoom Q&A                                                            |
-|        3  | Mon, 2025-11-17,  13:00 - 16:00 | [Exploratory Data Analysis (EDA) & Processing Data](/lectures/week-3)     |
-|           | Thu, 2025-11-20,  13:00 - 16:00 | Zoom Q&A                                                            |
-|        4  | Mon, 2025-11-24,  13:00 - 16:00 | [Joining Data, SQL, and an Introduction to RegEx](/lectures/week-4)     |
-|           | Thu, 2025-11-27,  13:00 - 16:00 | Zoom Q&A                                                            |
-|        5  | Mon, 2025-12-01,  13:00 - 16:00 | Guest Lecturer, Pär Villner from Annalect                           |
-|           | Thu, 2025-12-04,  13:00 - 16:00 | [Retrieving Data from the Web (REST APIs & Web Scraping)](/lectures/week-5)                    |
-|        6  | Mon, 2025-12-08,  13:00 - 16:00 | On site Q&A |
-|           | Thu, 2025-12-11,  13:00 - 16:00 | Zoom Q&A                                                            |
-|        7  | Mon, 2025-12-15,  13:00 - 16:00 | ZOOM Q&A |
-|           | Thu, 2025-12-17,  13:00 - 16:00 | Zoom Q&A                                                            |
+<LectureSchedule />
