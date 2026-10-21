@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { computed } from 'vue'
-import { formatWhen, type Phase, type Schedule } from '../schedule/logic'
+import { formatEventWhen, formatWhen, type Phase, type Schedule } from '../schedule/logic'
 
 const props = defineProps<{ schedule: Schedule; phase: Phase; currentWeek: number | null }>()
 
@@ -8,10 +8,6 @@ const setupLink = '/lectures/week-1#install-the-essentials'
 const firstSession = computed(() => formatWhen(new Date(props.schedule.firstSession)))
 const assignment = (id?: string) => props.schedule.assignments.find((a) => a.id === id)
 const weekDate = (start: string) => formatWhen(new Date(`${start}T12:00:00+01:00`))
-const eventDate = (e: Schedule['events'][number]) =>
-  e.end
-    ? `${formatWhen(new Date(e.at), true)}–${formatWhen(new Date(e.end), true).slice(-5)}`
-    : `Due ${formatWhen(new Date(e.at), true)}`
 </script>
 
 <template>
@@ -60,8 +56,8 @@ const eventDate = (e: Schedule['events'][number]) =>
     </div>
 
     <div class="assess">
-      <div v-for="e in schedule.events" :key="e.kind">
-        <div class="date">{{ eventDate(e) }}</div>
+      <div v-for="e in schedule.events" :key="e.kind + e.at">
+        <div class="date">{{ formatEventWhen(e) }}</div>
         <h3><a :href="e.link">{{ e.title }}</a></h3>
         <div class="bits">{{ e.blurb }}</div>
       </div>

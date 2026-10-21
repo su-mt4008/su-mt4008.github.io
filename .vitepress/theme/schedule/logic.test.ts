@@ -1,6 +1,6 @@
 import { describe, expect, it } from 'vitest'
 import { schedule } from './data'
-import { formatWhen, getCurrentWeek, getNextUp, getPhase } from './logic'
+import { formatEventWhen, formatWhen, getCurrentWeek, getNextUp, getPhase } from './logic'
 
 // Run in UTC so a formatter that falls back to the runtime zone fails.
 process.env.TZ = 'UTC'
@@ -13,6 +13,10 @@ describe('getPhase', () => {
   })
   it('is teaching during the weeks', () => {
     expect(getPhase(at('2026-11-18T10:00'), schedule)).toBe('teaching')
+  })
+  it('is teaching from Monday midnight of week 1, agreeing with getCurrentWeek', () => {
+    expect(getPhase(at('2026-11-02T09:00'), schedule)).toBe('teaching')
+    expect(getCurrentWeek(at('2026-11-02T09:00'), schedule)).toBe(1)
   })
   it('is after-teaching over Christmas', () => {
     expect(getPhase(at('2026-12-24T12:00'), schedule)).toBe('after-teaching')
@@ -64,6 +68,17 @@ describe('getNextUp', () => {
     const [first] = getNextUp(at('2026-10-21T12:00'), schedule)
     expect(first.kind).toBe('session')
     expect(first.at.getTime()).toBe(at('2026-11-02T13:00').getTime())
+  })
+})
+
+describe('formatEventWhen', () => {
+  it('shows a deadline as due date and time', () => {
+    const project = schedule.events.find((e) => e.kind === 'project')!
+    expect(formatEventWhen(project)).toBe('Due Fri 8 Jan, 23:59')
+  })
+  it('shows an event with an end as a time range', () => {
+    const exam = schedule.events.find((e) => e.kind === 'exam')!
+    expect(formatEventWhen(exam)).toBe('Mon 11 Jan, 08:00–11:00')
   })
 })
 

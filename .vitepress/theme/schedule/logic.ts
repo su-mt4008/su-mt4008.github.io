@@ -27,7 +27,7 @@ function lastEventEnd(s: Schedule): Date {
 }
 
 export function getPhase(now: Date, s: Schedule): Phase {
-  if (now < new Date(s.firstSession)) return 'before'
+  if (now < weekStart(s.weeks[0])) return 'before'
   if (now < weekEnd(s.weeks[s.weeks.length - 1])) return 'teaching'
   if (now < lastEventEnd(s)) return 'after-teaching'
   return 'over'
@@ -72,4 +72,9 @@ export function formatWhen(d: Date, withTime = false): string {
   const get = (type: string) => parts.find((p) => p.type === type)?.value ?? ''
   const date = `${get('weekday')} ${get('day')} ${get('month')}`
   return withTime ? `${date}, ${get('hour')}:${get('minute')}` : date
+}
+
+export function formatEventWhen(e: CourseEvent): string {
+  const start = formatWhen(new Date(e.at), true)
+  return e.end ? `${start}–${formatWhen(new Date(e.end), true).slice(-5)}` : `Due ${start}`
 }

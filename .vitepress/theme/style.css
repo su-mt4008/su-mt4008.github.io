@@ -92,3 +92,10 @@ body {
   color: var(--c-text);
   text-decoration-color: var(--c-text);
 }
+
+/* Mark the current section in the navbar; colour alone can't, it's all black. */
+.VPNavBarMenuLink.active {
+  text-decoration: underline;
+  text-decoration-thickness: 2px;
+  text-underline-offset: 6px;
+}

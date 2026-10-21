@@ -9,6 +9,7 @@ There are no formal lectures; the material is designed for self-study. However, 
 **Bring your laptop.** Parts of the sessions will be interactive, and following along will make the homework easier.
 
 Room and location details are in the TimeEdit schedule:
+<!-- TODO(owner): HT26 TimeEdit link (also in .vitepress/theme/schedule/data.ts) -->
 [View the schedule](https://cloud.timeedit.net/su/web/stud1/s.html?tab=3&object=cevt_48076_HT2025&startDate=20251004&endDate=20260418&type=courseevent&h=t)
 
 The code for all demos is available here:

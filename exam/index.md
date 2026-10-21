@@ -1,6 +1,6 @@
 # Exam
 
-- **Date & time:** **Monday, 12 January 2026, 08:00–11:00 (Europe/Stockholm)**
+- **Date & time:** <EventDate kind="exam" />
 - **Format:** **Written in-place** — mix of **multiple-choice** and **short essay** questions
 - **Grading:** **A–F** (see scale below)
 - **Registration:** **Make sure to register for the exam on Ladok.**

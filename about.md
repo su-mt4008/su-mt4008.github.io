@@ -48,7 +48,7 @@ By the end, you will be able to:
 
 You’ll practice every week, do an **individual project**, and finish with an **exam**.
 
-* **Home assignments:** Weekly. Focus on the data‑analysis pipeline: load → transform → explore → visualize → report. Expect roughly **half‑time study** each week. Details: **[Homework](/homework/)**.
+* **Home assignments:** Weekly. Focus on the data‑analysis pipeline: load → transform → explore → visualize → report. Expect roughly **half‑time study** each week. Details: **[Assignments](/homework/)**.
 * **Project:** Pick a public/open dataset and tell a clear, reproducible data story. Details, milestones, and rubric: **[Project](/project)**.
 * **Exam:**  You’ll apply course methods to a given problem. Format and scheduling: **[Exam](/exam/)**.
 
