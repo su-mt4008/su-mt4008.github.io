@@ -5,6 +5,11 @@ export default defineConfig({
   title: "MT4008",
   description: "Course page for MT4008 Statistical Data Processing at Stockholm University",
   srcExclude: ['docs/**', 'mt4008/**'],
+  head: [
+    ['link', { rel: 'preconnect', href: 'https://fonts.googleapis.com' }],
+    ['link', { rel: 'preconnect', href: 'https://fonts.gstatic.com', crossorigin: '' }],
+    ['link', { rel: 'stylesheet', href: 'https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Serif:wght@400;500;600&display=swap' }],
+  ],
   markdown: {
     math: true,
   },
