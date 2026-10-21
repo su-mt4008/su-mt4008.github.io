@@ -1,16 +1,16 @@
 # Lectures
 
-There are no formal lectures; the material is designed for self-study. However, I’ll be available for live demos and Q&A each week:
+There are no formal lectures; the material is designed for self-study. However, we’ll be available for live demos and Q&A twice a week, from Thursday 5 November to Monday 21 December:
 
-* **Mondays, 13:00–16:00 (on campus):** Live demo of the previous week’s material, followed by time for questions and homework help. In past iterations of the course, these sessions have been very appreciated.
-* **Thursdays, 13:00–16:00 (on Zoom):** Open Q&A.
-  [Zoom link for Q&A](https://stockholmuniversity.zoom.us/j/6254185246)
+* **Mondays, 13:00–17:00:** Live demo of the previous week’s material, followed by time for questions and homework help. In past iterations of the course, these sessions have been very appreciated.
+* **Thursdays, 13:00–17:00:** Open Q&A and homework help.
+
+All sessions are in **Lecture room 19, Albano Hus 2, 2nd floor**, with Per Alexandersson and Taariq Nazar.
 
 **Bring your laptop.** Parts of the sessions will be interactive, and following along will make the homework easier.
 
-Room and location details are in the TimeEdit schedule:
-<!-- TODO(owner): HT26 TimeEdit link (also in .vitepress/theme/schedule/data.ts) -->
-[View the schedule](https://cloud.timeedit.net/su/web/stud1/s.html?tab=3&object=cevt_48076_HT2025&startDate=20251004&endDate=20260418&type=courseevent&h=t)
+Any changes to times or rooms show up first in TimeEdit:
+[View the schedule](https://cloud.timeedit.net/su/web/stud1/s.html?sid=3&object=cevt_48074_HT2026&startDate=20261003&endDate=20270417&type=courseevent&h=t&l=en)
 
 The code for all demos is available here:
 [GitHub: su-mt4008/lecture-demos](https://github.com/su-mt4008/lecture-demos)

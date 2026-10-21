@@ -47,7 +47,7 @@ describe('getCurrentWeek', () => {
 describe('getNextUp', () => {
   it('lists the next two items in date order during teaching', () => {
     const items = getNextUp(at('2026-11-18T10:00'), schedule)
-    expect(items.map((i) => i.label)).toEqual(['Q&A on Zoom', 'HW2 peer review'])
+    expect(items.map((i) => i.label)).toEqual(['Q&A in Albano, lecture room 19', 'HW2 peer review'])
     expect(items.map((i) => i.at.getTime())).toEqual([
       at('2026-11-19T13:00').getTime(),
       at('2026-11-19T23:59').getTime(),
@@ -67,7 +67,21 @@ describe('getNextUp', () => {
   it('starts with the first session before the course', () => {
     const [first] = getNextUp(at('2026-10-21T12:00'), schedule)
     expect(first.kind).toBe('session')
-    expect(first.at.getTime()).toBe(at('2026-11-02T13:00').getTime())
+    expect(first.at.getTime()).toBe(at('2026-11-05T13:00').getTime())
+  })
+  it('has no session on Monday of week 1, matching TimeEdit', () => {
+    const [first] = getNextUp(at('2026-11-02T09:00'), schedule)
+    expect(first.at.getTime()).toBe(at('2026-11-05T13:00').getTime())
+  })
+  it('keeps the sessions booked after the last lecture week', () => {
+    const [first] = getNextUp(at('2026-12-15T10:00'), schedule)
+    expect(first.kind).toBe('session')
+    expect(first.at.getTime()).toBe(at('2026-12-17T13:00').getTime())
+  })
+  it('ends a session at 17:00', () => {
+    const labels = (s: string) => getNextUp(at(s), schedule).map((i) => i.at.getTime())
+    expect(labels('2026-11-19T16:59')).toContain(at('2026-11-19T13:00').getTime())
+    expect(labels('2026-11-19T17:00')).not.toContain(at('2026-11-19T13:00').getTime())
   })
 })
 
@@ -78,7 +92,7 @@ describe('formatEventWhen', () => {
   })
   it('shows an event with an end as a time range', () => {
     const exam = schedule.events.find((e) => e.kind === 'exam')!
-    expect(formatEventWhen(exam)).toBe('Mon 11 Jan, 08:00–11:00')
+    expect(formatEventWhen(exam)).toBe('Sat 9 Jan, 09:00–11:00')
   })
 })
 

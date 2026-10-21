@@ -1,6 +1,6 @@
 export interface Week { n: number; start: string; title: string; link: string; note?: string; hw?: string }
 export interface Assignment { id: string; name: string; link: string; due: string; peerDue: string }
-export interface Session { weekday: 1 | 4; start: string; end: string; label: string; place: string; link?: string }
+export interface Session { at: string; end: string; label: string; place: string; link?: string }
 export interface CourseEvent { kind: 'project' | 'exam' | 'presentation'; at: string; end?: string; title: string; link: string; blurb: string }
 export interface Schedule {
   provisional: boolean
@@ -40,12 +40,8 @@ export function getCurrentWeek(now: Date, s: Schedule): number | null {
 
 export function getNextUp(now: Date, s: Schedule, count = 2): NextItem[] {
   const items: (NextItem & { until: Date })[] = []
-  for (const w of s.weeks) {
-    for (const ses of s.sessions) {
-      const day = new Date(Date.parse(`${w.start}T00:00:00Z`) + (ses.weekday - 1) * DAY).toISOString().slice(0, 10)
-      const start = local(day, ses.start)
-      items.push({ at: start, until: local(day, ses.end), kind: 'session', label: `${ses.label} ${ses.place}`, link: ses.link })
-    }
+  for (const ses of s.sessions) {
+    items.push({ at: new Date(ses.at), until: new Date(ses.end), kind: 'session', label: `${ses.label} ${ses.place}`, link: ses.link })
   }
   for (const a of s.assignments) {
     items.push({ at: new Date(a.due), until: new Date(a.due), kind: 'handin', label: `${a.id} hand-in`, link: a.link })

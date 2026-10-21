@@ -15,8 +15,8 @@ You can use **Python or R** throughout the course. Pick the one you’re most co
 This is a self‑study‑first course. Each week you read/watch the materials, try
 things, and work on a small assignment. Instead of traditional lectures, we meet
 once a week for a **live demo** of last week’s material—think short walk‑through
-+ tips + Q&A—followed by **drop‑in help** time. We also host **Thursday Zoom**
-hours for questions.
++ tips + Q&A—followed by **drop‑in help** time. We also hold **Thursday Q&A**
+sessions on campus.
 
 * Exact days/times/links are on the relevant pages:
   **[Lectures](/lectures/)** • **[Assignments](/homework/)** • **[Project](/project)** • **[Exam](/exam/)**
@@ -28,8 +28,8 @@ hours for questions.
 All times are Stockholm time.
 
 1. **Any time during the week:** work through the week’s material (and its quiz, once quizzes are available).
-2. **Monday 13–16, on campus:** live demo of last week’s material, then help with assignments.
-3. **Thursday 13–16, on [Zoom](https://stockholmuniversity.zoom.us/j/6254185246):** open Q&A.
+2. **Monday 13–17, Albano lecture room 19:** live demo of last week’s material, then help with assignments.
+3. **Thursday 13–17, same room:** open Q&A and help.
 4. **Next Monday 23:59:** hand in the week’s assignment on Moodle.
 5. **Next Thursday 23:59:** peer review a classmate’s assignment.
 
@@ -58,7 +58,7 @@ The final course grade combines all three components. See **[Final Grade Explana
 
 ## Getting help
 
-* **Live demo + drop‑in + Zoom:** weekly—see **[Lectures](/lectures/)** for times and rooms.
+* **Live demo + drop‑in + Thursday Q&A:** weekly—see **[Lectures](/lectures/)** for times and rooms.
 * **TAs & contacts:** see **Moodle** for the current TA list and how to reach us.
 
 ## A note on collaboration & AI tools
@@ -72,7 +72,7 @@ copy/paste or uncredited AI will be considered plagiarism.
 ## Instructor
 
 **Taariq Nazar** — [profile](https://www.su.se/english/profiles/tana2011-1.618737)
-For TA contact info, see [**Moodle**](https://kurser.math.su.se/course/view.php?id=1631) page. 
+For TA contact info, see [**Moodle**](https://kurser.math.su.se/course/view.php?id=1951) page. 
 
 ## Acknowledgements
 
