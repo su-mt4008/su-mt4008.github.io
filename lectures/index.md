@@ -12,7 +12,7 @@ Room and location details are in the TimeEdit schedule:
 [View the schedule](https://cloud.timeedit.net/su/web/stud1/s.html?tab=3&object=cevt_48076_HT2025&startDate=20251004&endDate=20260418&type=courseevent&h=t)
 
 The code for all demos is available here:
-[GitHub: su-mt4007/lecture-demos](https://github.com/su-mt4007/lecture-demos)
+[GitHub: su-mt4008/lecture-demos](https://github.com/su-mt4008/lecture-demos)
 
 Attendance at the live demos is **not** mandatory, but highly recommended—you’ll have direct access to me during these times. Use it!
 

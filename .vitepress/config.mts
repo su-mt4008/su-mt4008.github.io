@@ -2,23 +2,24 @@ import { defineConfig } from 'vitepress'
 
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
-  title: "Statistical Data Processing",
-  description: "Course page for MT4007 given at Stockholm University",
+  title: "MT4008",
+  description: "Course page for MT4008 Statistical Data Processing at Stockholm University",
+  srcExclude: ['docs/**', 'mt4008/**'],
   markdown: {
     math: true,
   },
   themeConfig: {
     editLink: {
-      pattern:"https://github.com/su-mt4007/su-mt4007.github.io/issues/new?title=:path",
-      text:"Suggest a change or notify an issue on this page"
+      pattern: "https://github.com/su-mt4008/su-mt4008.github.io/issues/new?title=:path",
+      text: "Spotted a mistake? Suggest a change"
     },
-    search:{
+    search: {
       provider: 'local'
     },
     nav: [
-      { text: 'Home', link: '/' },
+      { text: 'Course info', link: '/about', activeMatch: '^/(about|final-grade)' },
       { text: 'Lectures', link: '/lectures/' },
-      { text: 'Homework', link: '/homework/' },
+      { text: 'Assignments', link: '/homework/', activeMatch: '^/homework/' },
       { text: 'Project', link: '/project' },
       { text: 'Exam', link: '/exam/' },
     ],
@@ -38,19 +39,40 @@ export default defineConfig({
       ],
       '/homework/': [
         {
-          text: "Homework",
+          text: "Assignments",
           items: [
-            { text: 'Homework 1', link: '/homework/1' },
-            { text: 'Homework 2', link: '/homework/2' },
-            { text: 'Homework 3', link: '/homework/3' },
-            { text: 'Homework 4', link: '/homework/4' },
-            { text: 'Homework 5', link: '/homework/5' },
+            { text: 'Overview', link: '/homework/' },
+            { text: 'HW1', link: '/homework/1' },
+            { text: 'HW2', link: '/homework/2' },
+            { text: 'HW3', link: '/homework/3' },
+            { text: 'HW4', link: '/homework/4' },
+            { text: 'HW5', link: '/homework/5' },
+          ]
+        }
+      ],
+      '/about': [
+        {
+          text: "Course info",
+          items: [
+            { text: 'About the course', link: '/about' },
+            { text: 'How a week works', link: '/about#how-a-week-works' },
+            { text: 'Grading', link: '/final-grade' },
+          ]
+        }
+      ],
+      '/final-grade': [
+        {
+          text: "Course info",
+          items: [
+            { text: 'About the course', link: '/about' },
+            { text: 'How a week works', link: '/about#how-a-week-works' },
+            { text: 'Grading', link: '/final-grade' },
           ]
         }
       ],
     },
-    //socialLinks: [
-    //  { icon: 'github', link: 'https://github.com/su-mt4007' }
-    //]
+    socialLinks: [
+      { icon: 'github', link: 'https://github.com/su-mt4008' }
+    ]
   }
 })

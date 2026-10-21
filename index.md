@@ -3,7 +3,7 @@
 layout: home
 
 hero:
-  name: "MT4007"
+  name: "MT4008"
   text: "Statistical Data Processing"
   tagline: Course page for Statistical Data Processing given at Stockholm University
   actions:
