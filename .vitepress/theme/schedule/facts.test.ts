@@ -17,7 +17,7 @@ describe('course facts', () => {
   it('formats the exam, project deadline and presentations', () => {
     expect(course.exam).toBe('Sat 9 Jan, 09:00–11:00')
     expect(course.project).toBe('Due Fri 8 Jan, 23:59')
-    expect(course.presentation).toBe('Sat 16 Jan, 12:00–17:00')
+    expect(course.presentation).toBe('TBD, after 11 Jan')
   })
   it('exposes the links', () => {
     expect(course.links.moodle).toBe('https://kurser.math.su.se/course/view.php?id=1951')

@@ -21,11 +21,8 @@ describe('getPhase', () => {
   it('is after-teaching over Christmas', () => {
     expect(getPhase(at('2026-12-24T12:00'), schedule)).toBe('after-teaching')
   })
-  it('is after-teaching between the exam and the presentations', () => {
-    expect(getPhase(at('2027-01-12T09:00'), schedule)).toBe('after-teaching')
-  })
-  it('is over after the presentations end', () => {
-    expect(getPhase(at('2027-01-16T17:00'), schedule)).toBe('over')
+  it('is over after the exam, while the presentations have no date', () => {
+    expect(getPhase(at('2027-01-12T09:00'), schedule)).toBe('over')
   })
 })
 
@@ -64,11 +61,8 @@ describe('getNextUp', () => {
   it('shows project then exam over Christmas', () => {
     expect(getNextUp(at('2026-12-24T12:00'), schedule).map((i) => i.kind)).toEqual(['project', 'exam'])
   })
-  it('shows only the presentations after the exam', () => {
-    expect(getNextUp(at('2027-01-12T09:00'), schedule).map((i) => i.kind)).toEqual(['presentation'])
-  })
-  it('is empty after the presentations', () => {
-    expect(getNextUp(at('2027-01-16T17:00'), schedule)).toEqual([])
+  it('leaves undated presentations out and is empty after the exam', () => {
+    expect(getNextUp(at('2027-01-12T09:00'), schedule)).toEqual([])
   })
   it('starts with the first session before the course', () => {
     const [first] = getNextUp(at('2026-10-21T12:00'), schedule)
@@ -99,6 +93,10 @@ describe('formatEventWhen', () => {
   it('shows an event with an end as a time range', () => {
     const exam = schedule.events.find((e) => e.kind === 'exam')!
     expect(formatEventWhen(exam)).toBe('Sat 9 Jan, 09:00–11:00')
+  })
+  it('shows the note for an event without a date', () => {
+    const presentation = schedule.events.find((e) => e.kind === 'presentation')!
+    expect(formatEventWhen(presentation)).toBe('TBD, after 11 Jan')
   })
 })
 

@@ -1,7 +1,8 @@
 export interface Week { n: number; start: string; title: string; link: string; note?: string; hw?: string }
 export interface Assignment { id: string; name: string; link: string; due: string; peerDue: string }
 export interface Session { at: string; end: string; label: string; place: string; link?: string }
-export interface CourseEvent { kind: 'project' | 'exam' | 'presentation'; at: string; end?: string; title: string; link: string; blurb: string }
+// An event without `at` has no date yet; it shows `tbd` instead and stays out of Next up.
+export interface CourseEvent { kind: 'project' | 'exam' | 'presentation'; at?: string; end?: string; tbd?: string; title: string; link: string; blurb: string }
 export interface Schedule {
   provisional: boolean
   weeks: Week[]
@@ -22,7 +23,8 @@ const weekStart = (w: Week) => local(w.start)
 const weekEnd = (w: Week) => new Date(weekStart(w).getTime() + 7 * DAY)
 
 function lastEventEnd(s: Schedule): Date {
-  return new Date(Math.max(...s.events.map((e) => new Date(e.end ?? e.at).getTime())))
+  const dated = s.events.filter((e) => e.at)
+  return new Date(Math.max(...dated.map((e) => new Date(e.end ?? e.at!).getTime())))
 }
 
 export function getPhase(now: Date, s: Schedule): Phase {
@@ -47,6 +49,7 @@ export function getNextUp(now: Date, s: Schedule, count = 2): NextItem[] {
     items.push({ at: new Date(a.peerDue), until: new Date(a.peerDue), kind: 'peer', label: `${a.id} peer review`, link: a.link })
   }
   for (const e of s.events) {
+    if (!e.at) continue
     items.push({ at: new Date(e.at), until: new Date(e.end ?? e.at), kind: e.kind, label: e.title, link: e.link })
   }
   return items
@@ -70,6 +73,7 @@ export function formatWhen(d: Date, withTime = false): string {
 }
 
 export function formatEventWhen(e: CourseEvent): string {
+  if (!e.at) return e.tbd ?? 'TBA'
   const start = formatWhen(new Date(e.at), true)
   return e.end ? `${start}–${formatWhen(new Date(e.end), true).slice(-5)}` : `Due ${start}`
 }

@@ -30,6 +30,11 @@ const session = (date: string) => ({
   place: `in ${config.roomShort}`,
 })
 
+const presentationsWhen = () => {
+  const p = config.presentations
+  return p.date ? { at: at(p.date, p.start), end: at(p.date, p.end) } : { tbd: p.note }
+}
+
 export const schedule: Schedule = {
   provisional: config.provisional,
   weeks: topics.map((t, i) => ({ n: i + 1, start: config.weekStarts[i], link: `/lectures/week-${i + 1}`, ...t })),
@@ -44,7 +49,7 @@ export const schedule: Schedule = {
   events: [
     { kind: 'project', at: at(config.project.due, config.project.time), title: 'Project', link: '/project', blurb: 'An individual, reproducible analysis of a dataset you choose.' },
     { kind: 'exam', at: at(config.exam.date, config.exam.start), end: at(config.exam.date, config.exam.end), title: 'Exam', link: '/exam/', blurb: 'Written, on campus. Register in Ladok first.' },
-    { kind: 'presentation', at: at(config.presentations.date, config.presentations.start), end: at(config.presentations.date, config.presentations.end), title: 'Presentations', link: '/project', blurb: 'A five-minute talk on your project. Attendance is compulsory.' },
+    { kind: 'presentation', ...presentationsWhen(), title: 'Presentations', link: '/project', blurb: 'A five-minute talk on your project. Attendance is compulsory.' },
   ],
   links: config.links,
 }

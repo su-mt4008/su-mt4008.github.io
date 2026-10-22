@@ -45,5 +45,6 @@ export default {
 
   project: { due: '2027-01-08', time: '23:59' },
   exam: { date: '2027-01-09', start: '09:00', end: '11:00' }, // from TimeEdit
-  presentations: { date: '2027-01-16', start: '12:00', end: '17:00' },
+  // Leave date empty until it is set; the pages then show the note.
+  presentations: { date: '', start: '12:00', end: '17:00', note: 'TBD, after 11 Jan' },
 }
