@@ -32,7 +32,6 @@ const currentWeek = computed(() => getCurrentWeek(now.value, schedule))
 const nextUp = computed(() => getNextUp(now.value, schedule))
 const links = [
   { text: 'Moodle', href: schedule.links.moodle },
-  { text: 'Zoom', href: schedule.links.zoom },
   { text: 'TimeEdit', href: schedule.links.timeedit },
   { text: 'GitHub', href: schedule.links.github },
 ]

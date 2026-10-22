@@ -28,8 +28,8 @@ sessions on campus.
 All times are Stockholm time.
 
 1. **Any time during the week:** work through the week’s material (and its quiz, once quizzes are available).
-2. **Monday 13–17, Albano lecture room 19:** live demo of last week’s material, then help with assignments.
-3. **Thursday 13–17, same room:** open Q&A and help.
+2. **Monday {{ $course.hours }}, {{ $course.room }}:** live demo of last week’s material, then help with assignments.
+3. **Thursday {{ $course.hours }}, same room:** open Q&A and help.
 4. **Next Monday 23:59:** hand in the week’s assignment on Moodle.
 5. **Next Thursday 23:59:** peer review a classmate’s assignment.
 
@@ -72,7 +72,7 @@ copy/paste or uncredited AI will be considered plagiarism.
 ## Instructor
 
 **Taariq Nazar** — [profile](https://www.su.se/english/profiles/tana2011-1.618737)
-For TA contact info, see [**Moodle**](https://kurser.math.su.se/course/view.php?id=1951) page. 
+For TA contact info, see the <a :href="$course.links.moodle"><strong>Moodle</strong></a> page. 
 
 ## Acknowledgements
 

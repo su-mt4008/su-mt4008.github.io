@@ -1,8 +1,7 @@
 # Project
 
-- **Deadline:** <EventDate kind="project" />
-<!-- TODO(owner): HT26 presentation date; add it to .vitepress/theme/schedule/data.ts as a presentation event -->
-- **Presentations:** **16 January 2026, 12.00-17.00**
+- **Deadline:** **{{ $course.project }} (Stockholm time)**
+- **Presentations:** **{{ $course.presentation }}**
 
 ## Overview
 

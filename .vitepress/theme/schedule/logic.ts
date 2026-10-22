@@ -4,12 +4,11 @@ export interface Session { at: string; end: string; label: string; place: string
 export interface CourseEvent { kind: 'project' | 'exam' | 'presentation'; at: string; end?: string; title: string; link: string; blurb: string }
 export interface Schedule {
   provisional: boolean
-  firstSession: string
   weeks: Week[]
   assignments: Assignment[]
   sessions: Session[]
   events: CourseEvent[]
-  links: { moodle: string; zoom: string; timeedit: string; github: string }
+  links: { moodle: string; timeedit: string; github: string }
 }
 export type Phase = 'before' | 'teaching' | 'after-teaching' | 'over'
 export interface NextItem { at: Date; kind: 'session' | 'handin' | 'peer' | CourseEvent['kind']; label: string; link?: string }

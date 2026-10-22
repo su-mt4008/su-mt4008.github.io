@@ -1,6 +1,6 @@
 # Exam
 
-- **Date & time:** <EventDate kind="exam" />
+- **Date & time:** **{{ $course.exam }} (Stockholm time)**
 - **Format:** **Written in-place** — mix of **multiple-choice** and **short essay** questions
 - **Grading:** **A–F** (see scale below)
 - **Registration:** **Make sure to register for the exam on Ladok.**

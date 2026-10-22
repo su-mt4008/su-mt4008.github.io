@@ -39,7 +39,7 @@ Functional programming (FP) ties it together by encouraging **pure, modular code
 
 ## Quick admin
 
-Please register your GitHub username on the [Moodle course page](https://kurser.math.su.se/course/view.php?id=1951).  
+Please register your GitHub username on the <a :href="$course.links.moodle">Moodle course page</a>.  
 No GitHub yet? Create an account → then register it on Moodle. We’ll review homework via GitHub.
 
 

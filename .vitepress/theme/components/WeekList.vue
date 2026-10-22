@@ -5,7 +5,7 @@ import { formatEventWhen, formatWhen, type Phase, type Schedule } from '../sched
 const props = defineProps<{ schedule: Schedule; phase: Phase; currentWeek: number | null }>()
 
 const setupLink = '/lectures/week-1#install-the-essentials'
-const firstSession = computed(() => formatWhen(new Date(props.schedule.firstSession)))
+const firstSession = computed(() => formatWhen(new Date(props.schedule.sessions[0].at)))
 const assignment = (id?: string) => props.schedule.assignments.find((a) => a.id === id)
 const weekDate = (start: string) => formatWhen(new Date(`${start}T12:00:00+01:00`))
 </script>
@@ -158,7 +158,7 @@ h3 a:hover {
   border-top: 2px solid var(--c-text);
   padding-top: 20px;
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
   gap: 28px;
 }
 .assess h3 {

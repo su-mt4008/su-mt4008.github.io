@@ -21,8 +21,11 @@ describe('getPhase', () => {
   it('is after-teaching over Christmas', () => {
     expect(getPhase(at('2026-12-24T12:00'), schedule)).toBe('after-teaching')
   })
-  it('is over after the exam ends', () => {
-    expect(getPhase(at('2027-01-12T09:00'), schedule)).toBe('over')
+  it('is after-teaching between the exam and the presentations', () => {
+    expect(getPhase(at('2027-01-12T09:00'), schedule)).toBe('after-teaching')
+  })
+  it('is over after the presentations end', () => {
+    expect(getPhase(at('2027-01-16T17:00'), schedule)).toBe('over')
   })
 })
 
@@ -61,8 +64,11 @@ describe('getNextUp', () => {
   it('shows project then exam over Christmas', () => {
     expect(getNextUp(at('2026-12-24T12:00'), schedule).map((i) => i.kind)).toEqual(['project', 'exam'])
   })
-  it('is empty after the exam', () => {
-    expect(getNextUp(at('2027-01-12T09:00'), schedule)).toEqual([])
+  it('shows only the presentations after the exam', () => {
+    expect(getNextUp(at('2027-01-12T09:00'), schedule).map((i) => i.kind)).toEqual(['presentation'])
+  })
+  it('is empty after the presentations', () => {
+    expect(getNextUp(at('2027-01-16T17:00'), schedule)).toEqual([])
   })
   it('starts with the first session before the course', () => {
     const [first] = getNextUp(at('2026-10-21T12:00'), schedule)
