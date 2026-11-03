@@ -1,3 +1,4 @@
+import config from '../../../course.config'
 import { hours, people, schedule } from './data'
 import { formatEventWhen, formatWhen, type CourseEvent } from './logic'
 
@@ -18,5 +19,6 @@ export const course = {
   exam: event('exam'),
   project: event('project'),
   presentation: event('presentation'),
+  presentationRoom: config.presentations.room,
   links: schedule.links,
 }

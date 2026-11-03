@@ -4,7 +4,7 @@
 
 export default {
   // Shows "Dates are provisional." on the home page. Set to false once the dates below are final.
-  // TODO(owner): hand-in, peer-review and project deadlines and the presentation room are not confirmed.
+  // TODO(owner): hand-in, peer-review and project deadlines are not confirmed.
   provisional: true,
 
   links: {
@@ -45,6 +45,6 @@ export default {
 
   project: { due: '2027-01-08', time: '23:59' },
   exam: { date: '2027-01-09', start: '09:00', end: '11:00' }, // from TimeEdit
-  // Leave date empty until it is set; the pages then show the note.
-  presentations: { date: '', start: '12:00', end: '17:00', note: 'TBD, after 11 Jan' },
+  // From TimeEdit. Leave date empty if unknown; the pages then show the note.
+  presentations: { date: '2027-01-11', start: '13:00', end: '16:00', room: 'Lecture room 13, Albano Hus 2, 2nd floor', note: 'TBD' },
 }

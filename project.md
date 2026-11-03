@@ -1,7 +1,7 @@
 # Project
 
 - **Deadline:** **{{ $course.project }} (Stockholm time)**
-- **Presentations:** **{{ $course.presentation }}**
+- **Presentations:** **{{ $course.presentation }}**, {{ $course.presentationRoom }}
 
 ## Overview
 
