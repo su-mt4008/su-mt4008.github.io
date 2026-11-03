@@ -48,6 +48,7 @@ export const schedule: Schedule = {
     link: `/homework/${i + 1}`,
     due: at(a.due, '23:59'),
     peerDue: at(a.peerReview, '23:59'),
+    finalDue: at(a.final, '23:59'),
   })),
   sessions: config.sessionDates.map(session),
   events: [

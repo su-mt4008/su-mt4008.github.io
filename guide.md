@@ -199,8 +199,9 @@ A red check still counts as handed in, but you must fix it.
 ### 8. Review, feedback, fixes
 
 - By **Thursday**, review the classmate’s pull request you are assigned: [Review a pull request](#review-a-pull-request).
-- Your reviewer and the teachers comment on your pull request. Fix what they point out by pushing
-  new commits to `hw1`, and reply to each comment.
+- Your reviewer comments on your pull request by Thursday. Fix what they point out by pushing new
+  commits to `hw1` **until Friday 23:59**, and reply to each comment.
+- **We grade your pull request as it stands on Friday 23:59.**
 
 Deadlines and late rules: see [Assignments](/homework/).
 

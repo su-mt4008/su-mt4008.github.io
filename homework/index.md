@@ -13,7 +13,8 @@ Each homework aligns with the weekly material (e.g., **HW1 ↔ Week 1**, **HW2 �
 ## At a Glance
 
 * **Workload:** 5 assignments + 5 peer reviews
-* **Deadlines per homework:** Assignment **Monday 23:59**, Peer Review **Thursday 23:59** (Europe/Stockholm)
+* **Deadlines per homework:** hand-in **Monday 23:59**, peer review **Thursday 23:59**, final version **Friday 23:59** (Europe/Stockholm)
+* **Graded version:** your pull request as it stands on **Friday 23:59**, after you have had the chance to act on the review.
 * **Scoring (per homework):** 0–100 points; **65** to pass.
 * **Peer review:** required for every on-time assignment.
 * **Late hand-in:** **−30 points**, and no peer review.
@@ -38,8 +39,9 @@ Every assignment is handed in as a **pull request** on GitHub. The full step-by-
 
 ### After Feedback
 
-* Fix what the reviews point out by pushing new commits to the same branch; they appear in the
-  same pull request. Reply to each comment saying what you changed.
+* Fix what the review points out by pushing new commits to the same branch **until Friday 23:59**;
+  they appear in the same pull request. Reply to each comment saying what you changed.
+* **We grade the version on Friday 23:59**: the latest state of your pull request at that time.
 * Don’t merge the pull request yourself; we merge it when it is accepted.
 
 ## Peer Review
@@ -56,7 +58,7 @@ Address at least:
 
 ## Schedule
 
-All times are **Europe/Stockholm**. Assignments are due **Monday 23:59**; peer reviews are due **Thursdays 23:59**.
+All times are **Europe/Stockholm**. Assignments are due **Monday 23:59**, peer reviews **Thursday 23:59**, and the final version, which is graded, **Friday 23:59**.
 
 <AssignmentSchedule />
 

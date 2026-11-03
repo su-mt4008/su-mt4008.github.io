@@ -83,6 +83,12 @@ describe('getNextUp', () => {
       'HW1 hand-in',
     ])
   })
+  it('lists the final version on Friday, after the peer review', () => {
+    const items = getNextUp(at('2026-11-13T12:00'), schedule, 10)
+    const final = items.find((i) => i.kind === 'final')!
+    expect(final.label).toBe('HW1 final version')
+    expect(final.at.getTime()).toBe(at('2026-11-13T23:59').getTime())
+  })
   it('lists the project proposal on its due day', () => {
     const items = getNextUp(at('2026-11-19T18:00'), schedule, 3)
     expect(items.map((i) => i.kind)).toContain('proposal')

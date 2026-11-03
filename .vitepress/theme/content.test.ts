@@ -95,3 +95,12 @@ describe('review fixes', () => {
     expect(page('guide.md')).toContain('R: Create R Terminal')
   })
 })
+
+describe('weekly rhythm', () => {
+  it('explains that the version on Friday evening is the one graded', () => {
+    for (const p of ['homework/index.md', 'guide.md', 'about.md']) {
+      expect(page(p)).toMatch(/Friday/)
+    }
+    expect(page('homework/index.md')).toMatch(/graded/)
+  })
+})

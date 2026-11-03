@@ -6,13 +6,14 @@ import { formatWhen } from '../schedule/logic'
 <template>
   <table>
     <thead>
-      <tr><th>Assignment</th><th>Hand-in</th><th>Peer review</th></tr>
+      <tr><th>Assignment</th><th>Hand-in</th><th>Peer review</th><th>Final version</th></tr>
     </thead>
     <tbody>
       <tr v-for="a in schedule.assignments" :key="a.id">
         <td><a :href="a.link">{{ a.id }}</a> {{ a.name }}</td>
         <td>{{ formatWhen(new Date(a.due), true) }}</td>
         <td>{{ formatWhen(new Date(a.peerDue), true) }}</td>
+        <td>{{ formatWhen(new Date(a.finalDue), true) }}</td>
       </tr>
     </tbody>
   </table>

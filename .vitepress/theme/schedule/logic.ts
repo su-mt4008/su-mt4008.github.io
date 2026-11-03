@@ -1,5 +1,5 @@
 export interface Week { n: number; start: string; title: string; link: string; note?: string; hw?: string }
-export interface Assignment { id: string; name: string; link: string; due: string; peerDue: string }
+export interface Assignment { id: string; name: string; link: string; due: string; peerDue: string; finalDue: string }
 export interface Session { at: string; end: string; label: string; place: string; link?: string }
 // An event without `at` has no date yet; it shows `tbd` instead and stays out of Next up.
 export interface CourseEvent { kind: 'proposal' | 'project' | 'exam' | 'presentation'; at?: string; end?: string; tbd?: string; title: string; link: string; blurb: string }
@@ -12,7 +12,7 @@ export interface Schedule {
   links: { moodle: string; timeedit: string; github: string }
 }
 export type Phase = 'before' | 'teaching' | 'after-teaching' | 'over'
-export interface NextItem { at: Date; kind: 'session' | 'handin' | 'peer' | CourseEvent['kind']; label: string; link?: string }
+export interface NextItem { at: Date; kind: 'session' | 'handin' | 'peer' | 'final' | CourseEvent['kind']; label: string; link?: string }
 
 const DAY = 24 * 60 * 60 * 1000
 const TZ = 'Europe/Stockholm'
@@ -47,6 +47,7 @@ export function getNextUp(now: Date, s: Schedule, count = 2): NextItem[] {
   for (const a of s.assignments) {
     items.push({ at: new Date(a.due), until: new Date(a.due), kind: 'handin', label: `${a.id} hand-in`, link: a.link })
     items.push({ at: new Date(a.peerDue), until: new Date(a.peerDue), kind: 'peer', label: `${a.id} peer review`, link: a.link })
+    items.push({ at: new Date(a.finalDue), until: new Date(a.finalDue), kind: 'final', label: `${a.id} final version`, link: a.link })
   }
   for (const e of s.events) {
     if (!e.at) continue

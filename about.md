@@ -32,6 +32,7 @@ All times are Stockholm time.
 3. **Thursday {{ $course.hours }}, same room:** work time; bring your questions.
 4. **Next Monday 23:59:** hand in the week’s assignment.
 5. **Next Thursday 23:59:** peer review a classmate’s assignment.
+6. **Next Friday 23:59:** last chance to improve your hand-in after the review. This version is graded.
 
 The first session, on {{ $course.firstSession }}, is an **introduction to the course**. The exact dates for every week are on the [home page](/) and in the [assignment schedule](/homework/#schedule).
 
