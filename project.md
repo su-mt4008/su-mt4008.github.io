@@ -90,14 +90,17 @@ We **strongly recommend** using data you collected yourselves and genuinely care
 
 > **Pro tip:** Be realistic. Whatever you think you can do—plan for **half** of that and you’ll still be busy. Get a minimal, working version early and iterate.
 
-## Submission & Reproducibility
+## Repository, pull requests and hand-in
 
-* Push to your group’s `project` course repo and **open an issue** to signal submission. You may push early and often; **we will look at the version that exists at the deadline**.
-* Include:
+* Each group gets one **project repository** from the course template: the same `report.qmd`,
+  locked environment and check as the assignments.
+* **All work goes through pull requests.** Each change is a branch and a pull request, reviewed
+  by another group member before it is merged into `main`. This is how teams work in industry,
+  and it is part of the C criteria.
+* **The hand-in is `main` at the deadline.** You may push and merge early and often; **we look
+  at `main` as it is at the deadline**.
+* `main` must render from a fresh clone (green check): the report, the data (or the script that
+  downloads it, with notes on source and licence), the lockfile, and a README with the title,
+  the audience and the one command that renders everything.
 
-  * A **clear notebook** (Jupyter/R Markdown) that reproduces your analysis end-to-end.
-  * The **data** you used (or a script that downloads it), and brief notes on source/licensing.
-  * A short **README** with: title, audience, how to run, and any package requirements.
-
-    > If you used extra packages, list them at the top of the notebook or in a simple `requirements.txt`/`install` note.
-* We will clone your repo and **run the notebook**. Make sure it runs cleanly from a fresh checkout.
+See [How we work](/guide) for the workflow.

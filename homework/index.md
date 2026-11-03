@@ -22,24 +22,29 @@ Each homework aligns with the weekly material (e.g., **HW1 ↔ Week 1**, **HW2 �
 ## How Assignments Work
 
 Each assignment contains a few tasks covering material from previous week(s).
-**Submit a short, blog-style report** with explanations and a clear workflow—**not** a bullet-point list of answers.
+**Write a short, blog-style report** in `report.qmd`, following the seven sections of the template (Question → Data → Cleaning → Exploration → Analysis → Conclusions & limitations → How to reproduce)—**not** a bullet-point list of answers.
 
-### Submission Flow
+### Hand-in
 
-1. Push your work to **your homework GitHub repository** (e.g., `homework-1`). Include a short, readable **report** (notebook or markdown) in the repo.
-2. **Open an issue** in that repo titled **`HW# – Submission`** (e.g., `HW1 – Submission`).
-   *We only look at assignments with this issue.*
-   *(If you use labels, add `ready-for-grading`.)*
+Every assignment is handed in as a **pull request** on GitHub. The full step-by-step is on
+[How we work](/guide#hand-in-an-assignment); in short:
+
+1. We create a private repository **`<username>-hw<n>`** for you from the course template.
+2. Work on a branch `hw<n>`, render `report.qmd`, commit and push.
+3. Open a pull request **from `hw<n>` into `main`** titled **`HW<n>`** by the Monday deadline.
+   *Opening the pull request is the hand-in.* Pushing straight to `main` is not.
+4. The **check** renders your report on a clean computer. A red check still counts as handed in,
+   but you must fix it ([how](/guide#when-the-check-is-red)).
 
 ### After Feedback
 
-* You may **fix mistakes** pointed out in the feedback. Commit your changes.
-* Add a **comment under the closed submission issue** describing what you changed.
-* We’ll take another look.
+* Fix what the reviews point out by pushing new commits to the same branch; they appear in the
+  same pull request. Reply to each comment saying what you changed.
+* Don’t merge the pull request yourself; we merge it when it is accepted.
 
 ## Peer Review
 
-You’ll be assigned a partner (announced in class or on Moodle). Read their report and code, then leave constructive feedback under **their submission issue**.
+After the deadline you get access to a classmate’s repository. Review their pull request: read the rendered report, then comment on specific lines of code ([how](/guide#review-a-pull-request)).
 
 Address at least:
 
@@ -59,8 +64,8 @@ All times are **Europe/Stockholm**. Assignments are due **Monday 23:59**; peer r
 
 ## Notes & Reminders
 
-* **Format:** A short, readable report (notebook or markdown) with clear explanations and a few well-chosen figures.
-* **Reproducibility:** Your repo should run from a fresh clone (data access notes, environment instructions if needed).
+* **Format:** A short, readable report (`report.qmd`, rendered to `report.md`) with clear explanations and a few well-chosen figures.
+* **Reproducibility:** Your repository must render from a fresh clone; the check on your pull request tests exactly that.
 * **Peer-review tone:** Be kind, specific, and actionable—aim to help your classmate improve.
 * **Late work:** A late assignment loses 30 points and is not peer reviewed. Nothing is accepted after **{{ $course.finalDeadline }}**.
 

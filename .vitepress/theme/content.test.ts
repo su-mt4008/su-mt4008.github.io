@@ -1,4 +1,5 @@
-import { readFileSync } from 'node:fs'
+import { readFileSync, readdirSync } from 'node:fs'
+import { join } from 'node:path'
 import { describe, expect, it } from 'vitest'
 
 // Content checks: the pages students rely on must teach the pull-request workflow.
@@ -62,5 +63,19 @@ describe('week 1', () => {
     for (const old of ['GitHub Desktop', 'Miniconda', 'conda create', 'Functional programming', 'Jupyter Lab']) {
       expect(week1).not.toContain(old)
     }
+  })
+})
+
+describe('the whole site', () => {
+  const skip = new Set(['node_modules', 'docs', 'mt4008', 'templates', '.vitepress', '.git', '.superpowers', 'public'])
+  const pages = (dir: string): string[] =>
+    readdirSync(dir, { withFileTypes: true }).flatMap((e) =>
+      e.isDirectory() ? (skip.has(e.name) ? [] : pages(join(dir, e.name))) : e.name.endsWith('.md') ? [join(dir, e.name)] : [],
+    )
+
+  it('has no instructions from the old issue-based hand-in', () => {
+    const old = [/ready-for-grading/, /– Submission/, /open an issue/i, /GitHub Desktop/, /username-hw-/]
+    const found = pages('.').flatMap((p) => old.filter((re) => re.test(page(p))).map((re) => `${p}: ${re}`))
+    expect(found).toEqual([])
   })
 })
