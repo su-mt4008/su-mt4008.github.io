@@ -1,11 +1,11 @@
 # Assignments
 
 The homework component has **5 assignments**, each paired with a **peer review** of a classmate’s work.
-To **pass**, you must submit **every assignment** and complete **its peer review** by the stated deadlines.
+Each assignment is scored **0–100**, and you need **65** to pass it.
 
-**Deadlines are strict.** Missing either the assignment or the peer-review
-deadline requires an **extra task** to earn credit for that homework (see Moodle
-for details).
+**Hand in on time.** A late assignment loses **15 points**. The **final deadline**
+for all assignments, late or not, is **{{ $course.finalDeadline }}**. If you miss it,
+you will have to redo **all** assignments in the next edition of the course.
 
 Each homework aligns with the weekly material (e.g., **HW1 ↔ Week 1**, **HW2 ↔ Week 2**, …).
 
@@ -13,9 +13,9 @@ Each homework aligns with the weekly material (e.g., **HW1 ↔ Week 1**, **HW2 �
 
 * **Workload:** 5 assignments + 5 peer reviews
 * **Deadlines per homework:** Assignment **Monday 23:59**, Peer Review **Thursday 23:59** (Europe/Stockholm)
-* **Pass rule (per homework):** Submit **both** the assignment and its peer review by the deadlines.
-
-  * If you miss a deadline, you must complete an **extra task** (assigned at the end of the course).
+* **Scoring (per homework):** 0–100 points; **65** to pass.
+* **Late hand-in:** **−15 points**.
+* **Final deadline for all assignments:** **{{ $course.finalDeadline }}**. Missing it means redoing all assignments in the next edition of the course.
 
 ## How Assignments Work
 
@@ -60,7 +60,7 @@ All times are **Europe/Stockholm**. Assignments are due **Monday 23:59**; peer r
 * **Format:** A short, readable report (notebook or markdown) with clear explanations and a few well-chosen figures.
 * **Reproducibility:** Your repo should run from a fresh clone (data access notes, environment instructions if needed).
 * **Peer-review tone:** Be kind, specific, and actionable—aim to help your classmate improve.
-* **Late work:** Late assignments or reviews require an **extra task** (details on Moodle).
+* **Late work:** A late assignment loses 15 points. Nothing is accepted after **{{ $course.finalDeadline }}**.
 
 ## Academic Integrity & Tools
 

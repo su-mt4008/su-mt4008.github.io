@@ -21,5 +21,6 @@ export const course = {
   project: event('project'),
   presentation: event('presentation'),
   presentationRoom: config.presentations.room,
+  finalDeadline: formatWhen(new Date(`${config.finalDeadline.date}T${config.finalDeadline.time}:00+01:00`), true),
   links: schedule.links,
 }

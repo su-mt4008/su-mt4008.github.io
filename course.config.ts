@@ -34,6 +34,9 @@ export default {
   // The Monday each lecture week starts, week 1 first.
   weekStarts: ['2026-11-02', '2026-11-09', '2026-11-16', '2026-11-23', '2026-11-30', '2026-12-07'],
 
+  // Last chance for any assignment, late or not. Missing it means redoing all assignments next year.
+  finalDeadline: { date: '2027-01-15', time: '23:59' },
+
   // HW1 first. Both deadlines are at 23:59.
   assignments: [
     { due: '2026-11-09', peerReview: '2026-11-12' },

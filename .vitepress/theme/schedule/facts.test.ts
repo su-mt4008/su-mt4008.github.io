@@ -21,6 +21,9 @@ describe('course facts', () => {
     expect(course.presentation).toBe('Mon 11 Jan, 13:00–16:00')
     expect(course.presentationRoom).toBe('Lecture room 13, Albano Hus 2, 2nd floor')
   })
+  it('gives the final deadline for all assignments', () => {
+    expect(course.finalDeadline).toBe('Fri 15 Jan, 23:59')
+  })
   it('exposes the links', () => {
     expect(course.links.moodle).toBe('https://kurser.math.su.se/course/view.php?id=1951')
     expect(Object.keys(course.links)).toEqual(['moodle', 'timeedit', 'github'])
