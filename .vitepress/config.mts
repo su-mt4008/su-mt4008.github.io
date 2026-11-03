@@ -1,6 +1,17 @@
 import { defineConfig } from 'vitepress'
 
 // https://vitepress.dev/reference/site-config
+const courseInfoSidebar = [
+  {
+    text: 'Course info',
+    items: [
+      { text: 'About the course', link: '/about' },
+      { text: 'How a week works', link: '/about#how-a-week-works' },
+      { text: 'How we work', link: '/guide' },
+    ]
+  }
+]
+
 export default defineConfig({
   title: "MT4008",
   description: "Course page for MT4008 Statistical Data Processing at Stockholm University",
@@ -26,7 +37,7 @@ export default defineConfig({
       provider: 'local'
     },
     nav: [
-      { text: 'Course info', link: '/about', activeMatch: '^/about' },
+      { text: 'Course info', link: '/about', activeMatch: '^/(about|guide)' },
       { text: 'Lectures', link: '/lectures/' },
       { text: 'Assignments', link: '/homework/', activeMatch: '^/homework/' },
       { text: 'Project', link: '/project' },
@@ -51,6 +62,7 @@ export default defineConfig({
           text: "Assignments",
           items: [
             { text: 'Overview', link: '/homework/' },
+            { text: 'How to hand in', link: '/guide#hand-in-an-assignment' },
             { text: 'HW1', link: '/homework/1' },
             { text: 'HW2', link: '/homework/2' },
             { text: 'HW3', link: '/homework/3' },
@@ -59,15 +71,8 @@ export default defineConfig({
           ]
         }
       ],
-      '/about': [
-        {
-          text: "Course info",
-          items: [
-            { text: 'About the course', link: '/about' },
-            { text: 'How a week works', link: '/about#how-a-week-works' },
-          ]
-        }
-      ],
+      '/about': courseInfoSidebar,
+      '/guide': courseInfoSidebar,
     },
     socialLinks: [
       { icon: 'github', link: 'https://github.com/su-mt4008' }
