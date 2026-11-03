@@ -29,3 +29,19 @@ describe('guide', () => {
     expect(guide).toMatch(/push(ing)? (straight |directly )?to `main`[^.]*not a hand-in/i)
   })
 })
+
+describe('HW1', () => {
+  const hw1 = page('homework/1.md')
+
+  it('uses the pull-request flow from the guide', () => {
+    for (const text of ['/guide#hand-in-an-assignment', '`hw1`', '`HW1`', '<username>-hw1']) {
+      expect(hw1).toContain(text)
+    }
+  })
+
+  it('walks through the seven report sections', () => {
+    for (const section of ['Question', 'Data', 'Cleaning', 'Exploration', 'Analysis', 'Conclusions & limitations', 'How to reproduce']) {
+      expect(hw1).toContain(`**${section}**`)
+    }
+  })
+})
