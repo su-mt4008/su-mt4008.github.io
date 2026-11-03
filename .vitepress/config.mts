@@ -26,7 +26,7 @@ export default defineConfig({
       provider: 'local'
     },
     nav: [
-      { text: 'Course info', link: '/about', activeMatch: '^/(about|final-grade)' },
+      { text: 'Course info', link: '/about', activeMatch: '^/about' },
       { text: 'Lectures', link: '/lectures/' },
       { text: 'Assignments', link: '/homework/', activeMatch: '^/homework/' },
       { text: 'Project', link: '/project' },
@@ -65,17 +65,6 @@ export default defineConfig({
           items: [
             { text: 'About the course', link: '/about' },
             { text: 'How a week works', link: '/about#how-a-week-works' },
-            { text: 'Grading', link: '/final-grade' },
-          ]
-        }
-      ],
-      '/final-grade': [
-        {
-          text: "Course info",
-          items: [
-            { text: 'About the course', link: '/about' },
-            { text: 'How a week works', link: '/about#how-a-week-works' },
-            { text: 'Grading', link: '/final-grade' },
           ]
         }
       ],

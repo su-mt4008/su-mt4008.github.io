@@ -16,13 +16,6 @@ Each homework aligns with the weekly material (e.g., **HW1 ↔ Week 1**, **HW2 �
 * **Pass rule (per homework):** Submit **both** the assignment and its peer review by the deadlines.
 
   * If you miss a deadline, you must complete an **extra task** (assigned at the end of the course).
-  * **Late work cannot earn VG**; late items are graded **Pass/Fail** only.
-* **Grading scale (per homework):** **U (Fail) / G (Pass) / VG (Pass with Distinction)**, based on **completeness, clarity, correctness**.
-* **Final grade for HW module:** Determined by the 5 homework grades:
-
-  * **VG (Pass with Distinction):** ≥ **3** assignments graded **VG** (the rest at least **G**)
-  * **G (Pass):** **All 5** assignments graded **G** or higher
-  * **U (Fail):** Fewer than **5** assignments graded **G**
 
 ## How Assignments Work
 
@@ -33,14 +26,14 @@ Each assignment contains a few tasks covering material from previous week(s).
 
 1. Push your work to **your homework GitHub repository** (e.g., `homework-1`). Include a short, readable **report** (notebook or markdown) in the repo.
 2. **Open an issue** in that repo titled **`HW# – Submission`** (e.g., `HW1 – Submission`).
-   *We only grade assignments with this issue.*
+   *We only look at assignments with this issue.*
    *(If you use labels, add `ready-for-grading`.)*
 
-### After Grading
+### After Feedback
 
-* You may **fix mistakes** identified by the grader. Commit your changes.
+* You may **fix mistakes** pointed out in the feedback. Commit your changes.
 * Add a **comment under the closed submission issue** describing what you changed.
-* We’ll re-check and update your grade if applicable.
+* We’ll take another look.
 
 ## Peer Review
 

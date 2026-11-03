@@ -2,7 +2,6 @@
 
 - **Date & time:** **{{ $course.exam }} (Stockholm time)**
 - **Format:** **Written in-place** — mix of **multiple-choice** and **short essay** questions
-- **Grading:** **A–F** (see scale below)
 - **Registration:** **Make sure to register for the exam on Ladok.**
 - **Location:** **TBA** (rooms will be posted soon)
 
@@ -26,23 +25,8 @@ and simple text and functional programming tools.
 
 Details will be announced on **Moodle**. (Assume standard written-exam rules unless specified.)
 
-## Grading & scale
-
-* **Total points:** 100
-* **Passing:** **E or better (≥ 60 points)**
-* **Scale:**
-
-  * **A:** 88
-  * **B:** 80
-  * **C:** 72
-  * **D:** 64
-  * **E:** 60
-  
-Partial credit is awarded on short-essay questions for clear reasoning.
-
 ## Logistics
 
 * Please arrive by **07:45** with a **photo ID** and any **allowed materials** (see Moodle).
 * If you need accommodations, contact the course team ahead of time.
 * Make-up/retake information will be provided on a later date.
-

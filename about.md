@@ -49,12 +49,10 @@ By the end, you will be able to:
 You’ll practice every week, do an **individual project**, and finish with an **exam**.
 
 * **Home assignments:** Weekly. Focus on the data‑analysis pipeline: load → transform → explore → visualize → report. Expect roughly **half‑time study** each week. Details: **[Assignments](/homework/)**.
-* **Project:** Pick a public/open dataset and tell a clear, reproducible data story. Details, milestones, and rubric: **[Project](/project)**.
+* **Project:** Pick a public/open dataset and tell a clear, reproducible data story. Details and milestones: **[Project](/project)**.
 * **Exam:**  You’ll apply course methods to a given problem. Format and scheduling: **[Exam](/exam/)**.
 
-Passing rules, exact deadlines, late/resubmission policies, and feedback timelines live on the relevant pages (and are listed on the relevant pages and on **Moodle**).
-
-The final course grade combines all three components. See **[Final Grade Explanation](/final-grade)** for details.
+Deadlines, late/resubmission policies and feedback timelines are on the relevant pages and on **Moodle**.
 
 ## Getting help
 
@@ -77,4 +75,3 @@ For TA contact info, see the <a :href="$course.links.moodle"><strong>Moodle</str
 ## Acknowledgements
 
 This course builds on ideas and materials by **Martin Sköld, Erik Thorsén, Michael Höhle, and Felix Günther**. Thank you!
-

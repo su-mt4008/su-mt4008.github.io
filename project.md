@@ -8,7 +8,7 @@
 Your individual project is a **blog-style data story** based on a **unique dataset you collect yourself**. Use the course tools to obtain, transform, explore, visualize, and explain your data.
 
 **Submission**: push your work to your course GitHub `project` repository and
-**open an issue**. You may push early and often; **we will grade the version
+**open an issue**. You may push early and often; **we will look at the version
 that exists at the deadline**.
 
 **Presentation**: a **max 5-minute** talk in front of the class. **Attendance is
@@ -54,13 +54,3 @@ We **strongly recommend** using data you personally collected and genuinely care
 
     > If you used extra packages, list them at the top of the notebook or in a simple `requirements.txt`/`install` note.
 * We will clone your repo and **run the notebook**. Make sure it runs cleanly from a fresh checkout.
-
-## Grading
-
-Each dimension has **equal weight**:
-
-1. **Technical difficulty.** Data access/import effort, wrangling complexity, appropriate use of methods.
-2. **Code quality & reproducibility.** Readable code, sensible structure, “runs from scratch.”
-3. **Visualization quality.** Appropriate choices, clarity, and correct interpretation.
-4. **Writing & storytelling.** Clear aims, concise narrative, audience-appropriate tone, spelling/grammar.
-5. **Presentation.** Slide quality (if any), engagement, timing (≤ 5 minutes).
