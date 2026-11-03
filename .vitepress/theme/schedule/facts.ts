@@ -17,6 +17,7 @@ export const course = {
   firstSession: sessionDay(0),
   lastSession: sessionDay(-1),
   exam: event('exam'),
+  proposal: event('proposal'),
   project: event('project'),
   presentation: event('presentation'),
   presentationRoom: config.presentations.room,

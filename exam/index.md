@@ -1,7 +1,8 @@
 # Exam
 
 - **Date & time:** **{{ $course.exam }} (Stockholm time)**
-- **Format:** **Written in-place** — mix of **multiple-choice** and **short essay** questions
+- **Format:** **Written and theoretical**, on paper — mix of **multiple-choice** and **short essay** questions
+- **Level:** the same as the **assignments**
 - **Registration:** **Make sure to register for the exam on Ladok.**
 - **Location:** **TBA** (rooms will be posted soon)
 
@@ -10,7 +11,9 @@
 ## What the exam checks
 
 You’ll be examined on **all of the concepts taught in the course** and your
-ability to apply them in context. Questions span the full workflow—from
+ability to apply them in context. The questions are **at the level of the
+assignments**: if you can do the assignments and explain your choices, you are
+well prepared. Questions span the full workflow—from
 reproducible practice and version control to working with data, databases, APIs,
 and simple text and functional programming tools.
 

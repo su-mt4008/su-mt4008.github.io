@@ -22,11 +22,11 @@ const topics = [
 
 const assignmentNames = ['GitHub test-run', 'Tables and plots', 'Exploring and visualising data', 'SQL and regex', 'Data from the web']
 
-// Mondays are the live demo, Thursdays Q&A.
-const session = (date: string) => ({
+// Every session is work time; the first one of each week (Mondays, and the opening Thursday) starts with a walkthrough.
+const session = (date: string, i: number) => ({
   at: at(date, config.sessionStart),
   end: at(date, config.sessionEnd),
-  label: new Date(`${date}T12:00:00Z`).getUTCDay() === 1 ? 'Live demo and help' : 'Q&A',
+  label: i === 0 || new Date(`${date}T12:00:00Z`).getUTCDay() === 1 ? 'Walkthrough and work session' : 'Work session',
   place: `in ${config.roomShort}`,
 })
 
@@ -47,7 +47,8 @@ export const schedule: Schedule = {
   })),
   sessions: config.sessionDates.map(session),
   events: [
-    { kind: 'project', at: at(config.project.due, config.project.time), title: 'Project', link: '/project', blurb: 'An individual, reproducible analysis of a dataset you choose.' },
+    { kind: 'proposal', at: at(config.proposal.due, config.proposal.time), title: 'Project proposal', link: '/project#proposal', blurb: 'Your group, scope and target grade, handed in on Moodle.' },
+    { kind: 'project', at: at(config.project.due, config.project.time), title: 'Project', link: '/project', blurb: 'A group data science project, reproducible from start to finish.' },
     { kind: 'exam', at: at(config.exam.date, config.exam.start), end: at(config.exam.date, config.exam.end), title: 'Exam', link: '/exam/', blurb: 'Written, on campus. Register in Ladok first.' },
     { kind: 'presentation', ...presentationsWhen(), title: 'Presentations', link: '/project', blurb: 'A five-minute talk on your project. Attendance is compulsory.' },
   ],

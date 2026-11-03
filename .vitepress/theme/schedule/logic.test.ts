@@ -50,7 +50,7 @@ describe('getCurrentWeek', () => {
 describe('getNextUp', () => {
   it('lists the next two items in date order during teaching', () => {
     const items = getNextUp(at('2026-11-18T10:00'), schedule)
-    expect(items.map((i) => i.label)).toEqual(['Q&A in Albano, lecture room 19', 'HW2 peer review'])
+    expect(items.map((i) => i.label)).toEqual(['Work session in Albano, lecture room 19', 'HW2 peer review'])
     expect(items.map((i) => i.at.getTime())).toEqual([
       at('2026-11-19T13:00').getTime(),
       at('2026-11-19T23:59').getTime(),
@@ -74,6 +74,18 @@ describe('getNextUp', () => {
     const [first] = getNextUp(at('2026-10-21T12:00'), schedule)
     expect(first.kind).toBe('session')
     expect(first.at.getTime()).toBe(at('2026-11-05T13:00').getTime())
+  })
+  it('opens each week with the walkthrough, including Thursday 5 Nov', () => {
+    const labels = getNextUp(at('2026-11-04T12:00'), schedule, 3).map((i) => i.label)
+    expect(labels).toEqual([
+      'Walkthrough and work session in Albano, lecture room 19',
+      'Walkthrough and work session in Albano, lecture room 19',
+      'HW1 hand-in',
+    ])
+  })
+  it('lists the project proposal on its due day', () => {
+    const items = getNextUp(at('2026-11-19T18:00'), schedule, 3)
+    expect(items.map((i) => i.kind)).toContain('proposal')
   })
   it('has no session on Monday of week 1, matching TimeEdit', () => {
     const [first] = getNextUp(at('2026-11-02T09:00'), schedule)

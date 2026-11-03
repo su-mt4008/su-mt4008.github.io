@@ -17,6 +17,7 @@ describe('course facts', () => {
   it('formats the exam, project deadline and presentations', () => {
     expect(course.exam).toBe('Sat 9 Jan, 09:00–11:00')
     expect(course.project).toBe('Due Fri 8 Jan, 23:59')
+    expect(course.proposal).toBe('Due Thu 19 Nov, 23:59')
     expect(course.presentation).toBe('Mon 11 Jan, 13:00–16:00')
     expect(course.presentationRoom).toBe('Lecture room 13, Albano Hus 2, 2nd floor')
   })

@@ -17,7 +17,7 @@ export default {
   room: 'Lecture room 19, Albano Hus 2, 2nd floor',
   roomShort: 'Albano, lecture room 19', // used in "Next up" on the home page
 
-  // Live demo (Mondays) and Q&A (Thursdays), copied from TimeEdit.
+  // Work sessions, copied from TimeEdit. The first session of each week opens with a walkthrough.
   sessionStart: '13:00',
   sessionEnd: '17:00',
   sessionDates: [
@@ -43,6 +43,8 @@ export default {
     { due: '2026-12-07', peerReview: '2026-12-10' },
   ],
 
+  // Groups hand in their project proposal on Moodle.
+  proposal: { due: '2026-11-19', time: '23:59' },
   project: { due: '2027-01-08', time: '23:59' },
   exam: { date: '2027-01-09', start: '09:00', end: '11:00' }, // from TimeEdit
   // From TimeEdit. Leave date empty if unknown; the pages then show the note.
