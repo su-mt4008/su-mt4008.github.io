@@ -14,3 +14,6 @@ renv/staging/
 # Operating system clutter.
 .DS_Store
 Thumbs.db
+
+/.quarto/
+**/*.quarto_ipynb

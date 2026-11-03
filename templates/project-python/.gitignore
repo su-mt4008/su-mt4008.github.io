@@ -1,0 +1,10 @@
+# Your local environment: rebuilt from uv.lock by `uv sync`, never committed.
+.venv/
+__pycache__/
+.ipynb_checkpoints/
+# Quarto's scratch files.
+.quarto/
+/.quarto/
+# Operating system clutter.
+.DS_Store
+Thumbs.db

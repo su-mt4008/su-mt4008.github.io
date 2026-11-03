@@ -36,8 +36,8 @@ jobs:
         with:
           version: 1.8.25
 
-      - name: Render the report
-        run: quarto render report.qmd
+      - name: Render every report
+        run: quarto render
 
       - name: Explain a red check
         if: failure()

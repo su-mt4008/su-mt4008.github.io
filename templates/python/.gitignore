@@ -8,3 +8,5 @@ __pycache__/
 # Operating system clutter.
 .DS_Store
 Thumbs.db
+
+**/*.quarto_ipynb
