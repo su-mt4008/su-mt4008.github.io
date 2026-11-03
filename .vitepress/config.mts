@@ -4,7 +4,7 @@ import { defineConfig } from 'vitepress'
 export default defineConfig({
   title: "MT4008",
   description: "Course page for MT4008 Statistical Data Processing at Stockholm University",
-  srcExclude: ['docs/**', 'mt4008/**'],
+  srcExclude: ['docs/**', 'mt4008/**', 'templates/**'],
   head: [
     ['link', { rel: 'preconnect', href: 'https://fonts.googleapis.com' }],
     ['link', { rel: 'preconnect', href: 'https://fonts.gstatic.com', crossorigin: '' }],

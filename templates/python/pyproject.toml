@@ -1,0 +1,15 @@
+[project]
+name = "assignment"
+version = "0.1.0"
+description = "MT4008 assignment"
+requires-python = ">=3.12"
+# Add a package with `uv add <name>`; never edit uv.lock by hand.
+dependencies = [
+    "pandas",
+    "matplotlib",
+    "ipykernel",
+    "nbclient",
+    "nbformat",
+    "pyyaml",
+    "tabulate",
+]
