@@ -45,3 +45,22 @@ describe('HW1', () => {
     }
   })
 })
+
+describe('week 1', () => {
+  const week1 = page('lectures/week-1.md')
+
+  it('teaches the workflow: questions, reproducibility, project layout, environments, Quarto, Git, pull requests', () => {
+    for (const heading of [/^## .*question/im, /^## .*reproducib/im, /^## .*project/im, /^## .*environment/im, /^## .*Quarto/m, /^## .*Git/m, /^##+ .*pull request/im]) {
+      expect(week1).toMatch(heading)
+    }
+    for (const text of ['uv add', 'renv::snapshot()', '/guide', '/homework/1']) {
+      expect(week1).toContain(text)
+    }
+  })
+
+  it('drops the old tools', () => {
+    for (const old of ['GitHub Desktop', 'Miniconda', 'conda create', 'Functional programming', 'Jupyter Lab']) {
+      expect(week1).not.toContain(old)
+    }
+  })
+})
