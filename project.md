@@ -13,11 +13,11 @@ The scope this year is **much larger** than in previous years. **Think big.** Us
 ## Timeline
 
 1. **Weeks 1–2:** form a group of 2–3 and choose your question. Use the work sessions to find partners and to test ideas with us.
-2. **{{ $course.proposal }}:** hand in your **proposal** on Moodle (see below).
+2. **Proposal** ({{ $course.proposal }}): hand it in on Moodle (see below).
 3. **After the proposal:** we review it and either accept it or tell you what to change.
    <!-- TODO(owner): if a proposal is not accepted, how and by when do groups revise it? -->
-4. **{{ $course.project }}:** project deadline.
-5. **{{ $course.presentation }}:** presentations.
+4. **Project deadline** ({{ $course.project }}).
+5. **Presentations** ({{ $course.presentation }}).
 
 ## Proposal {#proposal}
 
