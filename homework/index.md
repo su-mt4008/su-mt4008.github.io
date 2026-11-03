@@ -3,7 +3,8 @@
 The homework component has **5 assignments**, each paired with a **peer review** of a classmate’s work.
 Each assignment is scored **0–100**, and you need **65** to pass it.
 
-**Hand in on time.** A late assignment loses **15 points**. The **final deadline**
+**Hand in on time.** Every on-time assignment gets a **peer review**, and reviewing a classmate’s
+work is **required**. A late assignment misses the peer review and loses **30 points** instead. The **final deadline**
 for all assignments, late or not, is **{{ $course.finalDeadline }}**. If you miss it,
 you will have to redo **all** assignments in the next edition of the course.
 
@@ -14,7 +15,8 @@ Each homework aligns with the weekly material (e.g., **HW1 ↔ Week 1**, **HW2 �
 * **Workload:** 5 assignments + 5 peer reviews
 * **Deadlines per homework:** Assignment **Monday 23:59**, Peer Review **Thursday 23:59** (Europe/Stockholm)
 * **Scoring (per homework):** 0–100 points; **65** to pass.
-* **Late hand-in:** **−15 points**.
+* **Peer review:** required for every on-time assignment.
+* **Late hand-in:** **−30 points**, and no peer review.
 * **Final deadline for all assignments:** **{{ $course.finalDeadline }}**. Missing it means redoing all assignments in the next edition of the course.
 
 ## How Assignments Work
@@ -60,7 +62,7 @@ All times are **Europe/Stockholm**. Assignments are due **Monday 23:59**; peer r
 * **Format:** A short, readable report (notebook or markdown) with clear explanations and a few well-chosen figures.
 * **Reproducibility:** Your repo should run from a fresh clone (data access notes, environment instructions if needed).
 * **Peer-review tone:** Be kind, specific, and actionable—aim to help your classmate improve.
-* **Late work:** A late assignment loses 15 points. Nothing is accepted after **{{ $course.finalDeadline }}**.
+* **Late work:** A late assignment loses 30 points and is not peer reviewed. Nothing is accepted after **{{ $course.finalDeadline }}**.
 
 ## Academic Integrity & Tools
 

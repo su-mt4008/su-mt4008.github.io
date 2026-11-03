@@ -51,7 +51,7 @@ By the end, you will be able to:
 
 You’ll practise every week, do a **group project**, and finish with an **exam**.
 
-* **Assignments:** Weekly. Each one takes a small dataset through the whole pipeline (question → data → cleaning → exploration → analysis → conclusions → reproducibility), with that week’s topic as the focus. Each is scored 0–100, with **65** to pass; late hand-ins lose 15 points, and the final deadline for all of them is {{ $course.finalDeadline }}. Expect roughly **half‑time study** each week. Details: **[Assignments](/homework/)**.
+* **Assignments:** Weekly. Each one takes a small dataset through the whole pipeline (question → data → cleaning → exploration → analysis → conclusions → reproducibility), with that week’s topic as the focus. Each is scored 0–100, with **65** to pass; late hand-ins lose 30 points, and the final deadline for all of them is {{ $course.finalDeadline }}. Expect roughly **half‑time study** each week. Details: **[Assignments](/homework/)**.
 * **Project:** In groups of 2–3, you choose an ambitious question, hand in a proposal by {{ $course.proposal }}, and carry out a full, reproducible data science project. Details: **[Project](/project)**.
 * **Exam:** Written and theoretical, at the level of the assignments. Details: **[Exam](/exam/)**.
 
