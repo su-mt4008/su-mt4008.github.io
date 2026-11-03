@@ -75,10 +75,10 @@ describe('getNextUp', () => {
     expect(first.kind).toBe('session')
     expect(first.at.getTime()).toBe(at('2026-11-05T13:00').getTime())
   })
-  it('opens each week with the walkthrough, including Thursday 5 Nov', () => {
+  it('starts with the course introduction, then a walkthrough each Monday', () => {
     const labels = getNextUp(at('2026-11-04T12:00'), schedule, 3).map((i) => i.label)
     expect(labels).toEqual([
-      'Walkthrough and work session in Albano, lecture room 19',
+      'Course introduction in Albano, lecture room 19',
       'Walkthrough and work session in Albano, lecture room 19',
       'HW1 hand-in',
     ])

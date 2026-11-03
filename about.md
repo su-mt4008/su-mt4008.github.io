@@ -33,7 +33,7 @@ All times are Stockholm time.
 4. **Next Monday 23:59:** hand in the week’s assignment.
 5. **Next Thursday 23:59:** peer review a classmate’s assignment.
 
-Week 1 starts on a Thursday, so its walkthrough is on {{ $course.firstSession }}. The exact dates for every week are on the [home page](/) and in the [assignment schedule](/homework/#schedule).
+The first session, on {{ $course.firstSession }}, is an **introduction to the course**. The exact dates for every week are on the [home page](/) and in the [assignment schedule](/homework/#schedule).
 
 ## What you’ll be able to do
 

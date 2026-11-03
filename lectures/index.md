@@ -5,7 +5,7 @@ There are no lectures: the material is designed for self-study, one week at a ti
 * **Mondays, {{ $course.hours }}:** a **15–30 minute walkthrough** of this week’s material, then work time.
 * **Thursdays, {{ $course.hours }}:** work time.
 
-Week 1 starts on a Thursday, so its walkthrough is on {{ $course.firstSession }}.
+The first session, on {{ $course.firstSession }}, is an **introduction to the course**.
 
 All sessions are in **{{ $course.room }}**, with {{ $course.teachers }}.
 

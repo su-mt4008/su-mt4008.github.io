@@ -85,10 +85,8 @@ We **strongly recommend** using data you collected yourselves and genuinely care
 ## What you hand in
 
 1. **The repository:** the full analysis, from raw data (or the script that fetches it) to the final report.
-2. **The report:** a blog-style write-up, in Swedish or English, aimed at your audience.
-   <!-- TODO(owner): report length and figure limits for the larger group projects? -->
-3. **The presentation:** a **5-minute** talk whose goal is to convince the class to read your report. **Attendance is compulsory** for the full session in which you present.
-   <!-- TODO(owner): presentation length for groups? -->
+2. **The report:** a blog-style write-up, in Swedish or English, aimed at your audience. Target **~1000–1500 words**, **≤ 7 figures** (tables count as figures) and **≤ 7 visible code chunks** (it’s fine to hide non-essential code). A bigger project does not mean a longer report: say more with less.
+3. **The presentation:** a **15–20 minute** talk per group, presenting your question, how you answered it and what you found. **Attendance is compulsory** for the full session in which you present.
 
 > **Pro tip:** Be realistic. Whatever you think you can do—plan for **half** of that and you’ll still be busy. Get a minimal, working version early and iterate.
 

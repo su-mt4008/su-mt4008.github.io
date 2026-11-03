@@ -17,7 +17,7 @@ export default {
   room: 'Lecture room 19, Albano Hus 2, 2nd floor',
   roomShort: 'Albano, lecture room 19', // used in "Next up" on the home page
 
-  // Work sessions, copied from TimeEdit. The first session of each week opens with a walkthrough.
+  // Sessions, copied from TimeEdit. The first is the course introduction; Mondays open with a walkthrough.
   sessionStart: '13:00',
   sessionEnd: '17:00',
   sessionDates: [
