@@ -86,7 +86,8 @@ powershell -ExecutionPolicy ByPass -c "irm https://astral.sh/uv/install.ps1 | ie
 uv --version
 ```
 ```r [R]
-# 1. Install R from https://cloud.r-project.org (Windows: "base"; Mac: the .pkg for your chip).
+# 1. Install the current R (4.6 or newer) from https://cloud.r-project.org
+#    (Windows: "base"; Mac: the .pkg for your chip).
 # 2. Then, in the R console:
 install.packages("renv")
 ```
@@ -113,13 +114,18 @@ In VS Code’s terminal, inside the repository:
 uv sync
 ```
 ```r [R]
-# In the R console, started in the repository folder:
+# In an R console started in the repository folder (see below):
 renv::restore()
 ```
 :::
 
 This installs exactly the versions in `uv.lock` / `renv.lock`, the same as on every other
 computer, including the check. Do it again whenever the lockfile changes.
+
+**R users:** R must start *in the repository folder*, or `renv` won’t find your project. In VS
+Code, open the repository folder, then **Command Palette** → **R: Create R Terminal**: it starts
+in the folder you have open. (In Positron, the Console already does.) Don’t use R.app or RGui
+for this; they start in your home folder.
 
 ### 3. Make a branch
 
@@ -168,6 +174,15 @@ new commits appear in the same pull request.
 Work goes into `main` only through a pull request. Pushing straight to `main` is not a hand-in,
 and no check runs on it. Don’t merge your own pull request either: we merge it when it is accepted.
 :::
+
+### Committed on `main` by mistake?
+
+Look at the branch name in the bottom-left corner of VS Code.
+
+- **You haven’t pushed yet:** create the branch now (**main** → **Create new branch…** → `hw1`).
+  Your commits come along to the new branch. Publish it and open the pull request as usual.
+- **You already pushed to `main`:** don’t try to undo it yourself. Tell a teacher (in a session
+  or on Moodle) **before the deadline**; we’ll sort it out with you.
 
 <!-- TODO(owner): screenshot of an open pull request with a green check. -->
 

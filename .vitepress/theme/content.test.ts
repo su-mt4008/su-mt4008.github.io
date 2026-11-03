@@ -79,3 +79,19 @@ describe('the whole site', () => {
     expect(found).toEqual([])
   })
 })
+
+describe('review fixes', () => {
+  it('locks R packages to a dated Posit Package Manager snapshot, so Windows/Mac get binaries all term', () => {
+    const lock = JSON.parse(page('templates/r/renv.lock'))
+    expect(lock.R.Repositories[0].URL).toMatch(/^https:\/\/packagemanager\.posit\.co\/cran\/\d{4}-\d{2}-\d{2}$/)
+  })
+
+  it('tells students what to do after committing on main by mistake', () => {
+    expect(page('guide.md')).toMatch(/^##+ .*on `main` by mistake/m)
+    expect(page('homework/1.md')).toMatch(/push(ing)? (straight |directly )?to `main`[^.]*not a hand-in/i)
+  })
+
+  it('says exactly how to start R in the repository folder', () => {
+    expect(page('guide.md')).toContain('R: Create R Terminal')
+  })
+})
