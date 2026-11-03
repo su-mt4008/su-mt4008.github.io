@@ -78,15 +78,18 @@ or update a pull request. If it is green, your analysis is reproducible.
 
 ## Anatomy of a reproducible project
 
-Every assignment repository starts from the same template. Each part has one job:
+Your assignments repository starts from a template. Each part has one job:
 
 ```
-<username>-hw1/
-├─ report.qmd        ← your report: text and code, seven sections
-├─ report.md         ← the rendered report (made by Quarto; commit it)
-├─ report_files/     ← its figures (made by Quarto; commit them)
-├─ data/raw/         ← data exactly as you got it, plus a README with source and licence
-├─ src/  or  R/      ← functions the report uses
+<username>-assignments/
+├─ hw1/
+│  ├─ report.qmd     ← your report: text and code, seven sections
+│  ├─ report.md      ← the rendered report (made by Quarto; commit it)
+│  ├─ report_files/  ← its figures (made by Quarto; commit them)
+│  └─ data/raw/      ← data exactly as you got it, plus a README with source and licence
+├─ hw2/ … hw5/       ← the same, one folder per assignment
+├─ example/          ← a worked example of a report
+├─ _quarto.yml       ← tells Quarto to render every report
 ├─ pyproject.toml + uv.lock   or   renv.lock   ← the locked environment
 ├─ .github/workflows/check.yml                ← the reproducibility check
 └─ README.md         ← what everything is, and the one command that renders it
@@ -153,8 +156,8 @@ plt.plot(years, temps)
 3. **Code chunks** in ```` ```{python} ```` (or ```` ```{r} ````). Quarto runs them and puts
    the output right below.
 
-Render it from the terminal with `uv run quarto render report.qmd` (Python) or
-`quarto render report.qmd` (R). The Quarto extension in VS Code also has a **Preview** button.
+Render it from the terminal with `uv run quarto render hw1/report.qmd` (Python) or
+`quarto render hw1/report.qmd` (R); without a file name, Quarto renders every report. The Quarto extension in VS Code also has a **Preview** button.
 
 Useful chunk options, written as `#|` lines at the top of a chunk:
 

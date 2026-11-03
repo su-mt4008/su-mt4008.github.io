@@ -35,7 +35,7 @@ describe('HW1', () => {
   const hw1 = page('homework/1.md')
 
   it('uses the pull-request flow from the guide', () => {
-    for (const text of ['/guide#hand-in-an-assignment', '`hw1`', '`HW1`', '<username>-hw1']) {
+    for (const text of ['/guide#hand-in-an-assignment', '`hw1`', '`HW1`', '<username>-assignments', '`hw1/report.qmd`']) {
       expect(hw1).toContain(text)
     }
   })
@@ -74,7 +74,7 @@ describe('the whole site', () => {
     )
 
   it('has no instructions from the old issue-based hand-in', () => {
-    const old = [/ready-for-grading/, /– Submission/, /open an issue/i, /GitHub Desktop/, /username-hw-/]
+    const old = [/ready-for-grading/, /– Submission/, /open an issue/i, /GitHub Desktop/, /username-hw-/, /<username>-hw/, /hw<n>`\*\*/]
     const found = pages('.').flatMap((p) => old.filter((re) => re.test(page(p))).map((re) => `${p}: ${re}`))
     expect(found).toEqual([])
   })
@@ -102,5 +102,11 @@ describe('weekly rhythm', () => {
       expect(page(p)).toMatch(/Friday/)
     }
     expect(page('homework/index.md')).toMatch(/graded/)
+  })
+})
+
+describe('one repository per student', () => {
+  it('the guide says reviewer access ends Friday morning', () => {
+    expect(page('guide.md')).toMatch(/Friday morning/)
   })
 })

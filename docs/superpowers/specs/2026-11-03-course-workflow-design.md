@@ -106,6 +106,16 @@ seeds; restart and run everything before pushing; one command renders the report
 3. **HW1 = the workflow once, end to end**, on a tiny provided dataset, so students learn the
    hand-in before any real analysis.
 
+## Changed 2026-11-03: one repository per student
+
+Decided by the teachers after the first build: **one repository per student for all five
+assignments**, `<username>-assignments`, from an assignments template with `example/` and
+`hw1/` … `hw5/` folders, one shared lockfile and a `_quarto.yml` so `quarto render` renders every
+report. Each assignment is a branch `hwN` and a pull request `HWN` that only changes `hwN/`.
+Reviewers are added after the Monday deadline and removed on Friday morning (GitHub read access
+is repository-wide; branches cannot be hidden). Group projects use the single-report project
+templates. This supersedes "one private repo per student per assignment" below.
+
 ## Calls made by Claude (check these)
 
 - **Rendered output is committed.** `report.qmd` renders to `report.md` (GitHub-flavoured

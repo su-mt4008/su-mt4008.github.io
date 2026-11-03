@@ -97,15 +97,17 @@ Close and reopen VS Code after installing, so it finds the new programs.
 
 ## Hand in an assignment {#hand-in-an-assignment}
 
-Every assignment works the same way. Example for HW1; use your own username and the right number.
+You have **one repository for all five assignments**, with a folder for each: `hw1/` … `hw5/`.
+Every assignment works the same way; the example is HW1, so use the right number. Steps 1 and 2
+you do once; steps 3–8 every week.
 
-### 1. Clone your repository
+### 1. Clone your repository (once)
 
-We create a private repository for you for each assignment, named `<username>-hw1`, from the
-course template. In VS Code: **Command Palette** (`Ctrl+Shift+P` / `Cmd+Shift+P`) →
-**Git: Clone** → **Clone from GitHub** → choose `su-mt4008/<username>-hw1` → pick a folder → **Open**.
+We create a private repository for you, named `<username>-assignments`, from the course
+template. In VS Code: **Command Palette** (`Ctrl+Shift+P` / `Cmd+Shift+P`) → **Git: Clone** →
+**Clone from GitHub** → choose `su-mt4008/<username>-assignments` → pick a folder → **Open**.
 
-### 2. Install the project’s packages
+### 2. Install the project’s packages (once)
 
 In VS Code’s terminal, inside the repository:
 
@@ -127,26 +129,32 @@ Code, open the repository folder, then **Command Palette** → **R: Create R Ter
 in the folder you have open. (In Positron, the Console already does.) Don’t use R.app or RGui
 for this; they start in your home folder.
 
-### 3. Make a branch
+### 3. Make a branch for the assignment
 
-Click the branch name **main** in the bottom-left corner → **Create new branch…** → type `hw1` →
-Enter. You now work on `hw1`; `main` stays as it was.
+Start from an up-to-date `main`: click the branch name in the bottom-left corner and choose
+**main**, then **Sync Changes** (the circling arrows) so you have any updates. Then click **main**
+→ **Create new branch…** → type `hw1` → Enter. You now work on `hw1`; `main` stays as it was.
+
+Each assignment gets its own branch (`hw1`, `hw2`, …) and only changes its own folder, so you can
+start HW2 even before HW1 has been merged.
 
 ### 4. Do the work
 
-Write your analysis in `report.qmd`, section by section. Render it often:
+Write your analysis in `hw1/report.qmd`, section by section; the assignment’s data goes in
+`hw1/data/raw/`. The folder `example/` shows a finished report. Render your report often:
 
 :::code-group
 ```bash [Python]
-uv run quarto render report.qmd
+uv run quarto render hw1/report.qmd
 ```
 ```bash [R]
-quarto render report.qmd
+quarto render hw1/report.qmd
 ```
 :::
 
-Open `report.md` to see the result. That file, with its figures in `report_files/`, is what your
-reviewers read on GitHub, so commit it too.
+Open `hw1/report.md` to see the result. That file, with its figures in `hw1/report_files/`, is
+what your reviewers read on GitHub, so commit it too. Before you push, render **everything** once
+with `uv run quarto render` / `quarto render`, as the check does.
 
 Need another package? Python: `uv add seaborn`. R: `install.packages("…")`, then
 `renv::snapshot()`. Both update the lockfile; commit it.
@@ -189,7 +197,7 @@ Look at the branch name in the bottom-left corner of VS Code.
 ### 7. Watch the check
 
 A few minutes after you open the pull request (and after every new push), the **check** runs: a
-clean computer clones your repository, installs your lockfile and renders `report.qmd`.
+clean computer clones your repository, installs your lockfile and renders every report.
 
 - **Green tick:** anyone can reproduce your report.
 - **Red cross:** something works on your computer only. See [When the check is red](#when-the-check-is-red).
@@ -198,7 +206,9 @@ A red check still counts as handed in, but you must fix it.
 
 ### 8. Review, feedback, fixes
 
-- By **Thursday**, review the classmate’s pull request you are assigned: [Review a pull request](#review-a-pull-request).
+- After the Monday deadline you get access to one classmate’s repository. By **Thursday 23:59**,
+  review their pull request: [Review a pull request](#review-a-pull-request). Access ends on
+  **Friday morning**.
 - Your reviewer comments on your pull request by Thursday. Fix what they point out by pushing new
   commits to `hw1` **until Friday 23:59**, and reply to each comment.
 - **We grade your pull request as it stands on Friday 23:59.**
@@ -216,7 +226,7 @@ The five most common causes:
 |---|---|---|
 | `ModuleNotFoundError` / `there is no package called …` | You installed a package but it isn’t in the lockfile. | Python: `uv add <name>`. R: `renv::snapshot()`. Commit the lockfile. |
 | `No such file or directory` / `cannot open file` | A file your code reads isn’t in the repository. | Commit it (check it isn’t in `.gitignore`), or commit the script that downloads it. |
-| A path like `C:\Users\…` or `/Users/…` | An absolute path only exists on your computer. | Use a path relative to the repository: `data/raw/file.csv`. |
+| A path like `C:\Users\…` or `/Users/…` | An absolute path only exists on your computer. | Use a path relative to the report’s folder: `data/raw/file.csv`. |
 | `NameError` / `object '…' not found` | The code relied on something you ran by hand earlier. | Restart, render from scratch, and fix the order until it works. |
 | `uv.lock` needs to be updated / lockfile out of sync | `pyproject.toml` changed without `uv lock`. | Run `uv lock` (or `uv add`), commit `uv.lock`. |
 

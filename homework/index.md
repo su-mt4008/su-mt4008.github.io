@@ -30,8 +30,10 @@ Each assignment contains a few tasks covering material from previous week(s).
 Every assignment is handed in as a **pull request** on GitHub. The full step-by-step is on
 [How we work](/guide#hand-in-an-assignment); in short:
 
-1. We create a private repository **`<username>-hw<n>`** for you from the course template.
-2. Work on a branch `hw<n>`, render `report.qmd`, commit and push.
+1. We create **one** private repository for you, **`<username>-assignments`**, from the course
+   template. It has a folder per assignment: `hw1/` … `hw5/`.
+2. For each assignment, work on a branch `hw<n>` in the folder `hw<n>/`, render its
+   `report.qmd`, commit and push.
 3. Open a pull request **from `hw<n>` into `main`** titled **`HW<n>`** by the Monday deadline.
    *Opening the pull request is the hand-in.* Pushing straight to `main` is not.
 4. The **check** renders your report on a clean computer. A red check still counts as handed in,
@@ -46,7 +48,7 @@ Every assignment is handed in as a **pull request** on GitHub. The full step-by-
 
 ## Peer Review
 
-After the deadline you get access to a classmate’s repository. Review their pull request: read the rendered report, then comment on specific lines of code ([how](/guide#review-a-pull-request)).
+After the deadline you get access to a classmate’s repository, until Friday morning. Review their pull request: read the rendered report, then comment on specific lines of code ([how](/guide#review-a-pull-request)).
 
 Address at least:
 
