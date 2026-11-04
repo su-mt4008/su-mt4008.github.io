@@ -4,8 +4,7 @@
 
 export default {
   // Shows "Dates are provisional." on the home page. Set to false once the dates below are final.
-  // TODO(owner): hand-in, peer-review and project deadlines are not confirmed.
-  provisional: true,
+  provisional: false,
 
   links: {
     moodle: 'https://kurser.math.su.se/course/view.php?id=1951',

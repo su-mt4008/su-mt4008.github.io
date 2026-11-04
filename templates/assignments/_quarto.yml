@@ -1,0 +1,11 @@
+# Renders every assignment report in this repository with one command: quarto render
+# (example/ is already rendered; render it on its own, e.g. quarto render example/r/report.qmd)
+project:
+  type: default
+  render:
+    - hw*/report.qmd
+
+format: gfm
+
+execute:
+  echo: true
