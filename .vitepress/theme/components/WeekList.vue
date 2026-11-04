@@ -48,7 +48,8 @@ const weekDate = (start: string) => formatWhen(new Date(`${start}T12:00:00+01:00
         <h3><a :href="w.link">{{ w.title }}</a></h3>
         <div v-if="assignment(w.hw)" class="bits">
           <span>
-            <a :href="assignment(w.hw)!.link">{{ w.hw }}</a>
+            <a v-if="assignment(w.hw)!.link" :href="assignment(w.hw)!.link">{{ w.hw }}</a>
+            <template v-else>{{ w.hw }}</template>
             {{ assignment(w.hw)!.name }}, due {{ formatWhen(new Date(assignment(w.hw)!.due)) }}
           </span>
         </div>

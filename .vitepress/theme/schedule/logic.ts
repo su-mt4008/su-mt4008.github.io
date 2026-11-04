@@ -1,5 +1,6 @@
 export interface Week { n: number; start: string; title: string; link: string; note?: string; hw?: string }
-export interface Assignment { id: string; name: string; link: string; due: string; peerDue: string; finalDue: string }
+// `link` is missing while the assignment is not published yet.
+export interface Assignment { id: string; name: string; link?: string; due: string; peerDue: string; finalDue: string }
 export interface Session { at: string; end: string; label: string; place: string; link?: string }
 // An event without `at` has no date yet; it shows `tbd` instead and stays out of Next up.
 export interface CourseEvent { kind: 'proposal' | 'project' | 'exam' | 'presentation'; at?: string; end?: string; tbd?: string; title: string; link: string; blurb: string }

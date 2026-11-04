@@ -20,7 +20,7 @@ const topics = [
   { title: 'Extracting unstructured data with LLMs' },
 ]
 
-const assignmentNames = ['GitHub test-run', 'Tables and plots', 'Exploring and visualising data', 'SQL and regex', 'Data from the web']
+const assignmentNames = ['Your first reproducible report', 'Tables and plots', 'Exploring and visualising data', 'SQL and regex', 'Data from the web']
 
 // The first session introduces the course. After that every session is work time, and Mondays start with a walkthrough.
 const sessionLabel = (date: string, i: number) => {
@@ -45,7 +45,7 @@ export const schedule: Schedule = {
   assignments: config.assignments.map((a, i) => ({
     id: `HW${i + 1}`,
     name: assignmentNames[i],
-    link: `/homework/${i + 1}`,
+    link: a.ready ? `/homework/${i + 1}` : undefined,
     due: at(a.due, '23:59'),
     peerDue: at(a.peerReview, '23:59'),
     finalDue: at(a.final, '23:59'),

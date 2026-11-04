@@ -10,7 +10,10 @@ import { formatWhen } from '../schedule/logic'
     </thead>
     <tbody>
       <tr v-for="a in schedule.assignments" :key="a.id">
-        <td><a :href="a.link">{{ a.id }}</a> {{ a.name }}</td>
+        <td>
+          <a v-if="a.link" :href="a.link">{{ a.id }}</a><template v-else>{{ a.id }}</template>
+          {{ a.name }}<span v-if="!a.link" class="soon"> (coming soon)</span>
+        </td>
         <td>{{ formatWhen(new Date(a.due), true) }}</td>
         <td>{{ formatWhen(new Date(a.peerDue), true) }}</td>
         <td>{{ formatWhen(new Date(a.finalDue), true) }}</td>
@@ -18,3 +21,9 @@ import { formatWhen } from '../schedule/logic'
     </tbody>
   </table>
 </template>
+
+<style scoped>
+.soon {
+  color: var(--c-muted);
+}
+</style>

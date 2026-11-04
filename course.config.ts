@@ -37,14 +37,16 @@ export default {
   // Last chance for any assignment, late or not. Missing it means redoing all assignments next year.
   finalDeadline: { date: '2027-01-15', time: '23:59' },
 
-  // HW1 first. All three deadlines are at 23:59: hand in (Monday), peer review (Thursday),
+  // HW1 first. `ready: false` shows the assignment (name and dates) without a link, and leaves
+  // its page out of the published site; set it to true when the assignment text is final.
+  // All three deadlines are at 23:59: hand in (Monday), peer review (Thursday),
   // and the final version after the review (Friday), which is the version graded.
   assignments: [
-    { due: '2026-11-09', peerReview: '2026-11-12', final: '2026-11-13' },
-    { due: '2026-11-16', peerReview: '2026-11-19', final: '2026-11-20' },
-    { due: '2026-11-23', peerReview: '2026-11-26', final: '2026-11-27' },
-    { due: '2026-11-30', peerReview: '2026-12-03', final: '2026-12-04' },
-    { due: '2026-12-07', peerReview: '2026-12-10', final: '2026-12-11' },
+    { ready: true, due: '2026-11-09', peerReview: '2026-11-12', final: '2026-11-13' },
+    { ready: false, due: '2026-11-16', peerReview: '2026-11-19', final: '2026-11-20' },
+    { ready: false, due: '2026-11-23', peerReview: '2026-11-26', final: '2026-11-27' },
+    { ready: false, due: '2026-11-30', peerReview: '2026-12-03', final: '2026-12-04' },
+    { ready: false, due: '2026-12-07', peerReview: '2026-12-10', final: '2026-12-11' },
   ],
 
   // Groups hand in their project proposal on Moodle.

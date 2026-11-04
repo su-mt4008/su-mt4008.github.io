@@ -1,6 +1,17 @@
+import course from '../course.config'
 import { defineConfig } from 'vitepress'
 
 // https://vitepress.dev/reference/site-config
+// Assignments marked `ready: false` in course.config.ts are listed without a link, and their
+// pages are left out of the published site (they still show when previewing locally).
+const building = process.argv.includes('build')
+const homeworkItems = course.assignments.map((a, i) =>
+  a.ready ? { text: `HW${i + 1}`, link: `/homework/${i + 1}` } : { text: `HW${i + 1} (coming soon)` },
+)
+const unpublished = building
+  ? course.assignments.flatMap((a, i) => (a.ready ? [] : [`homework/${i + 1}.md`]))
+  : []
+
 const courseInfoSidebar = [
   {
     text: 'Course info',
@@ -15,7 +26,7 @@ const courseInfoSidebar = [
 export default defineConfig({
   title: "MT4008",
   description: "Course page for MT4008 Statistical Data Processing at Stockholm University",
-  srcExclude: ['docs/**', 'mt4008/**', 'templates/**'],
+  srcExclude: ['docs/**', 'mt4008/**', 'templates/**', ...unpublished],
   head: [
     ['link', { rel: 'preconnect', href: 'https://fonts.googleapis.com' }],
     ['link', { rel: 'preconnect', href: 'https://fonts.gstatic.com', crossorigin: '' }],
@@ -63,11 +74,7 @@ export default defineConfig({
           items: [
             { text: 'Overview', link: '/homework/' },
             { text: 'How to hand in', link: '/guide#hand-in-an-assignment' },
-            { text: 'HW1', link: '/homework/1' },
-            { text: 'HW2', link: '/homework/2' },
-            { text: 'HW3', link: '/homework/3' },
-            { text: 'HW4', link: '/homework/4' },
-            { text: 'HW5', link: '/homework/5' },
+            ...homeworkItems,
           ]
         }
       ],
