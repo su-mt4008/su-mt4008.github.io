@@ -21,7 +21,9 @@ Do this once, in the first week, before you start HW1:
    <a :href="$course.links.moodle">Moodle</a>. We use it to create your repository,
    `<username>-assignments`.
 3. **Set up your computer** for your language: [Set up your computer](#set-up-your-computer).
-4. **Accept the invitation** to the `su-mt4008` organisation, from the email GitHub sends you.
+4. **Accept your invitations.** GitHub emails you when you're invited to the `su-mt4008`
+   organisation and to your repository. Accept them; they expire after 7 days, so ask us if one
+   has run out.
 5. **Clone your repository and install its packages:** steps 1 and 2 of
    [Hand in an assignment](#hand-in-an-assignment).
 6. **Start [HW1](/homework/1).**
@@ -68,8 +70,8 @@ Do these in order. If something fails, ask in a session, or use
 ### 1. GitHub account
 
 Create an account at <https://github.com> if you don’t have one, and register your username on
-<a :href="$course.links.moodle">Moodle</a>. We use it to create your repositories in the
-`su-mt4008` organisation. Accept the invitation email from GitHub when it arrives.
+<a :href="$course.links.moodle">Moodle</a>. We use it to invite you to the `su-mt4008`
+organisation and your repository. Accept the invitations when GitHub emails you.
 
 ### 2. VS Code and its extensions
 
@@ -245,9 +247,9 @@ A red check still counts as handed in, but you must fix it.
 
 ### 8. Review, feedback, fixes
 
-- After the Monday deadline you get access to one classmate’s repository. By **Thursday 23:59**,
-  review their pull request: [Review a pull request](#review-a-pull-request). Access ends on
-  **Friday morning**.
+- After the Monday deadline you get access to one classmate’s repository, and GitHub asks you to
+  review their pull request. By **Thursday 23:59**, review it:
+  [Review a pull request](#review-a-pull-request). Access ends on **Friday morning**.
 - Your reviewer comments on your pull request by Thursday. Fix what they point out by pushing new
   commits to `hw1` **until Friday 23:59**, and reply to each comment.
 - **We grade your pull request as it stands on Friday 23:59.**
@@ -275,7 +277,9 @@ To see what the check sees before you push: restart, then render from scratch as
 
 Reviewing is a skill you practise every week, and it’s required for every on-time assignment.
 
-1. Open the classmate’s pull request on GitHub (or in VS Code’s **GitHub Pull Requests** view).
+1. Open the classmate’s pull request: it is listed under your
+   [review requests](https://github.com/pulls/review-requested) on GitHub (and in VS Code’s
+   **GitHub Pull Requests** view).
 2. Read the rendered report (`report.md`) first, as a reader would. Then the **Files changed** tab.
 3. Comment on specific lines: hover over a line in **Files changed**, click **+**, write your comment.
    To propose a concrete change, use a suggestion block, which the author can accept with one click:
