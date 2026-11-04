@@ -29,7 +29,7 @@
       vertical-align: middle;
     }
   </style>
-  <link rel="stylesheet" href="../site_libs/revealjs/dist/theme/quarto-61b8b29237fdec3b9f62e7ec17f7d6f1.css">
+  <link rel="stylesheet" href="../site_libs/revealjs/dist/theme/quarto-e33f06aebdebb4073c962c9abcbf0011.css">
   <link href="../site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
   <link href="../site_libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
   <link href="../site_libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
@@ -443,6 +443,29 @@ Share of each birth year with the name, among the 200 most common names in Swede
           display:block!important;
       }</style></aside>
 </section>
+<section id="the-maths-a-comeback-score" class="slide level2">
+<h2>The maths: a comeback score</h2>
+<p>For each name <span class="math inline">\(n\)</span> and birth year <span class="math inline">\(t\)</span>, the <strong>share</strong> of people born that year with the name:</p>
+<p><span class="math display">\[s_{n,t} = \frac{\text{people born in year } t \text{ called } n}{\text{people born in year } t \text{ with any of the 200 names}}\]</span></p>
+<p>Average the share over three periods, <span class="math inline">\(\bar s_{\text{1920s}}\)</span> (1922–35), <span class="math inline">\(\bar s_{\text{dip}}\)</span> (1960–80) and <span class="math inline">\(\bar s_{\text{now}}\)</span> (2005–21). A comeback is big when <strong>both</strong> popular periods dwarf the dip:</p>
+<p><span class="math display">\[\text{score}(n) = \min\left( \frac{\bar s_{\text{1920s}}}{\bar s_{\text{dip}}},\ \frac{\bar s_{\text{now}}}{\bar s_{\text{dip}}} \right)\]</span></p>
+<p class="small">
+Elsa: <span class="math inline">\(\min\left(\frac{3.06\%}{0.034\%}, \frac{1.72\%}{0.034\%}\right) = \min(90, 51) = 51\)</span>.<br>A name absent in the dip counts as 0.01%, so we never divide by zero.
+</p>
+<aside class="notes">
+<p>Why the minimum: a name that was only popular in the 1920s, or only now, should not count as a comeback. The minimum is large only if both ratios are large.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
 <section id="what-was-done" class="slide level2 diagram">
 <h2>What was done</h2>
 <svg class="lc" viewbox="0 0 1100 240" role="img" xmlns="http://www.w3.org/2000/svg">
@@ -776,6 +799,34 @@ None of this shows in the final figure. All of it changes the numbers if done wr
           display:block!important;
       }</style></aside>
 </section>
+<section id="the-maths-the-gap-and-how-sure-we-are" class="slide level2 dense">
+<h2>The maths: the gap, and how sure we are</h2>
+<p>A day’s price in zone <span class="math inline">\(z\)</span> is the average over its hours and quarter-hours, each counted by how long it lasted:</p>
+<p><span class="math display">\[p_{z,d} = \frac{\sum_i \text{price}_i \cdot \text{minutes}_i}{\sum_i \text{minutes}_i} \qquad g_d = p_{\text{Malmö},d} - p_{\text{Luleå},d}\]</span></p>
+<p>Compare the mean gap on the calmest and the windiest quarter of days:</p>
+<p><span class="math display">\[\Delta = \bar g_{\text{calm}} - \bar g_{\text{windy}} = 0.55 - 0.15 = 0.40 \text{ kr/kWh}\]</span></p>
+<ul>
+<li><strong>How sure?</strong> Redraw the days at random 10,000 times and recompute <span class="math inline">\(\Delta\)</span> each time: the middle 95% runs from 0.34 to 0.47. Zero is far outside, so it is not chance.</li>
+<li><strong>How much is weather?</strong> Fit a straight line through wind and temperature:</li>
+</ul>
+<p><span class="math display">\[g_d = a + b \cdot \text{wind}_d + c \cdot \text{temp}_d + \text{error}_d \qquad 1 - \frac{\operatorname{Var}(\text{error})}{\operatorname{Var}(g)} = 18\%\]</span></p>
+<p class="small">
+Each extra m/s of wind lowers the gap by 0.11 kr/kWh; wind and temperature together explain 18% of the day-to-day variation.
+</p>
+<aside class="notes">
+<p>The resampling is the bootstrap (week 1, statistics). The fit is a linear regression; they will meet it properly later. Here it is enough to say what each number means.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
 <section id="what-was-done-1" class="slide level2 diagram">
 <h2>What was done</h2>
 <svg class="lc" viewbox="0 0 1100 262" role="img" xmlns="http://www.w3.org/2000/svg">
@@ -1089,6 +1140,56 @@ Two of three signs are there. Whether a crash follows is <span class="accent">no
           display:block!important;
       }</style></aside>
 </section>
+<section id="the-maths-three-signs-one-question" class="slide level2 dense">
+<h2>The maths: three signs, one question</h2>
+<p><span class="math display">\[\text{valuation}_t = \frac{\text{price}_t}{\text{mean earnings, previous 10 years}} \qquad \text{growth}_t = \frac{\text{NASDAQ}_t}{\text{NASDAQ}_{t-5\text{ yrs}}}\]</span></p>
+<p><span class="math display">\[\text{attention}_t = \frac{\text{headlines with “AI” in month } t}{\text{all headlines in month } t}\]</span></p>
+<p>Each is compared with its own history. <strong>How unusual is today?</strong> The share of all earlier months with a lower value:</p>
+<p><span class="math display">\[\text{rank} = \frac{1}{T}\sum_{s=1}^{T} \mathbf{1}\{x_s &lt; x_{\text{today}}\}\]</span></p>
+<table class="caption-top">
+<thead>
+<tr class="header">
+<th style="text-align: left;">Sign</th>
+<th style="text-align: right;">Today</th>
+<th style="text-align: right;">Rank</th>
+<th style="text-align: left;">Record</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">valuation (CAPE)</td>
+<td style="text-align: right;">40.7</td>
+<td style="text-align: right;">99%</td>
+<td style="text-align: left;">44.2, Dec 1999</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">growth in 5 years</td>
+<td style="text-align: right;">×1.6</td>
+<td style="text-align: right;">40%</td>
+<td style="text-align: left;">×5.9, Feb 2000</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">attention</td>
+<td style="text-align: right;">13.7%</td>
+<td style="text-align: right;">97%</td>
+<td style="text-align: left;">15.9%, Feb 2026</td>
+</tr>
+</tbody>
+</table>
+<aside class="notes">
+<p>Prices and earnings are adjusted for inflation in Shiller’s data. A rank of 99% means only 1% of months since 1871 had a higher valuation.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
 <section id="what-was-done-2" class="slide level2 diagram">
 <h2>What was done</h2>
 <svg class="lc" viewbox="0 0 1100 262" role="img" xmlns="http://www.w3.org/2000/svg">
@@ -1367,61 +1468,57 @@ The red step: the question itself. <a href="https://github.com/su-mt4008/lecture
 <h1>How the course works</h1>
 
 </section>
-<section id="each-week-trains-part-of-the-cycle" class="slide level2">
-<h2>Each week trains part of the cycle</h2>
-<p>Data science is the whole cycle: from a question, through messy real data, to an answer someone else can <strong>check</strong>. Statistics tells you how sure you can be; code makes it repeatable.</p>
-<div class="coursemap">
-<div class="step">
-Question
-</div>
-<div class="step">
-Data
-</div>
-<div class="step">
-Cleaning
-</div>
-<div class="step">
-Exploration
-</div>
-<div class="step">
-Analysis
-</div>
-<div class="step">
-Conclusions
-</div>
-<div class="step">
-Reproduce
-</div>
-<div class="wk" style="grid-column:1">
-W1 questions
-</div>
-<div class="wk" style="grid-column:2">
-W4 joins &amp; SQL
-</div>
-<div class="wk" style="grid-column:3">
-W3 cleaning
-</div>
-<div class="wk" style="grid-column:4">
-W2 tables &amp; plots
-</div>
-<div class="wk all" style="grid-column:5 / span 2">
-statistics, in every assignment
-</div>
-<div class="wk" style="grid-column:7">
-W1 Git, Quarto
-</div>
-<div class="wk" style="grid-column:2">
-W5 web &amp; APIs
-</div>
-<div class="wk" style="grid-column:4">
-W3 exploring
-</div>
-<div class="wk" style="grid-column:2">
-W6 text &amp; LLMs
-</div>
-</div>
-<p style="margin-top:1em">
-You choose <b>Python or R</b>. Everyone uses <b>Quarto, Git and GitHub, VS Code</b>.
+<section id="six-weeks-one-cycle" class="slide level2 weeks">
+<h2>Six weeks, one cycle</h2>
+<p>Data science is the whole cycle: from a question, through messy real data, to an answer someone else can <strong>check</strong>.</p>
+<table class="caption-top">
+<colgroup>
+<col style="width: 9%">
+<col style="width: 54%">
+<col style="width: 36%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Week</th>
+<th style="text-align: left;">Topic</th>
+<th style="text-align: left;">Where it is in the cycle</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">1</td>
+<td style="text-align: left;">Reproducible analysis: questions, Git and Quarto</td>
+<td style="text-align: left;">the question · reproducible</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">2</td>
+<td style="text-align: left;">Tables and plots</td>
+<td style="text-align: left;">exploration</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">3</td>
+<td style="text-align: left;">Cleaning and exploring messy data</td>
+<td style="text-align: left;">cleaning · exploration</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">4</td>
+<td style="text-align: left;">Combining data: joins and databases</td>
+<td style="text-align: left;">data · cleaning</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">5</td>
+<td style="text-align: left;">Data from the web</td>
+<td style="text-align: left;">data</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">6</td>
+<td style="text-align: left;">Text as data</td>
+<td style="text-align: left;">data</td>
+</tr>
+</tbody>
+</table>
+<p class="small">
+Statistics comes in every week: it is how you analyse and how sure you can be. You choose <b>Python or R</b>; everyone uses Quarto, Git and VS Code.
 </p>
 <p class="more">
 More: <a href="../../about">About the course</a>

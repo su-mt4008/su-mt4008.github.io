@@ -58,6 +58,19 @@ born in 1925 who has died or emigrated is not in it. And it only lists names tha
 *today*, so a 1920s name that never came back is missing altogether. The data is tilted towards
 finding comebacks. Saying that clearly is part of the result, not a footnote.
 
+**The maths.** For each name $n$ and birth year $t$, the share of people born that year with the
+name is
+
+$$s_{n,t} = \frac{\text{people born in year } t \text{ called } n}{\text{people born in year } t \text{ with any of the 200 names}}.$$
+
+Average it over three periods, $\bar s_{\text{1920s}}$ (1922–35), $\bar s_{\text{dip}}$ (1960–80) and
+$\bar s_{\text{now}}$ (2005–21). A comeback is big when both popular periods dwarf the dip:
+
+$$\text{score}(n) = \min\left( \frac{\bar s_{\text{1920s}}}{\bar s_{\text{dip}}},\ \frac{\bar s_{\text{now}}}{\bar s_{\text{dip}}} \right).$$
+
+For Elsa: $\min\left(\frac{3.06\%}{0.034\%}, \frac{1.72\%}{0.034\%}\right) = \min(90, 51) = 51$. The minimum
+is large only if both ratios are, so a name that was only popular once doesn't count.
+
 <LifeCycle name="names" />
 
 **Why this is a good project:** the question is sharp, the data fits it, and the conclusion says
@@ -102,6 +115,18 @@ The difference, 0.40 kr/kWh, is far larger than chance would give (a 95% interva
 But wind and temperature explain only 18% of the day-to-day gap. The rest is what the data does
 not contain: how much power the grid can carry south, nuclear plants in maintenance, prices on
 the continent. And windy days differ from calm ones in other ways too: correlation, not cause.
+
+**The maths.** A day's price in zone $z$ averages its hours and quarter-hours, each counted by how
+long it lasted, and the gap is Malmö minus Luleå:
+
+$$p_{z,d} = \frac{\sum_i \text{price}_i \cdot \text{minutes}_i}{\sum_i \text{minutes}_i}, \qquad g_d = p_{\text{Malmö},d} - p_{\text{Luleå},d}.$$
+
+The difference between calm and windy days is
+$\Delta = \bar g_{\text{calm}} - \bar g_{\text{windy}} = 0.55 - 0.15 = 0.40$ kr/kWh. To see how sure
+that is, redraw the days at random 10,000 times and recompute $\Delta$: the middle 95% runs from
+0.34 to 0.47, far from zero. To see how much the weather explains, fit a straight line,
+
+$$g_d = a + b \cdot \text{wind}_d + c \cdot \text{temp}_d + \text{error}_d, \qquad 1 - \frac{\operatorname{Var}(\text{error})}{\operatorname{Var}(g)} = 18\%.$$
 
 <LifeCycle name="electricity" />
 
@@ -157,6 +182,16 @@ of bubbles to compare with.
 
 There are cleaning traps here too: Shiller writes October as `2026.1`, which read as a number is
 January.
+
+**The maths.** The three signs are
+
+$$\text{valuation}_t = \frac{\text{price}_t}{\text{mean earnings, previous 10 years}}, \qquad \text{growth}_t = \frac{\text{NASDAQ}_t}{\text{NASDAQ}_{t-5\text{ yrs}}},$$
+
+$$\text{attention}_t = \frac{\text{headlines with “AI” in month } t}{\text{all headlines in month } t}.$$
+
+How unusual today is: the share of earlier months with a lower value,
+$\text{rank} = \frac{1}{T}\sum_{s=1}^{T} \mathbf{1}\{x_s < x_{\text{today}}\}$. Valuation ranks 99%,
+attention 97%, growth only 40%.
 
 <LifeCycle name="ai-bubble" />
 

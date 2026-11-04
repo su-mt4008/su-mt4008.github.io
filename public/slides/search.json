@@ -161,6 +161,13 @@
     "text": "The data science cycle\n\n\nEvery project in this course goes round this cycle, from HW1 to your group project.\n\nExploration and analysis go round and round: look, test, look again.\nTo answer more, go back: fetch more data, or refine the question, and round again.\nReproducible is not a last step: it frames every step.\nYour report follows the cycle, and ends with How to reproduce.\n\n\n\n\nThe data science cycle: question, data, cleaning, then exploration and analysis round and round, then conclusions; to answer more, back to the data or the question; all of it reproducible\n\n\n\nQuestion\n\nData\n\nCleaning\n\n\nExploration\n\nAnalysis\n\nConclusions\n\n\n\n\n\n\n\n\n\n\n\n\nround and round\n\n\nto answer more: fetch more data\n\n\nrefine the question\nREPRODUCIBLE THROUGHOUT\ncode, not clicks · relative paths · a lockfile · Quarto · Git\n\n\n\nAfter the cycle in Wickham, Çetinkaya-Rundel & Grolemund, R for Data Science (2e).\n\n\n\n\nKeep this slide in mind: every project that follows is told along this cycle."
   },
   {
+    "objectID": "introduction/index.html#the-workflow",
+    "href": "introduction/index.html#the-workflow",
+    "title": "From a question to an answer anyone can check",
+    "section": "The workflow",
+    "text": "The workflow\n\n\nDataStatistics Sweden (SCB)\n\n\ndownloaded straight from their database by a short script\n\n\nhow many people born each year 1922–2021 have each of the 200 most common names\n\n\n\n\nCleaningA tidy table\n\n\nreshape the table so it is easy to work with\n\n\nhandle the gaps: SCB hides very small numbers\n\n\nturn counts into shares, so years can be compared\n\n\n\n\nAnalysisFind the comebacks\n\n\nplot each name over 100 years\n\n\na comeback score: common in the 1920s, rare in 1960–80, common again after 2005\n\n\n\n\nResultsYes, with a catch\n\n\nElla, Elsa, Alice, Astrid, Ebba top the score\n\n\nthe top 10 names: 59% of a year in 1922, 24% in 2021\n\n\nonly the living are counted\n\n\n\n\n\nnames/fetch.py → names/data/ → names/report.qmd → report.mdone command: uv run quarto render\n\n\nThe whole project in one slide: where the data came from, what we did to it, what we found. The next slides show the result and the catch."
+  },
+  {
     "objectID": "introduction/index.html#names-skip-three-generations",
     "href": "introduction/index.html#names-skip-three-generations",
     "title": "From a question to an answer anyone can check",
@@ -175,11 +182,25 @@
     "text": "The catch: only the living are counted\n\nWho is counted: of everyone born in a year, only those alive in Sweden in 2021 with one of the 200 most common names\n\n\nEveryone born in Sweden in 1925\nthe people the question is about\n\n… still alive and living in Sweden in 2021\ndeaths and emigration remove most\n\n… with one of today's 200 most common names\nwhat the SCB table counts\nIllustration, not to scale\n\n\n\nThe table counts people alive in Sweden in 2021, by year of birth: the dead and the emigrated are gone.\nIt only lists names common today, so a 1920s name that never came back is missing.\nThe data is tilted towards finding comebacks. Saying so is part of the result.\n\n\nSurvivorship bias. This is the step where the real thinking was in this project: the conclusion and its limitation. A small project with an honest limitation is a good project."
   },
   {
+    "objectID": "introduction/index.html#the-maths-a-comeback-score",
+    "href": "introduction/index.html#the-maths-a-comeback-score",
+    "title": "From a question to an answer anyone can check",
+    "section": "The maths: a comeback score",
+    "text": "The maths: a comeback score\nFor each name \\(n\\) and birth year \\(t\\), the share of people born that year with the name:\n\\[s_{n,t} = \\frac{\\text{people born in year } t \\text{ called } n}{\\text{people born in year } t \\text{ with any of the 200 names}}\\]\nAverage the share over three periods, \\(\\bar s_{\\text{1920s}}\\) (1922–35), \\(\\bar s_{\\text{dip}}\\) (1960–80) and \\(\\bar s_{\\text{now}}\\) (2005–21). A comeback is big when both popular periods dwarf the dip:\n\\[\\text{score}(n) = \\min\\left( \\frac{\\bar s_{\\text{1920s}}}{\\bar s_{\\text{dip}}},\\ \\frac{\\bar s_{\\text{now}}}{\\bar s_{\\text{dip}}} \\right)\\]\n\nElsa: \\(\\min\\left(\\frac{3.06\\%}{0.034\\%}, \\frac{1.72\\%}{0.034\\%}\\right) = \\min(90, 51) = 51\\).A name absent in the dip counts as 0.01%, so we never divide by zero.\n\n\nWhy the minimum: a name that was only popular in the 1920s, or only now, should not count as a comeback. The minimum is large only if both ratios are large."
+  },
+  {
     "objectID": "introduction/index.html#what-was-done",
     "href": "introduction/index.html#what-was-done",
     "title": "From a question to an answer anyone can check",
     "section": "What was done",
     "text": "What was done\n\nLife cycle of the baby names project\n\n\nQuestion\n\nDo names come\nback after\nthree generations?\nData\n\nSCB: 200 names by\nyear of birth\nCleaning\n\nreshape the table,\nhandle gaps,\ncounts → shares\nExploration\n\nshare of each\nbirth year\nAnalysis\n\na comeback\nscore\nConclusions\n\nyes: Elsa, Alice,\nAstrid … but only\nthe living are counted\n\n\nround and round\n\nREPRODUCIBLE THROUGHOUT  ·  fetch.py + report.qmd\n\n\n\nOne source, one straight line. The red step is where the work was. The report on GitHub"
+  },
+  {
+    "objectID": "introduction/index.html#the-workflow-1",
+    "href": "introduction/index.html#the-workflow-1",
+    "title": "From a question to an answer anyone can check",
+    "section": "The workflow",
+    "text": "The workflow\n\n\nDataTwo free online sources\n\n\nelectricity prices for the four zones, every hour for three years\n\n\nSMHI: wind and temperature in Malmö\n\n\ndownloaded by a script and saved, so anyone can rerun it\n\n\n\n\nCleaningOne row per day\n\n\none price per zone and day\n\n\nwatch out for clock changes\n\n\nput prices and weather side by side: 1,074 days\n\n\n\n\nAnalysisDoes wind matter?\n\n\nthe gap: Malmö minus Luleå, each day\n\n\ncompare calm days with windy days\n\n\nhow sure can we be, and how much does weather explain?\n\n\n\n\nResultsPartly\n\n\nMalmö 0.66, Luleå 0.31 kr/kWh on average\n\n\non calm days the gap is 0.40 kr/kWh bigger: not chance\n\n\nbut weather explains only about a fifth of it\n\n\n\n\n\nelectricity/fetch_prices.py + fetch_weather.py → electricity/data/ → electricity/report.qmd → report.mdone command: uv run quarto render\n\n\nTwo sources, put side by side by date. The cleaning is where the work was; the next slides show it."
   },
   {
     "objectID": "introduction/index.html#four-zones-one-country",
@@ -210,11 +231,25 @@
     "text": "Calm days, big gap\n\nOn calm days the gap is 0.40 kr/kWh bigger than on windy days, far more than chance would give. But wind and temperature explain only 18% of the day-to-day gap.\n\n“Not chance” comes from a bootstrap interval (0.34–0.47), which you will see in the second half. The 18%: the rest is the grid, nuclear maintenance and continental prices, which this data doesn’t contain. Correlation, not cause: windy days also differ in season and demand."
   },
   {
+    "objectID": "introduction/index.html#the-maths-the-gap-and-how-sure-we-are",
+    "href": "introduction/index.html#the-maths-the-gap-and-how-sure-we-are",
+    "title": "From a question to an answer anyone can check",
+    "section": "The maths: the gap, and how sure we are",
+    "text": "The maths: the gap, and how sure we are\nA day’s price in zone \\(z\\) is the average over its hours and quarter-hours, each counted by how long it lasted:\n\\[p_{z,d} = \\frac{\\sum_i \\text{price}_i \\cdot \\text{minutes}_i}{\\sum_i \\text{minutes}_i} \\qquad g_d = p_{\\text{Malmö},d} - p_{\\text{Luleå},d}\\]\nCompare the mean gap on the calmest and the windiest quarter of days:\n\\[\\Delta = \\bar g_{\\text{calm}} - \\bar g_{\\text{windy}} = 0.55 - 0.15 = 0.40 \\text{ kr/kWh}\\]\n\nHow sure? Redraw the days at random 10,000 times and recompute \\(\\Delta\\) each time: the middle 95% runs from 0.34 to 0.47. Zero is far outside, so it is not chance.\nHow much is weather? Fit a straight line through wind and temperature:\n\n\\[g_d = a + b \\cdot \\text{wind}_d + c \\cdot \\text{temp}_d + \\text{error}_d \\qquad 1 - \\frac{\\operatorname{Var}(\\text{error})}{\\operatorname{Var}(g)} = 18\\%\\]\n\nEach extra m/s of wind lowers the gap by 0.11 kr/kWh; wind and temperature together explain 18% of the day-to-day variation.\n\n\nThe resampling is the bootstrap (week 1, statistics). The fit is a linear regression; they will meet it properly later. Here it is enough to say what each number means."
+  },
+  {
     "objectID": "introduction/index.html#what-was-done-1",
     "href": "introduction/index.html#what-was-done-1",
     "title": "From a question to an answer anyone can check",
     "section": "What was done",
     "text": "What was done\n\nLife cycle of the electricity price project\n\n\n\n\nElectricity prices, 4 zones\n\n\nSMHI wind, Malmö\n\nSMHI temperature, Malmö\nQuestion\n\nHow big is the\nsouth–north gap,\nand is it the wind?\nData\nCleaning\n\none price a day,\nclock changes,\nmatch to weather\nExploration\n\nprices per zone\nover 3 years\nAnalysis\n\ncalm vs windy\ndays: how sure,\nhow much weather?\nConclusions\n\n0.40 kr/kWh more\non calm days;\nweather explains 18 %\n\n\nround and round\n\nREPRODUCIBLE THROUGHOUT  ·  two fetch scripts, saved raw data\n\n\n\nThree files, combined into one table. The report on GitHub"
+  },
+  {
+    "objectID": "introduction/index.html#the-workflow-2",
+    "href": "introduction/index.html#the-workflow-2",
+    "title": "From a question to an answer anyone can check",
+    "section": "The workflow",
+    "text": "The workflow\n\n\nDataThree sources\n\n\nshare prices vs company earnings, every month since 1871\n\n\nthe NASDAQ tech index since 1971\n\n\n4.8 million headlines from Hacker News, a tech forum\n\n\n\n\nCleaningMonths, comparable\n\n\nline the three sources up month by month\n\n\nread the dates carefully: one source writes October oddly\n\n\nuse shares of all headlines, not raw counts\n\n\n\n\nAnalysisHow unusual is today?\n\n\nturn “bubble” into three signs we can measure\n\n\nhow unusual is today, compared with every month before?\n\n\ncompare with 1929, 2000 and crypto\n\n\n\n\nResultsTwo of three signs\n\n\nvaluations: higher than almost every month since 1871\n\n\nattention: AI is in 14% of headlines; bitcoin peaked at 3%\n\n\nprice growth: ordinary (×1.6 in 5 years)\n\n\n\n\n\nai-bubble/fetch.py → ai-bubble/data/ → ai-bubble/report.qmd → report.mdone command: uv run quarto render\n\n\nThe hard part here is the analysis step: deciding what to measure. The next slide shows how."
   },
   {
     "objectID": "introduction/index.html#you-cant-measure-a-bubble-so-measure-its-signs",
@@ -252,6 +287,13 @@
     "text": "The honest answer\n\n\n✓Valuations40.7price vs earnings today · 44.2 in 2000\n\n\n✓Attention14 %of HN titles · bitcoin’s peak: 3 %\n\n\n✗Price growth×1.6in 5 years · ×5.9 in 2000\n\n\n\nTwo of three signs are there. Whether a crash follows is not in the data.\n\n\nHigh valuations can last for years; if AI raises earnings as expected, prices may be right.\nThree signs is our choice. US data, an English-language forum, few past bubbles to compare with.\n\n\nAmbition is not about a bigger dataset. It’s about a question that takes real effort, results that are checked, and conclusions that would convince a sceptical reader, including what you can’t conclude."
   },
   {
+    "objectID": "introduction/index.html#the-maths-three-signs-one-question",
+    "href": "introduction/index.html#the-maths-three-signs-one-question",
+    "title": "From a question to an answer anyone can check",
+    "section": "The maths: three signs, one question",
+    "text": "The maths: three signs, one question\n\\[\\text{valuation}_t = \\frac{\\text{price}_t}{\\text{mean earnings, previous 10 years}} \\qquad \\text{growth}_t = \\frac{\\text{NASDAQ}_t}{\\text{NASDAQ}_{t-5\\text{ yrs}}}\\]\n\\[\\text{attention}_t = \\frac{\\text{headlines with “AI” in month } t}{\\text{all headlines in month } t}\\]\nEach is compared with its own history. How unusual is today? The share of all earlier months with a lower value:\n\\[\\text{rank} = \\frac{1}{T}\\sum_{s=1}^{T} \\mathbf{1}\\{x_s &lt; x_{\\text{today}}\\}\\]\n\n\n\nSign\nToday\nRank\nRecord\n\n\n\n\nvaluation (CAPE)\n40.7\n99%\n44.2, Dec 1999\n\n\ngrowth in 5 years\n×1.6\n40%\n×5.9, Feb 2000\n\n\nattention\n13.7%\n97%\n15.9%, Feb 2026\n\n\n\n\nPrices and earnings are adjusted for inflation in Shiller’s data. A rank of 99% means only 1% of months since 1871 had a higher valuation."
+  },
+  {
     "objectID": "introduction/index.html#what-was-done-2",
     "href": "introduction/index.html#what-was-done-2",
     "title": "From a question to an answer anyone can check",
@@ -266,11 +308,11 @@
     "text": "Same cycle, bigger question\n\n\n\nSmalla clear question, one source, honest about its limits\n\n\nLife cycle of the baby names project\n\n\nQuestion\n\nDo names come\nback after\nthree generations?\nData\n\nSCB: 200 names by\nyear of birth\nCleaning\n\nreshape the table,\nhandle gaps,\ncounts → shares\nExploration\n\nshare of each\nbirth year\nAnalysis\n\na comeback\nscore\nConclusions\n\nyes: Elsa, Alice,\nAstrid … but only\nthe living are counted\n\n\nround and round\n\nREPRODUCIBLE THROUGHOUT  ·  fetch.py + report.qmd\n\n\n\n\n\nMediumsources combined, an analysis beyond description, uncertainty\n\n\nLife cycle of the electricity price project\n\n\n\n\nElectricity prices, 4 zones\n\n\nSMHI wind, Malmö\n\nSMHI temperature, Malmö\nQuestion\n\nHow big is the\nsouth–north gap,\nand is it the wind?\nData\nCleaning\n\none price a day,\nclock changes,\nmatch to weather\nExploration\n\nprices per zone\nover 3 years\nAnalysis\n\ncalm vs windy\ndays: how sure,\nhow much weather?\nConclusions\n\n0.40 kr/kWh more\non calm days;\nweather explains 18 %\n\n\nround and round\n\nREPRODUCIBLE THROUGHOUT  ·  two fetch scripts, saved raw data\n\n\n\n\n\nAmbitiousa question made measurable, checked, convincing\n\n\nLife cycle of the AI bubble project\n\n\n\n\nPrices vs earnings, since 1871\n\n\nThe NASDAQ tech index\n\nHacker News headlines\nQuestion\n\n“Bubble” is not\nmeasurable: turn it\ninto three signs\nData\nCleaning\n\nline up months,\ncareful dates,\ncounts → shares\nExploration\n\neach sign against\nits own history\nAnalysis\n\ncompare with 1929,\n2000 and the\ncrypto boom\nConclusions\n\n2 of 3 signs are\nthere; a crash is\nnot in the data\n\n\nround and round\n\nREPRODUCIBLE THROUGHOUT  ·  one fetch script, three sources saved\n\n\n\n\n\nThe reports are about the same length. What grows is the question and the work behind it. Clone them: github.com/su-mt4008/lecture-demos."
   },
   {
-    "objectID": "introduction/index.html#each-week-trains-part-of-the-cycle",
-    "href": "introduction/index.html#each-week-trains-part-of-the-cycle",
+    "objectID": "introduction/index.html#six-weeks-one-cycle",
+    "href": "introduction/index.html#six-weeks-one-cycle",
     "title": "From a question to an answer anyone can check",
-    "section": "Each week trains part of the cycle",
-    "text": "Each week trains part of the cycle\nData science is the whole cycle: from a question, through messy real data, to an answer someone else can check. Statistics tells you how sure you can be; code makes it repeatable.\n\n\nQuestion\n\n\nData\n\n\nCleaning\n\n\nExploration\n\n\nAnalysis\n\n\nConclusions\n\n\nReproduce\n\n\nW1 questions\n\n\nW4 joins & SQL\n\n\nW3 cleaning\n\n\nW2 tables & plots\n\n\nstatistics, in every assignment\n\n\nW1 Git, Quarto\n\n\nW5 web & APIs\n\n\nW3 exploring\n\n\nW6 text & LLMs\n\n\n\nYou choose Python or R. Everyone uses Quarto, Git and GitHub, VS Code.\n\n\nMore: About the course"
+    "section": "Six weeks, one cycle",
+    "text": "Six weeks, one cycle\nData science is the whole cycle: from a question, through messy real data, to an answer someone else can check.\n\n\n\n\n\n\n\n\nWeek\nTopic\nWhere it is in the cycle\n\n\n\n\n1\nReproducible analysis: questions, Git and Quarto\nthe question · reproducible\n\n\n2\nTables and plots\nexploration\n\n\n3\nCleaning and exploring messy data\ncleaning · exploration\n\n\n4\nCombining data: joins and databases\ndata · cleaning\n\n\n5\nData from the web\ndata\n\n\n6\nText as data\ndata\n\n\n\n\nStatistics comes in every week: it is how you analyse and how sure you can be. You choose Python or R; everyone uses Quarto, Git and VS Code.\n\n\nMore: About the course"
   },
   {
     "objectID": "introduction/index.html#the-course-at-a-glance",
@@ -334,26 +376,5 @@
     "title": "From a question to an answer anyone can check",
     "section": "Next: week 1",
     "text": "Next: week 1\n\nAfter the break: reproducible analysis, and the statistics you need for HW1.\n\n\nThe week 1 slides · This lecture as a post"
-  },
-  {
-    "objectID": "introduction/index.html#the-workflow",
-    "href": "introduction/index.html#the-workflow",
-    "title": "From a question to an answer anyone can check",
-    "section": "The workflow",
-    "text": "The workflow\n\n\nDataStatistics Sweden (SCB)\n\n\ndownloaded straight from their database by a short script\n\n\nhow many people born each year 1922–2021 have each of the 200 most common names\n\n\n\n\nCleaningA tidy table\n\n\nreshape the table so it is easy to work with\n\n\nhandle the gaps: SCB hides very small numbers\n\n\nturn counts into shares, so years can be compared\n\n\n\n\nAnalysisFind the comebacks\n\n\nplot each name over 100 years\n\n\na comeback score: common in the 1920s, rare in 1960–80, common again after 2005\n\n\n\n\nResultsYes, with a catch\n\n\nElla, Elsa, Alice, Astrid, Ebba top the score\n\n\nthe top 10 names: 59% of a year in 1922, 24% in 2021\n\n\nonly the living are counted\n\n\n\n\n\nnames/fetch.py → names/data/ → names/report.qmd → report.mdone command: uv run quarto render\n\n\nThe whole project in one slide: where the data came from, what we did to it, what we found. The next slides show the result and the catch."
-  },
-  {
-    "objectID": "introduction/index.html#the-workflow-1",
-    "href": "introduction/index.html#the-workflow-1",
-    "title": "From a question to an answer anyone can check",
-    "section": "The workflow",
-    "text": "The workflow\n\n\nDataTwo free online sources\n\n\nelectricity prices for the four zones, every hour for three years\n\n\nSMHI: wind and temperature in Malmö\n\n\ndownloaded by a script and saved, so anyone can rerun it\n\n\n\n\nCleaningOne row per day\n\n\none price per zone and day\n\n\nwatch out for clock changes\n\n\nput prices and weather side by side: 1,074 days\n\n\n\n\nAnalysisDoes wind matter?\n\n\nthe gap: Malmö minus Luleå, each day\n\n\ncompare calm days with windy days\n\n\nhow sure can we be, and how much does weather explain?\n\n\n\n\nResultsPartly\n\n\nMalmö 0.66, Luleå 0.31 kr/kWh on average\n\n\non calm days the gap is 0.40 kr/kWh bigger: not chance\n\n\nbut weather explains only about a fifth of it\n\n\n\n\n\nelectricity/fetch_prices.py + fetch_weather.py → electricity/data/ → electricity/report.qmd → report.mdone command: uv run quarto render\n\n\nTwo sources, put side by side by date. The cleaning is where the work was; the next slides show it."
-  },
-  {
-    "objectID": "introduction/index.html#the-workflow-2",
-    "href": "introduction/index.html#the-workflow-2",
-    "title": "From a question to an answer anyone can check",
-    "section": "The workflow",
-    "text": "The workflow\n\n\nDataThree sources\n\n\nshare prices vs company earnings, every month since 1871\n\n\nthe NASDAQ tech index since 1971\n\n\n4.8 million headlines from Hacker News, a tech forum\n\n\n\n\nCleaningMonths, comparable\n\n\nline the three sources up month by month\n\n\nread the dates carefully: one source writes October oddly\n\n\nuse shares of all headlines, not raw counts\n\n\n\n\nAnalysisHow unusual is today?\n\n\nturn “bubble” into three signs we can measure\n\n\nhow unusual is today, compared with every month before?\n\n\ncompare with 1929, 2000 and crypto\n\n\n\n\nResultsTwo of three signs\n\n\nvaluations: higher than almost every month since 1871\n\n\nattention: AI is in 14% of headlines; bitcoin peaked at 3%\n\n\nprice growth: ordinary (×1.6 in 5 years)\n\n\n\n\n\nai-bubble/fetch.py → ai-bubble/data/ → ai-bubble/report.qmd → report.mdone command: uv run quarto render\n\n\nThe hard part here is the analysis step: deciding what to measure. The next slide shows how."
   }
 ]

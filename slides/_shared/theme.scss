@@ -54,7 +54,6 @@ html.dark {
 .reveal table { font-size: .78em; }
 .reveal table th { border-bottom: 1px solid var(--c-text); font-weight: 600; }
 .reveal table td { border-bottom: 1px solid var(--c-line); }
-.reveal .math { font-size: .95em; }
 .reveal ul { list-style: none; margin-left: 0; }
 .reveal ul > li { position: relative; padding-left: 1.1em; margin-bottom: .3em; }
 .reveal ul > li::before { content: "–"; position: absolute; left: 0; color: var(--c-muted); }
@@ -211,3 +210,8 @@ html.dark {
 .reveal .workflow .result .kicker { color: var(--c-bg); opacity: .8; }
 .reveal .wfcode { margin-top: 1.4em; font-size: .55em; color: var(--c-muted); display: flex; flex-wrap: wrap; gap: .3em 1.4em; align-items: baseline; }
 .reveal .wfcode span { color: var(--c-muted); }
+
+// The week overview table: narrow week column.
+.reveal section.weeks table { width: 100%; }
+// Formula-heavy slides: a little smaller so everything fits.
+.reveal .slides section.dense { font-size: .84em; }
