@@ -1,0 +1,93 @@
+---
+title: "Example: penguin body mass"
+author: "MT4008"
+format: gfm
+---
+
+<!--
+A worked example of a report: what each of the seven sections is for.
+Your assignments go in hw1/ ... hw5/; leave this folder as it is.
+The same example in Python is in example/python/.
+-->
+
+```{r}
+#| include: false
+library(readr)
+library(dplyr)
+library(ggplot2)
+
+# Fix the random seed so anything random gives the same result every run.
+set.seed(4008)
+```
+
+## Question
+
+*What do you want to find out, and why does it matter? Make it a question the data can answer.*
+
+Do the three penguin species at Palmer Station differ in body mass?
+
+## Data
+
+*Where does the data come from, how was it collected, and what can it not tell you?*
+
+```{r}
+# Relative path: works on any computer that has this repository.
+penguins <- read_csv("data/raw/penguins.csv", show_col_types = FALSE)
+dim(penguins)
+```
+
+Measurements of 344 adult penguins on three islands near Palmer Station, Antarctica,
+2007–2009. Only these islands and years are covered, so the results say nothing about penguins
+elsewhere.
+
+## Cleaning
+
+*What did you change, and why? Every decision is in code, never by hand.*
+
+```{r}
+sum(is.na(penguins$body_mass_g))
+clean <- penguins |> filter(!is.na(body_mass_g))
+```
+
+Two penguins have no body mass recorded; they are left out.
+
+## Exploration
+
+*Look at the data before drawing conclusions: distributions, relationships, surprises.*
+
+```{r}
+#| fig-cap: "Body mass by species."
+#| fig-width: 6
+#| fig-height: 3.5
+ggplot(clean, aes(species, body_mass_g)) +
+  geom_boxplot() +
+  labs(x = NULL, y = "Body mass (g)")
+```
+
+## Analysis
+
+*Answer the question with a method that fits it, and check that the answer holds up.*
+
+```{r}
+clean |>
+  group_by(species) |>
+  summarise(n = n(), mean = round(mean(body_mass_g), 1), sd = round(sd(body_mass_g), 1)) |>
+  knitr::kable()
+```
+
+## Conclusions & limitations
+
+*What does the evidence support, how sure are you, and what could explain it otherwise?*
+
+Gentoo penguins are on average about 1.35 kg heavier than the other two species, which are
+similar to each other. These are averages from three islands and three years; we have not
+tested whether the difference between Adelie and Chinstrap is larger than chance.
+
+## How to reproduce
+
+*Exactly what someone needs to do to get the same result.*
+
+```bash
+Rscript -e 'renv::restore()'
+quarto render example/r/report.qmd
+```

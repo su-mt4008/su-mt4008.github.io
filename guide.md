@@ -9,8 +9,44 @@ and the project live in a **Git repository on GitHub**. You hand in by opening a
 classmates and teachers review it like code is reviewed at work, and an **automatic check**
 proves that your report runs on someone else’s computer.
 
-This page is the reference for all of it. Set up once (about an hour), then follow
-[Hand in an assignment](#hand-in-an-assignment) every week.
+This page is the reference for all of it. Start with [Get started](#get-started) (about an hour,
+once), then follow [Hand in an assignment](#hand-in-an-assignment) every week.
+
+## Get started {#get-started}
+
+Do this once, in the first week, before you start HW1:
+
+1. **Choose Python or R.** You use the same language for every assignment and the project.
+2. **Create a GitHub account** and register your username on
+   <a :href="$course.links.moodle">Moodle</a>. We use it to create your repository,
+   `<username>-assignments`.
+3. **Set up your computer** for your language: [Set up your computer](#set-up-your-computer).
+4. **Accept the invitation** to the `su-mt4008` organisation, from the email GitHub sends you.
+5. **Clone your repository and install its packages:** steps 1 and 2 of
+   [Hand in an assignment](#hand-in-an-assignment).
+6. **Start [HW1](/homework/1).**
+
+::: tip One repository, for Python and R
+Everyone gets the same repository, whichever language they chose. It has what both languages
+need: `pyproject.toml` and `uv.lock` for Python, `renv.lock` and `renv/` for R. Use the files and
+commands for your language, and leave the other language's files as they are. Your code chunks
+start with `{python}` or `{r}`, and that is how Quarto and the check know which language to run.
+:::
+
+What your choice changes, and nothing else:
+
+| | Python | R |
+|---|---|---|
+| Install | uv ([step 5](#_5-your-language)) | R and renv ([step 5](#_5-your-language)) |
+| VS Code extensions | Python, Jupyter | R |
+| Install packages (once) | `uv sync` | `renv::restore()` |
+| Code chunks in `report.qmd` | ` ```{python} ` | ` ```{r} ` |
+| Render | `uv run quarto render` | `quarto render` |
+| Add a package | `uv add <name>` | `install.packages("<name>")`, then `renv::snapshot()` |
+| Worked example | `example/python/` | `example/r/` |
+| Files you can ignore | `renv.lock`, `renv/`, `.Rprofile` | `pyproject.toml`, `uv.lock`, `.python-version` |
+
+Stuck on any step? Ask in a session, or use [the fallback](#if-your-install-fails) for now.
 
 ## The tools
 
@@ -104,12 +140,12 @@ you do once; steps 3–8 every week.
 ### 1. Clone your repository (once)
 
 We create a private repository for you, named `<username>-assignments`, from the course
-template. In VS Code: **Command Palette** (`Ctrl+Shift+P` / `Cmd+Shift+P`) → **Git: Clone** →
+template. It is the same for Python and R. In VS Code: **Command Palette** (`Ctrl+Shift+P` / `Cmd+Shift+P`) → **Git: Clone** →
 **Clone from GitHub** → choose `su-mt4008/<username>-assignments` → pick a folder → **Open**.
 
 ### 2. Install the project’s packages (once)
 
-In VS Code’s terminal, inside the repository:
+In VS Code’s terminal, inside the repository, run the command for your language:
 
 :::code-group
 ```bash [Python]
@@ -141,7 +177,9 @@ start HW2 even before HW1 has been merged.
 ### 4. Do the work
 
 Write your analysis in `hw1/report.qmd`, section by section; the assignment’s data goes in
-`hw1/data/raw/`. The folder `example/` shows a finished report. Render your report often:
+`hw1/data/raw/`. Write your code in your language: code chunks start with `{python}` or `{r}`.
+`example/python/` and `example/r/` show the same finished report in each language. Render your
+report often:
 
 :::code-group
 ```bash [Python]
@@ -197,7 +235,8 @@ Look at the branch name in the bottom-left corner of VS Code.
 ### 7. Watch the check
 
 A few minutes after you open the pull request (and after every new push), the **check** runs: a
-clean computer clones your repository, installs your lockfile and renders every report.
+clean computer clones your repository, installs the lockfile for the language your reports use,
+and renders every report.
 
 - **Green tick:** anyone can reproduce your report.
 - **Red cross:** something works on your computer only. See [When the check is red](#when-the-check-is-red).
@@ -272,8 +311,10 @@ Be kind, specific and actionable: comment on the work, not the person.
 Use **GitHub Codespaces** while we sort out your computer: VS Code in the browser, on a cloud
 machine where everything is already installed.
 
-1. On your repository on GitHub, click **Code** → **Codespaces** → **Create codespace on hw1**
-   (or on `main`, then make the branch as in step 3).
+1. On your repository on GitHub, click **Code** → **Codespaces** → **…** → **New with options…**.
+   Choose the branch `hw1` (or `main`, then make the branch as in step 3) and the dev container
+   configuration for your language, **MT4008 (Python)** or **MT4008 (R)**, then
+   **Create codespace**.
 2. Wait a minute while it installs. Then work exactly as described above, in the browser.
 3. When you’re done, stop the codespace (**Codespaces** menu, bottom left → **Stop Current Codespace**)
    so it doesn’t use up your free hours.

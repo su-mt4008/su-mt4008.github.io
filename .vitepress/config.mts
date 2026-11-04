@@ -53,6 +53,7 @@ const courseInfoSidebar = [
     items: [
       { text: 'About the course', link: '/about' },
       { text: 'How a week works', link: '/about#how-a-week-works' },
+      { text: 'Get started', link: '/guide#get-started' },
       { text: 'How we work', link: '/guide' },
     ]
   }
@@ -98,6 +99,7 @@ export default defineConfig({
           text: "Assignments",
           items: [
             { text: 'Overview', link: '/homework/' },
+            { text: 'Get started', link: '/guide#get-started' },
             { text: 'How to hand in', link: '/guide#hand-in-an-assignment' },
             ...homeworkItems,
           ]

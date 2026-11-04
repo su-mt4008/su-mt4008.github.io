@@ -31,7 +31,8 @@ Every assignment is handed in as a **pull request** on GitHub. The full step-by-
 [How we work](/guide#hand-in-an-assignment); in short:
 
 1. We create **one** private repository for you, **`<username>-assignments`**, from the course
-   template. It has a folder per assignment: `hw1/` … `hw5/`.
+   template. It is the same for Python and R, and has a folder per assignment: `hw1/` … `hw5/`.
+   New here? Start with [Get started](/guide#get-started).
 2. For each assignment, work on a branch `hw<n>` in the folder `hw<n>/`, render its
    `report.qmd`, commit and push.
 3. Open a pull request **from `hw<n>` into `main`** titled **`HW<n>`** by the Monday deadline.

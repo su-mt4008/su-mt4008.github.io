@@ -1,0 +1,22 @@
+# Your local environment, rebuilt from the lockfile, never committed.
+# Python: rebuilt from uv.lock by `uv sync`.
+.venv/
+__pycache__/
+.ipynb_checkpoints/
+# R: rebuilt from renv.lock by renv::restore().
+renv/library/
+renv/local/
+renv/cellar/
+renv/lock/
+renv/python/
+renv/sandbox/
+renv/staging/
+.Rhistory
+.RData
+.Rproj.user/
+# Quarto's scratch files.
+/.quarto/
+**/*.quarto_ipynb
+# Operating system clutter.
+.DS_Store
+Thumbs.db

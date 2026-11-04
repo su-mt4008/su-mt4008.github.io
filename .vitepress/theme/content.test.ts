@@ -82,7 +82,7 @@ describe('the whole site', () => {
 
 describe('review fixes', () => {
   it('locks R packages to a dated Posit Package Manager snapshot, so Windows/Mac get binaries all term', () => {
-    const lock = JSON.parse(page('templates/r/renv.lock'))
+    const lock = JSON.parse(page('templates/assignments/renv.lock'))
     expect(lock.R.Repositories[0].URL).toMatch(/^https:\/\/packagemanager\.posit\.co\/cran\/\d{4}-\d{2}-\d{2}$/)
   })
 

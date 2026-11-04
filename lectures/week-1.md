@@ -103,9 +103,10 @@ Your assignments repository starts from a template. Each part has one job:
 │  ├─ report_files/  ← its figures (made by Quarto; commit them)
 │  └─ data/raw/      ← data exactly as you got it, plus a README with source and licence
 ├─ hw2/ … hw5/       ← the same, one folder per assignment
-├─ example/          ← a worked example of a report
+├─ example/          ← a worked example of a report, in python/ and r/
 ├─ _quarto.yml       ← tells Quarto to render every report
-├─ pyproject.toml + uv.lock   or   renv.lock   ← the locked environment
+├─ pyproject.toml + uv.lock   ← the locked environment, for Python
+├─ renv.lock + renv/          ← the locked environment, for R
 ├─ .github/workflows/check.yml                ← the reproducibility check
 └─ README.md         ← what everything is, and the one command that renders it
 ```
