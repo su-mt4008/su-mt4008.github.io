@@ -1,0 +1,324 @@
+[
+  {
+    "objectID": "week-1/index.html#can-someone-else-get-your-numbers",
+    "href": "week-1/index.html#can-someone-else-get-your-numbers",
+    "title": "Reproducible analysis",
+    "section": "Can someone else get your numbers?",
+    "text": "Can someone else get your numbers?\nIn 2010, an influential economics paper found that growth falls sharply when government debt passes 90% of GDP. Governments cited it.\nIn 2013 a student tried to reproduce it from the authors’ spreadsheet, and found rows left out of an average. The striking result shrank to a modest one.\n\n\n\nA result nobody can reproduce is, scientifically, just a claim.\n\n\n\n\nReinhart and Rogoff (2010), “Growth in a Time of Debt”; Herndon, Ash and Pollin (2013). The error was found because someone could rerun it. Make that possible for your own work."
+  },
+  {
+    "objectID": "week-1/index.html#why-analyses-dont-reproduce",
+    "href": "week-1/index.html#why-analyses-dont-reproduce",
+    "title": "Reproducible analysis",
+    "section": "Why analyses don’t reproduce",
+    "text": "Why analyses don’t reproduce\n\n\n\n\n\n\n\nWhat goes wrong\nThe habit that prevents it\n\n\n\n\nDifferent package versions\na locked environment\n\n\nA variable you made by hand, then deleted the code\nrender from scratch\n\n\nYou fixed a typo in the CSV, in Excel\nnever edit raw data; change it in code\n\n\nC:\\Users\\anna\\Downloads\\data.csv\nrelative paths: data/raw/data.csv\n\n\nA random sample differs every run\nset a seed\n\n\nThe data was never committed\ncommit it, and let the check catch it\n\n\n\n\nMore: Week 1"
+  },
+  {
+    "objectID": "week-1/index.html#start-with-a-question-data-can-answer",
+    "href": "week-1/index.html#start-with-a-question-data-can-answer",
+    "title": "Reproducible analysis",
+    "section": "Start with a question data can answer",
+    "text": "Start with a question data can answer\n\n\n\n\n\n\n\nVague\nAnswerable\n\n\n\n\n“Look at Stockholm’s weather.”\nHas Stockholm’s mean annual temperature changed since the late 1990s?\n\n\n“Analyse electricity prices.”\nHow much more did southern Sweden pay than the north in 2023–25?\n\n\n“Is AI a bubble?”\nHow do three signs of a bubble compare with 1929 and 2000?\n\n\n\n\nA good question names what you measure, where and when, and what you’ll compare."
+  },
+  {
+    "objectID": "week-1/index.html#your-repository",
+    "href": "week-1/index.html#your-repository",
+    "title": "Reproducible analysis",
+    "section": "Your repository",
+    "text": "Your repository\n&lt;username&gt;-assignments/\n├─ hw1/\n│  ├─ report.qmd     ← your report: text and code, seven sections\n│  ├─ report.md      ← the rendered report (made by Quarto)\n│  └─ data/raw/      ← data exactly as you got it, with its source\n├─ hw2/ … hw5/\n├─ example/          ← a worked example of a report\n├─ pyproject.toml + uv.lock   or   renv.lock   ← the locked environment\n└─ .github/workflows/check.yml                ← the reproducibility check\n\nSame structure every time: a reader knows where to look, and everything generated can be remade with one command."
+  },
+  {
+    "objectID": "week-1/index.html#lockfiles-works-on-my-machine-works-on-every-machine",
+    "href": "week-1/index.html#lockfiles-works-on-my-machine-works-on-every-machine",
+    "title": "Reproducible analysis",
+    "section": "Lockfiles: “works on my machine” → works on every machine",
+    "text": "Lockfiles: “works on my machine” → works on every machine\n\nYour code depends on packages, and packages change.\nA lockfile records the exact version of every package.\nAnyone can rebuild the same environment from it:\n\nuv sync                      # Python\nRscript -e \"renv::restore()\" # R\n\nAdd a package with uv add pandas or renv::install(\"dplyr\") + renv::snapshot(). Never edit the lockfile by hand."
+  },
+  {
+    "objectID": "week-1/index.html#quarto-text-and-code-in-one-file",
+    "href": "week-1/index.html#quarto-text-and-code-in-one-file",
+    "title": "Reproducible analysis",
+    "section": "Quarto: text and code in one file",
+    "text": "Quarto: text and code in one file\n## Analysis\n\n```{python}\nyearly = temps.groupby(\"year\")[\"temp\"].mean()\nyearly.loc[2011:].mean() - yearly.loc[:2010].mean()\n```\n\nThe later period is warmer by 0.82 °C.\n\nquarto render runs the code and writes report.md with the results and figures.\nThe numbers in your text come from the code, not copied by hand."
+  },
+  {
+    "objectID": "week-1/index.html#git-four-words",
+    "href": "week-1/index.html#git-four-words",
+    "title": "Reproducible analysis",
+    "section": "Git: four words",
+    "text": "Git: four words\n\ncommit: save a snapshot, with a message saying why.\nbranch: a separate line of work; hw1 next to main.\npush: send your commits to GitHub.\npull request: “please look at this branch”: where the check runs and the review happens.\n\n\nYou will use these four every week. The guide has every command, for VS Code.\n\n\nMore: How to hand in"
+  },
+  {
+    "objectID": "week-1/index.html#the-check",
+    "href": "week-1/index.html#the-check",
+    "title": "Reproducible analysis",
+    "section": "The check",
+    "text": "The check\nWhen you open or update a pull request, GitHub starts a clean computer, installs your locked environment and renders your report.\n\nGreen: your analysis reproduces. Anyone can get your numbers.\nRed: something only works on your computer. The log says what.\n\n\nMore: When the check is red"
+  },
+  {
+    "objectID": "week-1/index.html#probability-statistics",
+    "href": "week-1/index.html#probability-statistics",
+    "title": "Reproducible analysis",
+    "section": "Probability ↔︎ statistics",
+    "text": "Probability ↔︎ statistics\n\n\n\n\n\n\n\nProbability (MT3001)\nStatistics (now)\n\n\n\n\nYou know the model: \\(X \\sim N(\\mu, \\sigma^2)\\)\nYou have the data: \\(x_1, \\dots, x_n\\)\n\n\nWhat will the data look like?\nWhat was the model? And how sure are you?\n\n\n\nData are observations of random variables. Your mean \\(\\bar x\\) is one value of the random variable \\(\\bar X\\): another sample would have given another value.\n\nMore: Statistics: the basics"
+  },
+  {
+    "objectID": "week-1/index.html#our-example-has-lund-got-warmer",
+    "href": "week-1/index.html#our-example-has-lund-got-warmer",
+    "title": "Reproducible analysis",
+    "section": "Our example: has Lund got warmer?",
+    "text": "Our example: has Lund got warmer?\n\nThe later period is 0.82 °C warmer. Is that real, or could weather alone do it?\n\nLund, not Stockholm: Stockholm is HW1, and we don’t give away the answer."
+  },
+  {
+    "objectID": "week-1/index.html#single-years-scatter-a-lot",
+    "href": "week-1/index.html#single-years-scatter-a-lot",
+    "title": "Reproducible analysis",
+    "section": "Single years scatter a lot",
+    "text": "Single years scatter a lot\n\n\nOne year varies by about 0.6 °C. The difference we found is not much larger."
+  },
+  {
+    "objectID": "week-1/index.html#means-scatter-much-less",
+    "href": "week-1/index.html#means-scatter-much-less",
+    "title": "Reproducible analysis",
+    "section": "Means scatter much less",
+    "text": "Means scatter much less\n\n\\[\\operatorname{Var}(\\bar X) = \\frac{\\sigma^2}{n} \\qquad \\Rightarrow \\qquad \\operatorname{SE} = \\frac{\\sigma}{\\sqrt n} \\approx \\frac{0.62}{\\sqrt{14}} = 0.17 \\text{ °C}\\]\n\nTo halve the uncertainty, you need four times the data."
+  },
+  {
+    "objectID": "week-1/index.html#confidence-intervals",
+    "href": "week-1/index.html#confidence-intervals",
+    "title": "Reproducible analysis",
+    "section": "Confidence intervals",
+    "text": "Confidence intervals\nBy the CLT, \\(\\bar X \\approx N(\\mu, \\operatorname{SE}^2)\\), so \\(\\;\\bar x \\pm 1.96\\,\\operatorname{SE}\\;\\) covers \\(\\mu\\) in 95% of samples.\n\n\n“95%” is a property of the method: about 1 in 20 intervals misses."
+  },
+  {
+    "objectID": "week-1/index.html#the-difference-with-its-uncertainty",
+    "href": "week-1/index.html#the-difference-with-its-uncertainty",
+    "title": "Reproducible analysis",
+    "section": "The difference, with its uncertainty",
+    "text": "The difference, with its uncertainty\n\\[\\operatorname{SE}_{\\text{diff}} = \\sqrt{\\frac{s_a^2}{n_a} + \\frac{s_b^2}{n_b}} = 0.23 \\qquad 0.82 \\pm 1.96 \\cdot 0.23 = [0.37,\\ 1.27] \\text{ °C}\\]\nThe whole interval is above zero: consistent with warming of 0.4 to 1.3 °C, not with no warming."
+  },
+  {
+    "objectID": "week-1/index.html#the-same-by-computer-the-bootstrap",
+    "href": "week-1/index.html#the-same-by-computer-the-bootstrap",
+    "title": "Reproducible analysis",
+    "section": "The same, by computer: the bootstrap",
+    "text": "The same, by computer: the bootstrap\n\nResample the years with replacement, 10,000 times; the middle 95% of the differences is the interval. No formula needed, and it works for almost any statistic."
+  },
+  {
+    "objectID": "week-1/index.html#could-it-be-chance-a-test",
+    "href": "week-1/index.html#could-it-be-chance-a-test",
+    "title": "Reproducible analysis",
+    "section": "Could it be chance? A test",
+    "text": "Could it be chance? A test\n\\(H_0\\): no difference. Then \\(\\;z = \\dfrac{0.82}{0.23} = 3.6\\;\\) and \\(\\;p = P(|Z| \\ge 3.6) \\approx 0.0003\\).\n\n\nBy computer: shuffle the years between the periods; how often is the difference as large? About 1 in 1,000."
+  },
+  {
+    "objectID": "week-1/index.html#what-a-p-value-is-not",
+    "href": "week-1/index.html#what-a-p-value-is-not",
+    "title": "Reproducible analysis",
+    "section": "What a p-value is not",
+    "text": "What a p-value is not\n\nNot the probability that \\(H_0\\) is true.\nNot the size or importance of the effect: report the estimate and its interval.\n\\(p &gt; 0.05\\) does not show there is no effect: maybe too little data."
+  },
+  {
+    "objectID": "week-1/index.html#correlation-and-trend",
+    "href": "week-1/index.html#correlation-and-trend",
+    "title": "Reproducible analysis",
+    "section": "Correlation and trend",
+    "text": "Correlation and trend\n\n\nSlope 0.54 °C per decade (95% interval 0.27 to 0.80), \\(r = 0.62\\). Correlation is not causation: here the cause comes from physics, not from this data."
+  },
+  {
+    "objectID": "week-1/index.html#the-many-tests-trap",
+    "href": "week-1/index.html#the-many-tests-trap",
+    "title": "Reproducible analysis",
+    "section": "The many-tests trap",
+    "text": "The many-tests trap\n\n\nTwenty tests on pure noise: one comes out “significant”. Test many things and something always will. Decide what to test before you look."
+  },
+  {
+    "objectID": "week-1/index.html#writing-it-up",
+    "href": "week-1/index.html#writing-it-up",
+    "title": "Reproducible analysis",
+    "section": "Writing it up",
+    "text": "Writing it up\n\n\n\n\nThe years 2011–2025 were on average 0.82 °C warmer in Lund than 1997–2010 (95% confidence interval 0.37 to 1.27 °C).\n\n\n\n\n\nThe estimate, with units.\nIts uncertainty.\nWhat it does not show: why, or what happens next."
+  },
+  {
+    "objectID": "week-1/index.html#before-monday",
+    "href": "week-1/index.html#before-monday",
+    "title": "Reproducible analysis",
+    "section": "Before Monday",
+    "text": "Before Monday\n\nSet up your computer: follow the guide. Problems? Bring them to Monday’s session.\nAccept the invite to your &lt;username&gt;-assignments repository.\nRead week 1 and Statistics: the basics.\nHW1: “Your first reproducible report”, due Mon 9 Nov, 23:59.\n\n\nQuestions?\n\n\nSet up your computer · HW1 · Week 1"
+  },
+  {
+    "objectID": "introduction/index.html#three-questions",
+    "href": "introduction/index.html#three-questions",
+    "title": "From a question to an answer anyone can check",
+    "section": "Three questions",
+    "text": "Three questions\n\n\n\n5 minutes\n\n\nAre baby names a fashion?\n\n\nOne table from Statistics Sweden.\n\n\n\n\n10 minutes\n\n\nWhy does electricity cost more in Malmö than in Luleå?\n\n\nPrices from an API, joined with weather.\n\n\n\n\n10 minutes\n\n\nIs AI a bubble?\n\n\nThree sources, and a question that first has to be made measurable.\n\n\n\n\nAll three are real analyses of real data, and you can rerun every one of them.\n\n\nOpen with the questions, not the course. Ask the room: which of these could you answer today, with a laptop? By the end of the course: all three. Each is a full report you can clone."
+  },
+  {
+    "objectID": "introduction/index.html#the-same-seven-steps-every-time",
+    "href": "introduction/index.html#the-same-seven-steps-every-time",
+    "title": "From a question to an answer anyone can check",
+    "section": "The same seven steps, every time",
+    "text": "The same seven steps, every time\n\n\nQuestionwhat you want to know, sharp enough to answer\n\n\nDatawhere it comes from, what it can’t tell you\n\n\nCleaningfrom raw to usable, every step in code\n\n\nExplorationlook before you test\n\n\nAnalysisthe comparison, model or test\n\n\nConclusionswhat follows, and its limits\n\n\nReproduceone command, same numbers\n\n\n\nThis is the data science life cycle. It is also the seven sections of every report you will write in this course.\n\n\nKeep this slide in mind: every project that follows is told along these seven steps."
+  },
+  {
+    "objectID": "introduction/index.html#names-skip-three-generations",
+    "href": "introduction/index.html#names-skip-three-generations",
+    "title": "From a question to an answer anyone can check",
+    "section": "Names skip three generations",
+    "text": "Names skip three generations\n\n\nShare of each birth year with the name, among the 200 most common names in Sweden. Data: SCB.\n\n\nCommon in the 1920s, nearly gone around 1970 (grey band), back after 2000. Ask: who in the room has a grandmother or great-grandmother called Elsa, Alice or Astrid?"
+  },
+  {
+    "objectID": "introduction/index.html#the-catch-only-the-living-are-counted",
+    "href": "introduction/index.html#the-catch-only-the-living-are-counted",
+    "title": "From a question to an answer anyone can check",
+    "section": "The catch: only the living are counted",
+    "text": "The catch: only the living are counted\n\nThe table counts people alive in Sweden in 2021, by year of birth.\nSomeone born in 1925 who has died or emigrated is not in it.\nAnd it only lists names that are common today: a 1925 name that never came back is missing.\n\n\n\n\nThe data is tilted towards finding comebacks. Saying so is part of the result.\n\n\n\n\nSurvivorship bias. This is the step where the real thinking was in this project: the conclusion and its limitation. A small project with an honest limitation is a good project."
+  },
+  {
+    "objectID": "introduction/index.html#what-was-done",
+    "href": "introduction/index.html#what-was-done",
+    "title": "From a question to an answer anyone can check",
+    "section": "What was done",
+    "text": "What was done\n\nLife cycle of the baby names project\n\n\nQuestion\n\nDo names come\nback after\nthree generations?\nData\n\nSCB: 200 names by\nyear of birth\nCleaning\n\nwide → long\n'..' means fewer\nthan ten people\nExploration\n\nshare of each\nbirth year\nAnalysis\n\na comeback\nscore\nConclusions\n\nyes: Elsa, Alice,\nAstrid … but only\nthe living are counted\nReproduce\n\nfetch.py +\nreport.qmd\n\n\n\nOne source, one straight line. The red step is where the work was. The report on GitHub"
+  },
+  {
+    "objectID": "introduction/index.html#four-zones-one-country",
+    "href": "introduction/index.html#four-zones-one-country",
+    "title": "From a question to an answer anyone can check",
+    "section": "Four zones, one country",
+    "text": "Four zones, one country\n\n\nMonthly mean spot price, 2023–2025. Data: Nord Pool via elprisetjustnu.se.\n\n\nSweden has four price zones since 2011. The gap is the shaded area. Question: how big is it, and does it go with the weather? Wind power in the south should push southern prices down."
+  },
+  {
+    "objectID": "introduction/index.html#where-the-work-was-cleaning",
+    "href": "introduction/index.html#where-the-work-was-cleaning",
+    "title": "From a question to an answer anyone can check",
+    "section": "Where the work was: cleaning",
+    "text": "Where the work was: cleaning\n\nPrices per hour, then per 15 minutes from October 2025: a plain mean weighs them wrongly.\nClocks change twice a year: some days have 23 or 25 hours.\nPrices are in UTC, weather in Swedish dates: join on the right day.\n22 of 1,096 days have no weather data. Dropped, and reported.\n\n\n\n\nNone of this shows in the final figure. All of it changes the numbers if done wrong.\n\n\n\n\nThis is what joining sources really means. Each bullet is a bug that would silently shift the result. The rendered report shows every one of these steps in code."
+  },
+  {
+    "objectID": "introduction/index.html#calm-days-big-gap",
+    "href": "introduction/index.html#calm-days-big-gap",
+    "title": "From a question to an answer anyone can check",
+    "section": "Calm days, big gap",
+    "text": "Calm days, big gap\n\nOn calm days Malmö pays 0.40 kr/kWh more than on windy days (95% interval 0.34 to 0.47). But wind and temperature explain only 18% of the day-to-day gap.\n\nThe interval is a bootstrap, which you will see in the second half. The 18%: the rest is the grid, nuclear maintenance and continental prices, which this data doesn’t contain. Correlation, not cause: windy days also differ in season and demand."
+  },
+  {
+    "objectID": "introduction/index.html#what-was-done-1",
+    "href": "introduction/index.html#what-was-done-1",
+    "title": "From a question to an answer anyone can check",
+    "section": "What was done",
+    "text": "What was done\n\nLife cycle of the electricity price project\n\n\n\n\nSpot prices, 4 zones (API)\n\n\nSMHI wind, Malmö\n\nSMHI temperature, Malmö\nQuestion\n\nHow big is the\nsouth–north gap,\nand is it the wind?\nData\nCleaning\n\n15-min vs hourly,\nclock changes,\njoin on the date\nExploration\n\nprices per zone\nover 3 years\nAnalysis\n\ncalm vs windy days,\nbootstrap,\nstraight-line fit\nConclusions\n\n0.40 kr/kWh more\non calm days;\nweather explains 18 %\nReproduce\n\ntwo fetch scripts,\nsaved raw data\n\n\n\nThree files, joined into one table. The report on GitHub"
+  },
+  {
+    "objectID": "introduction/index.html#you-cant-measure-a-bubble",
+    "href": "introduction/index.html#you-cant-measure-a-bubble",
+    "title": "From a question to an answer anyone can check",
+    "section": "You can’t measure a bubble",
+    "text": "You can’t measure a bubble\nSo turn the question into things you can measure.\n\n\n\n\n\n\n\n\nA bubble means …\nWe measure\nSource\n\n\n\n\nprices far above what companies earn\nprice / earnings over 10 years (CAPE)\nShiller, since 1871\n\n\nprices that rose unusually fast\nNASDAQ compared with 5 years earlier\nFRED\n\n\neverybody talking about it\nshare of Hacker News titles saying “AI”\nHN Search API\n\n\n\n\nThe question becomes: how do today’s values compare with 1929, 2000 and the crypto boom?\n\n\nThis is the step that makes it an A-level project: operationalising. The data can’t say “bubble”; it can say how unusual today is on signs that people associate with bubbles."
+  },
+  {
+    "objectID": "introduction/index.html#valuations-second-only-to-2000",
+    "href": "introduction/index.html#valuations-second-only-to-2000",
+    "title": "From a question to an answer anyone can check",
+    "section": "Valuations: second only to 2000",
+    "text": "Valuations: second only to 2000\n\n\nCAPE of the S&P composite. Data: Robert Shiller.\n\n\nOnly the months around the 2000 peak were higher. 1929 was lower than today. A cleaning trap: Shiller writes October as 2026.1, which as a number is the same as January."
+  },
+  {
+    "objectID": "introduction/index.html#prices-an-ordinary-pace",
+    "href": "introduction/index.html#prices-an-ordinary-pace",
+    "title": "From a question to an answer anyone can check",
+    "section": "Prices: an ordinary pace",
+    "text": "Prices: an ordinary pace\n\n\nThe NASDAQ index divided by its value five years earlier. Data: FRED.\n\n\nToday ×1.6: higher than only 40% of months. In 2000: ×5.9. This sign is not there.\n\n\nThis is the slide that makes the project honest. Showing only CAPE and attention would make a more exciting story and a less true one. Report the evidence that goes against you."
+  },
+  {
+    "objectID": "introduction/index.html#attention-four-times-the-crypto-peak",
+    "href": "introduction/index.html#attention-four-times-the-crypto-peak",
+    "title": "From a question to an answer anyone can check",
+    "section": "Attention: four times the crypto peak",
+    "text": "Attention: four times the crypto peak\n\n\nShare of Hacker News story titles with each word, 3-month average. Data: HN Search API."
+  },
+  {
+    "objectID": "introduction/index.html#the-honest-answer",
+    "href": "introduction/index.html#the-honest-answer",
+    "title": "From a question to an answer anyone can check",
+    "section": "The honest answer",
+    "text": "The honest answer\n\nTwo of three signs that came before earlier crashes are there.Whether a crash follows is not in the data.\n\n\nHigh valuations can last for years; if AI raises earnings as expected, prices may be right.\nThree signs is our choice. US data, an English-language forum, few past bubbles to compare.\n\n\nAn A is not about a bigger dataset. It’s about a question that takes real effort, results that are checked, and conclusions that would convince a sceptical reader, including what you can’t conclude."
+  },
+  {
+    "objectID": "introduction/index.html#what-was-done-2",
+    "href": "introduction/index.html#what-was-done-2",
+    "title": "From a question to an answer anyone can check",
+    "section": "What was done",
+    "text": "What was done\n\nLife cycle of the AI bubble project\n\n\n\n\nShiller: valuations since 1871\n\n\nFRED: the NASDAQ index\n\nHacker News titles (API)\nQuestion\n\n“Bubble” is not\nmeasurable: turn it\ninto three signs\nData\nCleaning\n\ndates like 2026.1\nmean October;\ncounts → shares\nExploration\n\neach sign against\nits own history\nAnalysis\n\ncompare with 1929,\n2000 and the\ncrypto boom\nConclusions\n\n2 of 3 signs are\nthere; a crash is\nnot in the data\nReproduce\n\none fetch script,\nthree sources saved\n\n\n\nThe red step: the question itself. The report on GitHub"
+  },
+  {
+    "objectID": "introduction/index.html#same-cycle-bigger-question",
+    "href": "introduction/index.html#same-cycle-bigger-question",
+    "title": "From a question to an answer anyone can check",
+    "section": "Same cycle, bigger question",
+    "text": "Same cycle, bigger question\n\n\n\n≈ Ea clear question, one source, honest about its limits\n\n\nLife cycle of the baby names project\n\n\nQuestion\n\nDo names come\nback after\nthree generations?\nData\n\nSCB: 200 names by\nyear of birth\nCleaning\n\nwide → long\n'..' means fewer\nthan ten people\nExploration\n\nshare of each\nbirth year\nAnalysis\n\na comeback\nscore\nConclusions\n\nyes: Elsa, Alice,\nAstrid … but only\nthe living are counted\nReproduce\n\nfetch.py +\nreport.qmd\n\n\n\n\n\n≈ Csources combined, an analysis beyond description, uncertainty\n\n\nLife cycle of the electricity price project\n\n\n\n\nSpot prices, 4 zones (API)\n\n\nSMHI wind, Malmö\n\nSMHI temperature, Malmö\nQuestion\n\nHow big is the\nsouth–north gap,\nand is it the wind?\nData\nCleaning\n\n15-min vs hourly,\nclock changes,\njoin on the date\nExploration\n\nprices per zone\nover 3 years\nAnalysis\n\ncalm vs windy days,\nbootstrap,\nstraight-line fit\nConclusions\n\n0.40 kr/kWh more\non calm days;\nweather explains 18 %\nReproduce\n\ntwo fetch scripts,\nsaved raw data\n\n\n\n\n\n≈ Aan ambitious question made measurable, checked, convincing\n\n\nLife cycle of the AI bubble project\n\n\n\n\nShiller: valuations since 1871\n\n\nFRED: the NASDAQ index\n\nHacker News titles (API)\nQuestion\n\n“Bubble” is not\nmeasurable: turn it\ninto three signs\nData\nCleaning\n\ndates like 2026.1\nmean October;\ncounts → shares\nExploration\n\neach sign against\nits own history\nAnalysis\n\ncompare with 1929,\n2000 and the\ncrypto boom\nConclusions\n\n2 of 3 signs are\nthere; a crash is\nnot in the data\nReproduce\n\none fetch script,\nthree sources saved\n\n\n\n\n\nThe reports are about the same length. What grows is the question and the work behind it. That is exactly how the project is graded. Clone them: github.com/su-mt4008/lecture-demos."
+  },
+  {
+    "objectID": "introduction/index.html#what-this-course-is",
+    "href": "introduction/index.html#what-this-course-is",
+    "title": "From a question to an answer anyone can check",
+    "section": "What this course is",
+    "text": "What this course is\nData science is the whole cycle: from a question, through messy real data, to an answer someone else can check. Statistics is how you know how sure you can be; code is how you make it repeatable.\n\nTools: Python or R, Quarto, Git and GitHub, VS Code. You choose the language.\nSix weeks, one theme each: reproducible analysis · tables and plots · cleaning and exploring · joins and databases · data from the web · text as data.\n\n\nMore: About the course"
+  },
+  {
+    "objectID": "introduction/index.html#a-week",
+    "href": "introduction/index.html#a-week",
+    "title": "From a question to an answer anyone can check",
+    "section": "A week",
+    "text": "A week\n\nSelf-study first. Each week’s material is on the site: read it, run the code.\nMonday: a 15–30 minute walkthrough, then work time.\nThursday: work time. Bring your laptop and your questions.\nSessions 13:00–17:00, Lecture room 19, Albano Hus 2, 2nd floor. Not compulsory, strongly encouraged.\n\n\nMore: How a week works\n\n\nNo live demos. The material is written to be worked through; sessions are where you get help."
+  },
+  {
+    "objectID": "introduction/index.html#five-assignments",
+    "href": "introduction/index.html#five-assignments",
+    "title": "From a question to an answer anyone can check",
+    "section": "Five assignments",
+    "text": "Five assignments\n\n\n\n\nAssignment\n\n\nHand in\n\n\nPeer review\n\n\nFinal version\n\n\n\n\n\n\nHW1 Your first reproducible report\n\n\nMon 9 Nov, 23:59\n\n\nThu 12 Nov, 23:59\n\n\nFri 13 Nov, 23:59\n\n\n\n\nHW2 Tables and plots\n\n\nMon 16 Nov, 23:59\n\n\nThu 19 Nov, 23:59\n\n\nFri 20 Nov, 23:59\n\n\n\n\nHW3 Exploring and visualising data\n\n\nMon 23 Nov, 23:59\n\n\nThu 26 Nov, 23:59\n\n\nFri 27 Nov, 23:59\n\n\n\n\nHW4 SQL and regex\n\n\nMon 30 Nov, 23:59\n\n\nThu 3 Dec, 23:59\n\n\nFri 4 Dec, 23:59\n\n\n\n\nHW5 Data from the web\n\n\nMon 7 Dec, 23:59\n\n\nThu 10 Dec, 23:59\n\n\nFri 11 Dec, 23:59\n\n\n\n\n\nMore: Assignments"
+  },
+  {
+    "objectID": "introduction/index.html#how-assignments-are-scored",
+    "href": "introduction/index.html#how-assignments-are-scored",
+    "title": "From a question to an answer anyone can check",
+    "section": "How assignments are scored",
+    "text": "How assignments are scored\n\nEach assignment: 0–100 points, 65 to pass.\nPeer review is required: review a classmate’s report by Thursday 23:59.\nYou can improve your report after the review until Friday 23:59. That version is graded.\nLate hand-in: −30 points, and no peer review.\nFinal deadline for every assignment, late or not: Fri 15 Jan, 23:59. Miss it and you redo all assignments next year.\n\n\nMore: Assignments"
+  },
+  {
+    "objectID": "introduction/index.html#how-you-hand-in",
+    "href": "introduction/index.html#how-you-hand-in",
+    "title": "From a question to an answer anyone can check",
+    "section": "How you hand in",
+    "text": "How you hand in\n\n\nBranchhw1 from an updated main\n\n\nWorkin hw1/report.qmd, commit often\n\n\nPull requesttitled HW1, by Monday 23:59\n\n\nThe checkrenders your report on a clean computer: green or red\n\n\nReviewa classmate comments; you fix until Friday\n\n\n\nOne repository for all five: &lt;username&gt;-assignments, on GitHub. You’ll get an invite.\n\n\nMore: How we work\n\n\nWe’ll go through this in detail in the second half. The check is the reproducibility test: green means anyone can get your numbers."
+  },
+  {
+    "objectID": "introduction/index.html#the-project",
+    "href": "introduction/index.html#the-project",
+    "title": "From a question to an answer anyone can check",
+    "section": "The project",
+    "text": "The project\n\nGroups of 2–3, a question of your own, the full cycle, reproducible like the assignments.\nProposal on Moodle by Thu 19 Nov, 23:59: members, scope and target grade (A, C or E).\nReport: about the same length as an assignment. A bigger project means more thinking, not more pages.\nPresentation, 15–20 minutes per group: Mon 11 Jan, 13:00–16:00.\nHand-in: Fri 8 Jan, 23:59.\n\n\nMore: Project, with what an E, C and A project looks like\n\n\nThe three projects you just saw are the reference points for E, C and A. Start thinking about groups and questions now: the proposal is in two weeks."
+  },
+  {
+    "objectID": "introduction/index.html#the-exam",
+    "href": "introduction/index.html#the-exam",
+    "title": "From a question to an answer anyone can check",
+    "section": "The exam",
+    "text": "The exam\n\nWritten, on campus: Sat 9 Jan, 09:00–11:00.\nTheoretical: the ideas behind what you did, at the level of the assignments.\nRegister in Ladok.\n\n\nMore: Exam"
+  },
+  {
+    "objectID": "introduction/index.html#where-everything-is",
+    "href": "introduction/index.html#where-everything-is",
+    "title": "From a question to an answer anyone can check",
+    "section": "Where everything is",
+    "text": "Where everything is\n\nThe course site has everything.su-mt4008.github.io\n\n\nMaterial, assignments, dates and the guide for your setup: the site.\nHand-ins: GitHub. Project proposal: Moodle. Rooms and times: TimeEdit."
+  },
+  {
+    "objectID": "introduction/index.html#next-week-1",
+    "href": "introduction/index.html#next-week-1",
+    "title": "From a question to an answer anyone can check",
+    "section": "Next: week 1",
+    "text": "Next: week 1\n\nAfter the break: reproducible analysis, and the statistics you need for HW1.\n\n\nThe week 1 slides · This lecture as a post"
+  }
+]

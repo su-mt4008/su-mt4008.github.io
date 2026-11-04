@@ -1,15 +1,17 @@
-# The introduction lecture as a reveal.js deck. Render from this folder with:  quarto render
-# The output goes into the site (public/slides/introduction/), served at /slides/introduction/.
-# Figures come from scripts/introduction_figures.py; dates and rules from /course.json.
+# Every lecture deck. Render them all from this folder with:  quarto render
+# slides/<name>/index.qmd becomes public/slides/<name>/index.html, served at /slides/<name>/,
+# and the lecture page /lectures/<name> links to it automatically.
+# To add a deck: create <name>/index.qmd (copy week-1's front matter) and add it below.
 project:
-  type: default
-  output-dir: ../../public/slides/introduction
+  type: website   # "website" only so the decks share one copy of reveal.js (site_libs/)
+  output-dir: ../public/slides
   render:
-    - index.qmd
+    - introduction/index.qmd
+    - week-1/index.qmd
 
 format:
   revealjs:
-    theme: [default, theme.scss]
+    theme: [default, _shared/theme.scss]
     width: 1280
     height: 720
     margin: 0.06
@@ -29,4 +31,4 @@ format:
           <link rel="preconnect" href="https://fonts.googleapis.com">
           <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
           <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Serif:wght@400;500;600&display=swap">
-    include-after-body: course.html
+    include-after-body: _shared/course.html

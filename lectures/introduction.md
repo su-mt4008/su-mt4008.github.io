@@ -7,11 +7,9 @@ outline: 2
 The first session of the course, {{ $course.firstSession }}. This page tells the same story as
 the slides, for reading afterwards or if you missed it.
 
-<p class="slides-link"><a href="/slides/introduction/index.html" target="_blank" rel="noopener">Open the slides</a> · press <kbd>F</kbd> for full screen, <kbd>S</kbd> for speaker notes</p>
-
-The session has two halves. The first shows what this course is about through three real
-projects, then goes through how the course works. The second covers [week 1](/lectures/week-1)
-and the [statistics you need](/statistics).
+The session has two halves. The first, these slides, shows what this course is about through
+three real projects, then goes through how the course works. After the break comes
+[week 1](/lectures/week-1), with its own slides, including the [statistics you need](/statistics).
 
 ## The data science life cycle
 
@@ -159,9 +157,9 @@ The second part of the session went through the practical side. Everything is on
 
 ## Week 1 and statistics
 
-The second half of the session followed [week 1](/lectures/week-1) (reproducible analysis,
-lockfiles, Quarto, Git and the check) and [Statistics: the basics](/statistics) (standard errors,
-confidence intervals, the bootstrap, tests and their traps). Read both before starting
+The second half of the session followed [week 1](/lectures/week-1) and its slides (reproducible
+analysis, lockfiles, Quarto, Git and the check) and [Statistics: the basics](/statistics)
+(standard errors, confidence intervals, the bootstrap, tests and their traps). Read both before starting
 [HW1](/homework/1).
 
 ## Reproduce the three projects
@@ -176,7 +174,3 @@ uv run quarto render
 The data is saved in the repository, so this works without downloading anything. Each project
 also has a `fetch` script that downloads its data again.
 
-<style>
-.slides-link { font-size: 15px; }
-.slides-link kbd { font-size: 12px; padding: 1px 5px; border: 1px solid var(--c-line); border-radius: 3px; }
-</style>

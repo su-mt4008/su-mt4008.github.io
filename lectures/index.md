@@ -1,6 +1,6 @@
 # Lectures
 
-There are no lectures: the material is designed for self-study, one week at a time. Instead, we meet twice a week for **work sessions**, from {{ $course.firstSession }} to {{ $course.lastSession }}:
+There are no long lectures: the material is designed for self-study, one week at a time. Each week has a **page to read** and **slides** for the Monday walkthrough, both linked below. We meet twice a week for **work sessions**, from {{ $course.firstSession }} to {{ $course.lastSession }}:
 
 * **Mondays, {{ $course.hours }}:** a **15–30 minute walkthrough** of this week’s material, then work time.
 * **Thursdays, {{ $course.hours }}:** work time.

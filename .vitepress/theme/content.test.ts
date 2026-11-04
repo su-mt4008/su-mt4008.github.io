@@ -126,11 +126,10 @@ describe('statistics page', () => {
 
 describe('introduction lecture', () => {
   const post = page('lectures/introduction.md')
-  const deck = page('slides/introduction/index.qmd')
+  const deck = page('slides/introduction/index.qmd') + page('slides/week-1/index.qmd')
   const exists = (path: string) => { try { readFileSync(path); return true } catch { return false } }
 
-  it('the post links to the slides and the slides back to the post', () => {
-    expect(post).toContain('href="/slides/introduction/index.html"')
+  it('the slides link back to the post (the post gets its Slides link automatically)', () => {
     expect(deck).toContain('/lectures/introduction')
   })
   it('the post shows a diagram for each project, and each diagram exists in both shapes', () => {
@@ -155,5 +154,22 @@ describe('introduction lecture', () => {
     expect(page('.vitepress/config.mts')).toContain("link: '/lectures/introduction'")
     expect(page('lectures/week-1.md')).toContain('/lectures/introduction')
     expect(page('lectures/index.md')).toContain('/lectures/introduction')
+  })
+})
+
+describe('lecture decks', () => {
+  const config = page('slides/_quarto.yml')
+  const decks = [...config.matchAll(/^\s+- (\S+)\/index\.qmd$/gm)].map((m) => m[1])
+  it('every deck in slides/_quarto.yml exists, has a lecture page, and links back to it', () => {
+    expect(decks).toEqual(expect.arrayContaining(['introduction', 'week-1']))
+    for (const name of decks) {
+      expect(page(`lectures/${name}.md`).length).toBeGreaterThan(0)
+      expect(page(`slides/${name}/index.qmd`)).toContain(`/lectures/${name}`)
+    }
+  })
+  it('every deck folder is listed in slides/_quarto.yml, so `quarto render` builds it', () => {
+    const folders = readdirSync('slides', { withFileTypes: true })
+      .filter((d) => d.isDirectory() && !d.name.startsWith('_') && !d.name.startsWith('.')).map((d) => d.name)
+    expect(folders.sort()).toEqual([...decks].sort())
   })
 })

@@ -1,12 +1,12 @@
 <!DOCTYPE html>
 <html lang="en"><head>
-<script src="index_files/libs/clipboard/clipboard.min.js"></script>
-<script src="index_files/libs/quarto-html/tabby.min.js"></script>
-<script src="index_files/libs/quarto-html/popper.min.js"></script>
-<script src="index_files/libs/quarto-html/tippy.umd.min.js"></script>
-<link href="index_files/libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="index_files/libs/quarto-html/light-border.css" rel="stylesheet">
-<link href="index_files/libs/quarto-html/quarto-syntax-highlighting-7b89279ff1a6dce999919e0e67d4d9ec.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-html/tabby.min.js"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/light-border.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-7b89279ff1a6dce999919e0e67d4d9ec.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
   <meta name="generator" content="quarto-1.8.25">
 
   <meta name="author" content="Per Alexandersson and Taariq Nazar">
@@ -14,8 +14,8 @@
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
-  <link rel="stylesheet" href="index_files/libs/revealjs/dist/reset.css">
-  <link rel="stylesheet" href="index_files/libs/revealjs/dist/reveal.css">
+  <link rel="stylesheet" href="../site_libs/revealjs/dist/reset.css">
+  <link rel="stylesheet" href="../site_libs/revealjs/dist/reveal.css">
   <style>
     code{white-space: pre-wrap;}
     span.smallcaps{font-variant: small-caps;}
@@ -28,78 +28,12 @@
       margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
       vertical-align: middle;
     }
-    /* CSS for syntax highlighting */
-    html { -webkit-text-size-adjust: 100%; }
-    pre > code.sourceCode { white-space: pre; position: relative; }
-    pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
-    pre > code.sourceCode > span:empty { height: 1.2em; }
-    .sourceCode { overflow: visible; }
-    code.sourceCode > span { color: inherit; text-decoration: inherit; }
-    div.sourceCode { margin: 1em 0; }
-    pre.sourceCode { margin: 0; }
-    @media screen {
-    div.sourceCode { overflow: auto; }
-    }
-    @media print {
-    pre > code.sourceCode { white-space: pre-wrap; }
-    pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
-    }
-    pre.numberSource code
-      { counter-reset: source-line 0; }
-    pre.numberSource code > span
-      { position: relative; left: -4em; counter-increment: source-line; }
-    pre.numberSource code > span > a:first-child::before
-      { content: counter(source-line);
-        position: relative; left: -1em; text-align: right; vertical-align: baseline;
-        border: none; display: inline-block;
-        -webkit-touch-callout: none; -webkit-user-select: none;
-        -khtml-user-select: none; -moz-user-select: none;
-        -ms-user-select: none; user-select: none;
-        padding: 0 4px; width: 4em;
-        color: #aaaaaa;
-      }
-    pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
-    div.sourceCode
-      { color: #003b4f; background-color: #f1f3f5; }
-    @media screen {
-    pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
-    }
-    code span { color: #003b4f; } /* Normal */
-    code span.al { color: #ad0000; } /* Alert */
-    code span.an { color: #5e5e5e; } /* Annotation */
-    code span.at { color: #657422; } /* Attribute */
-    code span.bn { color: #ad0000; } /* BaseN */
-    code span.bu { } /* BuiltIn */
-    code span.cf { color: #003b4f; font-weight: bold; } /* ControlFlow */
-    code span.ch { color: #20794d; } /* Char */
-    code span.cn { color: #8f5902; } /* Constant */
-    code span.co { color: #5e5e5e; } /* Comment */
-    code span.cv { color: #5e5e5e; font-style: italic; } /* CommentVar */
-    code span.do { color: #5e5e5e; font-style: italic; } /* Documentation */
-    code span.dt { color: #ad0000; } /* DataType */
-    code span.dv { color: #ad0000; } /* DecVal */
-    code span.er { color: #ad0000; } /* Error */
-    code span.ex { } /* Extension */
-    code span.fl { color: #ad0000; } /* Float */
-    code span.fu { color: #4758ab; } /* Function */
-    code span.im { color: #00769e; } /* Import */
-    code span.in { color: #5e5e5e; } /* Information */
-    code span.kw { color: #003b4f; font-weight: bold; } /* Keyword */
-    code span.op { color: #5e5e5e; } /* Operator */
-    code span.ot { color: #003b4f; } /* Other */
-    code span.pp { color: #ad0000; } /* Preprocessor */
-    code span.sc { color: #5e5e5e; } /* SpecialChar */
-    code span.ss { color: #20794d; } /* SpecialString */
-    code span.st { color: #20794d; } /* String */
-    code span.va { color: #111111; } /* Variable */
-    code span.vs { color: #20794d; } /* VerbatimString */
-    code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   </style>
-  <link rel="stylesheet" href="index_files/libs/revealjs/dist/theme/quarto-9cc7e8eb3abf25dbab6ed835a2f6fd1c.css">
-  <link href="index_files/libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
-  <link href="index_files/libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
-  <link href="index_files/libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
-  <link href="index_files/libs/revealjs/plugin/quarto-support/footer.css" rel="stylesheet">
+  <link rel="stylesheet" href="../site_libs/revealjs/dist/theme/quarto-9cc7e8eb3abf25dbab6ed835a2f6fd1c.css">
+  <link href="../site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
+  <link href="../site_libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
+  <link href="../site_libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
+  <link href="../site_libs/revealjs/plugin/quarto-support/footer.css" rel="stylesheet">
   <style type="text/css">
     .reveal div.sourceCode {
       margin: 0;
@@ -315,7 +249,7 @@ Small project · one source
 <section id="names-skip-three-generations" class="slide level2">
 <h2>Names skip three generations</h2>
 
-<img src="/img/introduction/names-comebacks.svg" alt="Share of births named Elsa, Alice and Astrid, 1922–2021: high in the 1920s, almost zero in 1960–80, high again after 2000" class="r-stretch"><p class="small">
+<img src="../img/introduction/names-comebacks.svg" alt="Share of births named Elsa, Alice and Astrid, 1922–2021: high in the 1920s, almost zero in 1960–80, high again after 2000" class="r-stretch"><p class="small">
 Share of each birth year with the name, among the 200 most common names in Sweden. Data: SCB.
 </p>
 <aside class="notes">
@@ -423,7 +357,7 @@ Medium project · two sources joined
 <section id="four-zones-one-country" class="slide level2">
 <h2>Four zones, one country</h2>
 
-<img src="/img/introduction/electricity-zones.svg" alt="Monthly mean spot price in SE4 Malmö and SE1 Luleå, 2023–2025; Malmö is above Luleå almost every month" class="r-stretch"><p class="small">
+<img src="../img/introduction/electricity-zones.svg" alt="Monthly mean spot price in SE4 Malmö and SE1 Luleå, 2023–2025; Malmö is above Luleå almost every month" class="r-stretch"><p class="small">
 Monthly mean spot price, 2023–2025. Data: Nord Pool via elprisetjustnu.se.
 </p>
 <aside class="notes">
@@ -472,7 +406,7 @@ None of this shows in the final figure. All of it changes the numbers if done wr
 <section id="calm-days-big-gap" class="slide level2">
 <h2>Calm days, big gap</h2>
 
-<img src="/img/introduction/electricity-wind.svg" alt="Mean price gap by wind quarter: 0.55 SEK per kWh on the calmest days, falling to 0.15 on the windiest" class="r-stretch"><p>On calm days Malmö pays <strong>0.40 kr/kWh more</strong> than on windy days (95% interval 0.34 to 0.47). But wind and temperature explain only <strong>18%</strong> of the day-to-day gap.</p>
+<img src="../img/introduction/electricity-wind.svg" alt="Mean price gap by wind quarter: 0.55 SEK per kWh on the calmest days, falling to 0.15 on the windiest" class="r-stretch"><p>On calm days Malmö pays <strong>0.40 kr/kWh more</strong> than on windy days (95% interval 0.34 to 0.47). But wind and temperature explain only <strong>18%</strong> of the day-to-day gap.</p>
 <aside class="notes">
 <p>The interval is a bootstrap, which you will see in the second half. The 18%: the rest is the grid, nuclear maintenance and continental prices, which this data doesn’t contain. Correlation, not cause: windy days also differ in season and demand.</p>
 <style type="text/css">
@@ -607,7 +541,7 @@ The question becomes: how do today’s values compare with 1929, 2000 and the cr
 <section id="valuations-second-only-to-2000" class="slide level2">
 <h2>Valuations: second only to 2000</h2>
 
-<img src="/img/introduction/ai-cape.svg" alt="Cyclically adjusted price-earnings ratio of US stocks since 1881, with 1929, 2000 and today marked; today is above 1929 and just below 2000" class="r-stretch"><p class="small">
+<img src="../img/introduction/ai-cape.svg" alt="Cyclically adjusted price-earnings ratio of US stocks since 1881, with 1929, 2000 and today marked; today is above 1929 and just below 2000" class="r-stretch"><p class="small">
 CAPE of the S&amp;P composite. Data: Robert Shiller.
 </p>
 <aside class="notes">
@@ -627,7 +561,7 @@ CAPE of the S&amp;P composite. Data: Robert Shiller.
 <section id="prices-an-ordinary-pace" class="slide level2">
 <h2>Prices: an ordinary pace</h2>
 
-<img src="/img/introduction/ai-nasdaq.svg" alt="NASDAQ divided by its value five years earlier, since 1976; the 2000 peak is far higher than today" class="r-stretch"><p class="small">
+<img src="../img/introduction/ai-nasdaq.svg" alt="NASDAQ divided by its value five years earlier, since 1976; the 2000 peak is far higher than today" class="r-stretch"><p class="small">
 The NASDAQ index divided by its value five years earlier. Data: FRED.
 </p>
 <p>
@@ -650,7 +584,7 @@ Today ×1.6: higher than only <b>40%</b> of months. In 2000: ×5.9. <span class=
 <section id="attention-four-times-the-crypto-peak" class="slide level2">
 <h2>Attention: four times the crypto peak</h2>
 
-<img src="/img/introduction/ai-attention.svg" alt="Share of Hacker News story titles mentioning AI, bitcoin and crypto, 2007 to today; AI is far above the earlier crypto peaks" class="r-stretch"><p class="small">
+<img src="../img/introduction/ai-attention.svg" alt="Share of Hacker News story titles mentioning AI, bitcoin and crypto, 2007 to today; AI is far above the earlier crypto peaks" class="r-stretch"><p class="small">
 Share of Hacker News story titles with each word, 3-month average. Data: HN Search API.
 </p>
 </section>
@@ -935,7 +869,7 @@ The red step: the question itself. <a href="https://github.com/su-mt4008/lecture
 <li><strong>Six weeks</strong>, one theme each: reproducible analysis · tables and plots · cleaning and exploring · joins and databases · data from the web · text as data.</li>
 </ul>
 <p class="more">
-More: <a href="/about">About the course</a>
+More: <a href="../about">About the course</a>
 </p>
 </section>
 <section id="a-week" class="slide level2">
@@ -947,7 +881,7 @@ More: <a href="/about">About the course</a>
 <li>Sessions <span data-course="hours">13:00–17:00</span>, <span data-course="room">Lecture room 19, Albano Hus 2, 2nd floor</span>. Not compulsory, <strong>strongly</strong> encouraged.</li>
 </ul>
 <p class="more">
-More: <a href="/about#how-a-week-works">How a week works</a>
+More: <a href="../about#how-a-week-works">How a week works</a>
 </p>
 <aside class="notes">
 <p>No live demos. The material is written to be worked through; sessions are where you get help.</p>
@@ -1056,7 +990,7 @@ Fri 11 Dec, 23:59
 </tbody>
 </table>
 <p class="more">
-More: <a href="/homework/">Assignments</a>
+More: <a href="../homework/">Assignments</a>
 </p>
 </section>
 <section id="how-assignments-are-scored" class="slide level2">
@@ -1069,7 +1003,7 @@ More: <a href="/homework/">Assignments</a>
 <li>Final deadline for every assignment, late or not: <strong><span data-course="finalDeadline">Fri 15 Jan, 23:59</span></strong>. Miss it and you redo all assignments next year.</li>
 </ul>
 <p class="more">
-More: <a href="/homework/">Assignments</a>
+More: <a href="../homework/">Assignments</a>
 </p>
 </section>
 <section id="how-you-hand-in" class="slide level2">
@@ -1095,7 +1029,7 @@ More: <a href="/homework/">Assignments</a>
 One repository for all five: <code>&lt;username&gt;-assignments</code>, on GitHub. You’ll get an invite.
 </p>
 <p class="more">
-More: <a href="/guide">How we work</a>
+More: <a href="../guide">How we work</a>
 </p>
 <aside class="notes">
 <p>We’ll go through this in detail in the second half. The check is the reproducibility test: green means anyone can get your numbers.</p>
@@ -1121,7 +1055,7 @@ More: <a href="/guide">How we work</a>
 <li>Hand-in: <span data-course="project">Fri 8 Jan, 23:59</span>.</li>
 </ul>
 <p class="more">
-More: <a href="/project">Project</a>, with what an E, C and A project looks like
+More: <a href="../project">Project</a>, with what an E, C and A project looks like
 </p>
 <aside class="notes">
 <p>The three projects you just saw are the reference points for E, C and A. Start thinking about groups and questions now: the proposal is in two weeks.</p>
@@ -1145,7 +1079,7 @@ More: <a href="/project">Project</a>, with what an E, C and A project looks like
 <li>Register in Ladok.</li>
 </ul>
 <p class="more">
-More: <a href="/exam/">Exam</a>
+More: <a href="../exam/">Exam</a>
 </p>
 </section>
 <section id="where-everything-is" class="slide level2">
@@ -1157,337 +1091,16 @@ The course site has everything.<br><span class="muted">su-mt4008.github.io</span
 <li>Material, assignments, dates and the guide for your setup: the site.</li>
 <li>Hand-ins: GitHub. Project proposal: Moodle. Rooms and times: TimeEdit.</li>
 </ul>
-</section></section>
-<section id="break" class="title-slide slide level1 divider center">
-<h1>Break</h1>
-<p class="muted">
-Then: week 1 and the statistics you need.
-</p>
 </section>
-
-<section>
-<section id="week-1-reproducible-analysis" class="title-slide slide level1 divider center">
-<h1>Week 1: reproducible analysis</h1>
-
-</section>
-<section id="can-someone-else-get-your-numbers" class="slide level2">
-<h2>Can someone else get your numbers?</h2>
-<p>In 2010, an influential economics paper found that growth falls sharply when government debt passes 90% of GDP. Governments cited it.</p>
-<p>In 2013 a student tried to <strong>reproduce</strong> it from the authors’ spreadsheet, and found rows left out of an average. The striking result shrank to a modest one.</p>
-<div class="callout callout-none no-icon callout-style-simple">
-<div class="callout-body">
-<div class="callout-content">
-A result nobody can reproduce is, scientifically, just a claim.
-</div>
-</div>
-</div>
-<aside class="notes">
-<p>Reinhart and Rogoff (2010), “Growth in a Time of Debt”; Herndon, Ash and Pollin (2013). The error was found because someone could rerun it. Make that possible for your own work.</p>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
-</section>
-<section id="why-analyses-dont-reproduce" class="slide level2">
-<h2>Why analyses don’t reproduce</h2>
-<table class="caption-top">
-<colgroup>
-<col style="width: 50%">
-<col style="width: 50%">
-</colgroup>
-<thead>
-<tr class="header">
-<th style="text-align: left;">What goes wrong</th>
-<th style="text-align: left;">The habit that prevents it</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: left;">Different package versions</td>
-<td style="text-align: left;">a <strong>locked environment</strong></td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">A variable you made by hand, then deleted the code</td>
-<td style="text-align: left;"><strong>render from scratch</strong></td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">You fixed a typo in the CSV, in Excel</td>
-<td style="text-align: left;"><strong>never edit raw data</strong>; change it in code</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;"><code>C:\Users\anna\Downloads\data.csv</code></td>
-<td style="text-align: left;"><strong>relative paths</strong>: <code>data/raw/data.csv</code></td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">A random sample differs every run</td>
-<td style="text-align: left;"><strong>set a seed</strong></td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">The data was never committed</td>
-<td style="text-align: left;">commit it, and let <strong>the check</strong> catch it</td>
-</tr>
-</tbody>
-</table>
-<p class="more">
-More: <a href="/lectures/week-1#why-reproducibility-matters">Week 1</a>
-</p>
-</section>
-<section id="start-with-a-question-data-can-answer" class="slide level2">
-<h2>Start with a question data can answer</h2>
-<table class="caption-top">
-<colgroup>
-<col style="width: 50%">
-<col style="width: 50%">
-</colgroup>
-<thead>
-<tr class="header">
-<th style="text-align: left;">Vague</th>
-<th style="text-align: left;">Answerable</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: left;">“Look at Stockholm’s weather.”</td>
-<td style="text-align: left;">Has Stockholm’s mean annual temperature changed since the late 1990s?</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">“Analyse electricity prices.”</td>
-<td style="text-align: left;">How much more did southern Sweden pay than the north in 2023–25?</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">“Is AI a bubble?”</td>
-<td style="text-align: left;">How do three signs of a bubble compare with 1929 and 2000?</td>
-</tr>
-</tbody>
-</table>
-<p>
-A good question names <b>what</b> you measure, <b>where</b> and <b>when</b>, and what you’ll <b>compare</b>.
-</p>
-</section>
-<section id="your-repository" class="slide level2">
-<h2>Your repository</h2>
-<pre><code>&lt;username&gt;-assignments/
-├─ hw1/
-│  ├─ report.qmd     ← your report: text and code, seven sections
-│  ├─ report.md      ← the rendered report (made by Quarto)
-│  └─ data/raw/      ← data exactly as you got it, with its source
-├─ hw2/ … hw5/
-├─ example/          ← a worked example of a report
-├─ pyproject.toml + uv.lock   or   renv.lock   ← the locked environment
-└─ .github/workflows/check.yml                ← the reproducibility check</code></pre>
-<p class="small muted">
-Same structure every time: a reader knows where to look, and everything generated can be remade with one command.
-</p>
-</section>
-<section id="lockfiles-works-on-my-machine-works-on-every-machine" class="slide level2">
-<h2>Lockfiles: “works on my machine” → works on every machine</h2>
-<ul>
-<li>Your code depends on packages, and packages change.</li>
-<li>A <strong>lockfile</strong> records the exact version of every package.</li>
-<li>Anyone can rebuild the same environment from it:</li>
-</ul>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href=""></a><span class="ex">uv</span> sync                      <span class="co"># Python</span></span>
-<span id="cb2-2"><a href=""></a><span class="ex">Rscript</span> <span class="at">-e</span> <span class="st">"renv::restore()"</span> <span class="co"># R</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<ul>
-<li>Add a package with <code>uv add pandas</code> or <code>renv::install("dplyr")</code> + <code>renv::snapshot()</code>. Never edit the lockfile by hand.</li>
-</ul>
-</section>
-<section id="quarto-text-and-code-in-one-file" class="slide level2">
-<h2>Quarto: text and code in one file</h2>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb3-1"><a href=""></a><span class="fu">## Analysis</span></span>
-<span id="cb3-2"><a href=""></a></span>
-<span id="cb3-3"><a href=""></a><span class="in">```{python}</span></span>
-<span id="cb3-4"><a href=""></a>yearly <span class="op">=</span> temps.groupby(<span class="st">"year"</span>)[<span class="st">"temp"</span>].mean()</span>
-<span id="cb3-5"><a href=""></a>yearly.loc[<span class="dv">2011</span>:].mean() <span class="op">-</span> yearly.loc[:<span class="dv">2010</span>].mean()</span>
-<span id="cb3-6"><a href=""></a><span class="in">```</span></span>
-<span id="cb3-7"><a href=""></a></span>
-<span id="cb3-8"><a href=""></a>The later period is warmer by 0.82 °C.</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<ul>
-<li><code>quarto render</code> runs the code and writes <code>report.md</code> with the results and figures.</li>
-<li>The numbers in your text come <strong>from</strong> the code, not copied by hand.</li>
-</ul>
-</section>
-<section id="git-four-words" class="slide level2">
-<h2>Git: four words</h2>
-<ul>
-<li><strong>commit</strong>: save a snapshot, with a message saying why.</li>
-<li><strong>branch</strong>: a separate line of work; <code>hw1</code> next to <code>main</code>.</li>
-<li><strong>push</strong>: send your commits to GitHub.</li>
-<li><strong>pull request</strong>: “please look at this branch”: where the check runs and the review happens.</li>
-</ul>
-<p style="margin-top:1em">
-You will use these four every week. The guide has every command, for VS Code.
+<section id="next-week-1" class="slide level2">
+<h2>Next: week 1</h2>
+<p class="big">
+After the break: reproducible analysis, and the statistics you need for HW1.
 </p>
 <p class="more">
-More: <a href="/guide#hand-in-an-assignment">How to hand in</a>
+<a href="../slides/week-1/index.html">The week 1 slides</a> · <a href="../lectures/introduction">This lecture as a post</a>
 </p>
-</section>
-<section id="the-check" class="slide level2">
-<h2>The check</h2>
-<p>When you open or update a pull request, GitHub starts a clean computer, installs your locked environment and renders your report.</p>
-<ul>
-<li><strong>Green:</strong> your analysis reproduces. Anyone can get your numbers.</li>
-<li><strong>Red:</strong> something only works on your computer. The log says what.</li>
-</ul>
-<p class="more">
-More: <a href="/guide#when-the-check-is-red">When the check is red</a>
-</p>
-</section></section>
-<section>
-<section id="statistics-the-basics" class="title-slide slide level1 divider center">
-<h1>Statistics: the basics</h1>
-<p class="muted">
-From Probability I to statistics, in fifteen minutes.
-</p>
-</section>
-<section id="probability-statistics" class="slide level2">
-<h2>Probability ↔︎ statistics</h2>
-<table class="caption-top">
-<colgroup>
-<col style="width: 50%">
-<col style="width: 50%">
-</colgroup>
-<thead>
-<tr class="header">
-<th style="text-align: left;">Probability (MT3001)</th>
-<th style="text-align: left;">Statistics (now)</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: left;">You know the model: <span class="math inline">\(X \sim N(\mu, \sigma^2)\)</span></td>
-<td style="text-align: left;">You have the data: <span class="math inline">\(x_1, \dots, x_n\)</span></td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">What will the data look like?</td>
-<td style="text-align: left;">What was the model? And how sure are you?</td>
-</tr>
-</tbody>
-</table>
-<p>Data are <strong>observations of random variables</strong>. Your mean <span class="math inline">\(\bar x\)</span> is one value of the random variable <span class="math inline">\(\bar X\)</span>: another sample would have given another value.</p>
-<p class="more">
-More: <a href="/statistics">Statistics: the basics</a>
-</p>
-</section>
-<section id="our-example-has-lund-got-warmer" class="slide level2">
-<h2>Our example: has Lund got warmer?</h2>
 
-<img src="/img/statistics/data.svg" alt="Mean annual temperature in Lund, 1997–2025, with the mean of 1997–2010 and of 2011–2025" class="r-stretch"><p>The later period is <strong>0.82 °C</strong> warmer. Is that real, or could weather alone do it?</p>
-<aside class="notes">
-<p>Lund, not Stockholm: Stockholm is HW1, and we don’t give away the answer.</p>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
-</section>
-<section id="single-years-scatter-a-lot" class="slide level2">
-<h2>Single years scatter a lot</h2>
-
-<img src="/img/statistics/spread.svg" alt="Each year's mean temperature as a dot, for both periods, with mean plus and minus one standard deviation" class="r-stretch"><p class="small">
-One year varies by about 0.6 °C. The difference we found is not much larger.
-</p>
-</section>
-<section id="means-scatter-much-less" class="slide level2">
-<h2>Means scatter much less</h2>
-<p><img src="/img/statistics/sampling.svg" style="max-height:320px" alt="Simulated: single years scatter widely, means of 14 years scatter much less"></p>
-<p><span class="math display">\[\operatorname{Var}(\bar X) = \frac{\sigma^2}{n} \qquad \Rightarrow \qquad \operatorname{SE} = \frac{\sigma}{\sqrt n} \approx \frac{0.62}{\sqrt{14}} = 0.17 \text{ °C}\]</span></p>
-<p class="small muted">
-To halve the uncertainty, you need four times the data.
-</p>
-</section>
-<section id="confidence-intervals" class="slide level2">
-<h2>Confidence intervals</h2>
-<p>By the CLT, <span class="math inline">\(\bar X \approx N(\mu, \operatorname{SE}^2)\)</span>, so <span class="math inline">\(\;\bar x \pm 1.96\,\operatorname{SE}\;\)</span> covers <span class="math inline">\(\mu\)</span> in 95% of samples.</p>
-<p><img src="/img/statistics/intervals.svg" style="max-height:330px" alt="20 simulated 95% intervals; 19 contain the true mean, one misses"></p>
-<p class="small">
-“95%” is a property of the method: about 1 in 20 intervals misses.
-</p>
-</section>
-<section id="the-difference-with-its-uncertainty" class="slide level2">
-<h2>The difference, with its uncertainty</h2>
-<p><span class="math display">\[\operatorname{SE}_{\text{diff}} = \sqrt{\frac{s_a^2}{n_a} + \frac{s_b^2}{n_b}} = 0.23 \qquad 0.82 \pm 1.96 \cdot 0.23 = [0.37,\ 1.27] \text{ °C}\]</span></p>
-<p>The whole interval is above zero: consistent with warming of 0.4 to 1.3 °C, <strong>not</strong> with no warming.</p>
-</section>
-<section id="the-same-by-computer-the-bootstrap" class="slide level2">
-<h2>The same, by computer: the bootstrap</h2>
-<p><img src="/img/statistics/bootstrap.svg" style="max-height:330px" alt="Histogram of the difference in 10,000 resampled datasets, with the middle 95% marked"></p>
-<p>Resample the years with replacement, 10,000 times; the middle 95% of the differences is the interval. <strong>No formula needed</strong>, and it works for almost any statistic.</p>
-</section>
-<section id="could-it-be-chance-a-test" class="slide level2">
-<h2>Could it be chance? A test</h2>
-<p><span class="math inline">\(H_0\)</span>: no difference. Then <span class="math inline">\(\;z = \dfrac{0.82}{0.23} = 3.6\;\)</span> and <span class="math inline">\(\;p = P(|Z| \ge 3.6) \approx 0.0003\)</span>.</p>
-<p><img src="/img/statistics/permutation.svg" style="max-height:290px" alt="Differences when the years are shuffled between the periods at random; the observed difference is far in the tail"></p>
-<p class="small">
-By computer: shuffle the years between the periods; how often is the difference as large? About 1 in 1,000.
-</p>
-</section>
-<section id="what-a-p-value-is-not" class="slide level2">
-<h2>What a p-value is not</h2>
-<ul>
-<li><strong>Not</strong> the probability that <span class="math inline">\(H_0\)</span> is true.</li>
-<li><strong>Not</strong> the size or importance of the effect: report the estimate and its interval.</li>
-<li><span class="math inline">\(p &gt; 0.05\)</span> does <strong>not</strong> show there is no effect: maybe too little data.</li>
-</ul>
-</section>
-<section id="correlation-and-trend" class="slide level2">
-<h2>Correlation and trend</h2>
-
-<img src="/img/statistics/trend.svg" alt="Lund annual mean temperature with a fitted straight line" class="r-stretch"><p>
-Slope <b>0.54 °C per decade</b> (95% interval 0.27 to 0.80), <span class="math inline">\(r = 0.62\)</span>. Correlation is not causation: here the cause comes from physics, not from this data.
-</p>
-</section>
-<section id="the-many-tests-trap" class="slide level2">
-<h2>The many-tests trap</h2>
-<p><img src="/img/statistics/many-tests.svg" style="max-height:330px" alt="20 tests on pure random noise; one has p below 0.05"></p>
-<p>
-Twenty tests on pure noise: one comes out “significant”. Test many things and something always will. Decide what to test <b>before</b> you look.
-</p>
-</section>
-<section id="writing-it-up" class="slide level2">
-<h2>Writing it up</h2>
-<div class="big" style="font-size:1.1em">
-<div class="callout callout-none no-icon callout-style-simple">
-<div class="callout-body">
-<div class="callout-content">
-The years 2011–2025 were on average 0.82 °C warmer in Lund than 1997–2010 (95% confidence interval 0.37 to 1.27 °C).
-</div>
-</div>
-</div>
-</div>
-<ul>
-<li>The <strong>estimate</strong>, with <strong>units</strong>.</li>
-<li>Its <strong>uncertainty</strong>.</li>
-<li>What it does <strong>not</strong> show: why, or what happens next.</li>
-</ul>
-</section>
-<section id="before-monday" class="slide level2">
-<h2>Before Monday</h2>
-<ul>
-<li><strong>Set up your computer:</strong> follow the guide. Problems? Bring them to Monday’s session.</li>
-<li><strong>Accept the invite</strong> to your <code>&lt;username&gt;-assignments</code> repository.</li>
-<li><strong>Read</strong> week 1 and Statistics: the basics.</li>
-<li><strong>HW1:</strong> “Your first reproducible report”, due <span data-course="assignments.0.due">Mon 9 Nov, 23:59</span>.</li>
-</ul>
-<p class="big" style="margin-top:1em">
-Questions?
-</p>
-<p class="more">
-<a href="/guide#set-up-your-computer">Set up your computer</a> · <a href="/homework/1">HW1</a> · <a href="/lectures/introduction">This lecture as a post</a>
-</p>
 
 </section></section>
     </div>
@@ -1498,19 +1111,19 @@ Questions?
 </div></div>
 
   <script>window.backupDefine = window.define; window.define = undefined;</script>
-  <script src="index_files/libs/revealjs/dist/reveal.js"></script>
+  <script src="../site_libs/revealjs/dist/reveal.js"></script>
   <!-- reveal.js plugins -->
-  <script src="index_files/libs/revealjs/plugin/quarto-line-highlight/line-highlight.js"></script>
-  <script src="index_files/libs/revealjs/plugin/pdf-export/pdfexport.js"></script>
-  <script src="index_files/libs/revealjs/plugin/reveal-menu/menu.js"></script>
-  <script src="index_files/libs/revealjs/plugin/reveal-menu/quarto-menu.js"></script>
-  <script src="index_files/libs/revealjs/plugin/quarto-support/support.js"></script>
+  <script src="../site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.js"></script>
+  <script src="../site_libs/revealjs/plugin/pdf-export/pdfexport.js"></script>
+  <script src="../site_libs/revealjs/plugin/reveal-menu/menu.js"></script>
+  <script src="../site_libs/revealjs/plugin/reveal-menu/quarto-menu.js"></script>
+  <script src="../site_libs/revealjs/plugin/quarto-support/support.js"></script>
   
 
-  <script src="index_files/libs/revealjs/plugin/notes/notes.js"></script>
-  <script src="index_files/libs/revealjs/plugin/search/search.js"></script>
-  <script src="index_files/libs/revealjs/plugin/zoom/zoom.js"></script>
-  <script src="index_files/libs/revealjs/plugin/math/math.js"></script>
+  <script src="../site_libs/revealjs/plugin/notes/notes.js"></script>
+  <script src="../site_libs/revealjs/plugin/search/search.js"></script>
+  <script src="../site_libs/revealjs/plugin/zoom/zoom.js"></script>
+  <script src="../site_libs/revealjs/plugin/math/math.js"></script>
   <script>window.define = window.backupDefine; window.backupDefine = undefined;</script>
 
   <script>

@@ -79,3 +79,12 @@ the same story in prose.
 
 Exact slide count and wording, figure choices within each project, the precise operationalisation
 of the AI-bubble indicators, and the reveal.js theme details, within the constraints above.
+
+## Update: one deck per lecture (2026-11-04)
+
+Every week gets a deck, so the setup is shared: `slides/_quarto.yml` renders every
+`slides/<name>/index.qmd` to `public/slides/<name>/` (one shared copy of reveal.js in
+`site_libs/`), with the theme and the dates script in `slides/_shared/`. A lecture page
+`/lectures/<name>` gets a Slides link automatically when `slides/<name>/` exists, and the
+Lectures schedule has a Slides column. The first session uses two decks: `introduction`
+(projects and course structure) and `week-1` (week 1 and statistics).

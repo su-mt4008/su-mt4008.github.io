@@ -49,3 +49,20 @@ describe('slide facts (served as /course.json for the slides)', () => {
     expect(JSON.parse(JSON.stringify(f))).toEqual(f)
   })
 })
+
+describe('lecture decks', () => {
+  it('finds every deck in slides/ and links it from its week', async () => {
+    const { decks, deckFor } = await import('./decks')
+    const { schedule } = await import('./data')
+    expect(decks).toEqual(expect.arrayContaining(['introduction', 'week-1']))
+    expect(deckFor(schedule.weeks[0].link)).toBe('/slides/week-1/index.html')
+    expect(deckFor(schedule.weeks[1].link)).toBeUndefined()
+  })
+  it('gives the deck for a lecture page, and none for other pages', async () => {
+    const { deckFor } = await import('./decks')
+    expect(deckFor('/lectures/introduction')).toBe('/slides/introduction/index.html')
+    expect(deckFor('/lectures/week-1.html')).toBe('/slides/week-1/index.html')
+    expect(deckFor('/lectures/week-2')).toBeUndefined()
+    expect(deckFor('/homework/1')).toBeUndefined()
+  })
+})
