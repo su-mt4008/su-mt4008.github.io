@@ -45,9 +45,9 @@
 <text class="note hot" x="1020.0" y="140" text-anchor="middle">yes: Elsa, Alice,</text>
 <text class="note hot" x="1020.0" y="160" text-anchor="middle">Astrid … but only</text>
 <text class="note hot" x="1020.0" y="180" text-anchor="middle">the living are counted</text>
-<path class="loop" d="M863.9685039370079,94 C831.9685039370079,46 593.7007874015749,46 565.7007874015749,89"/>
-<path class="looptip" d="M561.7007874015749,94 L572.7007874015749,90 L565.7007874015749,82 Z"/>
-<text class="loopnote" x="712.8346456692914" y="54" text-anchor="middle">round again: back to cleaning</text>
+<path class="loop" d="M862.9685039370079,95 C841.9685039370079,58 731.732283464567,58 714.732283464567,90"/>
+<path class="looptip" d="M710.732283464567,95 L720.732283464567,89 L713.732283464567,83 Z"/>
+<text class="loopnote" x="786.8503937007874" y="62" text-anchor="middle">round and round</text>
 <rect class="band" x="30" y="200" width="1040" height="30" rx="15"/>
 <text class="bandtext" x="550.0" y="220" text-anchor="middle"><tspan class="head">REPRODUCIBLE THROUGHOUT</tspan>  ·  fetch.py + report.qmd</text>
 </svg>

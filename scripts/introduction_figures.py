@@ -267,10 +267,10 @@ def lifecycle(name, title, sources, notes, hot):
         for k, line in enumerate(notes[i]):
             out.append(f'<text class="note{h}" x="{x}" y="{track + 36 + 20 * k}" text-anchor="middle">{escape(line)}</text>')
     # Exploration <-> analysis: round again, as often as needed.
-    xe, xa = xs[2], xs[4]   # cleaning, analysis
-    out.append(f'<path class="loop" d="M{xa - 8},{track - 10} C{xa - 40},{track - 58} {xe + 40},{track - 58} {xe + 12},{track - 15}"/>')
-    out.append(f'<path class="looptip" d="M{xe + 8},{track - 10} L{xe + 19},{track - 14} L{xe + 12},{track - 22} Z"/>')
-    out.append(f'<text class="loopnote" x="{(xe + xa) / 2}" y="{track - 50}" text-anchor="middle">round again: back to cleaning</text>')
+    xe, xa = xs[3], xs[4]   # exploration, analysis
+    out.append(f'<path class="loop" d="M{xa - 9},{track - 9} C{xa - 30},{track - 46} {xe + 30},{track - 46} {xe + 13},{track - 14}"/>')
+    out.append(f'<path class="looptip" d="M{xe + 9},{track - 9} L{xe + 19},{track - 15} L{xe + 12},{track - 21} Z"/>')
+    out.append(f'<text class="loopnote" x="{(xe + xa) / 2}" y="{track - 42}" text-anchor="middle">round and round</text>')
     out += band(X0 - 50, X1 + 50, notes_bottom + 20, reproduce)
     out.append("</svg>")
     (OUT / f"lifecycle-{name}.svg").write_text("\n".join(out) + "\n")
@@ -305,10 +305,10 @@ def lifecycle_tall(name, title, sources, notes, hot):
         out.append(f'<circle class="node{h}" cx="{TX}" cy="{ry}" r="7"/>')
         for k, line in enumerate(text):
             out.append(f'<text class="note{h}" x="{NX}" y="{ry + 5 + LINE * k}">{escape(line)}</text>')
-    ye, ya = rows[2][0], rows[4][0]   # cleaning, analysis
+    ye, ya = rows[3][0], rows[4][0]   # exploration, analysis
     out.append(f'<path class="loop" d="M{TX - 9},{ya} C{TX - 28},{ya - 10} {TX - 28},{ye + 10} {TX - 12},{ye + 4}"/>')
     out.append(f'<path class="looptip" d="M{TX - 8},{ye + 2} L{TX - 18},{ye - 1} L{TX - 15},{ye + 9} Z"/>')
-    out.append(f'<text class="loopnote" x="{NX}" y="{rows[5][0] - 16}">↻ round again: back to cleaning until it holds up</text>')
+    out.append(f'<text class="loopnote" x="{NX}" y="{rows[5][0] - 16}">↻ exploration and analysis, round and round</text>')
     out += band(20, 620, y - 6, " ".join(notes[6]))
     out.append("</svg>")
     (OUT / f"lifecycle-{name}-tall.svg").write_text("\n".join(out) + "\n")
@@ -434,32 +434,33 @@ class Diagram:
 
 
 # The cycle, after Wickham, Çetinkaya-Rundel & Grolemund, R for Data Science (2e): our own
-# drawing of the idea. Cleaning, exploration and analysis go round until the answer holds up;
-# sometimes you go back for other data, or sharpen the question; being reproducible frames it all.
-d = Diagram(800, 420, "The data science cycle: question, data, then cleaning, exploration and analysis "
-                      "round and round, then conclusions; arrows back to the data and the question; "
+# drawing of the idea. Exploration and analysis go round and round; to answer more, you go back
+# to fetch more data or refine the question; being reproducible frames it all.
+d = Diagram(800, 420, "The data science cycle: question, data, cleaning, then exploration and analysis "
+                      "round and round, then conclusions; to answer more, back to the data or the question; "
                       "all of it reproducible")
 d.raw('<rect class="box" x="6" y="6" width="788" height="408" rx="14" style="fill:none;stroke-width:2"/>')
 cy_ = 200
 d.box(20, cy_ - 30, 90, 60, ["Question"], first="lg")
-d.box(134, cy_ - 30, 90, 60, ["Data"], first="lg")
-d.raw('<rect class="box" x="250" y="146" width="408" height="182" rx="12" style="fill:none;stroke-dasharray:5 5"/>')
-for x, label in [(264, "Cleaning"), (398, "Exploration"), (532, "Analysis")]:
+d.box(132, cy_ - 30, 90, 60, ["Data"], first="lg")
+d.box(244, cy_ - 30, 100, 60, ["Cleaning"], first="lg")
+d.raw('<rect class="box" x="370" y="146" width="284" height="182" rx="12" style="fill:none;stroke-dasharray:5 5"/>')
+for x, label in [(386, "Exploration"), (526, "Analysis")]:
     d.box(x, cy_ - 30, 112, 60, [label], first="lg")
 d.box(684, cy_ - 30, 98, 60, ["Conclusions"], cls="solid")
-d.arrow([(110, cy_), (134, cy_)])
-d.arrow([(224, cy_), (264, cy_)])
-d.arrow([(376, cy_), (398, cy_)])
-d.arrow([(510, cy_), (532, cy_)])
-d.arrow([(644, cy_), (684, cy_)])
-# round and round: analysis back to cleaning
-d.curve((588, 230), (588, 282), (320, 282), (320, 234), hot=True)
-d.text(454, 312, "round and round, until it holds up", "muted hot", "middle")
-# back for other data; back to sharpen the question
-d.arrow([(454, 170), (454, 112), (179, 112), (179, 170)], dashed=True)
-d.text(316, 104, "the data can't answer it: get other data", "muted", "middle")
-d.arrow([(588, 170), (588, 60), (65, 60), (65, 170)], dashed=True)
-d.text(326, 52, "sharpen the question", "muted", "middle")
+d.arrow([(110, cy_), (132, cy_)])
+d.arrow([(222, cy_), (244, cy_)])
+d.arrow([(344, cy_), (386, cy_)])
+d.arrow([(498, cy_), (526, cy_)])
+d.arrow([(638, cy_), (684, cy_)])
+# round and round: analysis back to exploration
+d.curve((582, 230), (582, 282), (442, 282), (442, 234), hot=True)
+d.text(512, 312, "round and round", "muted hot", "middle")
+# to answer more: back for more data, or a refined question
+d.arrow([(442, 170), (442, 112), (177, 112), (177, 170)], dashed=True)
+d.text(310, 104, "to answer more: fetch more data", "muted", "middle")
+d.arrow([(582, 170), (582, 60), (65, 60), (65, 170)], dashed=True)
+d.text(324, 52, "refine the question", "muted", "middle")
 d.text(400, 366, "REPRODUCIBLE THROUGHOUT", "head", "middle")
 d.text(400, 390, "code, not clicks · relative paths · a lockfile · Quarto · Git", "muted", "middle")
 d.save("diagram-cycle")

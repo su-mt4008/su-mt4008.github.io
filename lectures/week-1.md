@@ -42,11 +42,11 @@ Every data analysis, from a homework to a published study, goes through the same
 | **Conclusions & limitations** | Say what the evidence supports, and how sure you are. | What else could explain this? |
 | **How to reproduce** | Make it possible for anyone to rerun it all. | Would it run on someone else’s computer? |
 
-The steps form a cycle: cleaning, exploration and analysis go round several times before you
-conclude, sometimes back to the data or the question, and being reproducible frames all of it,
-not just the end.
+The steps form a cycle: exploration and analysis go round and round before you conclude; to
+answer more, you go back to fetch more data or refine the question. Being reproducible frames
+all of it, not just the end.
 
-<InlineSvg name="diagram-cycle" caption="Cleaning, exploration and analysis go round until the answer holds up, sometimes back to the data or the question; being reproducible frames every step. After the cycle in Wickham, Çetinkaya-Rundel & Grolemund, R for Data Science (2e)." />
+<InlineSvg name="diagram-cycle" caption="Exploration and analysis go round and round; to answer more, go back to fetch more data or refine the question; being reproducible frames every step. After the cycle in Wickham, Çetinkaya-Rundel & Grolemund, R for Data Science (2e)." />
 
 The tools change from week to week; these steps don’t. Every assignment and the project use them,
 and so does the template your repositories start from. Code is how you carry out the steps, but

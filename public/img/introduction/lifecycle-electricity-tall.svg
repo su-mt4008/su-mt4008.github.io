@@ -47,9 +47,9 @@
 <circle class="node" cx="162" cy="344" r="7"/>
 <text class="note" x="192" y="349">0.40 kr/kWh more on calm days; weather</text>
 <text class="note" x="192" y="370">explains 18 %</text>
-<path class="loop" d="M153,280 C134,270 134,183 150,177"/>
-<path class="looptip" d="M154,175 L144,172 L147,182 Z"/>
-<text class="loopnote" x="192" y="328">↻ round again: back to cleaning until it holds up</text>
+<path class="loop" d="M153,280 C134,270 134,247 150,241"/>
+<path class="looptip" d="M154,239 L144,236 L147,246 Z"/>
+<text class="loopnote" x="192" y="328">↻ exploration and analysis, round and round</text>
 <rect class="band" x="20" y="402" width="600" height="30" rx="15"/>
 <text class="bandtext" x="320.0" y="422" text-anchor="middle"><tspan class="head">REPRODUCIBLE THROUGHOUT</tspan>  ·  two fetch scripts, saved raw data</text>
 </svg>

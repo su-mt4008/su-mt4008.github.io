@@ -37,9 +37,9 @@
 <circle class="node hot" cx="162" cy="239" r="7"/>
 <text class="note hot" x="192" y="244">yes: Elsa, Alice, Astrid … but only the</text>
 <text class="note hot" x="192" y="265">living are counted</text>
-<path class="loop" d="M153,196 C134,186 134,120 150,114"/>
-<path class="looptip" d="M154,112 L144,109 L147,119 Z"/>
-<text class="loopnote" x="192" y="223">↻ round again: back to cleaning until it holds up</text>
+<path class="loop" d="M153,196 C134,186 134,163 150,157"/>
+<path class="looptip" d="M154,155 L144,152 L147,162 Z"/>
+<text class="loopnote" x="192" y="223">↻ exploration and analysis, round and round</text>
 <rect class="band" x="20" y="297" width="600" height="30" rx="15"/>
 <text class="bandtext" x="320.0" y="317" text-anchor="middle"><tspan class="head">REPRODUCIBLE THROUGHOUT</tspan>  ·  fetch.py + report.qmd</text>
 </svg>
