@@ -315,4 +315,197 @@ lifecycle("ai-bubble", "Life cycle of the AI bubble project",
     ["2 of 3 signs are", "there; a crash is", "not in the data"],
     ["one fetch script,", "three sources saved"],
 ], hot=0)
+# ---------------------------------------------------------------------------------------------
+# Slide diagrams: boxes, arrows and wheels in the site's colours (inlined, like the life cycles).
+FLOW_STYLE = """<style>
+.fd text{font-family:var(--font-sans,'IBM Plex Sans',system-ui,sans-serif);fill:var(--c-text,#222);font-size:15px}
+.fd .muted{fill:var(--c-muted,#777);font-size:13px}
+.fd .lg{font-size:19px;font-weight:600}
+.fd .lgm{font-size:15px;fill:var(--c-muted,#777)}
+.fd .head{fill:var(--c-muted,#777);font-size:12px;font-weight:600;letter-spacing:.07em}
+.fd .big{font-family:'IBM Plex Serif',Georgia,serif;font-size:22px}
+.fd text.hot,.fd .hot text{fill:var(--c-accent,#d6453d)}
+.fd .box{fill:var(--c-tint,#f4f4f4);stroke:var(--c-line,#ddd);stroke-width:1.5}
+.fd .box.hot{stroke:var(--c-accent,#d6453d);stroke-width:2}
+.fd .box.solid{fill:var(--c-text,#222);stroke:none}
+.fd .solid-text{fill:var(--c-bg,#fff)}
+.fd .edge{stroke:var(--c-faint,#bbb);stroke-width:2;fill:none}
+.fd .edge.hot{stroke:var(--c-accent,#d6453d)}
+.fd .tip{fill:var(--c-faint,#bbb)}
+.fd .tip.hot{fill:var(--c-accent,#d6453d)}
+.fd .node{fill:var(--c-bg,#fff);stroke:var(--c-text,#222);stroke-width:2}
+.fd .bar{fill:var(--c-faint,#bbb)}
+.fd .bar.hot{fill:var(--c-accent,#d6453d)}
+</style>"""
+
+
+class Diagram:
+    """A small SVG builder. Arrowheads are drawn as triangles (no <marker> ids, so several
+    diagrams can be inlined into one page without clashing)."""
+
+    def __init__(self, w, h, title):
+        self.out = [f'<svg class="fd" viewBox="0 0 {w} {h}" role="img" xmlns="http://www.w3.org/2000/svg">',
+                    f"<title>{escape(title)}</title>", FLOW_STYLE]
+
+    def text(self, x, y, s, cls="", anchor="start"):
+        c = f' class="{cls}"' if cls else ""
+        self.out.append(f'<text{c} x="{x:.0f}" y="{y:.0f}" text-anchor="{anchor}">{escape(s)}</text>')
+
+    def box(self, x, y, w, h, lines, cls="", first="", anchor="middle"):
+        """lines: list of strings; the first can be styled with `first` (e.g. 'head')."""
+        self.out.append(f'<rect class="box {cls}" x="{x}" y="{y}" width="{w}" height="{h}" rx="6"/>')
+        tx = x + w / 2 if anchor == "middle" else x + 14
+        y0 = y + h / 2 - (len(lines) - 1) * 10 + 5
+        for k, line in enumerate(lines):
+            c = first if k == 0 and first else ("muted" if k > 0 else "")
+            if "solid" in cls:
+                c = "solid-text"
+            if "hot" in cls and k == 0:
+                c = (c + " hot").strip()
+            self.text(tx, y0 + 20 * k, line, c, anchor)
+
+    def arrow(self, pts, hot=False, curve=False):
+        """An arrow through the points [(x, y), ...]; with curve=True, a smooth S-curve
+        between the first and last point."""
+        h = " hot" if hot else ""
+        (x1, y1), (x2, y2) = pts[0], pts[-1]
+        if curve:
+            mx = (x1 + x2) / 2
+            d = f"M{x1},{y1} C{mx},{y1} {mx},{y2} {x2 - 9},{y2}"
+            ang = 0.0
+        else:
+            d = "M" + " L".join(f"{x},{y}" for x, y in pts[:-1]) + f" L{x2},{y2}"
+            (ax, ay) = pts[-2]
+            ang = np.arctan2(y2 - ay, x2 - ax)
+            x2, y2 = x2 - 9 * np.cos(ang), y2 - 9 * np.sin(ang)
+            d = "M" + " L".join(f"{x},{y}" for x, y in pts[:-1]) + f" L{x2:.1f},{y2:.1f}"
+        self.out.append(f'<path class="edge{h}" d="{d}"/>')
+        tx, ty = pts[-1]
+        a = ang if not curve else 0.0
+        p1 = (tx - 11 * np.cos(a) + 6 * np.sin(a), ty - 11 * np.sin(a) - 6 * np.cos(a))
+        p2 = (tx - 11 * np.cos(a) - 6 * np.sin(a), ty - 11 * np.sin(a) + 6 * np.cos(a))
+        self.out.append(f'<path class="tip{h}" d="M{tx:.1f},{ty:.1f} L{p1[0]:.1f},{p1[1]:.1f} L{p2[0]:.1f},{p2[1]:.1f} Z"/>')
+
+    def raw(self, s):
+        self.out.append(s)
+
+    def save(self, name):
+        self.out.append("</svg>")
+        (OUT / f"{name}.svg").write_text("\n".join(self.out) + "\n")
+
+
+# The life cycle as a wheel.
+d = Diagram(760, 500, "The data science life cycle: seven steps in a loop")
+cx, cy, r = 380, 255, 160
+desc = ["sharp enough to answer", "where from, what it can't tell", "raw → usable, in code",
+        "look before you test", "compare, model, test", "what follows, and its limits",
+        "one command, same numbers"]
+angles = [-90 + 360 / 7 * i for i in range(7)]
+pos = [(cx + r * np.cos(np.radians(a)), cy + r * np.sin(np.radians(a))) for a in angles]
+for i in range(7):
+    a1, a2 = np.radians(angles[i] + 9), np.radians(angles[(i + 1) % 7] - 9)
+    x1, y1 = cx + r * np.cos(a1), cy + r * np.sin(a1)
+    x2, y2 = cx + r * np.cos(a2), cy + r * np.sin(a2)
+    hot = " hot" if i == 6 else ""
+    d.raw(f'<path class="edge{hot}" d="M{x1:.1f},{y1:.1f} A{r},{r} 0 0 1 {x2:.1f},{y2:.1f}"/>')
+    t = a2 + np.pi / 2  # tangent direction at the end of the arc
+    p1 = (x2 - 11 * np.cos(t) + 6 * np.sin(t), y2 - 11 * np.sin(t) - 6 * np.cos(t))
+    p2 = (x2 - 11 * np.cos(t) - 6 * np.sin(t), y2 - 11 * np.sin(t) + 6 * np.cos(t))
+    d.raw(f'<path class="tip{hot}" d="M{x2:.1f},{y2:.1f} L{p1[0]:.1f},{p1[1]:.1f} L{p2[0]:.1f},{p2[1]:.1f} Z"/>')
+for i, ((x, y), a) in enumerate(zip(pos, angles)):
+    d.raw(f'<circle class="node" cx="{x:.1f}" cy="{y:.1f}" r="9"/>')
+    c = np.cos(np.radians(a))
+    anchor = "middle" if abs(c) < .3 else ("start" if c > 0 else "end")
+    lx = x + 26 * np.sign(c) * (abs(c) >= .3)
+    ly = y + (-38 if i == 0 else (6 if abs(c) >= .3 else 0))
+    d.text(lx, ly - 8, f"{i + 1}  {STEPS[i]}", "lg", anchor)
+    d.text(lx, ly + 14, desc[i], "lgm", anchor)
+d.text(cx, cy - 6, "Every analysis", "big", "middle")
+d.text(cx, cy + 22, "= the seven sections of every report", "muted", "middle")
+d.save("diagram-cycle")
+
+# Survivorship: who the names table can see.
+d = Diagram(1100, 300, "Who is counted: of everyone born in a year, only those alive in Sweden in 2021 with one of the 200 most common names")
+rows_ = [(1.0, "Everyone born in Sweden in 1925", "the people the question is about", ""),
+         (.42, "… still alive and living in Sweden in 2021", "deaths and emigration remove most", ""),
+         (.24, "… with one of today's 200 most common names", "what the SCB table counts", "hot")]
+for k, (frac, label, sub, hot) in enumerate(rows_):
+    y = 20 + k * 92
+    w = 1060 * frac
+    d.raw(f'<rect class="bar{" hot" if hot else ""}" x="20" y="{y}" width="{w:.0f}" height="58" rx="4" opacity="{1 if hot else .55}"/>')
+    d.text(40 if frac > .3 else 20 + w + 16, y + 26, label, "hot" if hot and frac <= .3 else "", "start")
+    d.text(40 if frac > .3 else 20 + w + 16, y + 46, sub, "muted", "start")
+d.text(1080, 292, "Illustration, not to scale", "muted", "end")
+d.save("diagram-survivors")
+
+# Electricity: the four zones, north to south, mean price 2023–2025.
+zone_mean = days[["SE1", "SE2", "SE3", "SE4"]].mean()
+print("electricity: mean price per zone 2023-2025:", zone_mean.round(2).to_dict())
+d = Diagram(640, 330, "Mean spot price per price zone, 2023–2025, from north to south")
+cities = {"SE1": "Luleå", "SE2": "Sundsvall", "SE3": "Stockholm", "SE4": "Malmö"}
+scale = 330 / zone_mean.max()
+for k, (z, v) in enumerate(zone_mean.items()):
+    y = 30 + k * 72
+    hot = " hot" if z == "SE4" else ""
+    d.text(178, y + 34, f"{z}  {cities[z]}", "lg hot" if hot else "lg", "end")
+    d.raw(f'<rect class="bar{hot}" x="192" y="{y + 8}" width="{v * scale:.0f}" height="40" rx="3"/>')
+    d.text(192 + v * scale + 10, y + 34, f"{v:.2f} kr", "lg hot" if hot else "lg", "start")
+d.arrow([(40, 40), (40, 300)])
+d.raw('<text class="muted" x="52" y="44">north</text><text class="muted" x="52" y="300">south</text>')
+d.save("diagram-zones")
+
+# Electricity: the cleaning pipeline, with the traps.
+n_rows = len(prices)
+d = Diagram(1180, 330, "Cleaning: three raw files become one table of days")
+d.box(10, 14, 250, 92, [f"Spot prices", f"{n_rows:,} intervals, 4 zones", "UTC timestamps"], first="")
+d.box(10, 128, 250, 72, ["SMHI wind, Malmö", "hourly, UTC"])
+d.box(10, 222, 250, 72, ["SMHI temperature, Malmö", "daily"])
+d.box(320, 14, 300, 92, ["Daily price per zone", "weight by duration: 15 vs 60 min", "Swedish date: 23- and 25-hour days"], cls="hot")
+d.box(320, 128, 300, 72, ["Daily mean wind"])
+d.box(680, 118, 170, 92, ["Join on", "the date", f"{len(daily):,} days"])
+d.box(900, 118, 120, 92, ["Drop", f"{len(daily) - len(days)} days", "no weather"])
+d.box(1060, 118, 110, 92, [f"{len(days):,}", "days", "to analyse"], cls="solid")
+d.arrow([(260, 60), (320, 60)])
+d.arrow([(260, 164), (320, 164)])
+d.arrow([(620, 60), (680, 145)], curve=True)
+d.arrow([(620, 164), (680, 164)])
+d.arrow([(260, 258), (680, 183)], curve=True)
+d.arrow([(850, 164), (900, 164)])
+d.arrow([(1020, 164), (1060, 164)])
+d.save("diagram-cleaning")
+
+# AI: from a vague question to things we can measure.
+d = Diagram(1180, 360, "Operationalising: from 'Is AI a bubble?' to three measurable signs")
+for x, h in [(10, "THE QUESTION"), (300, "A BUBBLE WOULD MEAN …"), (640, "WE MEASURE"), (980, "SOURCE")]:
+    d.text(x, 18, h, "head")
+d.box(10, 140, 230, 90, ["Is AI a bubble?", "can't be measured directly"], cls="hot", first="big")
+signs = [("prices far above earnings", "CAPE: price / 10-year earnings", "Shiller, since 1871"),
+         ("prices rose unusually fast", "NASDAQ / its value 5 years before", "FRED, since 1971"),
+         ("everyone talks about it", "share of HN titles saying “AI”", "HN Search API, since 2007")]
+for k, (mean, measure, source) in enumerate(signs):
+    y = 40 + k * 110
+    d.box(300, y, 280, 76, [mean])
+    d.box(640, y, 300, 76, [measure])
+    d.text(980, y + 43, source, "muted")
+    d.arrow([(240, 185), (300, y + 38)], curve=True, hot=True)
+    d.arrow([(580, y + 38), (640, y + 38)])
+d.save("diagram-operationalise")
+
+# How you hand in, with the loop when the check is red.
+d = Diagram(1180, 250, "Handing in: branch, work, pull request, the check, review, final version")
+steps_ = [("Branch", "hw1 from main"), ("Work", "report.qmd, commit"), ("Pull request", "HW1 · Mon 23:59"),
+          ("The check", "renders on a clean PC"), ("Peer review", "by Thu 23:59"), ("Final version", "Fri 23:59 · graded")]
+bw, gap = 162, 38
+for k, (a, b) in enumerate(steps_):
+    x = 10 + k * (bw + gap)
+    d.box(x, 50, bw, 86, [a, b], cls="hot" if k == 3 else ("solid" if k == 5 else ""))
+    if k:
+        d.arrow([(x - gap, 93), (x, 93)])
+xc = 10 + 3 * (bw + gap) + bw / 2
+xw = 10 + 1 * (bw + gap) + bw / 2
+d.arrow([(xc, 136), (xc, 210), (xw, 210), (xw, 136)], hot=True)
+d.text((xc + xw) / 2, 236, "red: read the log, fix, push again (as often as you need)", "hot", "middle")
+d.text(10 + 3 * (bw + gap) + bw + gap / 2, 82, "green", "muted", "middle")
+d.save("diagram-handin")
+
 print("wrote", sorted(p.name for p in OUT.glob("*.svg")))

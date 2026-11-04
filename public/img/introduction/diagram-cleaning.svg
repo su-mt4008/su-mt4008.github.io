@@ -1,0 +1,65 @@
+<svg class="fd" viewBox="0 0 1180 330" role="img" xmlns="http://www.w3.org/2000/svg">
+<title>Cleaning: three raw files become one table of days</title>
+<style>
+.fd text{font-family:var(--font-sans,'IBM Plex Sans',system-ui,sans-serif);fill:var(--c-text,#222);font-size:15px}
+.fd .muted{fill:var(--c-muted,#777);font-size:13px}
+.fd .lg{font-size:19px;font-weight:600}
+.fd .lgm{font-size:15px;fill:var(--c-muted,#777)}
+.fd .head{fill:var(--c-muted,#777);font-size:12px;font-weight:600;letter-spacing:.07em}
+.fd .big{font-family:'IBM Plex Serif',Georgia,serif;font-size:22px}
+.fd text.hot,.fd .hot text{fill:var(--c-accent,#d6453d)}
+.fd .box{fill:var(--c-tint,#f4f4f4);stroke:var(--c-line,#ddd);stroke-width:1.5}
+.fd .box.hot{stroke:var(--c-accent,#d6453d);stroke-width:2}
+.fd .box.solid{fill:var(--c-text,#222);stroke:none}
+.fd .solid-text{fill:var(--c-bg,#fff)}
+.fd .edge{stroke:var(--c-faint,#bbb);stroke-width:2;fill:none}
+.fd .edge.hot{stroke:var(--c-accent,#d6453d)}
+.fd .tip{fill:var(--c-faint,#bbb)}
+.fd .tip.hot{fill:var(--c-accent,#d6453d)}
+.fd .node{fill:var(--c-bg,#fff);stroke:var(--c-text,#222);stroke-width:2}
+.fd .bar{fill:var(--c-faint,#bbb)}
+.fd .bar.hot{fill:var(--c-accent,#d6453d)}
+</style>
+<rect class="box " x="10" y="14" width="250" height="92" rx="6"/>
+<text x="135" y="45" text-anchor="middle">Spot prices</text>
+<text class="muted" x="135" y="65" text-anchor="middle">131,724 intervals, 4 zones</text>
+<text class="muted" x="135" y="85" text-anchor="middle">UTC timestamps</text>
+<rect class="box " x="10" y="128" width="250" height="72" rx="6"/>
+<text x="135" y="159" text-anchor="middle">SMHI wind, Malmö</text>
+<text class="muted" x="135" y="179" text-anchor="middle">hourly, UTC</text>
+<rect class="box " x="10" y="222" width="250" height="72" rx="6"/>
+<text x="135" y="253" text-anchor="middle">SMHI temperature, Malmö</text>
+<text class="muted" x="135" y="273" text-anchor="middle">daily</text>
+<rect class="box hot" x="320" y="14" width="300" height="92" rx="6"/>
+<text class="hot" x="470" y="45" text-anchor="middle">Daily price per zone</text>
+<text class="muted" x="470" y="65" text-anchor="middle">weight by duration: 15 vs 60 min</text>
+<text class="muted" x="470" y="85" text-anchor="middle">Swedish date: 23- and 25-hour days</text>
+<rect class="box " x="320" y="128" width="300" height="72" rx="6"/>
+<text x="470" y="169" text-anchor="middle">Daily mean wind</text>
+<rect class="box " x="680" y="118" width="170" height="92" rx="6"/>
+<text x="765" y="149" text-anchor="middle">Join on</text>
+<text class="muted" x="765" y="169" text-anchor="middle">the date</text>
+<text class="muted" x="765" y="189" text-anchor="middle">1,096 days</text>
+<rect class="box " x="900" y="118" width="120" height="92" rx="6"/>
+<text x="960" y="149" text-anchor="middle">Drop</text>
+<text class="muted" x="960" y="169" text-anchor="middle">22 days</text>
+<text class="muted" x="960" y="189" text-anchor="middle">no weather</text>
+<rect class="box solid" x="1060" y="118" width="110" height="92" rx="6"/>
+<text class="solid-text" x="1115" y="149" text-anchor="middle">1,074</text>
+<text class="solid-text" x="1115" y="169" text-anchor="middle">days</text>
+<text class="solid-text" x="1115" y="189" text-anchor="middle">to analyse</text>
+<path class="edge" d="M260,60 L311.0,60.0"/>
+<path class="tip" d="M320.0,60.0 L309.0,54.0 L309.0,66.0 Z"/>
+<path class="edge" d="M260,164 L311.0,164.0"/>
+<path class="tip" d="M320.0,164.0 L309.0,158.0 L309.0,170.0 Z"/>
+<path class="edge" d="M620,60 C650.0,60 650.0,145 671,145"/>
+<path class="tip" d="M680.0,145.0 L669.0,139.0 L669.0,151.0 Z"/>
+<path class="edge" d="M620,164 L671.0,164.0"/>
+<path class="tip" d="M680.0,164.0 L669.0,158.0 L669.0,170.0 Z"/>
+<path class="edge" d="M260,258 C470.0,258 470.0,183 671,183"/>
+<path class="tip" d="M680.0,183.0 L669.0,177.0 L669.0,189.0 Z"/>
+<path class="edge" d="M850,164 L891.0,164.0"/>
+<path class="tip" d="M900.0,164.0 L889.0,158.0 L889.0,170.0 Z"/>
+<path class="edge" d="M1020,164 L1051.0,164.0"/>
+<path class="tip" d="M1060.0,164.0 L1049.0,158.0 L1049.0,170.0 Z"/>
+</svg>

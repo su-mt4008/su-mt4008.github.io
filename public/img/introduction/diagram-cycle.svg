@@ -1,0 +1,60 @@
+<svg class="fd" viewBox="0 0 760 500" role="img" xmlns="http://www.w3.org/2000/svg">
+<title>The data science life cycle: seven steps in a loop</title>
+<style>
+.fd text{font-family:var(--font-sans,'IBM Plex Sans',system-ui,sans-serif);fill:var(--c-text,#222);font-size:15px}
+.fd .muted{fill:var(--c-muted,#777);font-size:13px}
+.fd .lg{font-size:19px;font-weight:600}
+.fd .lgm{font-size:15px;fill:var(--c-muted,#777)}
+.fd .head{fill:var(--c-muted,#777);font-size:12px;font-weight:600;letter-spacing:.07em}
+.fd .big{font-family:'IBM Plex Serif',Georgia,serif;font-size:22px}
+.fd text.hot,.fd .hot text{fill:var(--c-accent,#d6453d)}
+.fd .box{fill:var(--c-tint,#f4f4f4);stroke:var(--c-line,#ddd);stroke-width:1.5}
+.fd .box.hot{stroke:var(--c-accent,#d6453d);stroke-width:2}
+.fd .box.solid{fill:var(--c-text,#222);stroke:none}
+.fd .solid-text{fill:var(--c-bg,#fff)}
+.fd .edge{stroke:var(--c-faint,#bbb);stroke-width:2;fill:none}
+.fd .edge.hot{stroke:var(--c-accent,#d6453d)}
+.fd .tip{fill:var(--c-faint,#bbb)}
+.fd .tip.hot{fill:var(--c-accent,#d6453d)}
+.fd .node{fill:var(--c-bg,#fff);stroke:var(--c-text,#222);stroke-width:2}
+.fd .bar{fill:var(--c-faint,#bbb)}
+.fd .bar.hot{fill:var(--c-accent,#d6453d)}
+</style>
+<path class="edge" d="M405.0,97.0 A160,160 0 0 1 487.9,136.9"/>
+<path class="tip" d="M487.9,136.9 L483.9,125.1 L475.8,133.9 Z"/>
+<path class="edge" d="M519.2,176.0 A160,160 0 0 1 539.6,265.8"/>
+<path class="tip" d="M539.6,265.8 L546.4,255.2 L534.4,254.4 Z"/>
+<path class="edge" d="M528.5,314.6 A160,160 0 0 1 471.1,386.5"/>
+<path class="tip" d="M471.1,386.5 L483.6,385.2 L476.7,375.3 Z"/>
+<path class="edge" d="M426.0,408.2 A160,160 0 0 1 334.0,408.2"/>
+<path class="tip" d="M334.0,408.2 L342.8,417.2 L346.2,405.7 Z"/>
+<path class="edge" d="M288.9,386.5 A160,160 0 0 1 231.5,314.6"/>
+<path class="tip" d="M231.5,314.6 L230.0,327.0 L241.2,322.5 Z"/>
+<path class="edge" d="M220.4,265.8 A160,160 0 0 1 240.8,176.0"/>
+<path class="tip" d="M240.8,176.0 L230.2,182.6 L240.6,188.6 Z"/>
+<path class="edge hot" d="M272.1,136.9 A160,160 0 0 1 355.0,97.0"/>
+<path class="tip hot" d="M355.0,97.0 L343.2,92.8 L345.0,104.6 Z"/>
+<circle class="node" cx="380.0" cy="95.0" r="9"/>
+<text class="lg" x="380" y="49" text-anchor="middle">1  Question</text>
+<text class="lgm" x="380" y="71" text-anchor="middle">sharp enough to answer</text>
+<circle class="node" cx="505.1" cy="155.2" r="9"/>
+<text class="lg" x="531" y="153" text-anchor="start">2  Data</text>
+<text class="lgm" x="531" y="175" text-anchor="start">where from, what it can&#x27;t tell</text>
+<circle class="node" cx="536.0" cy="290.6" r="9"/>
+<text class="lg" x="562" y="289" text-anchor="start">3  Cleaning</text>
+<text class="lgm" x="562" y="311" text-anchor="start">raw → usable, in code</text>
+<circle class="node" cx="449.4" cy="399.2" r="9"/>
+<text class="lg" x="475" y="397" text-anchor="start">4  Exploration</text>
+<text class="lgm" x="475" y="419" text-anchor="start">look before you test</text>
+<circle class="node" cx="310.6" cy="399.2" r="9"/>
+<text class="lg" x="285" y="397" text-anchor="end">5  Analysis</text>
+<text class="lgm" x="285" y="419" text-anchor="end">compare, model, test</text>
+<circle class="node" cx="224.0" cy="290.6" r="9"/>
+<text class="lg" x="198" y="289" text-anchor="end">6  Conclusions</text>
+<text class="lgm" x="198" y="311" text-anchor="end">what follows, and its limits</text>
+<circle class="node" cx="254.9" cy="155.2" r="9"/>
+<text class="lg" x="229" y="153" text-anchor="end">7  Reproduce</text>
+<text class="lgm" x="229" y="175" text-anchor="end">one command, same numbers</text>
+<text class="big" x="380" y="249" text-anchor="middle">Every analysis</text>
+<text class="muted" x="380" y="277" text-anchor="middle">= the seven sections of every report</text>
+</svg>

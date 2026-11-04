@@ -15,7 +15,7 @@ In 2010, an influential economics paper found that growth falls sharply when gov
 
 In 2013 a student tried to **reproduce** it from the authors' spreadsheet, and found rows left out of an average. The striking result shrank to a modest one.
 
-<div class="callout">A result nobody can reproduce is, scientifically, just a claim.</div>
+<div class="keyline">A result nobody can reproduce is, scientifically, just a claim.</div>
 
 ::: notes
 Reinhart and Rogoff (2010), "Growth in a Time of Debt"; Herndon, Ash and Pollin (2013).
@@ -197,7 +197,7 @@ $H_0$: no difference. Then $\;z = \dfrac{0.82}{0.23} = 3.6\;$ and $\;p = P(|Z| \
 
 ## Writing it up
 
-<div class="callout big" style="font-size:1.1em">The years 2011–2025 were on average 0.82 °C warmer in Lund than 1997–2010 (95% confidence interval 0.37 to 1.27 °C).</div>
+<div class="keyline big" style="font-size:1.1em">The years 2011–2025 were on average 0.82 °C warmer in Lund than 1997–2010 (95% confidence interval 0.37 to 1.27 °C).</div>
 
 - The **estimate**, with **units**.
 - Its **uncertainty**.

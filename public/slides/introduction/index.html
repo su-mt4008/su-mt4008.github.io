@@ -29,7 +29,7 @@
       vertical-align: middle;
     }
   </style>
-  <link rel="stylesheet" href="../site_libs/revealjs/dist/theme/quarto-9cc7e8eb3abf25dbab6ed835a2f6fd1c.css">
+  <link rel="stylesheet" href="../site_libs/revealjs/dist/theme/quarto-3efc1d6f86cda2fe54d3de0c6a0e164d.css">
   <link href="../site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
   <link href="../site_libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
   <link href="../site_libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
@@ -199,32 +199,79 @@ All three are real analyses of real data, and you can rerun every one of them.
 </section>
 <section id="the-same-seven-steps-every-time" class="slide level2">
 <h2>The same seven steps, every time</h2>
-<div class="steps">
+<div class="cols">
 <div>
-<b>Question</b>what you want to know, sharp enough to answer
-</div>
-<div>
-<b>Data</b>where it comes from, what it can’t tell you
-</div>
-<div>
-<b>Cleaning</b>from raw to usable, every step in code
-</div>
-<div>
-<b>Exploration</b>look before you test
+<p>This is the <strong>data science life cycle</strong>.</p>
+<ul>
+<li>Every project in this course goes through it, from HW1 to your group project.</li>
+<li>It is also the <strong>seven sections</strong> of every report you write.</li>
+<li>It loops: a good answer raises the next question.</li>
+</ul>
 </div>
 <div>
-<b>Analysis</b>the comparison, model or test
+<svg class="fd" viewbox="0 0 760 500" role="img" xmlns="http://www.w3.org/2000/svg">
+<title>The data science life cycle: seven steps in a loop</title>
+<style>
+.fd text{font-family:var(--font-sans,'IBM Plex Sans',system-ui,sans-serif);fill:var(--c-text,#222);font-size:15px}
+.fd .muted{fill:var(--c-muted,#777);font-size:13px}
+.fd .lg{font-size:19px;font-weight:600}
+.fd .lgm{font-size:15px;fill:var(--c-muted,#777)}
+.fd .head{fill:var(--c-muted,#777);font-size:12px;font-weight:600;letter-spacing:.07em}
+.fd .big{font-family:'IBM Plex Serif',Georgia,serif;font-size:22px}
+.fd text.hot,.fd .hot text{fill:var(--c-accent,#d6453d)}
+.fd .box{fill:var(--c-tint,#f4f4f4);stroke:var(--c-line,#ddd);stroke-width:1.5}
+.fd .box.hot{stroke:var(--c-accent,#d6453d);stroke-width:2}
+.fd .box.solid{fill:var(--c-text,#222);stroke:none}
+.fd .solid-text{fill:var(--c-bg,#fff)}
+.fd .edge{stroke:var(--c-faint,#bbb);stroke-width:2;fill:none}
+.fd .edge.hot{stroke:var(--c-accent,#d6453d)}
+.fd .tip{fill:var(--c-faint,#bbb)}
+.fd .tip.hot{fill:var(--c-accent,#d6453d)}
+.fd .node{fill:var(--c-bg,#fff);stroke:var(--c-text,#222);stroke-width:2}
+.fd .bar{fill:var(--c-faint,#bbb)}
+.fd .bar.hot{fill:var(--c-accent,#d6453d)}
+</style>
+<path class="edge" d="M405.0,97.0 A160,160 0 0 1 487.9,136.9"></path>
+<path class="tip" d="M487.9,136.9 L483.9,125.1 L475.8,133.9 Z"></path>
+<path class="edge" d="M519.2,176.0 A160,160 0 0 1 539.6,265.8"></path>
+<path class="tip" d="M539.6,265.8 L546.4,255.2 L534.4,254.4 Z"></path>
+<path class="edge" d="M528.5,314.6 A160,160 0 0 1 471.1,386.5"></path>
+<path class="tip" d="M471.1,386.5 L483.6,385.2 L476.7,375.3 Z"></path>
+<path class="edge" d="M426.0,408.2 A160,160 0 0 1 334.0,408.2"></path>
+<path class="tip" d="M334.0,408.2 L342.8,417.2 L346.2,405.7 Z"></path>
+<path class="edge" d="M288.9,386.5 A160,160 0 0 1 231.5,314.6"></path>
+<path class="tip" d="M231.5,314.6 L230.0,327.0 L241.2,322.5 Z"></path>
+<path class="edge" d="M220.4,265.8 A160,160 0 0 1 240.8,176.0"></path>
+<path class="tip" d="M240.8,176.0 L230.2,182.6 L240.6,188.6 Z"></path>
+<path class="edge hot" d="M272.1,136.9 A160,160 0 0 1 355.0,97.0"></path>
+<path class="tip hot" d="M355.0,97.0 L343.2,92.8 L345.0,104.6 Z"></path>
+<circle class="node" cx="380.0" cy="95.0" r="9"></circle>
+<text class="lg" x="380" y="49" text-anchor="middle">1  Question</text>
+<text class="lgm" x="380" y="71" text-anchor="middle">sharp enough to answer</text>
+<circle class="node" cx="505.1" cy="155.2" r="9"></circle>
+<text class="lg" x="531" y="153" text-anchor="start">2  Data</text>
+<text class="lgm" x="531" y="175" text-anchor="start">where from, what it can't tell</text>
+<circle class="node" cx="536.0" cy="290.6" r="9"></circle>
+<text class="lg" x="562" y="289" text-anchor="start">3  Cleaning</text>
+<text class="lgm" x="562" y="311" text-anchor="start">raw → usable, in code</text>
+<circle class="node" cx="449.4" cy="399.2" r="9"></circle>
+<text class="lg" x="475" y="397" text-anchor="start">4  Exploration</text>
+<text class="lgm" x="475" y="419" text-anchor="start">look before you test</text>
+<circle class="node" cx="310.6" cy="399.2" r="9"></circle>
+<text class="lg" x="285" y="397" text-anchor="end">5  Analysis</text>
+<text class="lgm" x="285" y="419" text-anchor="end">compare, model, test</text>
+<circle class="node" cx="224.0" cy="290.6" r="9"></circle>
+<text class="lg" x="198" y="289" text-anchor="end">6  Conclusions</text>
+<text class="lgm" x="198" y="311" text-anchor="end">what follows, and its limits</text>
+<circle class="node" cx="254.9" cy="155.2" r="9"></circle>
+<text class="lg" x="229" y="153" text-anchor="end">7  Reproduce</text>
+<text class="lgm" x="229" y="175" text-anchor="end">one command, same numbers</text>
+<text class="big" x="380" y="249" text-anchor="middle">Every analysis</text>
+<text class="muted" x="380" y="277" text-anchor="middle">= the seven sections of every report</text>
+</svg>
+
 </div>
-<div>
-<b>Conclusions</b>what follows, and its limits
 </div>
-<div>
-<b>Reproduce</b>one command, same numbers
-</div>
-</div>
-<p style="margin-top:1.4em">
-This is the <b>data science life cycle</b>. It is also the seven sections of every report you will write in this course.
-</p>
 <aside class="notes">
 <p>Keep this slide in mind: every project that follows is told along these seven steps.</p>
 <style type="text/css">
@@ -268,18 +315,45 @@ Share of each birth year with the name, among the 200 most common names in Swede
 </section>
 <section id="the-catch-only-the-living-are-counted" class="slide level2">
 <h2>The catch: only the living are counted</h2>
+<svg class="fd" viewbox="0 0 1100 300" role="img" xmlns="http://www.w3.org/2000/svg">
+<title>Who is counted: of everyone born in a year, only those alive in Sweden in 2021 with one of the 200 most common names</title>
+<style>
+.fd text{font-family:var(--font-sans,'IBM Plex Sans',system-ui,sans-serif);fill:var(--c-text,#222);font-size:15px}
+.fd .muted{fill:var(--c-muted,#777);font-size:13px}
+.fd .lg{font-size:19px;font-weight:600}
+.fd .lgm{font-size:15px;fill:var(--c-muted,#777)}
+.fd .head{fill:var(--c-muted,#777);font-size:12px;font-weight:600;letter-spacing:.07em}
+.fd .big{font-family:'IBM Plex Serif',Georgia,serif;font-size:22px}
+.fd text.hot,.fd .hot text{fill:var(--c-accent,#d6453d)}
+.fd .box{fill:var(--c-tint,#f4f4f4);stroke:var(--c-line,#ddd);stroke-width:1.5}
+.fd .box.hot{stroke:var(--c-accent,#d6453d);stroke-width:2}
+.fd .box.solid{fill:var(--c-text,#222);stroke:none}
+.fd .solid-text{fill:var(--c-bg,#fff)}
+.fd .edge{stroke:var(--c-faint,#bbb);stroke-width:2;fill:none}
+.fd .edge.hot{stroke:var(--c-accent,#d6453d)}
+.fd .tip{fill:var(--c-faint,#bbb)}
+.fd .tip.hot{fill:var(--c-accent,#d6453d)}
+.fd .node{fill:var(--c-bg,#fff);stroke:var(--c-text,#222);stroke-width:2}
+.fd .bar{fill:var(--c-faint,#bbb)}
+.fd .bar.hot{fill:var(--c-accent,#d6453d)}
+</style>
+<rect class="bar" x="20" y="20" width="1060" height="58" rx="4" opacity="0.55"></rect>
+<text x="40" y="46" text-anchor="start">Everyone born in Sweden in 1925</text>
+<text class="muted" x="40" y="66" text-anchor="start">the people the question is about</text>
+<rect class="bar" x="20" y="112" width="445" height="58" rx="4" opacity="0.55"></rect>
+<text x="40" y="138" text-anchor="start">… still alive and living in Sweden in 2021</text>
+<text class="muted" x="40" y="158" text-anchor="start">deaths and emigration remove most</text>
+<rect class="bar hot" x="20" y="204" width="254" height="58" rx="4" opacity="1"></rect>
+<text class="hot" x="290" y="230" text-anchor="start">… with one of today's 200 most common names</text>
+<text class="muted" x="290" y="250" text-anchor="start">what the SCB table counts</text>
+<text class="muted" x="1080" y="292" text-anchor="end">Illustration, not to scale</text>
+</svg>
+
 <ul>
-<li>The table counts people <strong>alive in Sweden in 2021</strong>, by year of birth.</li>
-<li>Someone born in 1925 who has died or emigrated is not in it.</li>
-<li>And it only lists names that are common <strong>today</strong>: a 1925 name that never came back is missing.</li>
+<li>The table counts people <strong>alive in Sweden in 2021</strong>, by year of birth: the dead and the emigrated are gone.</li>
+<li>It only lists names common <strong>today</strong>, so a 1920s name that never came back is missing.</li>
+<li>The data is tilted towards finding comebacks. <strong>Saying so is part of the result.</strong></li>
 </ul>
-<div class="callout callout-none no-icon callout-style-simple">
-<div class="callout-body">
-<div class="callout-content">
-The data is tilted towards finding comebacks. Saying so is part of the result.
-</div>
-</div>
-</div>
 <aside class="notes">
 <p>Survivorship bias. This is the step where the real thinking was in this project: the conclusion and its limitation. A small project with an honest limitation is a good project.</p>
 <style type="text/css">
@@ -356,9 +430,65 @@ Medium project · two sources joined
 </section>
 <section id="four-zones-one-country" class="slide level2">
 <h2>Four zones, one country</h2>
+<div class="cols">
+<div>
+<ul>
+<li>Since 2011 Sweden has <strong>four price zones</strong>, SE1 in the north to SE4 in the south.</li>
+<li>Much of the power is produced in the north, much of it used in the south.</li>
+<li>When the grid can’t carry enough south, the prices split.</li>
+</ul>
+</div>
+<div>
+<svg class="fd" viewbox="0 0 640 330" role="img" xmlns="http://www.w3.org/2000/svg">
+<title>Mean spot price per price zone, 2023–2025, from north to south</title>
+<style>
+.fd text{font-family:var(--font-sans,'IBM Plex Sans',system-ui,sans-serif);fill:var(--c-text,#222);font-size:15px}
+.fd .muted{fill:var(--c-muted,#777);font-size:13px}
+.fd .lg{font-size:19px;font-weight:600}
+.fd .lgm{font-size:15px;fill:var(--c-muted,#777)}
+.fd .head{fill:var(--c-muted,#777);font-size:12px;font-weight:600;letter-spacing:.07em}
+.fd .big{font-family:'IBM Plex Serif',Georgia,serif;font-size:22px}
+.fd text.hot,.fd .hot text{fill:var(--c-accent,#d6453d)}
+.fd .box{fill:var(--c-tint,#f4f4f4);stroke:var(--c-line,#ddd);stroke-width:1.5}
+.fd .box.hot{stroke:var(--c-accent,#d6453d);stroke-width:2}
+.fd .box.solid{fill:var(--c-text,#222);stroke:none}
+.fd .solid-text{fill:var(--c-bg,#fff)}
+.fd .edge{stroke:var(--c-faint,#bbb);stroke-width:2;fill:none}
+.fd .edge.hot{stroke:var(--c-accent,#d6453d)}
+.fd .tip{fill:var(--c-faint,#bbb)}
+.fd .tip.hot{fill:var(--c-accent,#d6453d)}
+.fd .node{fill:var(--c-bg,#fff);stroke:var(--c-text,#222);stroke-width:2}
+.fd .bar{fill:var(--c-faint,#bbb)}
+.fd .bar.hot{fill:var(--c-accent,#d6453d)}
+</style>
+<text class="lg" x="178" y="64" text-anchor="end">SE1  Luleå</text>
+<rect class="bar" x="192" y="38" width="156" height="40" rx="3"></rect>
+<text class="lg" x="358" y="64" text-anchor="start">0.31 kr</text>
+<text class="lg" x="178" y="136" text-anchor="end">SE2  Sundsvall</text>
+<rect class="bar" x="192" y="110" width="155" height="40" rx="3"></rect>
+<text class="lg" x="357" y="136" text-anchor="start">0.31 kr</text>
+<text class="lg" x="178" y="208" text-anchor="end">SE3  Stockholm</text>
+<rect class="bar" x="192" y="182" width="254" height="40" rx="3"></rect>
+<text class="lg" x="456" y="208" text-anchor="start">0.51 kr</text>
+<text class="lg hot" x="178" y="280" text-anchor="end">SE4  Malmö</text>
+<rect class="bar hot" x="192" y="254" width="330" height="40" rx="3"></rect>
+<text class="lg hot" x="532" y="280" text-anchor="start">0.66 kr</text>
+<path class="edge" d="M40,40 L40.0,291.0"></path>
+<path class="tip" d="M40.0,300.0 L46.0,289.0 L34.0,289.0 Z"></path>
+<text class="muted" x="52" y="44">north</text><text class="muted" x="52" y="300">south</text>
+</svg>
+
+<p class="small muted">
+Mean spot price 2023–2025. Data: Nord Pool via elprisetjustnu.se.
+</p>
+</div>
+</div>
+</section>
+<section id="the-gap-month-by-month" class="slide level2">
+<h2>The gap, month by month</h2>
 
 <img src="../img/introduction/electricity-zones.svg" alt="Monthly mean spot price in SE4 Malmö and SE1 Luleå, 2023–2025; Malmö is above Luleå almost every month" class="r-stretch"><p class="small">
-Monthly mean spot price, 2023–2025. Data: Nord Pool via elprisetjustnu.se.
+The shaded area is the gap. Is it the wind? Wind power in the south should push southern prices down.
 </p>
 <aside class="notes">
 <p>Sweden has four price zones since 2011. The gap is the shaded area. Question: how big is it, and does it go with the weather? Wind power in the south should push southern prices down.</p>
@@ -376,18 +506,82 @@ Monthly mean spot price, 2023–2025. Data: Nord Pool via elprisetjustnu.se.
 </section>
 <section id="where-the-work-was-cleaning" class="slide level2">
 <h2>Where the work was: cleaning</h2>
+<svg class="fd" viewbox="0 0 1180 330" role="img" xmlns="http://www.w3.org/2000/svg">
+<title>Cleaning: three raw files become one table of days</title>
+<style>
+.fd text{font-family:var(--font-sans,'IBM Plex Sans',system-ui,sans-serif);fill:var(--c-text,#222);font-size:15px}
+.fd .muted{fill:var(--c-muted,#777);font-size:13px}
+.fd .lg{font-size:19px;font-weight:600}
+.fd .lgm{font-size:15px;fill:var(--c-muted,#777)}
+.fd .head{fill:var(--c-muted,#777);font-size:12px;font-weight:600;letter-spacing:.07em}
+.fd .big{font-family:'IBM Plex Serif',Georgia,serif;font-size:22px}
+.fd text.hot,.fd .hot text{fill:var(--c-accent,#d6453d)}
+.fd .box{fill:var(--c-tint,#f4f4f4);stroke:var(--c-line,#ddd);stroke-width:1.5}
+.fd .box.hot{stroke:var(--c-accent,#d6453d);stroke-width:2}
+.fd .box.solid{fill:var(--c-text,#222);stroke:none}
+.fd .solid-text{fill:var(--c-bg,#fff)}
+.fd .edge{stroke:var(--c-faint,#bbb);stroke-width:2;fill:none}
+.fd .edge.hot{stroke:var(--c-accent,#d6453d)}
+.fd .tip{fill:var(--c-faint,#bbb)}
+.fd .tip.hot{fill:var(--c-accent,#d6453d)}
+.fd .node{fill:var(--c-bg,#fff);stroke:var(--c-text,#222);stroke-width:2}
+.fd .bar{fill:var(--c-faint,#bbb)}
+.fd .bar.hot{fill:var(--c-accent,#d6453d)}
+</style>
+<rect class="box " x="10" y="14" width="250" height="92" rx="6"></rect>
+<text x="135" y="45" text-anchor="middle">Spot prices</text>
+<text class="muted" x="135" y="65" text-anchor="middle">131,724 intervals, 4 zones</text>
+<text class="muted" x="135" y="85" text-anchor="middle">UTC timestamps</text>
+<rect class="box " x="10" y="128" width="250" height="72" rx="6"></rect>
+<text x="135" y="159" text-anchor="middle">SMHI wind, Malmö</text>
+<text class="muted" x="135" y="179" text-anchor="middle">hourly, UTC</text>
+<rect class="box " x="10" y="222" width="250" height="72" rx="6"></rect>
+<text x="135" y="253" text-anchor="middle">SMHI temperature, Malmö</text>
+<text class="muted" x="135" y="273" text-anchor="middle">daily</text>
+<rect class="box hot" x="320" y="14" width="300" height="92" rx="6"></rect>
+<text class="hot" x="470" y="45" text-anchor="middle">Daily price per zone</text>
+<text class="muted" x="470" y="65" text-anchor="middle">weight by duration: 15 vs 60 min</text>
+<text class="muted" x="470" y="85" text-anchor="middle">Swedish date: 23- and 25-hour days</text>
+<rect class="box " x="320" y="128" width="300" height="72" rx="6"></rect>
+<text x="470" y="169" text-anchor="middle">Daily mean wind</text>
+<rect class="box " x="680" y="118" width="170" height="92" rx="6"></rect>
+<text x="765" y="149" text-anchor="middle">Join on</text>
+<text class="muted" x="765" y="169" text-anchor="middle">the date</text>
+<text class="muted" x="765" y="189" text-anchor="middle">1,096 days</text>
+<rect class="box " x="900" y="118" width="120" height="92" rx="6"></rect>
+<text x="960" y="149" text-anchor="middle">Drop</text>
+<text class="muted" x="960" y="169" text-anchor="middle">22 days</text>
+<text class="muted" x="960" y="189" text-anchor="middle">no weather</text>
+<rect class="box solid" x="1060" y="118" width="110" height="92" rx="6"></rect>
+<text class="solid-text" x="1115" y="149" text-anchor="middle">1,074</text>
+<text class="solid-text" x="1115" y="169" text-anchor="middle">days</text>
+<text class="solid-text" x="1115" y="189" text-anchor="middle">to analyse</text>
+<path class="edge" d="M260,60 L311.0,60.0"></path>
+<path class="tip" d="M320.0,60.0 L309.0,54.0 L309.0,66.0 Z"></path>
+<path class="edge" d="M260,164 L311.0,164.0"></path>
+<path class="tip" d="M320.0,164.0 L309.0,158.0 L309.0,170.0 Z"></path>
+<path class="edge" d="M620,60 C650.0,60 650.0,145 671,145"></path>
+<path class="tip" d="M680.0,145.0 L669.0,139.0 L669.0,151.0 Z"></path>
+<path class="edge" d="M620,164 L671.0,164.0"></path>
+<path class="tip" d="M680.0,164.0 L669.0,158.0 L669.0,170.0 Z"></path>
+<path class="edge" d="M260,258 C470.0,258 470.0,183 671,183"></path>
+<path class="tip" d="M680.0,183.0 L669.0,177.0 L669.0,189.0 Z"></path>
+<path class="edge" d="M850,164 L891.0,164.0"></path>
+<path class="tip" d="M900.0,164.0 L889.0,158.0 L889.0,170.0 Z"></path>
+<path class="edge" d="M1020,164 L1051.0,164.0"></path>
+<path class="tip" d="M1060.0,164.0 L1049.0,158.0 L1049.0,170.0 Z"></path>
+</svg>
+
+<div class="twocol">
 <ul>
-<li>Prices per <strong>hour</strong>, then per <strong>15 minutes</strong> from October 2025: a plain mean weighs them wrongly.</li>
+<li>From October 2025 prices come per <strong>15 minutes</strong>, before that per hour: a plain mean weighs them wrongly.</li>
 <li>Clocks change twice a year: some days have <strong>23 or 25 hours</strong>.</li>
 <li>Prices are in UTC, weather in Swedish dates: join on the <strong>right</strong> day.</li>
-<li><strong>22 of 1,096 days</strong> have no weather data. Dropped, and reported.</li>
+<li><strong>22 days</strong> have no weather: dropped, and reported.</li>
 </ul>
-<div class="callout callout-none no-icon callout-style-simple">
-<div class="callout-body">
-<div class="callout-content">
+</div>
+<div class="keyline">
 None of this shows in the final figure. All of it changes the numbers if done wrong.
-</div>
-</div>
 </div>
 <aside class="notes">
 <p>This is what joining sources really means. Each bullet is a bug that would silently shift the result. The rendered report shows every one of these steps in code.</p>
@@ -487,43 +681,70 @@ Three files, joined into one table. <a href="https://github.com/su-mt4008/lectur
 Ambitious project · three sources, and a question that needs work first
 </p>
 </section>
-<section id="you-cant-measure-a-bubble" class="slide level2">
-<h2>You can’t measure a bubble</h2>
-<p>So turn the question into things you <strong>can</strong> measure.</p>
-<table class="caption-top">
-<colgroup>
-<col style="width: 33%">
-<col style="width: 33%">
-<col style="width: 33%">
-</colgroup>
-<thead>
-<tr class="header">
-<th style="text-align: left;">A bubble means …</th>
-<th style="text-align: left;">We measure</th>
-<th style="text-align: left;">Source</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: left;">prices far above what companies earn</td>
-<td style="text-align: left;">price / earnings over 10 years (CAPE)</td>
-<td style="text-align: left;">Shiller, since 1871</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">prices that rose unusually fast</td>
-<td style="text-align: left;">NASDAQ compared with 5 years earlier</td>
-<td style="text-align: left;">FRED</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">everybody talking about it</td>
-<td style="text-align: left;">share of Hacker News titles saying “AI”</td>
-<td style="text-align: left;">HN Search API</td>
-</tr>
-</tbody>
-</table>
-<p class="small muted">
-The question becomes: how do today’s values compare with 1929, 2000 and the crypto boom?
-</p>
+<section id="you-cant-measure-a-bubble-so-measure-its-signs" class="slide level2">
+<h2>You can’t measure a bubble, so measure its signs</h2>
+<svg class="fd" viewbox="0 0 1180 360" role="img" xmlns="http://www.w3.org/2000/svg">
+<title>Operationalising: from 'Is AI a bubble?' to three measurable signs</title>
+<style>
+.fd text{font-family:var(--font-sans,'IBM Plex Sans',system-ui,sans-serif);fill:var(--c-text,#222);font-size:15px}
+.fd .muted{fill:var(--c-muted,#777);font-size:13px}
+.fd .lg{font-size:19px;font-weight:600}
+.fd .lgm{font-size:15px;fill:var(--c-muted,#777)}
+.fd .head{fill:var(--c-muted,#777);font-size:12px;font-weight:600;letter-spacing:.07em}
+.fd .big{font-family:'IBM Plex Serif',Georgia,serif;font-size:22px}
+.fd text.hot,.fd .hot text{fill:var(--c-accent,#d6453d)}
+.fd .box{fill:var(--c-tint,#f4f4f4);stroke:var(--c-line,#ddd);stroke-width:1.5}
+.fd .box.hot{stroke:var(--c-accent,#d6453d);stroke-width:2}
+.fd .box.solid{fill:var(--c-text,#222);stroke:none}
+.fd .solid-text{fill:var(--c-bg,#fff)}
+.fd .edge{stroke:var(--c-faint,#bbb);stroke-width:2;fill:none}
+.fd .edge.hot{stroke:var(--c-accent,#d6453d)}
+.fd .tip{fill:var(--c-faint,#bbb)}
+.fd .tip.hot{fill:var(--c-accent,#d6453d)}
+.fd .node{fill:var(--c-bg,#fff);stroke:var(--c-text,#222);stroke-width:2}
+.fd .bar{fill:var(--c-faint,#bbb)}
+.fd .bar.hot{fill:var(--c-accent,#d6453d)}
+</style>
+<text class="head" x="10" y="18" text-anchor="start">THE QUESTION</text>
+<text class="head" x="300" y="18" text-anchor="start">A BUBBLE WOULD MEAN …</text>
+<text class="head" x="640" y="18" text-anchor="start">WE MEASURE</text>
+<text class="head" x="980" y="18" text-anchor="start">SOURCE</text>
+<rect class="box hot" x="10" y="140" width="230" height="90" rx="6"></rect>
+<text class="big hot" x="125" y="180" text-anchor="middle">Is AI a bubble?</text>
+<text class="muted" x="125" y="200" text-anchor="middle">can't be measured directly</text>
+<rect class="box " x="300" y="40" width="280" height="76" rx="6"></rect>
+<text x="440" y="83" text-anchor="middle">prices far above earnings</text>
+<rect class="box " x="640" y="40" width="300" height="76" rx="6"></rect>
+<text x="790" y="83" text-anchor="middle">CAPE: price / 10-year earnings</text>
+<text class="muted" x="980" y="83" text-anchor="start">Shiller, since 1871</text>
+<path class="edge hot" d="M240,185 C270.0,185 270.0,78 291,78"></path>
+<path class="tip hot" d="M300.0,78.0 L289.0,72.0 L289.0,84.0 Z"></path>
+<path class="edge" d="M580,78 L631.0,78.0"></path>
+<path class="tip" d="M640.0,78.0 L629.0,72.0 L629.0,84.0 Z"></path>
+<rect class="box " x="300" y="150" width="280" height="76" rx="6"></rect>
+<text x="440" y="193" text-anchor="middle">prices rose unusually fast</text>
+<rect class="box " x="640" y="150" width="300" height="76" rx="6"></rect>
+<text x="790" y="193" text-anchor="middle">NASDAQ / its value 5 years before</text>
+<text class="muted" x="980" y="193" text-anchor="start">FRED, since 1971</text>
+<path class="edge hot" d="M240,185 C270.0,185 270.0,188 291,188"></path>
+<path class="tip hot" d="M300.0,188.0 L289.0,182.0 L289.0,194.0 Z"></path>
+<path class="edge" d="M580,188 L631.0,188.0"></path>
+<path class="tip" d="M640.0,188.0 L629.0,182.0 L629.0,194.0 Z"></path>
+<rect class="box " x="300" y="260" width="280" height="76" rx="6"></rect>
+<text x="440" y="303" text-anchor="middle">everyone talks about it</text>
+<rect class="box " x="640" y="260" width="300" height="76" rx="6"></rect>
+<text x="790" y="303" text-anchor="middle">share of HN titles saying “AI”</text>
+<text class="muted" x="980" y="303" text-anchor="start">HN Search API, since 2007</text>
+<path class="edge hot" d="M240,185 C270.0,185 270.0,298 291,298"></path>
+<path class="tip hot" d="M300.0,298.0 L289.0,292.0 L289.0,304.0 Z"></path>
+<path class="edge" d="M580,298 L631.0,298.0"></path>
+<path class="tip" d="M640.0,298.0 L629.0,292.0 L629.0,304.0 Z"></path>
+</svg>
+
+<ul>
+<li>Nobody can observe “a bubble”, and whether it bursts is a prediction, not a fact in a dataset.</li>
+<li>So we choose three <strong>signs</strong> people associate with bubbles, and ask how unusual today is on each, compared with 1929, 2000 and the crypto boom.</li>
+</ul>
 <aside class="notes">
 <p>This is the step that makes it an A-level project: operationalising. The data can’t say “bubble”; it can say how unusual today is on signs that people associate with bubbles.</p>
 <style type="text/css">
@@ -590,12 +811,23 @@ Share of Hacker News story titles with each word, 3-month average. Data: HN Sear
 </section>
 <section id="the-honest-answer" class="slide level2">
 <h2>The honest answer</h2>
-<p class="big">
-Two of three signs that came before earlier crashes are there.<br>Whether a crash follows is <span class="accent">not in the data</span>.
+<div class="scorecard">
+<div class="yes">
+<span class="tick">✓</span><b>Valuations</b><span class="num">40.7</span><span class="muted">CAPE today · 44.2 in 2000</span>
+</div>
+<div class="yes">
+<span class="tick">✓</span><b>Attention</b><span class="num">14 %</span><span class="muted">of HN titles · bitcoin’s peak: 3 %</span>
+</div>
+<div class="no">
+<span class="tick">✗</span><b>Price growth</b><span class="num">×1.6</span><span class="muted">in 5 years · ×5.9 in 2000</span>
+</div>
+</div>
+<p class="big" style="margin-top:.8em">
+Two of three signs are there. Whether a crash follows is <span class="accent">not in the data</span>.
 </p>
 <ul>
 <li>High valuations can last for years; if AI raises earnings as expected, prices may be right.</li>
-<li>Three signs is our choice. US data, an English-language forum, few past bubbles to compare.</li>
+<li>Three signs is our choice. US data, an English-language forum, few past bubbles to compare with.</li>
 </ul>
 <aside class="notes">
 <p>An A is not about a bigger dataset. It’s about a question that takes real effort, results that are checked, and conclusions that would convince a sceptical reader, including what you can’t conclude.</p>
@@ -861,24 +1093,162 @@ The red step: the question itself. <a href="https://github.com/su-mt4008/lecture
 <h1>How the course works</h1>
 
 </section>
-<section id="what-this-course-is" class="slide level2">
-<h2>What this course is</h2>
-<p>Data science is the whole cycle: from a question, through messy real data, to an answer someone else can <strong>check</strong>. Statistics is how you know how sure you can be; code is how you make it repeatable.</p>
-<ul>
-<li><strong>Tools:</strong> Python or R, Quarto, Git and GitHub, VS Code. You choose the language.</li>
-<li><strong>Six weeks</strong>, one theme each: reproducible analysis · tables and plots · cleaning and exploring · joins and databases · data from the web · text as data.</li>
-</ul>
+<section id="each-week-trains-part-of-the-cycle" class="slide level2">
+<h2>Each week trains part of the cycle</h2>
+<p>Data science is the whole cycle: from a question, through messy real data, to an answer someone else can <strong>check</strong>. Statistics tells you how sure you can be; code makes it repeatable.</p>
+<div class="coursemap">
+<div class="step">
+Question
+</div>
+<div class="step">
+Data
+</div>
+<div class="step">
+Cleaning
+</div>
+<div class="step">
+Exploration
+</div>
+<div class="step">
+Analysis
+</div>
+<div class="step">
+Conclusions
+</div>
+<div class="step">
+Reproduce
+</div>
+<div class="wk" style="grid-column:1">
+W1 questions
+</div>
+<div class="wk" style="grid-column:2">
+W4 joins &amp; SQL
+</div>
+<div class="wk" style="grid-column:3">
+W3 cleaning
+</div>
+<div class="wk" style="grid-column:4">
+W2 tables &amp; plots
+</div>
+<div class="wk all" style="grid-column:5 / span 2">
+statistics, in every assignment
+</div>
+<div class="wk" style="grid-column:7">
+W1 Git, Quarto
+</div>
+<div class="wk" style="grid-column:2">
+W5 web &amp; APIs
+</div>
+<div class="wk" style="grid-column:4">
+W3 exploring
+</div>
+<div class="wk" style="grid-column:2">
+W6 text &amp; LLMs
+</div>
+</div>
+<p style="margin-top:1em">
+You choose <b>Python or R</b>. Everyone uses <b>Quarto, Git and GitHub, VS Code</b>.
+</p>
 <p class="more">
 More: <a href="../about">About the course</a>
 </p>
 </section>
+<section id="the-course-at-a-glance" class="slide level2">
+<h2>The course at a glance</h2>
+<div class="timeline">
+<div class="col">
+<b>W1</b><span data-course="weeks.0.start">Mon 2 Nov</span>
+</div>
+<div class="col">
+<b>W2</b><span data-course="weeks.1.start">Mon 9 Nov</span>
+</div>
+<div class="col">
+<b>W3</b><span data-course="weeks.2.start">Mon 16 Nov</span>
+</div>
+<div class="col">
+<b>W4</b><span data-course="weeks.3.start">Mon 23 Nov</span>
+</div>
+<div class="col">
+<b>W5</b><span data-course="weeks.4.start">Mon 30 Nov</span>
+</div>
+<div class="col">
+<b>W6</b><span data-course="weeks.5.start">Mon 7 Dec</span>
+</div>
+<div class="col gap">
+<b>Break</b><span>Christmas</span>
+</div>
+<div class="col">
+<b>January</b><span>&nbsp;</span>
+</div>
+<div class="lane" style="grid-column:1">
+HW1
+</div>
+<div class="lane" style="grid-column:2">
+HW2
+</div>
+<div class="lane" style="grid-column:3">
+HW3
+</div>
+<div class="lane" style="grid-column:4">
+HW4
+</div>
+<div class="lane" style="grid-column:5">
+HW5
+</div>
+<div class="lane project" style="grid-column:2 / span 7">
+Project, in groups of 2–3
+</div>
+<div class="pin" style="grid-column:3">
+Proposal<br><span data-course="proposal">Thu 19 Nov, 23:59</span>
+</div>
+<div class="pin" style="grid-column:8">
+Project due<br><span data-course="project">Fri 8 Jan, 23:59</span><br>Exam<br><span data-course="exam">Sat 9 Jan, 09:00–11:00</span><br>Presentations<br><span data-course="presentation">Mon 11 Jan, 13:00–16:00</span>
+</div>
+</div>
+<p class="small muted">
+Each assignment is handed in on the Monday after its week. Last chance for any assignment: <span data-course="finalDeadline">Fri 15 Jan, 23:59</span>.
+</p>
+</section>
 <section id="a-week" class="slide level2">
 <h2>A week</h2>
+<div class="weekstrip">
+<div class="day">
+<b>Mon</b>
+</div>
+<div class="day">
+<b>Tue</b>
+</div>
+<div class="day">
+<b>Wed</b>
+</div>
+<div class="day">
+<b>Thu</b>
+</div>
+<div class="day">
+<b>Fri</b>
+</div>
+<div class="ev session" style="grid-column:1">
+<b>13–17</b> walkthrough (15–30 min), then work
+</div>
+<div class="ev self" style="grid-column:2 / span 2">
+self-study: read the week’s page, run the code
+</div>
+<div class="ev session" style="grid-column:4">
+<b>13–17</b> work session
+</div>
+<div class="ev due" style="grid-column:1">
+<b>23:59</b> hand in last week’s assignment
+</div>
+<div class="ev due" style="grid-column:4">
+<b>23:59</b> your peer review done
+</div>
+<div class="ev due" style="grid-column:5">
+<b>23:59</b> final version: graded
+</div>
+</div>
 <ul>
-<li><strong>Self-study first.</strong> Each week’s material is on the site: read it, run the code.</li>
-<li><strong>Monday:</strong> a 15–30 minute walkthrough, then work time.</li>
-<li><strong>Thursday:</strong> work time. Bring your laptop and your questions.</li>
-<li>Sessions <span data-course="hours">13:00–17:00</span>, <span data-course="room">Lecture room 19, Albano Hus 2, 2nd floor</span>. Not compulsory, <strong>strongly</strong> encouraged.</li>
+<li><strong>Self-study first:</strong> each week’s material is on the site. Read it, run the code.</li>
+<li><strong>Sessions</strong> <span data-course="hours">13:00–17:00</span> in <span data-course="room">Lecture room 19, Albano Hus 2, 2nd floor</span>: not compulsory, strongly encouraged. Bring your laptop and your questions.</li>
 </ul>
 <p class="more">
 More: <a href="../about#how-a-week-works">How a week works</a>
@@ -995,39 +1365,113 @@ More: <a href="../homework/">Assignments</a>
 </section>
 <section id="how-assignments-are-scored" class="slide level2">
 <h2>How assignments are scored</h2>
-<ul>
-<li>Each assignment: <strong>0–100 points, 65 to pass</strong>.</li>
-<li><strong>Peer review is required</strong>: review a classmate’s report by Thursday 23:59.</li>
-<li>You can improve your report after the review until <strong>Friday 23:59</strong>. That version is graded.</li>
-<li><strong>Late</strong> hand-in: <strong>−30 points</strong>, and no peer review.</li>
-<li>Final deadline for every assignment, late or not: <strong><span data-course="finalDeadline">Fri 15 Jan, 23:59</span></strong>. Miss it and you redo all assignments next year.</li>
-</ul>
+<p>Each assignment is scored <strong>0–100</strong>, and <strong>65</strong> passes. A late hand-in costs <strong>30 points</strong>:</p>
+<div class="scale">
+<div class="track">
+<div class="fail">
+
+</div>
+<div class="pass">
+
+</div>
+</div>
+<div class="tick" style="left:0%">
+0
+</div>
+<div class="tick pass-tick" style="left:65%">
+65 pass
+</div>
+<div class="tick" style="left:100%">
+100
+</div>
+<div class="marker" style="left:80%">
+80
+</div>
+<div class="marker late" style="left:50%">
+late: 80 − 30 = 50, not passed
+</div>
+</div>
+<div class="rules">
+<div>
+<b>Peer review is required</b>review a classmate by Thursday 23:59
+</div>
+<div>
+<b>Improve until Friday</b>the Friday 23:59 version is graded
+</div>
+<div class="hot">
+<b>Late: −30</b>and no peer review
+</div>
+<div class="hot">
+<b>Final deadline <span data-course="finalDeadline">Fri 15 Jan, 23:59</span></b>miss it and you redo all assignments next year
+</div>
+</div>
 <p class="more">
 More: <a href="../homework/">Assignments</a>
 </p>
 </section>
 <section id="how-you-hand-in" class="slide level2">
 <h2>How you hand in</h2>
-<div class="steps" style="grid-template-columns:repeat(5,1fr)">
-<div>
-<b>Branch</b><code>hw1</code> from an updated <code>main</code>
-</div>
-<div>
-<b>Work</b>in <code>hw1/report.qmd</code>, commit often
-</div>
-<div>
-<b>Pull request</b>titled <code>HW1</code>, by Monday 23:59
-</div>
-<div class="hot">
-<b>The check</b>renders your report on a clean computer: green or red
-</div>
-<div>
-<b>Review</b>a classmate comments; you fix until Friday
-</div>
-</div>
-<p style="margin-top:1.2em">
-One repository for all five: <code>&lt;username&gt;-assignments</code>, on GitHub. You’ll get an invite.
-</p>
+<svg class="fd" viewbox="0 0 1180 250" role="img" xmlns="http://www.w3.org/2000/svg">
+<title>Handing in: branch, work, pull request, the check, review, final version</title>
+<style>
+.fd text{font-family:var(--font-sans,'IBM Plex Sans',system-ui,sans-serif);fill:var(--c-text,#222);font-size:15px}
+.fd .muted{fill:var(--c-muted,#777);font-size:13px}
+.fd .lg{font-size:19px;font-weight:600}
+.fd .lgm{font-size:15px;fill:var(--c-muted,#777)}
+.fd .head{fill:var(--c-muted,#777);font-size:12px;font-weight:600;letter-spacing:.07em}
+.fd .big{font-family:'IBM Plex Serif',Georgia,serif;font-size:22px}
+.fd text.hot,.fd .hot text{fill:var(--c-accent,#d6453d)}
+.fd .box{fill:var(--c-tint,#f4f4f4);stroke:var(--c-line,#ddd);stroke-width:1.5}
+.fd .box.hot{stroke:var(--c-accent,#d6453d);stroke-width:2}
+.fd .box.solid{fill:var(--c-text,#222);stroke:none}
+.fd .solid-text{fill:var(--c-bg,#fff)}
+.fd .edge{stroke:var(--c-faint,#bbb);stroke-width:2;fill:none}
+.fd .edge.hot{stroke:var(--c-accent,#d6453d)}
+.fd .tip{fill:var(--c-faint,#bbb)}
+.fd .tip.hot{fill:var(--c-accent,#d6453d)}
+.fd .node{fill:var(--c-bg,#fff);stroke:var(--c-text,#222);stroke-width:2}
+.fd .bar{fill:var(--c-faint,#bbb)}
+.fd .bar.hot{fill:var(--c-accent,#d6453d)}
+</style>
+<rect class="box " x="10" y="50" width="162" height="86" rx="6"></rect>
+<text x="91" y="88" text-anchor="middle">Branch</text>
+<text class="muted" x="91" y="108" text-anchor="middle">hw1 from main</text>
+<rect class="box " x="210" y="50" width="162" height="86" rx="6"></rect>
+<text x="291" y="88" text-anchor="middle">Work</text>
+<text class="muted" x="291" y="108" text-anchor="middle">report.qmd, commit</text>
+<path class="edge" d="M172,93 L201.0,93.0"></path>
+<path class="tip" d="M210.0,93.0 L199.0,87.0 L199.0,99.0 Z"></path>
+<rect class="box " x="410" y="50" width="162" height="86" rx="6"></rect>
+<text x="491" y="88" text-anchor="middle">Pull request</text>
+<text class="muted" x="491" y="108" text-anchor="middle">HW1 · Mon 23:59</text>
+<path class="edge" d="M372,93 L401.0,93.0"></path>
+<path class="tip" d="M410.0,93.0 L399.0,87.0 L399.0,99.0 Z"></path>
+<rect class="box hot" x="610" y="50" width="162" height="86" rx="6"></rect>
+<text class="hot" x="691" y="88" text-anchor="middle">The check</text>
+<text class="muted" x="691" y="108" text-anchor="middle">renders on a clean PC</text>
+<path class="edge" d="M572,93 L601.0,93.0"></path>
+<path class="tip" d="M610.0,93.0 L599.0,87.0 L599.0,99.0 Z"></path>
+<rect class="box " x="810" y="50" width="162" height="86" rx="6"></rect>
+<text x="891" y="88" text-anchor="middle">Peer review</text>
+<text class="muted" x="891" y="108" text-anchor="middle">by Thu 23:59</text>
+<path class="edge" d="M772,93 L801.0,93.0"></path>
+<path class="tip" d="M810.0,93.0 L799.0,87.0 L799.0,99.0 Z"></path>
+<rect class="box solid" x="1010" y="50" width="162" height="86" rx="6"></rect>
+<text class="solid-text" x="1091" y="88" text-anchor="middle">Final version</text>
+<text class="solid-text" x="1091" y="108" text-anchor="middle">Fri 23:59 · graded</text>
+<path class="edge" d="M972,93 L1001.0,93.0"></path>
+<path class="tip" d="M1010.0,93.0 L999.0,87.0 L999.0,99.0 Z"></path>
+<path class="edge hot" d="M691.0,136 L691.0,210 L291.0,210 L291.0,145.0"></path>
+<path class="tip hot" d="M291.0,136.0 L285.0,147.0 L297.0,147.0 Z"></path>
+<text class="hot" x="491" y="236" text-anchor="middle">red: read the log, fix, push again (as often as you need)</text>
+<text class="muted" x="791" y="82" text-anchor="middle">green</text>
+</svg>
+
+<ul>
+<li><strong>The check</strong> renders your report on a clean computer. Green means anyone can get your numbers.</li>
+<li>Push again to the same branch and the pull request updates; the check runs again.</li>
+<li>One repository for all five assignments: <code>&lt;username&gt;-assignments</code>. You’ll get an invite.</li>
+</ul>
 <p class="more">
 More: <a href="../guide">How we work</a>
 </p>
@@ -1047,13 +1491,31 @@ More: <a href="../guide">How we work</a>
 </section>
 <section id="the-project" class="slide level2">
 <h2>The project</h2>
+<div class="milestones">
+<div>
+<span class="when">Now</span><b>Form a group</b>2–3 people, a question of your own
+</div>
+<div class="hot">
+<span class="when" data-course="proposal">Thu 19 Nov, 23:59</span><b>Proposal on Moodle</b>members, scope, target grade
+</div>
+<div>
+<span class="when">Nov – Jan</span><b>The full cycle</b>reproducible, with pull requests
+</div>
+<div>
+<span class="when" data-course="project">Fri 8 Jan, 23:59</span><b>Hand in</b>report about as long as an assignment
+</div>
+<div>
+<span class="when" data-course="presentation">Mon 11 Jan, 13:00–16:00</span><b>Present</b>15–20 minutes per group
+</div>
+</div>
 <ul>
-<li>Groups of <strong>2–3</strong>, a question of your own, the full cycle, reproducible like the assignments.</li>
-<li><strong>Proposal</strong> on Moodle by <span data-course="proposal">Thu 19 Nov, 23:59</span>: members, scope and target grade (A, C or E).</li>
-<li>Report: about the same length as an assignment. A bigger project means <strong>more thinking, not more pages</strong>.</li>
-<li><strong>Presentation</strong>, 15–20 minutes per group: <span data-course="presentation">Mon 11 Jan, 13:00–16:00</span>.</li>
-<li>Hand-in: <span data-course="project">Fri 8 Jan, 23:59</span>.</li>
+<li><strong>The proposal</strong> names the group, the question and its data, and the grade you aim for. We check that the scope fits that grade.</li>
+<li>Same tools as the assignments: one repository per group, branches, pull requests, the check.</li>
+<li>Attending the presentations is compulsory.</li>
 </ul>
+<p style="margin-top:.6em">
+Aim for <span class="level-inline">E</span>, <span class="level-inline">C</span> or <span class="level-inline">A</span>, like the three projects. Bigger means <b>more thinking, not more pages</b>.
+</p>
 <p class="more">
 More: <a href="../project">Project</a>, with what an E, C and A project looks like
 </p>
@@ -1073,10 +1535,15 @@ More: <a href="../project">Project</a>, with what an E, C and A project looks li
 </section>
 <section id="the-exam" class="slide level2">
 <h2>The exam</h2>
+<div class="bigfact">
+<div>
+<span class="num" data-course="exam">Sat 9 Jan, 09:00–11:00</span><span class="muted">written, on campus · register in Ladok</span>
+</div>
+</div>
 <ul>
-<li><strong>Written</strong>, on campus: <span data-course="exam">Sat 9 Jan, 09:00–11:00</span>.</li>
-<li><strong>Theoretical</strong>: the ideas behind what you did, at the level of the assignments.</li>
-<li>Register in Ladok.</li>
+<li><strong>Theoretical:</strong> the ideas behind what you did, at the level of the assignments.</li>
+<li>Why a step is needed, what a result means, what it can’t show, e.g.&nbsp;what a confidence interval says.</li>
+<li>Prepare with the <strong>Check your understanding</strong> questions on each week’s page.</li>
 </ul>
 <p class="more">
 More: <a href="../exam/">Exam</a>
@@ -1084,12 +1551,23 @@ More: <a href="../exam/">Exam</a>
 </section>
 <section id="where-everything-is" class="slide level2">
 <h2>Where everything is</h2>
-<p class="big">
-The course site has everything.<br><span class="muted">su-mt4008.github.io</span>
-</p>
+<div class="hub">
+<div class="main">
+<b>The course site</b><span>su-mt4008.github.io</span><span class="muted">material, assignments, dates, the setup guide</span>
+</div>
+<div>
+<b>GitHub</b><span class="muted">hand-ins, the check, peer review</span>
+</div>
+<div>
+<b>Moodle</b><span class="muted">the project proposal</span>
+</div>
+<div>
+<b>TimeEdit</b><span class="muted">rooms and times</span>
+</div>
+</div>
 <ul>
-<li>Material, assignments, dates and the guide for your setup: the site.</li>
-<li>Hand-ins: GitHub. Project proposal: Moodle. Rooms and times: TimeEdit.</li>
+<li><strong>The site has everything first.</strong> These slides read their dates from it, so if something changes, it changes there.</li>
+<li>Moodle is only for the proposal. Rooms and times can change at short notice: TimeEdit shows it first.</li>
 </ul>
 </section>
 <section id="next-week-1" class="slide level2">

@@ -45,6 +45,11 @@ describe('slide facts (served as /course.json for the slides)', () => {
     expect(f.finalDeadline).toBe('Fri 15 Jan, 23:59')
     expect(f.room).toBe('Lecture room 19, Albano Hus 2, 2nd floor')
   })
+  it('gives each week its Monday', () => {
+    expect(f.weeks).toHaveLength(6)
+    expect(f.weeks[0]).toEqual({ n: 1, start: 'Mon 2 Nov' })
+    expect(f.weeks[5]).toEqual({ n: 6, start: 'Mon 7 Dec' })
+  })
   it('is plain JSON', () => {
     expect(JSON.parse(JSON.stringify(f))).toEqual(f)
   })

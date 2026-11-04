@@ -29,6 +29,7 @@ export const course = {
 // and the deck fills it in when it opens, so the slides always match course.config.ts.
 export const slideFacts = () => ({
   ...course,
+  weeks: schedule.weeks.map((w) => ({ n: w.n, start: formatWhen(new Date(`${w.start}T12:00:00+01:00`)) })),
   assignments: schedule.assignments.map((a) => ({
     id: a.id,
     name: a.name,

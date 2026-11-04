@@ -97,4 +97,97 @@ html.dark {
 .reveal .trio > div { border-top: 1px solid var(--c-line); padding-top: .6em; font-size: .8em; }
 .reveal .trio .q { font-family: 'IBM Plex Serif', Georgia, serif; font-size: 1.35em; line-height: 1.25; margin: .3em 0 .5em; }
 
-.reveal .callout { border-left: 3px solid var(--c-accent); padding: .3em 0 .3em .9em; margin: .8em 0; }
+.reveal .keyline { border-left: 3px solid var(--c-accent); padding: .3em 0 .3em .9em; margin: .8em 0; }
+
+// ---- Diagrams and visual components ---------------------------------------------------------
+.reveal svg.fd { display: block; width: 100%; height: auto; max-height: 440px; margin: .4em 0 .6em; }
+.reveal section.diagram-slide svg.fd { margin-top: .8em; }
+
+// Little box helpers shared by the components below.
+%card { background: var(--c-tint); border: 1px solid var(--c-line); border-radius: 6px; }
+
+// The honest answer: three signs, ticked or crossed.
+.reveal .scorecard { display: grid; grid-template-columns: repeat(3, 1fr); gap: .8em; margin-top: .6em; }
+.reveal .scorecard > div { @extend %card; padding: .7em .9em; display: flex; flex-direction: column; gap: .15em; font-size: .75em; }
+.reveal .scorecard .tick { font-size: 2em; line-height: 1; font-weight: 600; }
+.reveal .scorecard .yes .tick { color: var(--c-accent); }
+.reveal .scorecard .no { opacity: .75; }
+.reveal .scorecard .no .tick { color: var(--c-muted); }
+.reveal .scorecard .num { font-family: 'IBM Plex Serif', Georgia, serif; font-size: 2.1em; line-height: 1.1; }
+.reveal .scorecard .muted { font-size: .85em; }
+
+// Weeks mapped onto the life-cycle steps.
+.reveal .coursemap { display: grid; grid-template-columns: repeat(7, 1fr); gap: .45em .5em; margin-top: .6em; font-size: .6em; grid-auto-flow: dense; }
+.reveal .coursemap .step { border-top: 3px solid var(--c-text); padding-top: .35em; font-weight: 600; font-size: 1.1em; }
+.reveal .coursemap .wk { @extend %card; padding: .45em .6em; }
+.reveal .coursemap .wk.all { background: none; border: 1px dashed var(--c-accent); color: var(--c-accent); text-align: center; }
+
+// The course timeline: week columns, assignment and project lanes, milestone pins.
+.reveal .timeline { display: grid; grid-template-columns: repeat(6, 1fr) .7fr 1.5fr; gap: .4em .3em; font-size: .55em; margin-top: .4em; }
+.reveal .timeline .col { border-top: 3px solid var(--c-text); padding-top: .3em; display: flex; flex-direction: column; }
+.reveal .timeline .col.gap { border-top-style: dotted; border-top-color: var(--c-faint); color: var(--c-muted); }
+.reveal .timeline .col span { color: var(--c-muted); }
+.reveal .timeline .lane { grid-row: 2; @extend %card; padding: .35em .5em; font-weight: 600; }
+.reveal .timeline .lane.project { grid-row: 3; background: none; border: 2px solid var(--c-text); }
+.reveal .timeline .pin { grid-row: 4; border-left: 3px solid var(--c-accent); padding: .1em 0 .1em .5em; line-height: 1.35; }
+.reveal .timeline .pin span { color: var(--c-muted); }
+
+// A week, Monday to Friday.
+.reveal .weekstrip { display: grid; grid-template-columns: repeat(5, 1fr); gap: .45em .5em; font-size: .62em; margin-top: .5em; grid-auto-flow: dense; }
+.reveal .weekstrip .day { border-top: 3px solid var(--c-text); padding-top: .3em; font-size: 1.1em; }
+.reveal .weekstrip .ev { padding: .5em .6em; border-radius: 6px; line-height: 1.3; }
+.reveal .weekstrip .session { grid-row: 2; background: var(--c-text); color: var(--c-bg); }
+.reveal .weekstrip .self { grid-row: 2; border: 1px dashed var(--c-faint); color: var(--c-muted); }
+.reveal .weekstrip .due { grid-row: 3; border: 2px solid var(--c-accent); color: var(--c-text); }
+.reveal .weekstrip .due b { color: var(--c-accent); }
+
+// The points scale.
+.reveal .scale { position: relative; height: 5.2em; margin: 1.2em .4em 1em; font-size: .62em; }
+.reveal .scale .track { position: absolute; top: 2.2em; left: 0; right: 0; height: 1em; display: flex; border-radius: 3px; overflow: hidden; }
+.reveal .scale .fail { flex: 65; background: var(--c-line); }
+.reveal .scale .pass { flex: 35; background: var(--c-text); }
+.reveal .scale .tick { position: absolute; top: 3.6em; transform: translateX(-50%); color: var(--c-muted); white-space: nowrap; }
+.reveal .scale .pass-tick { color: var(--c-text); font-weight: 600; }
+.reveal .scale .marker { position: absolute; top: 0; transform: translateX(-50%); font-weight: 600; white-space: nowrap; }
+.reveal .scale .marker::after { content: ""; display: block; width: 2px; height: 1.3em; margin: .1em auto 0; background: currentColor; }
+.reveal .scale .marker.late { color: var(--c-accent); }
+.reveal .scale .latearrow { position: absolute; top: 4.9em; height: 0; border-top: 2px solid var(--c-accent); }
+.reveal .scale .latearrow::before { content: ""; position: absolute; left: -2px; top: -6px; border: 5px solid transparent; border-right: 8px solid var(--c-accent); transform: translateX(-100%); }
+
+// Rules as cards.
+.reveal .rules { display: grid; grid-template-columns: repeat(4, 1fr); gap: .5em; font-size: .58em; }
+.reveal .rules > div { @extend %card; padding: .6em .7em; display: flex; flex-direction: column; gap: .3em; color: var(--c-muted); }
+.reveal .rules b { color: var(--c-text); font-size: 1.1em; }
+.reveal .rules .hot { border-color: var(--c-accent); }
+.reveal .rules .hot b { color: var(--c-accent); }
+
+// Project milestones: a row of steps with arrows between them.
+.reveal .milestones { display: grid; grid-template-columns: repeat(5, 1fr); gap: 1.4em; font-size: .6em; margin-top: .8em; }
+.reveal .milestones > div { position: relative; @extend %card; padding: .6em .7em; display: flex; flex-direction: column; gap: .25em; color: var(--c-muted); }
+.reveal .milestones > div:not(:last-child)::after { content: "→"; position: absolute; right: -1.15em; top: 50%; transform: translateY(-50%); color: var(--c-faint); font-size: 1.4em; }
+.reveal .milestones b { color: var(--c-text); font-size: 1.15em; }
+.reveal .milestones .when { font-weight: 600; color: var(--c-text); font-size: .95em; }
+.reveal .milestones .hot { border: 2px solid var(--c-accent); }
+.reveal .milestones .hot .when { color: var(--c-accent); }
+.reveal .level-inline { font-weight: 600; color: var(--c-accent); }
+
+// One big fact.
+.reveal .bigfact .num { display: block; font-family: 'IBM Plex Serif', Georgia, serif; font-size: 1.9em; margin-top: .6em; }
+.reveal .bigfact .muted { display: block; font-size: .8em; margin-bottom: 1em; }
+
+// Where everything is: one main place, three others.
+.reveal .hub { display: grid; grid-template-columns: 1.4fr 1fr 1fr 1fr; gap: .6em; margin-top: 1em; font-size: .7em; }
+.reveal .hub > div { @extend %card; padding: .8em .9em; display: flex; flex-direction: column; gap: .3em; }
+.reveal .hub b { font-size: 1.2em; }
+.reveal .hub .main { background: var(--c-text); color: var(--c-bg); border: none; }
+.reveal .hub .main .muted { color: var(--c-bg); opacity: .75; }
+
+// Text beside a diagram, and bullets in two columns under one.
+.reveal .cols { display: grid; grid-template-columns: 5fr 6fr; gap: 1.6em; align-items: center; }
+.reveal .cols svg.fd { max-height: 470px; }
+.reveal .cols ul { font-size: .9em; }
+.reveal .twocol ul { columns: 2; column-gap: 1.6em; font-size: .62em; margin-top: .2em; }
+.reveal .twocol li { break-inside: avoid; }
+.reveal svg.fd + ul, .reveal .sourceCode + ul { margin-top: .3em; }
+.reveal section ul { font-size: .85em; }
+.reveal .milestones { margin-bottom: 1.2em; }

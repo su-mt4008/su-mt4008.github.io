@@ -1,0 +1,38 @@
+<svg class="fd" viewBox="0 0 640 330" role="img" xmlns="http://www.w3.org/2000/svg">
+<title>Mean spot price per price zone, 2023–2025, from north to south</title>
+<style>
+.fd text{font-family:var(--font-sans,'IBM Plex Sans',system-ui,sans-serif);fill:var(--c-text,#222);font-size:15px}
+.fd .muted{fill:var(--c-muted,#777);font-size:13px}
+.fd .lg{font-size:19px;font-weight:600}
+.fd .lgm{font-size:15px;fill:var(--c-muted,#777)}
+.fd .head{fill:var(--c-muted,#777);font-size:12px;font-weight:600;letter-spacing:.07em}
+.fd .big{font-family:'IBM Plex Serif',Georgia,serif;font-size:22px}
+.fd text.hot,.fd .hot text{fill:var(--c-accent,#d6453d)}
+.fd .box{fill:var(--c-tint,#f4f4f4);stroke:var(--c-line,#ddd);stroke-width:1.5}
+.fd .box.hot{stroke:var(--c-accent,#d6453d);stroke-width:2}
+.fd .box.solid{fill:var(--c-text,#222);stroke:none}
+.fd .solid-text{fill:var(--c-bg,#fff)}
+.fd .edge{stroke:var(--c-faint,#bbb);stroke-width:2;fill:none}
+.fd .edge.hot{stroke:var(--c-accent,#d6453d)}
+.fd .tip{fill:var(--c-faint,#bbb)}
+.fd .tip.hot{fill:var(--c-accent,#d6453d)}
+.fd .node{fill:var(--c-bg,#fff);stroke:var(--c-text,#222);stroke-width:2}
+.fd .bar{fill:var(--c-faint,#bbb)}
+.fd .bar.hot{fill:var(--c-accent,#d6453d)}
+</style>
+<text class="lg" x="178" y="64" text-anchor="end">SE1  Luleå</text>
+<rect class="bar" x="192" y="38" width="156" height="40" rx="3"/>
+<text class="lg" x="358" y="64" text-anchor="start">0.31 kr</text>
+<text class="lg" x="178" y="136" text-anchor="end">SE2  Sundsvall</text>
+<rect class="bar" x="192" y="110" width="155" height="40" rx="3"/>
+<text class="lg" x="357" y="136" text-anchor="start">0.31 kr</text>
+<text class="lg" x="178" y="208" text-anchor="end">SE3  Stockholm</text>
+<rect class="bar" x="192" y="182" width="254" height="40" rx="3"/>
+<text class="lg" x="456" y="208" text-anchor="start">0.51 kr</text>
+<text class="lg hot" x="178" y="280" text-anchor="end">SE4  Malmö</text>
+<rect class="bar hot" x="192" y="254" width="330" height="40" rx="3"/>
+<text class="lg hot" x="532" y="280" text-anchor="start">0.66 kr</text>
+<path class="edge" d="M40,40 L40.0,291.0"/>
+<path class="tip" d="M40.0,300.0 L46.0,289.0 L34.0,289.0 Z"/>
+<text class="muted" x="52" y="44">north</text><text class="muted" x="52" y="300">south</text>
+</svg>
