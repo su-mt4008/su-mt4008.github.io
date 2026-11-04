@@ -90,14 +90,20 @@ The later period is warmer by 0.82 °C.
 - `quarto render` runs the code and writes `report.md` with the results and figures.
 - The numbers in your text come **from** the code, not copied by hand.
 
-## Git: four words
+## Git: the workflow
 
-- **commit**: save a snapshot, with a message saying why.
-- **branch**: a separate line of work; `hw1` next to `main`.
-- **push**: send your commits to GitHub.
-- **pull request**: "please look at this branch": where the check runs and the review happens.
+```{=html}
+{{< include ../../public/img/introduction/diagram-git.svg >}}
+```
 
-<p style="margin-top:1em">You will use these four every week. The guide has every command, for VS Code.</p>
+::: twocol
+- **branch:** a separate line of work, `hw1` next to `main`.
+- **commit:** save a snapshot, with a message saying why.
+- **push:** send your commits to GitHub.
+- **pull request:** your hand-in; the check runs and the review happens there.
+:::
+
+<p class="small muted">Push fixes to the same branch and the pull request updates. We merge it when it is accepted; the guide has every step in VS Code.</p>
 
 <p class="more">More: <a href="../../guide#hand-in-an-assignment">How to hand in</a></p>
 

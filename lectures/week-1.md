@@ -205,12 +205,7 @@ others can see it, review it and run checks on it. The words you need:
 
 The workflow you use every week:
 
-```
-main     ●──────────────────────────────●  (merged when accepted)
-          \                            /
-hw1        ●──●──●──●  ──► pull request "HW1"  ◄── check, review, fixes
-          commit commit…
-```
+<InlineSvg name="diagram-git" caption="Branch off main, commit small steps, push and open a pull request, fix what the check and review find, and it is merged when accepted." />
 
 1. **Clone** your repository and make a **branch** (`hw1`).
 2. Work and **commit** small steps with clear messages: “Clean the date column” beats “update”.

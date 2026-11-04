@@ -348,5 +348,12 @@
     "title": "From a question to an answer anyone can check",
     "section": "Next: week 1",
     "text": "Next: week 1\n\nAfter the break: reproducible analysis, and the statistics you need for HW1.\n\n\nThe week 1 slides · This lecture as a post"
+  },
+  {
+    "objectID": "week-1/index.html#git-the-workflow",
+    "href": "week-1/index.html#git-the-workflow",
+    "title": "Reproducible analysis",
+    "section": "Git: the workflow",
+    "text": "Git: the workflow\n\nThe Git workflow: branch hw1 off main, commit small steps, push and open a pull request, the check and review, push fixes, merged into main when accepted\n\n\n\n\n\n\n\nmain\nhw1\n\nPull request\n“HW1”: your hand-in\n\n\npush\n\nread data\n\nplot\n\nwrite up\n\nfixes\ncheck ✓\n\n\nmerged when accepted\nthe accepted version\n1 BRANCH\n2 COMMIT\n3 PUSH, OPEN A PR\n4 CHECK, REVIEW, FIX\n5 MERGE\n\n\n\n\nbranch: a separate line of work, hw1 next to main.\ncommit: save a snapshot, with a message saying why.\npush: send your commits to GitHub.\npull request: your hand-in; the check runs and the review happens there.\n\n\n\nPush fixes to the same branch and the pull request updates. We merge it when it is accepted; the guide has every step in VS Code.\n\n\nMore: How to hand in"
   }
 ]

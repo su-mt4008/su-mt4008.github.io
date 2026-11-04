@@ -549,4 +549,33 @@ d.text((xc + xw) / 2, 236, "red: read the log, fix, push again (as often as you 
 d.text(10 + 3 * (bw + gap) + bw + gap / 2, 82, "green", "muted", "middle")
 d.save("diagram-handin")
 
+# Week 1: the Git workflow, as a branch graph.
+d = Diagram(1180, 330, "The Git workflow: branch hw1 off main, commit small steps, push and open a pull request, "
+                       "the check and review, push fixes, merged into main when accepted")
+ym, yb = 260, 140
+node = lambda x, y, hot=False: d.raw(f'<circle class="node" cx="{x}" cy="{y}" r="11"'
+                                     + (' style="stroke:var(--c-accent,#d6453d);fill:var(--c-accent,#d6453d)"' if hot else "") + "/>")
+d.raw(f'<path class="edge" d="M90,{ym} L1160,{ym}" style="stroke:var(--c-text,#222)"/>')
+d.raw(f'<path class="edge" d="M220,{yb} L500,{yb} M700,{yb} L960,{yb}"/>')
+d.curve((120, ym), (170, ym), (170, yb), (209, yb))
+d.curve((960, yb), (1030, yb), (1030, ym), (1069, ym), hot=True)
+d.text(20, ym + 6, "main", "lg")
+d.text(20, yb + 6, "hw1", "lg")
+d.box(500, yb - 40, 200, 80, ["Pull request", "“HW1”: your hand-in"], cls="hot")
+d.arrow([(420, yb), (500, yb)])
+d.text(460, yb - 12, "push", "muted", "middle")
+for x, label in [(220, "read data"), (320, "plot"), (420, "write up")]:
+    node(x, yb)
+    d.text(x, yb + 36, label, "muted", "middle")
+node(840, yb)
+d.text(840, yb + 36, "fixes", "muted", "middle")
+d.text(770, yb - 14, "check ✓", "muted", "middle")
+node(120, ym)
+node(1080, ym, hot=True)
+d.text(1080, ym + 38, "merged when accepted", "muted", "middle")
+d.text(120, ym + 38, "the accepted version", "muted", "middle")
+for x, h in [(170, "1 BRANCH"), (320, "2 COMMIT"), (600, "3 PUSH, OPEN A PR"), (840, "4 CHECK, REVIEW, FIX"), (1080, "5 MERGE")]:
+    d.text(x, 40, h, "head", "middle")
+d.save("diagram-git")
+
 print("wrote", sorted(p.name for p in OUT.glob("*.svg")))

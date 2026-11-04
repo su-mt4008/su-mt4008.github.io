@@ -349,16 +349,75 @@ Same structure every time: a reader knows where to look, and everything generate
 <li>The numbers in your text come <strong>from</strong> the code, not copied by hand.</li>
 </ul>
 </section>
-<section id="git-four-words" class="slide level2">
-<h2>Git: four words</h2>
+<section id="git-the-workflow" class="slide level2">
+<h2>Git: the workflow</h2>
+<svg class="fd" viewbox="0 0 1180 330" role="img" xmlns="http://www.w3.org/2000/svg">
+<title>The Git workflow: branch hw1 off main, commit small steps, push and open a pull request, the check and review, push fixes, merged into main when accepted</title>
+<style>
+.fd text{font-family:var(--font-sans,'IBM Plex Sans',system-ui,sans-serif);fill:var(--c-text,#222);font-size:15px}
+.fd .muted{fill:var(--c-muted,#777);font-size:13px}
+.fd .lg{font-size:19px;font-weight:600}
+.fd .lgm{font-size:15px;fill:var(--c-muted,#777)}
+.fd .head{fill:var(--c-muted,#777);font-size:12px;font-weight:600;letter-spacing:.07em}
+.fd .big{font-family:'IBM Plex Serif',Georgia,serif;font-size:22px}
+.fd text.hot,.fd .hot text{fill:var(--c-accent,#d6453d)}
+.fd .box{fill:var(--c-tint,#f4f4f4);stroke:var(--c-line,#ddd);stroke-width:1.5}
+.fd .box.hot{stroke:var(--c-accent,#d6453d);stroke-width:2}
+.fd .box.solid{fill:var(--c-text,#222);stroke:none}
+.fd .solid-text{fill:var(--c-bg,#fff)}
+.fd .edge{stroke:var(--c-faint,#bbb);stroke-width:2;fill:none}
+.fd .edge.hot{stroke:var(--c-accent,#d6453d)}
+.fd .edge.dashed{stroke-dasharray:6 5;stroke:var(--c-muted,#888);stroke-width:1.6}
+.fd .tip{fill:var(--c-faint,#bbb)}
+.fd .tip.hot{fill:var(--c-accent,#d6453d)}
+.fd .node{fill:var(--c-bg,#fff);stroke:var(--c-text,#222);stroke-width:2}
+.fd .bar{fill:var(--c-faint,#bbb)}
+.fd .bar.hot{fill:var(--c-accent,#d6453d)}
+</style>
+<path class="edge" d="M90,260 L1160,260" style="stroke:var(--c-text,#222)"></path>
+<path class="edge" d="M220,140 L500,140 M700,140 L960,140"></path>
+<path class="edge" d="M120,260 C170,260 170,140 200.0,140.0"></path>
+<path class="tip" d="M209.0,140.0 L198.0,134.0 L198.0,146.0 Z"></path>
+<path class="edge hot" d="M960,140 C1030,140 1030,260 1060.0,260.0"></path>
+<path class="tip hot" d="M1069.0,260.0 L1058.0,254.0 L1058.0,266.0 Z"></path>
+<text class="lg" x="20" y="266" text-anchor="start">main</text>
+<text class="lg" x="20" y="146" text-anchor="start">hw1</text>
+<rect class="box hot" x="500" y="100" width="200" height="80" rx="6"></rect>
+<text class="hot" x="600" y="135" text-anchor="middle">Pull request</text>
+<text class="muted" x="600" y="155" text-anchor="middle">“HW1”: your hand-in</text>
+<path class="edge" d="M420,140 L491.0,140.0"></path>
+<path class="tip" d="M500.0,140.0 L489.0,134.0 L489.0,146.0 Z"></path>
+<text class="muted" x="460" y="128" text-anchor="middle">push</text>
+<circle class="node" cx="220" cy="140" r="11"></circle>
+<text class="muted" x="220" y="176" text-anchor="middle">read data</text>
+<circle class="node" cx="320" cy="140" r="11"></circle>
+<text class="muted" x="320" y="176" text-anchor="middle">plot</text>
+<circle class="node" cx="420" cy="140" r="11"></circle>
+<text class="muted" x="420" y="176" text-anchor="middle">write up</text>
+<circle class="node" cx="840" cy="140" r="11"></circle>
+<text class="muted" x="840" y="176" text-anchor="middle">fixes</text>
+<text class="muted" x="770" y="126" text-anchor="middle">check ✓</text>
+<circle class="node" cx="120" cy="260" r="11"></circle>
+<circle class="node" cx="1080" cy="260" r="11" style="stroke:var(--c-accent,#d6453d);fill:var(--c-accent,#d6453d)"></circle>
+<text class="muted" x="1080" y="298" text-anchor="middle">merged when accepted</text>
+<text class="muted" x="120" y="298" text-anchor="middle">the accepted version</text>
+<text class="head" x="170" y="40" text-anchor="middle">1 BRANCH</text>
+<text class="head" x="320" y="40" text-anchor="middle">2 COMMIT</text>
+<text class="head" x="600" y="40" text-anchor="middle">3 PUSH, OPEN A PR</text>
+<text class="head" x="840" y="40" text-anchor="middle">4 CHECK, REVIEW, FIX</text>
+<text class="head" x="1080" y="40" text-anchor="middle">5 MERGE</text>
+</svg>
+
+<div class="twocol">
 <ul>
-<li><strong>commit</strong>: save a snapshot, with a message saying why.</li>
-<li><strong>branch</strong>: a separate line of work; <code>hw1</code> next to <code>main</code>.</li>
-<li><strong>push</strong>: send your commits to GitHub.</li>
-<li><strong>pull request</strong>: “please look at this branch”: where the check runs and the review happens.</li>
+<li><strong>branch:</strong> a separate line of work, <code>hw1</code> next to <code>main</code>.</li>
+<li><strong>commit:</strong> save a snapshot, with a message saying why.</li>
+<li><strong>push:</strong> send your commits to GitHub.</li>
+<li><strong>pull request:</strong> your hand-in; the check runs and the review happens there.</li>
 </ul>
-<p style="margin-top:1em">
-You will use these four every week. The guide has every command, for VS Code.
+</div>
+<p class="small muted">
+Push fixes to the same branch and the pull request updates. We merge it when it is accepted; the guide has every step in VS Code.
 </p>
 <p class="more">
 More: <a href="../../guide#hand-in-an-assignment">How to hand in</a>
