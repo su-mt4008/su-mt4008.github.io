@@ -203,14 +203,15 @@ All three are real analyses of real data, and you can rerun every one of them.
 <div>
 <p>Every project in this course goes round this cycle, from HW1 to your group project.</p>
 <ul>
-<li><strong>Exploration and analysis</strong> go round several times: look, test, look again, until the answer holds up.</li>
+<li><strong>Cleaning, exploration and analysis</strong> go round several times: what you see sends you back to clean, test and look again, until the answer holds up.</li>
+<li>Sometimes the data can’t answer the question: get other data, or sharpen the question.</li>
 <li><strong>Reproducible</strong> is not a last step: it frames every step.</li>
 <li>Your report follows the cycle, and ends with <em>How to reproduce</em>.</li>
 </ul>
 </div>
 <div>
-<svg class="fd" viewbox="0 0 800 380" role="img" xmlns="http://www.w3.org/2000/svg">
-<title>The data science cycle: question, data, cleaning, then exploration and analysis round and round, then conclusions, all of it reproducible</title>
+<svg class="fd" viewbox="0 0 800 420" role="img" xmlns="http://www.w3.org/2000/svg">
+<title>The data science cycle: question, data, then cleaning, exploration and analysis round and round, then conclusions; arrows back to the data and the question; all of it reproducible</title>
 <style>
 .fd text{font-family:var(--font-sans,'IBM Plex Sans',system-ui,sans-serif);fill:var(--c-text,#222);font-size:15px}
 .fd .muted{fill:var(--c-muted,#777);font-size:13px}
@@ -225,42 +226,48 @@ All three are real analyses of real data, and you can rerun every one of them.
 .fd .solid-text{fill:var(--c-bg,#fff)}
 .fd .edge{stroke:var(--c-faint,#bbb);stroke-width:2;fill:none}
 .fd .edge.hot{stroke:var(--c-accent,#d6453d)}
+.fd .edge.dashed{stroke-dasharray:6 5;stroke:var(--c-muted,#888);stroke-width:1.6}
 .fd .tip{fill:var(--c-faint,#bbb)}
 .fd .tip.hot{fill:var(--c-accent,#d6453d)}
 .fd .node{fill:var(--c-bg,#fff);stroke:var(--c-text,#222);stroke-width:2}
 .fd .bar{fill:var(--c-faint,#bbb)}
 .fd .bar.hot{fill:var(--c-accent,#d6453d)}
 </style>
-<rect class="box" x="8" y="8" width="784" height="364" rx="14" style="fill:none;stroke-width:2"></rect>
-<rect class="box " x="28" y="138" width="104" height="64" rx="6"></rect>
-<text class="lg" x="80" y="175" text-anchor="middle">Question</text>
-<rect class="box " x="166" y="138" width="104" height="64" rx="6"></rect>
-<text class="lg" x="218" y="175" text-anchor="middle">Data</text>
-<rect class="box " x="304" y="138" width="104" height="64" rx="6"></rect>
-<text class="lg" x="356" y="175" text-anchor="middle">Cleaning</text>
-<rect class="box solid" x="684" y="138" width="98" height="64" rx="6"></rect>
-<text class="solid-text" x="733" y="175" text-anchor="middle">Conclusions</text>
-<rect class="box" x="444" y="52" width="196" height="236" rx="12" style="fill:none;stroke-dasharray:5 5"></rect>
-<text class="head" x="542" y="76" text-anchor="middle">UNDERSTAND</text>
-<rect class="box " x="488" y="92" width="108" height="56" rx="6"></rect>
-<text class="lg" x="542" y="125" text-anchor="middle">Exploration</text>
-<rect class="box " x="488" y="200" width="108" height="56" rx="6"></rect>
-<text class="lg" x="542" y="233" text-anchor="middle">Analysis</text>
-<path class="edge hot" d="M596,120 C636,120 636,228 609.0,228.0"></path>
-<path class="tip hot" d="M600.0,228.0 L611.0,234.0 L611.0,222.0 Z"></path>
-<path class="edge hot" d="M488,228 C448,228 448,120 475.0,120.0"></path>
-<path class="tip hot" d="M484.0,120.0 L473.0,114.0 L473.0,126.0 Z"></path>
-<text class="muted hot" x="542" y="180" text-anchor="middle">round and round</text>
-<path class="edge" d="M132,170 L157.0,170.0"></path>
-<path class="tip" d="M166.0,170.0 L155.0,164.0 L155.0,176.0 Z"></path>
-<path class="edge" d="M270,170 L295.0,170.0"></path>
-<path class="tip" d="M304.0,170.0 L293.0,164.0 L293.0,176.0 Z"></path>
-<path class="edge" d="M408,170 L435.0,170.0"></path>
-<path class="tip" d="M444.0,170.0 L433.0,164.0 L433.0,176.0 Z"></path>
-<path class="edge" d="M640,170 L675.0,170.0"></path>
-<path class="tip" d="M684.0,170.0 L673.0,164.0 L673.0,176.0 Z"></path>
-<text class="head" x="400" y="330" text-anchor="middle">REPRODUCIBLE THROUGHOUT</text>
-<text class="muted" x="400" y="352" text-anchor="middle">code, not clicks · relative paths · a lockfile · Quarto · Git</text>
+<rect class="box" x="6" y="6" width="788" height="408" rx="14" style="fill:none;stroke-width:2"></rect>
+<rect class="box " x="20" y="170" width="90" height="60" rx="6"></rect>
+<text class="lg" x="65" y="205" text-anchor="middle">Question</text>
+<rect class="box " x="134" y="170" width="90" height="60" rx="6"></rect>
+<text class="lg" x="179" y="205" text-anchor="middle">Data</text>
+<rect class="box" x="250" y="146" width="408" height="182" rx="12" style="fill:none;stroke-dasharray:5 5"></rect>
+<rect class="box " x="264" y="170" width="112" height="60" rx="6"></rect>
+<text class="lg" x="320" y="205" text-anchor="middle">Cleaning</text>
+<rect class="box " x="398" y="170" width="112" height="60" rx="6"></rect>
+<text class="lg" x="454" y="205" text-anchor="middle">Exploration</text>
+<rect class="box " x="532" y="170" width="112" height="60" rx="6"></rect>
+<text class="lg" x="588" y="205" text-anchor="middle">Analysis</text>
+<rect class="box solid" x="684" y="170" width="98" height="60" rx="6"></rect>
+<text class="solid-text" x="733" y="205" text-anchor="middle">Conclusions</text>
+<path class="edge" d="M110,200 L125.0,200.0"></path>
+<path class="tip" d="M134.0,200.0 L123.0,194.0 L123.0,206.0 Z"></path>
+<path class="edge" d="M224,200 L255.0,200.0"></path>
+<path class="tip" d="M264.0,200.0 L253.0,194.0 L253.0,206.0 Z"></path>
+<path class="edge" d="M376,200 L389.0,200.0"></path>
+<path class="tip" d="M398.0,200.0 L387.0,194.0 L387.0,206.0 Z"></path>
+<path class="edge" d="M510,200 L523.0,200.0"></path>
+<path class="tip" d="M532.0,200.0 L521.0,194.0 L521.0,206.0 Z"></path>
+<path class="edge" d="M644,200 L675.0,200.0"></path>
+<path class="tip" d="M684.0,200.0 L673.0,194.0 L673.0,206.0 Z"></path>
+<path class="edge hot" d="M588,230 C588,282 320,282 320.0,243.0"></path>
+<path class="tip hot" d="M320.0,234.0 L314.0,245.0 L326.0,245.0 Z"></path>
+<text class="muted hot" x="454" y="312" text-anchor="middle">round and round, until it holds up</text>
+<path class="edge dashed" d="M454,170 L454,112 L179,112 L179.0,161.0"></path>
+<path class="tip" d="M179.0,170.0 L185.0,159.0 L173.0,159.0 Z"></path>
+<text class="muted" x="316" y="104" text-anchor="middle">the data can't answer it: get other data</text>
+<path class="edge dashed" d="M588,170 L588,60 L65,60 L65.0,161.0"></path>
+<path class="tip" d="M65.0,170.0 L71.0,159.0 L59.0,159.0 Z"></path>
+<text class="muted" x="326" y="52" text-anchor="middle">sharpen the question</text>
+<text class="head" x="400" y="366" text-anchor="middle">REPRODUCIBLE THROUGHOUT</text>
+<text class="muted" x="400" y="390" text-anchor="middle">code, not clicks · relative paths · a lockfile · Quarto · Git</text>
 </svg>
 
 <p class="small muted">
@@ -327,6 +334,7 @@ Share of each birth year with the name, among the 200 most common names in Swede
 .fd .solid-text{fill:var(--c-bg,#fff)}
 .fd .edge{stroke:var(--c-faint,#bbb);stroke-width:2;fill:none}
 .fd .edge.hot{stroke:var(--c-accent,#d6453d)}
+.fd .edge.dashed{stroke-dasharray:6 5;stroke:var(--c-muted,#888);stroke-width:1.6}
 .fd .tip{fill:var(--c-faint,#bbb)}
 .fd .tip.hot{fill:var(--c-accent,#d6453d)}
 .fd .node{fill:var(--c-bg,#fff);stroke:var(--c-text,#222);stroke-width:2}
@@ -413,9 +421,9 @@ Share of each birth year with the name, among the 200 most common names in Swede
 <text class="note hot" x="1020.0" y="140" text-anchor="middle">yes: Elsa, Alice,</text>
 <text class="note hot" x="1020.0" y="160" text-anchor="middle">Astrid … but only</text>
 <text class="note hot" x="1020.0" y="180" text-anchor="middle">the living are counted</text>
-<path class="loop" d="M862.9685039370079,95 C841.9685039370079,60 731.732283464567,60 714.732283464567,90"></path>
-<path class="looptip" d="M710.732283464567,95 L720.732283464567,89 L713.732283464567,83 Z"></path>
-<text class="loopnote" x="786.8503937007874" y="64" text-anchor="middle">round again</text>
+<path class="loop" d="M863.9685039370079,94 C831.9685039370079,46 593.7007874015749,46 565.7007874015749,89"></path>
+<path class="looptip" d="M561.7007874015749,94 L572.7007874015749,90 L565.7007874015749,82 Z"></path>
+<text class="loopnote" x="712.8346456692914" y="54" text-anchor="middle">round again: back to cleaning</text>
 <rect class="band" x="30" y="200" width="1040" height="30" rx="15"></rect>
 <text class="bandtext" x="550.0" y="220" text-anchor="middle"><tspan class="head">REPRODUCIBLE THROUGHOUT</tspan>  ·  fetch.py + report.qmd</text>
 </svg>
@@ -458,6 +466,7 @@ Medium project · two sources joined
 .fd .solid-text{fill:var(--c-bg,#fff)}
 .fd .edge{stroke:var(--c-faint,#bbb);stroke-width:2;fill:none}
 .fd .edge.hot{stroke:var(--c-accent,#d6453d)}
+.fd .edge.dashed{stroke-dasharray:6 5;stroke:var(--c-muted,#888);stroke-width:1.6}
 .fd .tip{fill:var(--c-faint,#bbb)}
 .fd .tip.hot{fill:var(--c-accent,#d6453d)}
 .fd .node{fill:var(--c-bg,#fff);stroke:var(--c-text,#222);stroke-width:2}
@@ -525,6 +534,7 @@ The shaded area is the gap. Is it the wind? Wind power in the south should push 
 .fd .solid-text{fill:var(--c-bg,#fff)}
 .fd .edge{stroke:var(--c-faint,#bbb);stroke-width:2;fill:none}
 .fd .edge.hot{stroke:var(--c-accent,#d6453d)}
+.fd .edge.dashed{stroke-dasharray:6 5;stroke:var(--c-muted,#888);stroke-width:1.6}
 .fd .tip{fill:var(--c-faint,#bbb)}
 .fd .tip.hot{fill:var(--c-accent,#d6453d)}
 .fd .node{fill:var(--c-bg,#fff);stroke:var(--c-text,#222);stroke-width:2}
@@ -673,9 +683,9 @@ None of this shows in the final figure. All of it changes the numbers if done wr
 <text class="note" x="1020.0" y="162" text-anchor="middle">0.40 kr/kWh more</text>
 <text class="note" x="1020.0" y="182" text-anchor="middle">on calm days;</text>
 <text class="note" x="1020.0" y="202" text-anchor="middle">weather explains 18 %</text>
-<path class="loop" d="M862.9685039370079,117 C841.9685039370079,82 731.732283464567,82 714.732283464567,112"></path>
-<path class="looptip" d="M710.732283464567,117 L720.732283464567,111 L713.732283464567,105 Z"></path>
-<text class="loopnote" x="786.8503937007874" y="86" text-anchor="middle">round again</text>
+<path class="loop" d="M863.9685039370079,116 C831.9685039370079,68 593.7007874015749,68 565.7007874015749,111"></path>
+<path class="looptip" d="M561.7007874015749,116 L572.7007874015749,112 L565.7007874015749,104 Z"></path>
+<text class="loopnote" x="712.8346456692914" y="76" text-anchor="middle">round again: back to cleaning</text>
 <rect class="band" x="30" y="222" width="1040" height="30" rx="15"></rect>
 <text class="bandtext" x="550.0" y="242" text-anchor="middle"><tspan class="head">REPRODUCIBLE THROUGHOUT</tspan>  ·  two fetch scripts, saved raw data</text>
 </svg>
@@ -709,6 +719,7 @@ Ambitious project · three sources, and a question that needs work first
 .fd .solid-text{fill:var(--c-bg,#fff)}
 .fd .edge{stroke:var(--c-faint,#bbb);stroke-width:2;fill:none}
 .fd .edge.hot{stroke:var(--c-accent,#d6453d)}
+.fd .edge.dashed{stroke-dasharray:6 5;stroke:var(--c-muted,#888);stroke-width:1.6}
 .fd .tip{fill:var(--c-faint,#bbb)}
 .fd .tip.hot{fill:var(--c-accent,#d6453d)}
 .fd .node{fill:var(--c-bg,#fff);stroke:var(--c-text,#222);stroke-width:2}
@@ -908,9 +919,9 @@ Two of three signs are there. Whether a crash follows is <span class="accent">no
 <text class="note" x="1020.0" y="162" text-anchor="middle">2 of 3 signs are</text>
 <text class="note" x="1020.0" y="182" text-anchor="middle">there; a crash is</text>
 <text class="note" x="1020.0" y="202" text-anchor="middle">not in the data</text>
-<path class="loop" d="M862.9685039370079,117 C841.9685039370079,82 731.732283464567,82 714.732283464567,112"></path>
-<path class="looptip" d="M710.732283464567,117 L720.732283464567,111 L713.732283464567,105 Z"></path>
-<text class="loopnote" x="786.8503937007874" y="86" text-anchor="middle">round again</text>
+<path class="loop" d="M863.9685039370079,116 C831.9685039370079,68 593.7007874015749,68 565.7007874015749,111"></path>
+<path class="looptip" d="M561.7007874015749,116 L572.7007874015749,112 L565.7007874015749,104 Z"></path>
+<text class="loopnote" x="712.8346456692914" y="76" text-anchor="middle">round again: back to cleaning</text>
 <rect class="band" x="30" y="222" width="1040" height="30" rx="15"></rect>
 <text class="bandtext" x="550.0" y="242" text-anchor="middle"><tspan class="head">REPRODUCIBLE THROUGHOUT</tspan>  ·  one fetch script, three sources saved</text>
 </svg>
@@ -973,9 +984,9 @@ The red step: the question itself. <a href="https://github.com/su-mt4008/lecture
 <text class="note hot" x="1020.0" y="140" text-anchor="middle">yes: Elsa, Alice,</text>
 <text class="note hot" x="1020.0" y="160" text-anchor="middle">Astrid … but only</text>
 <text class="note hot" x="1020.0" y="180" text-anchor="middle">the living are counted</text>
-<path class="loop" d="M862.9685039370079,95 C841.9685039370079,60 731.732283464567,60 714.732283464567,90"></path>
-<path class="looptip" d="M710.732283464567,95 L720.732283464567,89 L713.732283464567,83 Z"></path>
-<text class="loopnote" x="786.8503937007874" y="64" text-anchor="middle">round again</text>
+<path class="loop" d="M863.9685039370079,94 C831.9685039370079,46 593.7007874015749,46 565.7007874015749,89"></path>
+<path class="looptip" d="M561.7007874015749,94 L572.7007874015749,90 L565.7007874015749,82 Z"></path>
+<text class="loopnote" x="712.8346456692914" y="54" text-anchor="middle">round again: back to cleaning</text>
 <rect class="band" x="30" y="200" width="1040" height="30" rx="15"></rect>
 <text class="bandtext" x="550.0" y="220" text-anchor="middle"><tspan class="head">REPRODUCIBLE THROUGHOUT</tspan>  ·  fetch.py + report.qmd</text>
 </svg>
@@ -1038,9 +1049,9 @@ The red step: the question itself. <a href="https://github.com/su-mt4008/lecture
 <text class="note" x="1020.0" y="162" text-anchor="middle">0.40 kr/kWh more</text>
 <text class="note" x="1020.0" y="182" text-anchor="middle">on calm days;</text>
 <text class="note" x="1020.0" y="202" text-anchor="middle">weather explains 18 %</text>
-<path class="loop" d="M862.9685039370079,117 C841.9685039370079,82 731.732283464567,82 714.732283464567,112"></path>
-<path class="looptip" d="M710.732283464567,117 L720.732283464567,111 L713.732283464567,105 Z"></path>
-<text class="loopnote" x="786.8503937007874" y="86" text-anchor="middle">round again</text>
+<path class="loop" d="M863.9685039370079,116 C831.9685039370079,68 593.7007874015749,68 565.7007874015749,111"></path>
+<path class="looptip" d="M561.7007874015749,116 L572.7007874015749,112 L565.7007874015749,104 Z"></path>
+<text class="loopnote" x="712.8346456692914" y="76" text-anchor="middle">round again: back to cleaning</text>
 <rect class="band" x="30" y="222" width="1040" height="30" rx="15"></rect>
 <text class="bandtext" x="550.0" y="242" text-anchor="middle"><tspan class="head">REPRODUCIBLE THROUGHOUT</tspan>  ·  two fetch scripts, saved raw data</text>
 </svg>
@@ -1103,9 +1114,9 @@ The red step: the question itself. <a href="https://github.com/su-mt4008/lecture
 <text class="note" x="1020.0" y="162" text-anchor="middle">2 of 3 signs are</text>
 <text class="note" x="1020.0" y="182" text-anchor="middle">there; a crash is</text>
 <text class="note" x="1020.0" y="202" text-anchor="middle">not in the data</text>
-<path class="loop" d="M862.9685039370079,117 C841.9685039370079,82 731.732283464567,82 714.732283464567,112"></path>
-<path class="looptip" d="M710.732283464567,117 L720.732283464567,111 L713.732283464567,105 Z"></path>
-<text class="loopnote" x="786.8503937007874" y="86" text-anchor="middle">round again</text>
+<path class="loop" d="M863.9685039370079,116 C831.9685039370079,68 593.7007874015749,68 565.7007874015749,111"></path>
+<path class="looptip" d="M561.7007874015749,116 L572.7007874015749,112 L565.7007874015749,104 Z"></path>
+<text class="loopnote" x="712.8346456692914" y="76" text-anchor="middle">round again: back to cleaning</text>
 <rect class="band" x="30" y="222" width="1040" height="30" rx="15"></rect>
 <text class="bandtext" x="550.0" y="242" text-anchor="middle"><tspan class="head">REPRODUCIBLE THROUGHOUT</tspan>  ·  one fetch script, three sources saved</text>
 </svg>
@@ -1465,6 +1476,7 @@ More: <a href="../../homework/">Assignments</a>
 .fd .solid-text{fill:var(--c-bg,#fff)}
 .fd .edge{stroke:var(--c-faint,#bbb);stroke-width:2;fill:none}
 .fd .edge.hot{stroke:var(--c-accent,#d6453d)}
+.fd .edge.dashed{stroke-dasharray:6 5;stroke:var(--c-muted,#888);stroke-width:1.6}
 .fd .tip{fill:var(--c-faint,#bbb)}
 .fd .tip.hot{fill:var(--c-accent,#d6453d)}
 .fd .node{fill:var(--c-bg,#fff);stroke:var(--c-text,#222);stroke-width:2}

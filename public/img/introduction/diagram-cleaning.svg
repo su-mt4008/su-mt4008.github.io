@@ -14,6 +14,7 @@
 .fd .solid-text{fill:var(--c-bg,#fff)}
 .fd .edge{stroke:var(--c-faint,#bbb);stroke-width:2;fill:none}
 .fd .edge.hot{stroke:var(--c-accent,#d6453d)}
+.fd .edge.dashed{stroke-dasharray:6 5;stroke:var(--c-muted,#888);stroke-width:1.6}
 .fd .tip{fill:var(--c-faint,#bbb)}
 .fd .tip.hot{fill:var(--c-accent,#d6453d)}
 .fd .node{fill:var(--c-bg,#fff);stroke:var(--c-text,#222);stroke-width:2}

@@ -14,11 +14,12 @@ three real projects, then goes through how the course works. After the break com
 ## The data science cycle
 
 Every analysis in this course, from the first assignment to your project, goes round the same
-cycle: a **question**, the **data**, **cleaning** it, then **exploration** and **analysis**, round
-and round until the answer holds up, and finally **conclusions**. Being **reproducible** is not a
-last step: it frames every step, from the first line of code.
+cycle: a **question** and the **data**, then **cleaning**, **exploration** and **analysis**, round
+and round until the answer holds up, and finally **conclusions**. What you see while exploring
+sends you back to clean again, and sometimes back for other data or a sharper question. Being
+**reproducible** is not a last step: it frames every step, from the first line of code.
 
-<InlineSvg name="diagram-cycle" caption="Exploration and analysis go round until the answer holds up; being reproducible frames every step. After the cycle in Wickham, Çetinkaya-Rundel & Grolemund, R for Data Science (2e)." />
+<InlineSvg name="diagram-cycle" caption="Cleaning, exploration and analysis go round until the answer holds up, sometimes back to the data or the question; being reproducible frames every step. After the cycle in Wickham, Çetinkaya-Rundel & Grolemund, R for Data Science (2e)." />
 
 Your reports follow the cycle in seven sections: Question, Data, Cleaning, Exploration,
 Analysis, Conclusions & limitations, and How to reproduce.

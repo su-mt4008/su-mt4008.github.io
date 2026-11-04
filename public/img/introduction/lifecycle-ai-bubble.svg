@@ -51,9 +51,9 @@
 <text class="note" x="1020.0" y="162" text-anchor="middle">2 of 3 signs are</text>
 <text class="note" x="1020.0" y="182" text-anchor="middle">there; a crash is</text>
 <text class="note" x="1020.0" y="202" text-anchor="middle">not in the data</text>
-<path class="loop" d="M862.9685039370079,117 C841.9685039370079,82 731.732283464567,82 714.732283464567,112"/>
-<path class="looptip" d="M710.732283464567,117 L720.732283464567,111 L713.732283464567,105 Z"/>
-<text class="loopnote" x="786.8503937007874" y="86" text-anchor="middle">round again</text>
+<path class="loop" d="M863.9685039370079,116 C831.9685039370079,68 593.7007874015749,68 565.7007874015749,111"/>
+<path class="looptip" d="M561.7007874015749,116 L572.7007874015749,112 L565.7007874015749,104 Z"/>
+<text class="loopnote" x="712.8346456692914" y="76" text-anchor="middle">round again: back to cleaning</text>
 <rect class="band" x="30" y="222" width="1040" height="30" rx="15"/>
 <text class="bandtext" x="550.0" y="242" text-anchor="middle"><tspan class="head">REPRODUCIBLE THROUGHOUT</tspan>  ·  one fetch script, three sources saved</text>
 </svg>

@@ -45,7 +45,8 @@ today, with a laptop? By the end of the course: all three. Each is a full report
 ::: {}
 Every project in this course goes round this cycle, from HW1 to your group project.
 
-- **Exploration and analysis** go round several times: look, test, look again, until the answer holds up.
+- **Cleaning, exploration and analysis** go round several times: what you see sends you back to clean, test and look again, until the answer holds up.
+- Sometimes the data can't answer the question: get other data, or sharpen the question.
 - **Reproducible** is not a last step: it frames every step.
 - Your report follows the cycle, and ends with *How to reproduce*.
 :::

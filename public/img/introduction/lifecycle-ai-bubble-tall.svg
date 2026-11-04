@@ -17,38 +17,38 @@
 .lc .looptip{fill:var(--c-accent,#d6453d)}
 .lc text.loopnote{font-size:12px;fill:var(--c-accent,#d6453d)}
 </style>
-<path class="line" d="M150,24 V323"/>
-<text class="step hot" x="128" y="29" text-anchor="end">Question</text>
-<circle class="node hot" cx="150" cy="24" r="7"/>
-<text class="note hot" x="182" y="29">“Bubble” is not measurable: turn it into</text>
-<text class="note hot" x="182" y="50">three signs</text>
-<text class="step" x="128" y="93" text-anchor="end">Data</text>
-<path class="line" d="M174,88 C174,143 150,133 150,173"/>
-<circle class="dot" cx="174" cy="88" r="4"/>
-<text class="src" x="186" y="93">Shiller: valuations since 1871</text>
-<path class="line" d="M174,109 C174,143 150,133 150,173"/>
-<circle class="dot" cx="174" cy="109" r="4"/>
-<text class="src" x="186" y="114">FRED: the NASDAQ index</text>
-<path class="line" d="M174,130 C174,143 150,133 150,173"/>
-<circle class="dot" cx="174" cy="130" r="4"/>
-<text class="src" x="186" y="135">Hacker News titles (API)</text>
-<text class="step" x="128" y="178" text-anchor="end">Cleaning</text>
-<circle class="node" cx="150" cy="173" r="7"/>
-<text class="note" x="182" y="178">dates like 2026.1 mean October; counts →</text>
-<text class="note" x="182" y="199">shares</text>
-<text class="step" x="128" y="242" text-anchor="end">Exploration</text>
-<circle class="node" cx="150" cy="237" r="7"/>
-<text class="note" x="182" y="242">each sign against its own history</text>
-<text class="step" x="128" y="285" text-anchor="end">Analysis</text>
-<circle class="node" cx="150" cy="280" r="7"/>
-<text class="note" x="182" y="285">compare with 1929, 2000 and the crypto boom</text>
-<text class="step" x="128" y="328" text-anchor="end">Conclusions</text>
-<circle class="node" cx="150" cy="323" r="7"/>
-<text class="note" x="182" y="328">2 of 3 signs are there; a crash is not in</text>
-<text class="note" x="182" y="349">the data</text>
-<path class="loop" d="M159,276 C174,270 174,247 161,243"/>
-<path class="looptip" d="M158,241 L167,240 L163,249 Z"/>
-<text class="loopnote" x="182" y="270.5">↻ round again until it holds up</text>
+<path class="line" d="M162,24 V323"/>
+<text class="step hot" x="126" y="29" text-anchor="end">Question</text>
+<circle class="node hot" cx="162" cy="24" r="7"/>
+<text class="note hot" x="192" y="29">“Bubble” is not measurable: turn it into</text>
+<text class="note hot" x="192" y="50">three signs</text>
+<text class="step" x="126" y="93" text-anchor="end">Data</text>
+<path class="line" d="M184,88 C184,143 162,133 162,173"/>
+<circle class="dot" cx="184" cy="88" r="4"/>
+<text class="src" x="196" y="93">Shiller: valuations since 1871</text>
+<path class="line" d="M184,109 C184,143 162,133 162,173"/>
+<circle class="dot" cx="184" cy="109" r="4"/>
+<text class="src" x="196" y="114">FRED: the NASDAQ index</text>
+<path class="line" d="M184,130 C184,143 162,133 162,173"/>
+<circle class="dot" cx="184" cy="130" r="4"/>
+<text class="src" x="196" y="135">Hacker News titles (API)</text>
+<text class="step" x="126" y="178" text-anchor="end">Cleaning</text>
+<circle class="node" cx="162" cy="173" r="7"/>
+<text class="note" x="192" y="178">dates like 2026.1 mean October; counts →</text>
+<text class="note" x="192" y="199">shares</text>
+<text class="step" x="126" y="242" text-anchor="end">Exploration</text>
+<circle class="node" cx="162" cy="237" r="7"/>
+<text class="note" x="192" y="242">each sign against its own history</text>
+<text class="step" x="126" y="285" text-anchor="end">Analysis</text>
+<circle class="node" cx="162" cy="280" r="7"/>
+<text class="note" x="192" y="285">compare with 1929, 2000 and the crypto boom</text>
+<text class="step" x="126" y="328" text-anchor="end">Conclusions</text>
+<circle class="node" cx="162" cy="323" r="7"/>
+<text class="note" x="192" y="328">2 of 3 signs are there; a crash is not in</text>
+<text class="note" x="192" y="349">the data</text>
+<path class="loop" d="M153,280 C134,270 134,183 150,177"/>
+<path class="looptip" d="M154,175 L144,172 L147,182 Z"/>
+<text class="loopnote" x="192" y="307">↻ round again: back to cleaning until it holds up</text>
 <rect class="band" x="20" y="381" width="600" height="30" rx="15"/>
 <text class="bandtext" x="320.0" y="401" text-anchor="middle"><tspan class="head">REPRODUCIBLE THROUGHOUT</tspan>  ·  one fetch script, three sources saved</text>
 </svg>
