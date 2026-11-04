@@ -1,0 +1,52 @@
+<svg class="lc" viewBox="0 0 1100 222" role="img" xmlns="http://www.w3.org/2000/svg">
+<title>Life cycle of the AI bubble project</title>
+<style>
+.lc text{font-family:var(--font-sans,'IBM Plex Sans',system-ui,sans-serif);fill:var(--c-text,#222)}
+.lc .step{font-size:13px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;fill:var(--c-muted,#777)}
+.lc .note{font-size:14px}
+.lc .src{font-size:13px;fill:var(--c-muted,#777)}
+.lc text.hot{fill:var(--c-accent,#d6453d)}
+.lc .line{stroke:var(--c-faint,#bbb);stroke-width:2;fill:none}
+.lc .node{fill:var(--c-bg,#fff);stroke:var(--c-text,#222);stroke-width:2}
+.lc .node.hot{fill:var(--c-accent,#d6453d);stroke:var(--c-accent,#d6453d)}
+.lc .dot{fill:var(--c-text,#222)}
+</style>
+<path class="line" d="M70,126 H1030"/>
+<path class="line" d="M203.33333333333334,66 H335.3333333333333 C423.33333333333326,66 438.0,126 496.66666666666663,126"/>
+<circle class="dot" cx="203.33333333333334" cy="66" r="4"/>
+<text class="src" x="215.33333333333334" y="58">Shiller: valuations since 1871</text>
+<path class="line" d="M203.33333333333334,96 H335.3333333333333 C423.33333333333326,96 438.0,126 496.66666666666663,126"/>
+<circle class="dot" cx="203.33333333333334" cy="96" r="4"/>
+<text class="src" x="215.33333333333334" y="88">FRED: the NASDAQ index</text>
+<circle class="dot" cx="203.33333333333334" cy="126" r="4"/>
+<text class="src" x="215.33333333333334" y="118">Hacker News titles (API)</text>
+<text class="step hot" x="70.0" y="30" text-anchor="middle">Question</text>
+<circle class="node hot" cx="70.0" cy="126" r="7"/>
+<text class="note hot" x="70.0" y="162" text-anchor="middle">“Bubble” is not</text>
+<text class="note hot" x="70.0" y="182" text-anchor="middle">measurable: turn it</text>
+<text class="note hot" x="70.0" y="202" text-anchor="middle">into three signs</text>
+<text class="step" x="203.33333333333334" y="30" text-anchor="start" dx="-8">Data</text>
+<text class="step" x="496.66666666666663" y="30" text-anchor="middle">Cleaning</text>
+<circle class="node" cx="496.66666666666663" cy="126" r="7"/>
+<text class="note" x="496.66666666666663" y="162" text-anchor="middle">dates like 2026.1</text>
+<text class="note" x="496.66666666666663" y="182" text-anchor="middle">mean October;</text>
+<text class="note" x="496.66666666666663" y="202" text-anchor="middle">counts → shares</text>
+<text class="step" x="630.0" y="30" text-anchor="middle">Exploration</text>
+<circle class="node" cx="630.0" cy="126" r="7"/>
+<text class="note" x="630.0" y="162" text-anchor="middle">each sign against</text>
+<text class="note" x="630.0" y="182" text-anchor="middle">its own history</text>
+<text class="step" x="763.3333333333334" y="30" text-anchor="middle">Analysis</text>
+<circle class="node" cx="763.3333333333334" cy="126" r="7"/>
+<text class="note" x="763.3333333333334" y="162" text-anchor="middle">compare with 1929,</text>
+<text class="note" x="763.3333333333334" y="182" text-anchor="middle">2000 and the</text>
+<text class="note" x="763.3333333333334" y="202" text-anchor="middle">crypto boom</text>
+<text class="step" x="896.6666666666666" y="30" text-anchor="middle">Conclusions</text>
+<circle class="node" cx="896.6666666666666" cy="126" r="7"/>
+<text class="note" x="896.6666666666666" y="162" text-anchor="middle">2 of 3 signs are</text>
+<text class="note" x="896.6666666666666" y="182" text-anchor="middle">there; a crash is</text>
+<text class="note" x="896.6666666666666" y="202" text-anchor="middle">not in the data</text>
+<text class="step" x="1030.0" y="30" text-anchor="middle">Reproduce</text>
+<circle class="node" cx="1030.0" cy="126" r="7"/>
+<text class="note" x="1030.0" y="162" text-anchor="middle">one fetch script,</text>
+<text class="note" x="1030.0" y="182" text-anchor="middle">three sources saved</text>
+</svg>

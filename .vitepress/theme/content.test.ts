@@ -123,3 +123,37 @@ describe('statistics page', () => {
     expect(page('lectures/week-1.md')).toContain('/statistics')
   })
 })
+
+describe('introduction lecture', () => {
+  const post = page('lectures/introduction.md')
+  const deck = page('slides/introduction/index.qmd')
+  const exists = (path: string) => { try { readFileSync(path); return true } catch { return false } }
+
+  it('the post links to the slides and the slides back to the post', () => {
+    expect(post).toContain('href="/slides/introduction/index.html"')
+    expect(deck).toContain('/lectures/introduction')
+  })
+  it('the post shows a diagram for each project, and each diagram exists in both shapes', () => {
+    for (const name of ['names', 'electricity', 'ai-bubble']) {
+      expect(post).toContain(`<LifeCycle name="${name}" />`)
+      expect(exists(`public/img/introduction/lifecycle-${name}.svg`)).toBe(true)
+      expect(exists(`public/img/introduction/lifecycle-${name}-tall.svg`)).toBe(true)
+    }
+  })
+  it('every image the post and the slides use exists', () => {
+    const images = [...post.matchAll(/\]\((\/img\/[^)]+)\)/g), ...deck.matchAll(/src="(\/img\/[^"]+)"/g)].map((m) => m[1])
+    expect(images.length).toBeGreaterThan(15)
+    for (const img of images) expect(exists(`public${img}`), img).toBe(true)
+  })
+  it('dates on the slides are filled in from /course.json, not typed in', () => {
+    for (const key of ['finalDeadline', 'proposal', 'presentation', 'project', 'exam', 'assignments.0.due']) {
+      expect(deck).toContain(`data-course="${key}"`)
+    }
+    expect(deck).toContain('data-course-assignments')
+  })
+  it('is in the Lectures sidebar and linked from week 1 and the lectures page', () => {
+    expect(page('.vitepress/config.mts')).toContain("link: '/lectures/introduction'")
+    expect(page('lectures/week-1.md')).toContain('/lectures/introduction')
+    expect(page('lectures/index.md')).toContain('/lectures/introduction')
+  })
+})

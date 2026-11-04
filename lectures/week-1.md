@@ -17,6 +17,9 @@ You also learn the tools you will use every week: VS Code, Git and GitHub, Quart
 - set up a project with a locked environment and a Quarto report;
 - use Git and GitHub from VS Code: commit, branch, push, open and review a pull request.
 
+**Start here** if you missed the first session: [Introduction](/lectures/introduction) shows the
+whole cycle on three real projects.
+
 **How to use this page.** Read it once from top to bottom (about two hours), with VS Code open,
 and do the small exercises as you go. Then do [HW1](/homework/1). Setup instructions are on
 [How we work](/guide#set-up-your-computer); this page explains the *why*.

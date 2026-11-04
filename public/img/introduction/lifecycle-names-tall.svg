@@ -1,0 +1,37 @@
+<svg class="lc lc-tall" viewBox="0 0 640 346" role="img" xmlns="http://www.w3.org/2000/svg">
+<title>Life cycle of the baby names project</title>
+<style>
+.lc text{font-family:var(--font-sans,'IBM Plex Sans',system-ui,sans-serif);fill:var(--c-text,#222)}
+.lc .step{font-size:13px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;fill:var(--c-muted,#777)}
+.lc .note{font-size:14px}
+.lc .src{font-size:13px;fill:var(--c-muted,#777)}
+.lc text.hot{fill:var(--c-accent,#d6453d)}
+.lc .line{stroke:var(--c-faint,#bbb);stroke-width:2;fill:none}
+.lc .node{fill:var(--c-bg,#fff);stroke:var(--c-text,#222);stroke-width:2}
+.lc .node.hot{fill:var(--c-accent,#d6453d);stroke:var(--c-accent,#d6453d)}
+.lc .dot{fill:var(--c-text,#222)}
+</style>
+<path class="line" d="M150,24 V303"/>
+<text class="step" x="128" y="29" text-anchor="end">Question</text>
+<circle class="node" cx="150" cy="24" r="7"/>
+<text class="note" x="182" y="29">Do names come back after three generations?</text>
+<text class="step" x="128" y="72" text-anchor="end">Data</text>
+<circle class="node" cx="150" cy="67" r="7"/>
+<text class="note" x="182" y="72">SCB: 200 names by year of birth</text>
+<text class="step" x="128" y="115" text-anchor="end">Cleaning</text>
+<circle class="node" cx="150" cy="110" r="7"/>
+<text class="note" x="182" y="115">wide → long &#x27;..&#x27; means fewer than ten people</text>
+<text class="step" x="128" y="158" text-anchor="end">Exploration</text>
+<circle class="node" cx="150" cy="153" r="7"/>
+<text class="note" x="182" y="158">share of each birth year</text>
+<text class="step" x="128" y="201" text-anchor="end">Analysis</text>
+<circle class="node" cx="150" cy="196" r="7"/>
+<text class="note" x="182" y="201">a comeback score</text>
+<text class="step hot" x="128" y="244" text-anchor="end">Conclusions</text>
+<circle class="node hot" cx="150" cy="239" r="7"/>
+<text class="note hot" x="182" y="244">yes: Elsa, Alice, Astrid … but only the</text>
+<text class="note hot" x="182" y="265">living are counted</text>
+<text class="step" x="128" y="308" text-anchor="end">Reproduce</text>
+<circle class="node" cx="150" cy="303" r="7"/>
+<text class="note" x="182" y="308">fetch.py + report.qmd</text>
+</svg>

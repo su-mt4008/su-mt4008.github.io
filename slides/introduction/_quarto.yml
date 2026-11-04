@@ -1,0 +1,32 @@
+# The introduction lecture as a reveal.js deck. Render from this folder with:  quarto render
+# The output goes into the site (public/slides/introduction/), served at /slides/introduction/.
+# Figures come from scripts/introduction_figures.py; dates and rules from /course.json.
+project:
+  type: default
+  output-dir: ../../public/slides/introduction
+  render:
+    - index.qmd
+
+format:
+  revealjs:
+    theme: [default, theme.scss]
+    width: 1280
+    height: 720
+    margin: 0.06
+    center: false
+    transition: none
+    slide-number: c/t
+    hash: true
+    history: true
+    progress: true
+    controls: true
+    controls-layout: bottom-right
+    menu: false
+    preview-links: false
+    link-external-newwindow: true
+    include-in-header:
+      - text: |
+          <link rel="preconnect" href="https://fonts.googleapis.com">
+          <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+          <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Serif:wght@400;500;600&display=swap">
+    include-after-body: course.html

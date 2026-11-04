@@ -1,0 +1,46 @@
+<svg class="lc" viewBox="0 0 1100 162" role="img" xmlns="http://www.w3.org/2000/svg">
+<title>Life cycle of the baby names project</title>
+<style>
+.lc text{font-family:var(--font-sans,'IBM Plex Sans',system-ui,sans-serif);fill:var(--c-text,#222)}
+.lc .step{font-size:13px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;fill:var(--c-muted,#777)}
+.lc .note{font-size:14px}
+.lc .src{font-size:13px;fill:var(--c-muted,#777)}
+.lc text.hot{fill:var(--c-accent,#d6453d)}
+.lc .line{stroke:var(--c-faint,#bbb);stroke-width:2;fill:none}
+.lc .node{fill:var(--c-bg,#fff);stroke:var(--c-text,#222);stroke-width:2}
+.lc .node.hot{fill:var(--c-accent,#d6453d);stroke:var(--c-accent,#d6453d)}
+.lc .dot{fill:var(--c-text,#222)}
+</style>
+<path class="line" d="M70,66 H1030"/>
+<text class="step" x="70.0" y="30" text-anchor="middle">Question</text>
+<circle class="node" cx="70.0" cy="66" r="7"/>
+<text class="note" x="70.0" y="102" text-anchor="middle">Do names come</text>
+<text class="note" x="70.0" y="122" text-anchor="middle">back after</text>
+<text class="note" x="70.0" y="142" text-anchor="middle">three generations?</text>
+<text class="step" x="203.33333333333334" y="30" text-anchor="middle">Data</text>
+<circle class="node" cx="203.33333333333334" cy="66" r="7"/>
+<text class="note" x="203.33333333333334" y="102" text-anchor="middle">SCB: 200 names by</text>
+<text class="note" x="203.33333333333334" y="122" text-anchor="middle">year of birth</text>
+<text class="step" x="496.66666666666663" y="30" text-anchor="middle">Cleaning</text>
+<circle class="node" cx="496.66666666666663" cy="66" r="7"/>
+<text class="note" x="496.66666666666663" y="102" text-anchor="middle">wide → long</text>
+<text class="note" x="496.66666666666663" y="122" text-anchor="middle">&#x27;..&#x27; means fewer</text>
+<text class="note" x="496.66666666666663" y="142" text-anchor="middle">than ten people</text>
+<text class="step" x="630.0" y="30" text-anchor="middle">Exploration</text>
+<circle class="node" cx="630.0" cy="66" r="7"/>
+<text class="note" x="630.0" y="102" text-anchor="middle">share of each</text>
+<text class="note" x="630.0" y="122" text-anchor="middle">birth year</text>
+<text class="step" x="763.3333333333334" y="30" text-anchor="middle">Analysis</text>
+<circle class="node" cx="763.3333333333334" cy="66" r="7"/>
+<text class="note" x="763.3333333333334" y="102" text-anchor="middle">a comeback</text>
+<text class="note" x="763.3333333333334" y="122" text-anchor="middle">score</text>
+<text class="step hot" x="896.6666666666666" y="30" text-anchor="middle">Conclusions</text>
+<circle class="node hot" cx="896.6666666666666" cy="66" r="7"/>
+<text class="note hot" x="896.6666666666666" y="102" text-anchor="middle">yes: Elsa, Alice,</text>
+<text class="note hot" x="896.6666666666666" y="122" text-anchor="middle">Astrid … but only</text>
+<text class="note hot" x="896.6666666666666" y="142" text-anchor="middle">the living are counted</text>
+<text class="step" x="1030.0" y="30" text-anchor="middle">Reproduce</text>
+<circle class="node" cx="1030.0" cy="66" r="7"/>
+<text class="note" x="1030.0" y="102" text-anchor="middle">fetch.py +</text>
+<text class="note" x="1030.0" y="122" text-anchor="middle">report.qmd</text>
+</svg>

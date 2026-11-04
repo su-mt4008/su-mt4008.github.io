@@ -5,7 +5,7 @@ There are no lectures: the material is designed for self-study, one week at a ti
 * **Mondays, {{ $course.hours }}:** a **15–30 minute walkthrough** of this week’s material, then work time.
 * **Thursdays, {{ $course.hours }}:** work time.
 
-The first session, on {{ $course.firstSession }}, is an **introduction to the course**.
+The first session, on {{ $course.firstSession }}, is an **introduction to the course**: [the post and the slides](/lectures/introduction).
 
 All sessions are in **{{ $course.room }}**, with {{ $course.teachers }}.
 
@@ -14,7 +14,7 @@ All sessions are in **{{ $course.room }}**, with {{ $course.teachers }}.
 Any changes to times or rooms show up first in TimeEdit:
 <a :href="$course.links.timeedit">View the schedule</a>
 
-Example code from the material is here:
+Example code from the material, and the three projects from the introduction, are here:
 [GitHub: su-mt4008/lecture-demos](https://github.com/su-mt4008/lecture-demos)
 
 ## Schedule

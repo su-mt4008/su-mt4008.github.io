@@ -1,0 +1,47 @@
+<svg class="lc lc-tall" viewBox="0 0 640 451" role="img" xmlns="http://www.w3.org/2000/svg">
+<title>Life cycle of the electricity price project</title>
+<style>
+.lc text{font-family:var(--font-sans,'IBM Plex Sans',system-ui,sans-serif);fill:var(--c-text,#222)}
+.lc .step{font-size:13px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;fill:var(--c-muted,#777)}
+.lc .note{font-size:14px}
+.lc .src{font-size:13px;fill:var(--c-muted,#777)}
+.lc text.hot{fill:var(--c-accent,#d6453d)}
+.lc .line{stroke:var(--c-faint,#bbb);stroke-width:2;fill:none}
+.lc .node{fill:var(--c-bg,#fff);stroke:var(--c-text,#222);stroke-width:2}
+.lc .node.hot{fill:var(--c-accent,#d6453d);stroke:var(--c-accent,#d6453d)}
+.lc .dot{fill:var(--c-text,#222)}
+</style>
+<path class="line" d="M150,24 V408"/>
+<text class="step" x="128" y="29" text-anchor="end">Question</text>
+<circle class="node" cx="150" cy="24" r="7"/>
+<text class="note" x="182" y="29">How big is the south–north gap, and is it</text>
+<text class="note" x="182" y="50">the wind?</text>
+<text class="step" x="128" y="93" text-anchor="end">Data</text>
+<path class="line" d="M174,88 C174,143 150,133 150,173"/>
+<circle class="dot" cx="174" cy="88" r="4"/>
+<text class="src" x="186" y="93">Spot prices, 4 zones (API)</text>
+<path class="line" d="M174,109 C174,143 150,133 150,173"/>
+<circle class="dot" cx="174" cy="109" r="4"/>
+<text class="src" x="186" y="114">SMHI wind, Malmö</text>
+<path class="line" d="M174,130 C174,143 150,133 150,173"/>
+<circle class="dot" cx="174" cy="130" r="4"/>
+<text class="src" x="186" y="135">SMHI temperature, Malmö</text>
+<text class="step hot" x="128" y="178" text-anchor="end">Cleaning</text>
+<circle class="node hot" cx="150" cy="173" r="7"/>
+<text class="note hot" x="182" y="178">15-min vs hourly, clock changes, join on the</text>
+<text class="note hot" x="182" y="199">date</text>
+<text class="step" x="128" y="242" text-anchor="end">Exploration</text>
+<circle class="node" cx="150" cy="237" r="7"/>
+<text class="note" x="182" y="242">prices per zone over 3 years</text>
+<text class="step" x="128" y="285" text-anchor="end">Analysis</text>
+<circle class="node" cx="150" cy="280" r="7"/>
+<text class="note" x="182" y="285">calm vs windy days, bootstrap, straight-line</text>
+<text class="note" x="182" y="306">fit</text>
+<text class="step" x="128" y="349" text-anchor="end">Conclusions</text>
+<circle class="node" cx="150" cy="344" r="7"/>
+<text class="note" x="182" y="349">0.40 kr/kWh more on calm days; weather</text>
+<text class="note" x="182" y="370">explains 18 %</text>
+<text class="step" x="128" y="413" text-anchor="end">Reproduce</text>
+<circle class="node" cx="150" cy="408" r="7"/>
+<text class="note" x="182" y="413">two fetch scripts, saved raw data</text>
+</svg>

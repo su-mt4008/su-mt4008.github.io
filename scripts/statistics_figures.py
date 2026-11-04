@@ -26,14 +26,14 @@ plt.rcParams.update({
     "figure.facecolor": "none", "axes.facecolor": "none", "savefig.facecolor": "none",
     "axes.edgecolor": INK, "axes.labelcolor": INK, "xtick.color": INK, "ytick.color": INK,
     "text.color": INK, "font.size": 11, "axes.spines.top": False, "axes.spines.right": False,
-    "svg.fonttype": "none",
+    "svg.fonttype": "none", "svg.hashsalt": "mt4008",
 })
 rng = np.random.default_rng(4008)
 
 
 def save(fig, name):
     fig.tight_layout()
-    fig.savefig(OUT / f"{name}.svg")
+    fig.savefig(OUT / f"{name}.svg", metadata={"Date": None})  # same file every run
     plt.close(fig)
 
 
@@ -74,7 +74,7 @@ ax.set_ylim(-.4, 1.6)
 ax.set_xlabel("Mean temperature of one year (°C).  Red: mean ± one standard deviation")
 save(fig, "spread")
 
-# 3. Sampling distribution: means of 13 years vary much less than single years
+# 3. Sampling distribution: means of n years vary much less than single years
 mu, sigma, n = a.mean(), a.std(), len(a)
 singles = rng.normal(mu, sigma, 100_000)
 means = rng.normal(mu, sigma, (100_000, n)).mean(axis=1)
@@ -111,7 +111,7 @@ for i, (s, _) in enumerate(samples):
     ax.plot(m, i, "o", color=GREY if ok else RED, ms=4)
 ax.axvline(mu, color=INK, ls="--", lw=1)
 ax.set_yticks([])
-ax.set_xlabel("°C.  Dashed: the true mean.  Each line: a 95% interval from a new sample of 13 years")
+ax.set_xlabel(f"°C.  Dashed: the true mean.  Each line: a 95% interval from a new sample of {n} years")
 print("intervals missing the true mean:", miss, "of 20")
 save(fig, "intervals")
 

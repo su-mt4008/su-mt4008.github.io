@@ -1,0 +1,100 @@
+/*-- scss:defaults --*/
+// The site's look: IBM Plex, black and white, one red accent. Colours are set as CSS
+// variables in the rules below, so the deck follows the site's light/dark setting.
+$font-family-sans-serif: 'IBM Plex Sans', system-ui, sans-serif;
+$font-family-monospace: 'IBM Plex Mono', ui-monospace, monospace;
+$presentation-heading-font: 'IBM Plex Serif', Georgia, serif;
+$presentation-heading-font-weight: 500;
+$presentation-font-size-root: 30px;
+$presentation-h1-font-size: 2.2em;
+$presentation-h2-font-size: 1.45em;
+$presentation-h3-font-size: 1.05em;
+$presentation-heading-text-transform: none;
+$presentation-heading-letter-spacing: -0.01em;
+$presentation-line-height: 1.4;
+$body-bg: #fbfbfb;
+$body-color: #262626;
+$link-color: #262626;
+$selection-bg: #d6453d;
+
+/*-- scss:rules --*/
+:root {
+  --c-bg: oklch(98.5% 0 0);
+  --c-text: oklch(20% 0 0);
+  --c-muted: oklch(48% 0 0);
+  --c-line: oklch(90% 0 0);
+  --c-faint: oklch(85% 0 0);
+  --c-tint: oklch(96% 0 0);
+  --c-accent: oklch(58% .2 27);
+  --font-sans: 'IBM Plex Sans', system-ui, sans-serif;
+}
+html.dark {
+  --c-bg: oklch(17% 0 0);
+  --c-text: oklch(94% 0 0);
+  --c-muted: oklch(70% 0 0);
+  --c-line: oklch(29% 0 0);
+  --c-faint: oklch(36% 0 0);
+  --c-tint: oklch(21% 0 0);
+  --c-accent: oklch(70% .17 28);
+}
+
+.reveal-viewport { background: var(--c-bg); }
+.reveal { color: var(--c-text); font-variant-numeric: tabular-nums; }
+.reveal h1, .reveal h2, .reveal h3 { color: var(--c-text); }
+.reveal h2 { margin-bottom: .6em; }
+.reveal a { color: inherit; text-decoration: underline; text-decoration-color: var(--c-faint); text-underline-offset: .15em; }
+.reveal a:hover { text-decoration-color: var(--c-accent); }
+.reveal strong { font-weight: 600; }
+.reveal .slide-number, .reveal .controls { color: var(--c-muted); }
+.reveal .slide-number { background: none; font-family: var(--font-sans); font-size: 14px; }
+.reveal .progress { color: var(--c-accent); height: 2px; }
+.reveal code { font-size: .85em; background: var(--c-tint); padding: .05em .3em; border-radius: 3px; color: var(--c-text); }
+.reveal pre { box-shadow: none; }
+.reveal pre code { background: var(--c-tint); max-height: none; padding: .8em 1em; font-size: .72em; line-height: 1.45; border-radius: 4px; }
+.reveal table { font-size: .78em; }
+.reveal table th { border-bottom: 1px solid var(--c-text); font-weight: 600; }
+.reveal table td { border-bottom: 1px solid var(--c-line); }
+.reveal .math { font-size: .95em; }
+.reveal ul { list-style: none; margin-left: 0; }
+.reveal ul > li { position: relative; padding-left: 1.1em; margin-bottom: .3em; }
+.reveal ul > li::before { content: "–"; position: absolute; left: 0; color: var(--c-muted); }
+
+// Utilities used on the slides.
+.reveal .kicker { font-family: var(--font-sans); font-size: .55em; font-weight: 600; letter-spacing: .08em; text-transform: uppercase; color: var(--c-accent); margin: 0 0 .4em; }
+.reveal .muted { color: var(--c-muted); }
+.reveal .accent { color: var(--c-accent); }
+.reveal .small { font-size: .7em; }
+.reveal .big { font-size: 1.5em; line-height: 1.25; font-family: 'IBM Plex Serif', Georgia, serif; }
+.reveal .more { position: absolute; bottom: 0; left: 0; font-size: .55em; color: var(--c-muted); }
+.reveal .more a { color: var(--c-muted); }
+.reveal img { max-height: 470px; }
+.reveal svg.lc { width: 100%; height: auto; }
+.reveal .lc-stack { margin-top: -.4em; }
+.reveal .lc-row { display: grid; grid-template-columns: 8.5em 1fr; gap: .6em; align-items: center; border-top: 1px solid var(--c-line); }
+.reveal .lc-row p { margin: 0; font-size: .52em; line-height: 1.35; color: var(--c-muted); }
+.reveal .lc-row svg.lc { display: block; max-height: 186px; }
+.reveal .level { display: block; font-family: var(--font-sans); font-size: 1.9em; font-weight: 600; color: var(--c-accent); }
+.reveal .slides section.diagram svg.lc { margin: 2.2em 0 1.2em; }
+
+// Section dividers: big serif title, red rule.
+.reveal .slides section.divider h1 { font-size: 2.4em; margin-top: 1.6em; }
+.reveal .slides section.divider h1::after { content: ""; display: block; width: 2.2em; height: 4px; background: var(--c-accent); margin-top: .35em; }
+
+// Title slide.
+.reveal .slides section#title-slide .title { font-family: 'IBM Plex Serif', Georgia, serif; font-size: 2.3em; margin-top: 1.4em; }
+.reveal .slides section#title-slide .subtitle { color: var(--c-muted); font-size: 1.05em; }
+.reveal .slides section#title-slide .quarto-title-author-name, .reveal .slides section#title-slide .date { color: var(--c-muted); font-size: .7em; }
+
+// The seven steps, as a row.
+.reveal .steps { display: grid; grid-template-columns: repeat(7, 1fr); gap: .5em; margin-top: 1.2em; counter-reset: step; }
+.reveal .steps > div { border-top: 3px solid var(--c-text); padding-top: .45em; font-size: .62em; }
+.reveal .steps > div::before { counter-increment: step; content: counter(step); display: block; font-family: var(--font-sans); font-weight: 600; color: var(--c-muted); }
+.reveal .steps > div b { display: block; font-size: 1.2em; margin-bottom: .2em; }
+.reveal .steps > div.hot { border-top-color: var(--c-accent); }
+
+// Three questions side by side.
+.reveal .trio { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.2em; margin-top: 1em; }
+.reveal .trio > div { border-top: 1px solid var(--c-line); padding-top: .6em; font-size: .8em; }
+.reveal .trio .q { font-family: 'IBM Plex Serif', Georgia, serif; font-size: 1.35em; line-height: 1.25; margin: .3em 0 .5em; }
+
+.reveal .callout { border-left: 3px solid var(--c-accent); padding: .3em 0 .3em .9em; margin: .8em 0; }

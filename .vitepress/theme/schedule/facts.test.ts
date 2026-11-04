@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest'
-import { course } from './facts'
+import { course, slideFacts } from './facts'
 
 // Run in UTC so a formatter that falls back to the runtime zone fails.
 process.env.TZ = 'UTC'
@@ -27,5 +27,25 @@ describe('course facts', () => {
   it('exposes the links', () => {
     expect(course.links.moodle).toBe('https://kurser.math.su.se/course/view.php?id=1951')
     expect(Object.keys(course.links)).toEqual(['moodle', 'timeedit', 'github'])
+  })
+})
+
+describe('slide facts (served as /course.json for the slides)', () => {
+  const f = slideFacts()
+  it('lists every assignment with its three deadlines', () => {
+    expect(f.assignments).toHaveLength(5)
+    expect(f.assignments[0]).toEqual({
+      id: 'HW1', name: 'Your first reproducible report',
+      due: 'Mon 9 Nov, 23:59', peerReview: 'Thu 12 Nov, 23:59', final: 'Fri 13 Nov, 23:59',
+    })
+  })
+  it('carries the course facts as plain strings', () => {
+    expect(f.exam).toBe('Sat 9 Jan, 09:00–11:00')
+    expect(f.proposal).toBe('Due Thu 19 Nov, 23:59')
+    expect(f.finalDeadline).toBe('Fri 15 Jan, 23:59')
+    expect(f.room).toBe('Lecture room 19, Albano Hus 2, 2nd floor')
+  })
+  it('is plain JSON', () => {
+    expect(JSON.parse(JSON.stringify(f))).toEqual(f)
   })
 })

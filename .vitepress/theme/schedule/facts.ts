@@ -24,3 +24,16 @@ export const course = {
   finalDeadline: formatWhen(new Date(`${config.finalDeadline.date}T${config.finalDeadline.time}:00+01:00`), true),
   links: schedule.links,
 }
+
+// What the slides show, as plain strings. The site serves it as /course.json (see config.mts),
+// and the deck fills it in when it opens, so the slides always match course.config.ts.
+export const slideFacts = () => ({
+  ...course,
+  assignments: schedule.assignments.map((a) => ({
+    id: a.id,
+    name: a.name,
+    due: formatWhen(new Date(a.due), true),
+    peerReview: formatWhen(new Date(a.peerDue), true),
+    final: formatWhen(new Date(a.finalDue), true),
+  })),
+})

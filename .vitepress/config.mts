@@ -1,5 +1,6 @@
 import course from '../course.config'
-import { defineConfig } from 'vitepress'
+import { defineConfig, type Plugin } from 'vitepress'
+import { slideFacts } from './theme/schedule/facts'
 
 // https://vitepress.dev/reference/site-config
 // Assignments marked `ready: false` in course.config.ts are listed without a link, and their
@@ -12,10 +13,26 @@ const unpublished = building
   ? course.assignments.flatMap((a, i) => (a.ready ? [] : [`homework/${i + 1}.md`]))
   : []
 
+// The slides (public/slides/) read dates and rules from /course.json, so they never drift
+// from course.config.ts. Served by the dev server and written into the built site.
+const courseJson = (): Plugin => ({
+  name: 'mt4008-course-json',
+  configureServer(server) {
+    server.middlewares.use('/course.json', (_req, res) => {
+      res.setHeader('Content-Type', 'application/json')
+      res.end(JSON.stringify(slideFacts()))
+    })
+  },
+  generateBundle() {
+    this.emitFile({ type: 'asset', fileName: 'course.json', source: JSON.stringify(slideFacts()) })
+  },
+})
+
 const lecturesSidebar = [
   {
     text: 'Lectures',
     items: [
+      { text: 'Introduction', link: '/lectures/introduction' },
       { text: 'Week 1', link: '/lectures/week-1' },
       { text: 'Week 2', link: '/lectures/week-2' },
       { text: 'Week 3', link: '/lectures/week-3' },
@@ -56,6 +73,7 @@ export default defineConfig({
   vite: {
     // Same value in the server and client bundles, so hydration matches.
     define: { __BUILD_TIME__: JSON.stringify(Date.now()) },
+    plugins: [courseJson()],
   },
   themeConfig: {
     editLink: {
