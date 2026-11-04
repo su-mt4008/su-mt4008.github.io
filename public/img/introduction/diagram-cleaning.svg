@@ -22,24 +22,24 @@
 .fd .bar.hot{fill:var(--c-accent,#d6453d)}
 </style>
 <rect class="box " x="10" y="14" width="250" height="92" rx="6"/>
-<text x="135" y="45" text-anchor="middle">Spot prices</text>
-<text class="muted" x="135" y="65" text-anchor="middle">131,724 intervals, 4 zones</text>
-<text class="muted" x="135" y="85" text-anchor="middle">UTC timestamps</text>
+<text x="135" y="45" text-anchor="middle">Electricity prices</text>
+<text class="muted" x="135" y="65" text-anchor="middle">4 zones, every hour</text>
+<text class="muted" x="135" y="85" text-anchor="middle">in world time</text>
 <rect class="box " x="10" y="128" width="250" height="72" rx="6"/>
 <text x="135" y="159" text-anchor="middle">SMHI wind, Malmö</text>
-<text class="muted" x="135" y="179" text-anchor="middle">hourly, UTC</text>
+<text class="muted" x="135" y="179" text-anchor="middle">every hour</text>
 <rect class="box " x="10" y="222" width="250" height="72" rx="6"/>
 <text x="135" y="253" text-anchor="middle">SMHI temperature, Malmö</text>
 <text class="muted" x="135" y="273" text-anchor="middle">daily</text>
 <rect class="box hot" x="320" y="14" width="300" height="92" rx="6"/>
-<text class="hot" x="470" y="45" text-anchor="middle">Daily price per zone</text>
-<text class="muted" x="470" y="65" text-anchor="middle">weight by duration: 15 vs 60 min</text>
-<text class="muted" x="470" y="85" text-anchor="middle">Swedish date: 23- and 25-hour days</text>
+<text class="hot" x="470" y="45" text-anchor="middle">One price per zone and day</text>
+<text class="muted" x="470" y="65" text-anchor="middle">hours and quarter-hours counted fairly</text>
+<text class="muted" x="470" y="85" text-anchor="middle">Swedish days: 23 or 25 hours twice a year</text>
 <rect class="box " x="320" y="128" width="300" height="72" rx="6"/>
 <text x="470" y="169" text-anchor="middle">Daily mean wind</text>
 <rect class="box " x="680" y="118" width="170" height="92" rx="6"/>
-<text x="765" y="149" text-anchor="middle">Join on</text>
-<text class="muted" x="765" y="169" text-anchor="middle">the date</text>
+<text x="765" y="149" text-anchor="middle">Side by side</text>
+<text class="muted" x="765" y="169" text-anchor="middle">by date</text>
 <text class="muted" x="765" y="189" text-anchor="middle">1,096 days</text>
 <rect class="box " x="900" y="118" width="120" height="92" rx="6"/>
 <text x="960" y="149" text-anchor="middle">Drop</text>

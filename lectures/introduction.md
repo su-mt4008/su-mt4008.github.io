@@ -37,8 +37,8 @@ In each diagram, the red step is where the real work of that project was.
 
 | Step | What we did |
 |:--|:--|
-| **Data** | Statistics Sweden's open API, table BE0001T100: 200 names × 100 birth years (1922–2021), one request in `names/fetch.py` |
-| **Cleaning** | wide → long, "fewer than ten" as missing, counts → share of each birth year |
+| **Data** | downloaded from Statistics Sweden by a short script: how many people born each year 1922–2021 have each of the 200 most common names |
+| **Cleaning** | reshape the table, handle the very small numbers SCB hides, turn counts into shares so years can be compared |
 | **Analysis** | each name over 100 years, and a comeback score: common in the 1920s, rare in 1960–80, common again after 2005 |
 | **Results** | Ella, Elsa, Alice, Astrid and Ebba top the score; the ten most common names covered 59% of a year in 1922 and 24% in 2021; only the living are counted |
 
@@ -71,10 +71,10 @@ exactly how far the data reaches.
 
 | Step | What we did |
 |:--|:--|
-| **Data** | spot prices from the elprisetjustnu.se API (one request per zone and day: 131,724 prices), and SMHI's wind and temperature in Malmö |
-| **Cleaning** | a daily price per zone weighted by duration, in Swedish dates, joined with the weather: 1,074 days |
-| **Analysis** | the Malmö − Luleå gap per day; calmest vs windiest quarter of days with a bootstrap interval; a straight-line fit on wind and temperature |
-| **Results** | Malmö 0.66 and Luleå 0.31 kr/kWh on average; the gap is 0.40 kr/kWh bigger on calm days (0.34–0.47); weather explains 18% of it |
+| **Data** | electricity prices for the four zones, every hour for three years, and SMHI's wind and temperature in Malmö, downloaded by scripts |
+| **Cleaning** | one price per zone and day, careful with clock changes, prices and weather side by side: 1,074 days |
+| **Analysis** | the gap between Malmö and Luleå each day; calm days compared with windy days; how sure we can be, and how much the weather explains |
+| **Results** | Malmö 0.66 and Luleå 0.31 kr/kWh on average; the gap is 0.40 kr/kWh bigger on calm days, far more than chance; the weather explains only about a fifth of it |
 
 
 Sweden has four electricity price zones, from SE1 (Luleå) in the north to SE4 (Malmö) in the
@@ -84,21 +84,21 @@ windy days in Malmö.
 
 ![Monthly mean spot price in SE4 Malmö and SE1 Luleå, 2023–2025](/img/introduction/electricity-zones.svg)
 
-The project joins three files: three years of spot prices for the four zones from a free API,
+The project combines three files: three years of electricity prices for the four zones from a free online source,
 and SMHI's wind and temperature in Malmö. Most of the work is in the **cleaning**, and none of
 it shows in the final figure:
 
-- the market went from hourly to 15-minute prices in October 2025, so a plain mean of the rows
-  weighs a quarter-hour like an hour;
+- prices came every hour, then every 15 minutes from October 2025, so a simple average would
+  count a quarter-hour as much as an hour;
 - the clocks change twice a year, so some days have 23 or 25 hours;
-- the prices have UTC timestamps and the weather has Swedish dates, so the join has to use the
+- the prices use world time and the weather Swedish dates, so matching them has to use the
   right day;
 - 22 of the 1,096 days have no weather data; they are dropped, and the report says so.
 
 ![Mean price gap between Malmö and Luleå, by wind quarter](/img/introduction/electricity-wind.svg)
 
 On the calmest quarter of days, Malmö paid 0.55 kr/kWh more than Luleå; on the windiest, 0.15.
-The difference, 0.40 kr/kWh, has a 95% bootstrap interval of 0.34 to 0.47, so it is not chance.
+The difference, 0.40 kr/kWh, is far larger than chance would give (a 95% interval of 0.34 to 0.47; you meet these intervals in week 1).
 But wind and temperature explain only 18% of the day-to-day gap. The rest is what the data does
 not contain: how much power the grid can carry south, nuclear plants in maintenance, prices on
 the continent. And windy days differ from calm ones in other ways too: correlation, not cause.
@@ -117,10 +117,10 @@ sides.*
 
 | Step | What we did |
 |:--|:--|
-| **Data** | Shiller's valuations (monthly since 1871), the NASDAQ from FRED (daily since 1971), and 4.8 million Hacker News story titles from its search API |
-| **Cleaning** | Shiller's dates (2026.1 is October), complete months up to October 2026, counts → share of all titles |
-| **Analysis** | "bubble" turned into three signs; today's value of each ranked against every past month, and compared with 1929, 2000 and the crypto boom |
-| **Results** | valuations higher than 99% of months; AI in 14% of titles, against bitcoin's peak of 3%; price growth ordinary (×1.6 in five years) |
+| **Data** | US share prices compared with company earnings (monthly since 1871), the NASDAQ tech index (since 1971), and 4.8 million headlines from the tech forum Hacker News |
+| **Cleaning** | the three sources lined up month by month, dates read carefully, shares of all headlines rather than raw counts |
+| **Analysis** | "bubble" turned into three signs we can measure; how unusual today is on each, compared with every month before, and with 1929, 2000 and the crypto boom |
+| **Results** | valuations higher than almost any month since 1871; AI in 14% of headlines, against bitcoin's peak of 3%; price growth ordinary (×1.6 in five years) |
 
 
 Nobody can measure a bubble, and whether one bursts is a prediction, not a fact in any dataset.
@@ -129,14 +129,14 @@ are usually described by three signs:
 
 | A bubble means … | We measure | Source |
 |:--|:--|:--|
-| prices far above what companies earn | the cyclically adjusted price/earnings ratio (CAPE) of US stocks | Robert Shiller, since 1871 |
+| prices far above what companies earn | US share prices compared with ten years of earnings | Robert Shiller, since 1871 |
 | prices that rose unusually fast | the NASDAQ index compared with five years earlier | FRED |
-| everybody talking about it | the share of Hacker News story titles that mention AI | HN Search API |
+| everybody talking about it | the share of Hacker News headlines that mention AI | Hacker News |
 
 The question becomes: how do today's values of these signs compare with 1929, the dot-com
 bubble of 2000 and the crypto boom?
 
-![CAPE of US stocks since 1881, with 1929, 2000 and today marked](/img/introduction/ai-cape.svg)
+![US share prices compared with company earnings since 1881, with 1929, 2000 and today marked](/img/introduction/ai-cape.svg)
 
 ![The NASDAQ index divided by its value five years earlier](/img/introduction/ai-nasdaq.svg)
 

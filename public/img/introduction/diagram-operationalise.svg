@@ -31,7 +31,7 @@
 <rect class="box " x="300" y="40" width="280" height="76" rx="6"/>
 <text x="440" y="83" text-anchor="middle">prices far above earnings</text>
 <rect class="box " x="640" y="40" width="300" height="76" rx="6"/>
-<text x="790" y="83" text-anchor="middle">CAPE: price / 10-year earnings</text>
+<text x="790" y="83" text-anchor="middle">prices vs 10 years of earnings</text>
 <text class="muted" x="980" y="83" text-anchor="start">Shiller, since 1871</text>
 <path class="edge hot" d="M240,185 C270.0,185 270.0,78 291,78"/>
 <path class="tip hot" d="M300.0,78.0 L289.0,72.0 L289.0,84.0 Z"/>
@@ -40,7 +40,7 @@
 <rect class="box " x="300" y="150" width="280" height="76" rx="6"/>
 <text x="440" y="193" text-anchor="middle">prices rose unusually fast</text>
 <rect class="box " x="640" y="150" width="300" height="76" rx="6"/>
-<text x="790" y="193" text-anchor="middle">NASDAQ / its value 5 years before</text>
+<text x="790" y="193" text-anchor="middle">tech index vs 5 years before</text>
 <text class="muted" x="980" y="193" text-anchor="start">FRED, since 1971</text>
 <path class="edge hot" d="M240,185 C270.0,185 270.0,188 291,188"/>
 <path class="tip hot" d="M300.0,188.0 L289.0,182.0 L289.0,194.0 Z"/>
@@ -49,8 +49,8 @@
 <rect class="box " x="300" y="260" width="280" height="76" rx="6"/>
 <text x="440" y="303" text-anchor="middle">everyone talks about it</text>
 <rect class="box " x="640" y="260" width="300" height="76" rx="6"/>
-<text x="790" y="303" text-anchor="middle">share of HN titles saying “AI”</text>
-<text class="muted" x="980" y="303" text-anchor="start">HN Search API, since 2007</text>
+<text x="790" y="303" text-anchor="middle">share of headlines saying “AI”</text>
+<text class="muted" x="980" y="303" text-anchor="start">Hacker News, since 2007</text>
 <path class="edge hot" d="M240,185 C270.0,185 270.0,298 291,298"/>
 <path class="tip hot" d="M300.0,298.0 L289.0,292.0 L289.0,304.0 Z"/>
 <path class="edge" d="M580,298 L631.0,298.0"/>

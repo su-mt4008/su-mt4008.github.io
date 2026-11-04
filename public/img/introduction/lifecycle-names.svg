@@ -29,9 +29,9 @@
 <text class="note" x="228.03149606299215" y="160" text-anchor="middle">year of birth</text>
 <text class="step" x="553.7007874015749" y="30" text-anchor="middle">Cleaning</text>
 <circle class="node" cx="553.7007874015749" cy="104" r="7"/>
-<text class="note" x="553.7007874015749" y="140" text-anchor="middle">wide → long</text>
-<text class="note" x="553.7007874015749" y="160" text-anchor="middle">&#x27;..&#x27; means fewer</text>
-<text class="note" x="553.7007874015749" y="180" text-anchor="middle">than ten people</text>
+<text class="note" x="553.7007874015749" y="140" text-anchor="middle">reshape the table,</text>
+<text class="note" x="553.7007874015749" y="160" text-anchor="middle">handle gaps,</text>
+<text class="note" x="553.7007874015749" y="180" text-anchor="middle">counts → shares</text>
 <text class="step" x="701.732283464567" y="30" text-anchor="middle">Exploration</text>
 <circle class="node" cx="701.732283464567" cy="104" r="7"/>
 <text class="note" x="701.732283464567" y="140" text-anchor="middle">share of each</text>

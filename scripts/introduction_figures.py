@@ -149,7 +149,7 @@ for label, when in [("1929", cape.loc["1929"].idxmax()), ("2000", cape.loc["1999
     ax.plot(when, cape[when], "o", color=RED, ms=6)
     ax.annotate(f"{label}: {cape[when]:.0f}", (when, cape[when]), xytext=(0, 8),
                 textcoords="offset points", ha="center", color=RED)
-ax.set_ylabel("Price / earnings (CAPE)")
+ax.set_ylabel("Prices vs earnings")
 save(fig, "ai-cape")
 
 nq = pd.read_csv(SRC / "ai-bubble/data/fred-nasdaqcom.csv")
@@ -182,7 +182,7 @@ for col, color in [("AI", RED), ("crypto", GREY), ("bitcoin", LIGHT)]:
     when = smooth[col].idxmax()
     ax.annotate(col if col != "AI" else '"AI"', (when, smooth[col].max()), xytext=(0, 6),
                 textcoords="offset points", color=color, ha="center" if col != "crypto" else "left")
-ax.set_ylabel("% of story titles")
+ax.set_ylabel("% of headlines")
 save(fig, "ai-attention")
 
 
@@ -317,27 +317,27 @@ def lifecycle_tall(name, title, sources, notes, hot):
 lifecycle("names", "Life cycle of the baby names project", ["SCB: 200 names by year of birth"], [
     ["Do names come", "back after", "three generations?"],
     [],
-    ["wide → long", "'..' means fewer", "than ten people"],
+    ["reshape the table,", "handle gaps,", "counts → shares"],
     ["share of each", "birth year"],
     ["a comeback", "score"],
     ["yes: Elsa, Alice,", "Astrid … but only", "the living are counted"],
     ["fetch.py +", "report.qmd"],
 ], hot=5)
 lifecycle("electricity", "Life cycle of the electricity price project",
-          ["Spot prices, 4 zones (API)", "SMHI wind, Malmö", "SMHI temperature, Malmö"], [
+          ["Electricity prices, 4 zones", "SMHI wind, Malmö", "SMHI temperature, Malmö"], [
     ["How big is the", "south–north gap,", "and is it the wind?"],
     [],
-    ["15-min vs hourly,", "clock changes,", "join on the date"],
+    ["one price a day,", "clock changes,", "match to weather"],
     ["prices per zone", "over 3 years"],
-    ["calm vs windy days,", "bootstrap,", "straight-line fit"],
+    ["calm vs windy", "days: how sure,", "how much weather?"],
     ["0.40 kr/kWh more", "on calm days;", "weather explains 18 %"],
     ["two fetch scripts,", "saved raw data"],
 ], hot=2)
 lifecycle("ai-bubble", "Life cycle of the AI bubble project",
-          ["Shiller: valuations since 1871", "FRED: the NASDAQ index", "Hacker News titles (API)"], [
+          ["Prices vs earnings, since 1871", "The NASDAQ tech index", "Hacker News headlines"], [
     ["“Bubble” is not", "measurable: turn it", "into three signs"],
     [],
-    ["dates like 2026.1", "mean October;", "counts → shares"],
+    ["line up months,", "careful dates,", "counts → shares"],
     ["each sign against", "its own history"],
     ["compare with 1929,", "2000 and the", "crypto boom"],
     ["2 of 3 signs are", "there; a crash is", "not in the data"],
@@ -498,12 +498,12 @@ d.save("diagram-zones")
 # Electricity: the cleaning pipeline, with the traps.
 n_rows = len(prices)
 d = Diagram(1180, 330, "Cleaning: three raw files become one table of days")
-d.box(10, 14, 250, 92, [f"Spot prices", f"{n_rows:,} intervals, 4 zones", "UTC timestamps"], first="")
-d.box(10, 128, 250, 72, ["SMHI wind, Malmö", "hourly, UTC"])
+d.box(10, 14, 250, 92, ["Electricity prices", "4 zones, every hour", "in world time"], first="")
+d.box(10, 128, 250, 72, ["SMHI wind, Malmö", "every hour"])
 d.box(10, 222, 250, 72, ["SMHI temperature, Malmö", "daily"])
-d.box(320, 14, 300, 92, ["Daily price per zone", "weight by duration: 15 vs 60 min", "Swedish date: 23- and 25-hour days"], cls="hot")
+d.box(320, 14, 300, 92, ["One price per zone and day", "hours and quarter-hours counted fairly", "Swedish days: 23 or 25 hours twice a year"], cls="hot")
 d.box(320, 128, 300, 72, ["Daily mean wind"])
-d.box(680, 118, 170, 92, ["Join on", "the date", f"{len(daily):,} days"])
+d.box(680, 118, 170, 92, ["Side by side", "by date", f"{len(daily):,} days"])
 d.box(900, 118, 120, 92, ["Drop", f"{len(daily) - len(days)} days", "no weather"])
 d.box(1060, 118, 110, 92, [f"{len(days):,}", "days", "to analyse"], cls="solid")
 d.arrow([(260, 60), (320, 60)])
@@ -520,9 +520,9 @@ d = Diagram(1180, 360, "Operationalising: from 'Is AI a bubble?' to three measur
 for x, h in [(10, "THE QUESTION"), (300, "A BUBBLE WOULD MEAN …"), (640, "WE MEASURE"), (980, "SOURCE")]:
     d.text(x, 18, h, "head")
 d.box(10, 140, 230, 90, ["Is AI a bubble?", "can't be measured directly"], cls="hot", first="big")
-signs = [("prices far above earnings", "CAPE: price / 10-year earnings", "Shiller, since 1871"),
-         ("prices rose unusually fast", "NASDAQ / its value 5 years before", "FRED, since 1971"),
-         ("everyone talks about it", "share of HN titles saying “AI”", "HN Search API, since 2007")]
+signs = [("prices far above earnings", "prices vs 10 years of earnings", "Shiller, since 1871"),
+         ("prices rose unusually fast", "tech index vs 5 years before", "FRED, since 1971"),
+         ("everyone talks about it", "share of headlines saying “AI”", "Hacker News, since 2007")]
 for k, (mean, measure, source) in enumerate(signs):
     y = 40 + k * 110
     d.box(300, y, 280, 76, [mean])
