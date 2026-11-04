@@ -1,4 +1,4 @@
-<svg class="lc" viewBox="0 0 1100 222" role="img" xmlns="http://www.w3.org/2000/svg">
+<svg class="lc" viewBox="0 0 1100 262" role="img" xmlns="http://www.w3.org/2000/svg">
 <title>Life cycle of the electricity price project</title>
 <style>
 .lc text{font-family:var(--font-sans,'IBM Plex Sans',system-ui,sans-serif);fill:var(--c-text,#222)}
@@ -10,43 +10,50 @@
 .lc .node{fill:var(--c-bg,#fff);stroke:var(--c-text,#222);stroke-width:2}
 .lc .node.hot{fill:var(--c-accent,#d6453d);stroke:var(--c-accent,#d6453d)}
 .lc .dot{fill:var(--c-text,#222)}
+.lc .band{fill:var(--c-tint,#f4f4f4);stroke:var(--c-line,#ddd)}
+.lc .bandtext{font-size:13px;fill:var(--c-muted,#777)}
+.lc .bandtext tspan.head{font-weight:600;letter-spacing:.06em}
+.lc .loop{stroke:var(--c-accent,#d6453d);stroke-width:1.6;fill:none}
+.lc .looptip{fill:var(--c-accent,#d6453d)}
+.lc text.loopnote{font-size:12px;fill:var(--c-accent,#d6453d)}
 </style>
-<path class="line" d="M70,126 H1030"/>
-<path class="line" d="M203.33333333333334,66 H335.3333333333333 C423.33333333333326,66 438.0,126 496.66666666666663,126"/>
-<circle class="dot" cx="203.33333333333334" cy="66" r="4"/>
-<text class="src" x="215.33333333333334" y="58">Spot prices, 4 zones (API)</text>
-<path class="line" d="M203.33333333333334,96 H335.3333333333333 C423.33333333333326,96 438.0,126 496.66666666666663,126"/>
-<circle class="dot" cx="203.33333333333334" cy="96" r="4"/>
-<text class="src" x="215.33333333333334" y="88">SMHI wind, Malmö</text>
-<circle class="dot" cx="203.33333333333334" cy="126" r="4"/>
-<text class="src" x="215.33333333333334" y="118">SMHI temperature, Malmö</text>
-<text class="step" x="70.0" y="30" text-anchor="middle">Question</text>
-<circle class="node" cx="70.0" cy="126" r="7"/>
-<text class="note" x="70.0" y="162" text-anchor="middle">How big is the</text>
-<text class="note" x="70.0" y="182" text-anchor="middle">south–north gap,</text>
-<text class="note" x="70.0" y="202" text-anchor="middle">and is it the wind?</text>
-<text class="step" x="203.33333333333334" y="30" text-anchor="start" dx="-8">Data</text>
-<text class="step hot" x="496.66666666666663" y="30" text-anchor="middle">Cleaning</text>
-<circle class="node hot" cx="496.66666666666663" cy="126" r="7"/>
-<text class="note hot" x="496.66666666666663" y="162" text-anchor="middle">15-min vs hourly,</text>
-<text class="note hot" x="496.66666666666663" y="182" text-anchor="middle">clock changes,</text>
-<text class="note hot" x="496.66666666666663" y="202" text-anchor="middle">join on the date</text>
-<text class="step" x="630.0" y="30" text-anchor="middle">Exploration</text>
-<circle class="node" cx="630.0" cy="126" r="7"/>
-<text class="note" x="630.0" y="162" text-anchor="middle">prices per zone</text>
-<text class="note" x="630.0" y="182" text-anchor="middle">over 3 years</text>
-<text class="step" x="763.3333333333334" y="30" text-anchor="middle">Analysis</text>
-<circle class="node" cx="763.3333333333334" cy="126" r="7"/>
-<text class="note" x="763.3333333333334" y="162" text-anchor="middle">calm vs windy days,</text>
-<text class="note" x="763.3333333333334" y="182" text-anchor="middle">bootstrap,</text>
-<text class="note" x="763.3333333333334" y="202" text-anchor="middle">straight-line fit</text>
-<text class="step" x="896.6666666666666" y="30" text-anchor="middle">Conclusions</text>
-<circle class="node" cx="896.6666666666666" cy="126" r="7"/>
-<text class="note" x="896.6666666666666" y="162" text-anchor="middle">0.40 kr/kWh more</text>
-<text class="note" x="896.6666666666666" y="182" text-anchor="middle">on calm days;</text>
-<text class="note" x="896.6666666666666" y="202" text-anchor="middle">weather explains 18 %</text>
-<text class="step" x="1030.0" y="30" text-anchor="middle">Reproduce</text>
-<circle class="node" cx="1030.0" cy="126" r="7"/>
-<text class="note" x="1030.0" y="162" text-anchor="middle">two fetch scripts,</text>
-<text class="note" x="1030.0" y="182" text-anchor="middle">saved raw data</text>
+<path class="line" d="M80,126 H1020"/>
+<path class="line" d="M228.03149606299215,66 H374.5826771653544 C472.2834645669292,66 488.5669291338583,126 553.7007874015749,126"/>
+<circle class="dot" cx="228.03149606299215" cy="66" r="4"/>
+<text class="src" x="240.03149606299215" y="58">Spot prices, 4 zones (API)</text>
+<path class="line" d="M228.03149606299215,96 H374.5826771653544 C472.2834645669292,96 488.5669291338583,126 553.7007874015749,126"/>
+<circle class="dot" cx="228.03149606299215" cy="96" r="4"/>
+<text class="src" x="240.03149606299215" y="88">SMHI wind, Malmö</text>
+<circle class="dot" cx="228.03149606299215" cy="126" r="4"/>
+<text class="src" x="240.03149606299215" y="118">SMHI temperature, Malmö</text>
+<text class="step" x="80.0" y="30" text-anchor="middle">Question</text>
+<circle class="node" cx="80.0" cy="126" r="7"/>
+<text class="note" x="80.0" y="162" text-anchor="middle">How big is the</text>
+<text class="note" x="80.0" y="182" text-anchor="middle">south–north gap,</text>
+<text class="note" x="80.0" y="202" text-anchor="middle">and is it the wind?</text>
+<text class="step" x="228.03149606299215" y="30" text-anchor="start" dx="-8">Data</text>
+<text class="step hot" x="553.7007874015749" y="30" text-anchor="middle">Cleaning</text>
+<circle class="node hot" cx="553.7007874015749" cy="126" r="7"/>
+<text class="note hot" x="553.7007874015749" y="162" text-anchor="middle">15-min vs hourly,</text>
+<text class="note hot" x="553.7007874015749" y="182" text-anchor="middle">clock changes,</text>
+<text class="note hot" x="553.7007874015749" y="202" text-anchor="middle">join on the date</text>
+<text class="step" x="701.732283464567" y="30" text-anchor="middle">Exploration</text>
+<circle class="node" cx="701.732283464567" cy="126" r="7"/>
+<text class="note" x="701.732283464567" y="162" text-anchor="middle">prices per zone</text>
+<text class="note" x="701.732283464567" y="182" text-anchor="middle">over 3 years</text>
+<text class="step" x="871.9685039370079" y="30" text-anchor="middle">Analysis</text>
+<circle class="node" cx="871.9685039370079" cy="126" r="7"/>
+<text class="note" x="871.9685039370079" y="162" text-anchor="middle">calm vs windy days,</text>
+<text class="note" x="871.9685039370079" y="182" text-anchor="middle">bootstrap,</text>
+<text class="note" x="871.9685039370079" y="202" text-anchor="middle">straight-line fit</text>
+<text class="step" x="1020.0" y="30" text-anchor="middle">Conclusions</text>
+<circle class="node" cx="1020.0" cy="126" r="7"/>
+<text class="note" x="1020.0" y="162" text-anchor="middle">0.40 kr/kWh more</text>
+<text class="note" x="1020.0" y="182" text-anchor="middle">on calm days;</text>
+<text class="note" x="1020.0" y="202" text-anchor="middle">weather explains 18 %</text>
+<path class="loop" d="M862.9685039370079,117 C841.9685039370079,82 731.732283464567,82 714.732283464567,112"/>
+<path class="looptip" d="M710.732283464567,117 L720.732283464567,111 L713.732283464567,105 Z"/>
+<text class="loopnote" x="786.8503937007874" y="86" text-anchor="middle">round again</text>
+<rect class="band" x="30" y="222" width="1040" height="30" rx="15"/>
+<text class="bandtext" x="550.0" y="242" text-anchor="middle"><tspan class="head">REPRODUCIBLE THROUGHOUT</tspan>  ·  two fetch scripts, saved raw data</text>
 </svg>

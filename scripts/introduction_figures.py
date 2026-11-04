@@ -187,11 +187,12 @@ save(fig, "ai-attention")
 
 
 # ---------------------------------------------------------------------------------------------
-# Life-cycle diagrams: the same seven steps for every project; data sources branch in at
-# "Data" and merge at "Cleaning"; the step where the real work was is marked in red.
-STEPS = ["Question", "Data", "Cleaning", "Exploration", "Analysis", "Conclusions", "Reproduce"]
-W, X0, X1 = 1100, 70, 1030
-GAPS = np.array([1, 2.2, 1, 1, 1, 1])          # Data -> Cleaning is wider: the sources live there
+# Life-cycle diagrams: the same steps for every project, as in the cycle diagram; data sources
+# branch in at "Data" and merge at "Cleaning"; exploration and analysis loop; being reproducible
+# is a band under every step, not a last step. The step where the real work was is red.
+STEPS = ["Question", "Data", "Cleaning", "Exploration", "Analysis", "Conclusions"]
+W, X0, X1 = 1100, 80, 1020
+GAPS = np.array([1, 2.2, 1, 1.15, 1])          # Data -> Cleaning is wider: the sources live there
 xs = X0 + np.concatenate([[0], np.cumsum(GAPS)]) * (X1 - X0) / GAPS.sum()
 SPREAD = 30                                     # vertical distance between source lines
 
@@ -205,7 +206,20 @@ STYLE = """<style>
 .lc .node{fill:var(--c-bg,#fff);stroke:var(--c-text,#222);stroke-width:2}
 .lc .node.hot{fill:var(--c-accent,#d6453d);stroke:var(--c-accent,#d6453d)}
 .lc .dot{fill:var(--c-text,#222)}
+.lc .band{fill:var(--c-tint,#f4f4f4);stroke:var(--c-line,#ddd)}
+.lc .bandtext{font-size:13px;fill:var(--c-muted,#777)}
+.lc .bandtext tspan.head{font-weight:600;letter-spacing:.06em}
+.lc .loop{stroke:var(--c-accent,#d6453d);stroke-width:1.6;fill:none}
+.lc .looptip{fill:var(--c-accent,#d6453d)}
+.lc text.loopnote{font-size:12px;fill:var(--c-accent,#d6453d)}
 </style>"""
+
+
+def band(x0, x1, y, text):
+    """The 'reproducible throughout' band under a diagram."""
+    return [f'<rect class="band" x="{x0}" y="{y}" width="{x1 - x0}" height="30" rx="15"/>',
+            f'<text class="bandtext" x="{(x0 + x1) / 2}" y="{y + 20}" text-anchor="middle">'
+            f'<tspan class="head">REPRODUCIBLE THROUGHOUT</tspan>  ·  {escape(text)}</text>']
 
 
 def wrap(text, width=18):
@@ -224,9 +238,12 @@ def lifecycle(name, title, sources, notes, hot):
     (none under Data, whose sources are drawn instead); hot: index of the step that took the work."""
     n = len(sources)
     top = 30
-    track = top + 26 + SPREAD * (n - 1) + 10          # the main line
+    track = max(top + 26 + SPREAD * (n - 1) + 10, top + 74)  # the main line; room for the loop above
     offsets = [SPREAD * (i - (n - 1)) for i in range(n)]  # sources fan out above the track
-    height = track + 36 + 20 * max(len(x) for x in notes)
+    reproduce = " ".join(notes[6])
+    notes = list(notes[:6])
+    notes_bottom = track + 36 + 20 * (max(len(x) for x in notes) - 1)
+    height = notes_bottom + 60
     xd, xc = xs[1], xs[2]
     gap = xc - xd
     out = [f'<svg class="lc" viewBox="0 0 {W} {height}" role="img" xmlns="http://www.w3.org/2000/svg">',
@@ -249,9 +266,15 @@ def lifecycle(name, title, sources, notes, hot):
             out.append(f'<circle class="node{h}" cx="{x}" cy="{track}" r="7"/>')
         for k, line in enumerate(notes[i]):
             out.append(f'<text class="note{h}" x="{x}" y="{track + 36 + 20 * k}" text-anchor="middle">{escape(line)}</text>')
+    # Exploration <-> analysis: round again, as often as needed.
+    xe, xa = xs[3], xs[4]
+    out.append(f'<path class="loop" d="M{xa - 9},{track - 9} C{xa - 30},{track - 44} {xe + 30},{track - 44} {xe + 13},{track - 14}"/>')
+    out.append(f'<path class="looptip" d="M{xe + 9},{track - 9} L{xe + 19},{track - 15} L{xe + 12},{track - 21} Z"/>')
+    out.append(f'<text class="loopnote" x="{(xe + xa) / 2}" y="{track - 40}" text-anchor="middle">round again</text>')
+    out += band(X0 - 50, X1 + 50, notes_bottom + 20, reproduce)
     out.append("</svg>")
     (OUT / f"lifecycle-{name}.svg").write_text("\n".join(out) + "\n")
-    lifecycle_tall(name, title, sources, notes, hot)
+    lifecycle_tall(name, title, sources, notes + [[reproduce]], hot)
 
 
 def lifecycle_tall(name, title, sources, notes, hot):
@@ -264,7 +287,7 @@ def lifecycle_tall(name, title, sources, notes, hot):
         lines = n if (i == 1 and n > 1) else len(text)
         rows.append((y, text))
         y += max(1, lines) * LINE + 22
-    height = y
+    height = y + 44
     out = [f'<svg class="lc lc-tall" viewBox="0 0 640 {height}" role="img" xmlns="http://www.w3.org/2000/svg">',
            f"<title>{escape(title)}</title>", STYLE,
            f'<path class="line" d="M{TX},{rows[0][0]} V{rows[-1][0]}"/>']
@@ -282,6 +305,11 @@ def lifecycle_tall(name, title, sources, notes, hot):
         out.append(f'<circle class="node{h}" cx="{TX}" cy="{ry}" r="7"/>')
         for k, line in enumerate(text):
             out.append(f'<text class="note{h}" x="{NX}" y="{ry + 5 + LINE * k}">{escape(line)}</text>')
+    ye, ya = rows[3][0], rows[4][0]
+    out.append(f'<path class="loop" d="M{TX + 9},{ya - 4} C{TX + 24},{ya - 10} {TX + 24},{ye + 10} {TX + 11},{ye + 6}"/>')
+    out.append(f'<path class="looptip" d="M{TX + 8},{ye + 4} L{TX + 17},{ye + 3} L{TX + 13},{ye + 12} Z"/>')
+    out.append(f'<text class="loopnote" x="{NX}" y="{(ye + ya) / 2 + 12}">↻ round again until it holds up</text>')
+    out += band(20, 620, y - 6, " ".join(notes[6]))
     out.append("</svg>")
     (OUT / f"lifecycle-{name}-tall.svg").write_text("\n".join(out) + "\n")
 
@@ -386,6 +414,16 @@ class Diagram:
         p2 = (tx - 11 * np.cos(a) - 6 * np.sin(a), ty - 11 * np.sin(a) + 6 * np.cos(a))
         self.out.append(f'<path class="tip{h}" d="M{tx:.1f},{ty:.1f} L{p1[0]:.1f},{p1[1]:.1f} L{p2[0]:.1f},{p2[1]:.1f} Z"/>')
 
+    def curve(self, p0, c1, c2, p1, hot=False):
+        h = " hot" if hot else ""
+        ang = np.arctan2(p1[1] - c2[1], p1[0] - c2[0])
+        ex, ey = p1[0] - 9 * np.cos(ang), p1[1] - 9 * np.sin(ang)
+        self.out.append(f'<path class="edge{h}" d="M{p0[0]},{p0[1]} C{c1[0]},{c1[1]} {c2[0]},{c2[1]} {ex:.1f},{ey:.1f}"/>')
+        tx, ty, a = p1[0], p1[1], ang
+        q1 = (tx - 11 * np.cos(a) + 6 * np.sin(a), ty - 11 * np.sin(a) - 6 * np.cos(a))
+        q2 = (tx - 11 * np.cos(a) - 6 * np.sin(a), ty - 11 * np.sin(a) + 6 * np.cos(a))
+        self.out.append(f'<path class="tip{h}" d="M{tx:.1f},{ty:.1f} L{q1[0]:.1f},{q1[1]:.1f} L{q2[0]:.1f},{q2[1]:.1f} Z"/>')
+
     def raw(self, s):
         self.out.append(s)
 
@@ -394,34 +432,29 @@ class Diagram:
         (OUT / f"{name}.svg").write_text("\n".join(self.out) + "\n")
 
 
-# The life cycle as a wheel.
-d = Diagram(760, 500, "The data science life cycle: seven steps in a loop")
-cx, cy, r = 380, 255, 160
-desc = ["sharp enough to answer", "where from, what it can't tell", "raw → usable, in code",
-        "look before you test", "compare, model, test", "what follows, and its limits",
-        "one command, same numbers"]
-angles = [-90 + 360 / 7 * i for i in range(7)]
-pos = [(cx + r * np.cos(np.radians(a)), cy + r * np.sin(np.radians(a))) for a in angles]
-for i in range(7):
-    a1, a2 = np.radians(angles[i] + 9), np.radians(angles[(i + 1) % 7] - 9)
-    x1, y1 = cx + r * np.cos(a1), cy + r * np.sin(a1)
-    x2, y2 = cx + r * np.cos(a2), cy + r * np.sin(a2)
-    hot = " hot" if i == 6 else ""
-    d.raw(f'<path class="edge{hot}" d="M{x1:.1f},{y1:.1f} A{r},{r} 0 0 1 {x2:.1f},{y2:.1f}"/>')
-    t = a2 + np.pi / 2  # tangent direction at the end of the arc
-    p1 = (x2 - 11 * np.cos(t) + 6 * np.sin(t), y2 - 11 * np.sin(t) - 6 * np.cos(t))
-    p2 = (x2 - 11 * np.cos(t) - 6 * np.sin(t), y2 - 11 * np.sin(t) + 6 * np.cos(t))
-    d.raw(f'<path class="tip{hot}" d="M{x2:.1f},{y2:.1f} L{p1[0]:.1f},{p1[1]:.1f} L{p2[0]:.1f},{p2[1]:.1f} Z"/>')
-for i, ((x, y), a) in enumerate(zip(pos, angles)):
-    d.raw(f'<circle class="node" cx="{x:.1f}" cy="{y:.1f}" r="9"/>')
-    c = np.cos(np.radians(a))
-    anchor = "middle" if abs(c) < .3 else ("start" if c > 0 else "end")
-    lx = x + 26 * np.sign(c) * (abs(c) >= .3)
-    ly = y + (-38 if i == 0 else (6 if abs(c) >= .3 else 0))
-    d.text(lx, ly - 8, f"{i + 1}  {STEPS[i]}", "lg", anchor)
-    d.text(lx, ly + 14, desc[i], "lgm", anchor)
-d.text(cx, cy - 6, "Every analysis", "big", "middle")
-d.text(cx, cy + 22, "= the seven sections of every report", "muted", "middle")
+# The cycle, after Wickham, Çetinkaya-Rundel & Grolemund, R for Data Science (2e): our own
+# drawing of the idea. Exploration and analysis go round until the answer holds up; being
+# reproducible is not a last step but the frame around every step.
+d = Diagram(800, 380, "The data science cycle: question, data, cleaning, then exploration and analysis "
+                      "round and round, then conclusions, all of it reproducible")
+d.raw('<rect class="box" x="8" y="8" width="784" height="364" rx="14" style="fill:none;stroke-width:2"/>')
+cy_ = 170
+for x, label in [(28, "Question"), (166, "Data"), (304, "Cleaning")]:
+    d.box(x, cy_ - 32, 104, 64, [label], first="lg")
+d.box(684, cy_ - 32, 98, 64, ["Conclusions"], cls="solid")
+d.raw('<rect class="box" x="444" y="52" width="196" height="236" rx="12" style="fill:none;stroke-dasharray:5 5"/>')
+d.text(542, 76, "UNDERSTAND", "head", "middle")
+d.box(488, 92, 108, 56, ["Exploration"], first="lg")
+d.box(488, 200, 108, 56, ["Analysis"], first="lg")
+d.curve((596, 120), (636, 120), (636, 228), (600, 228), hot=True)   # explore -> analyse
+d.curve((488, 228), (448, 228), (448, 120), (484, 120), hot=True)   # analyse -> explore
+d.text(542, 180, "round and round", "muted hot", "middle")
+for x1, x2 in [(132, 166), (270, 304)]:
+    d.arrow([(x1, cy_), (x2, cy_)])
+d.arrow([(408, cy_), (444, cy_)])
+d.arrow([(640, cy_), (684, cy_)])
+d.text(400, 330, "REPRODUCIBLE THROUGHOUT", "head", "middle")
+d.text(400, 352, "code, not clicks · relative paths · a lockfile · Quarto · Git", "muted", "middle")
 d.save("diagram-cycle")
 
 # Survivorship: who the names table can see.

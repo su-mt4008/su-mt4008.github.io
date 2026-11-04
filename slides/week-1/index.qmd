@@ -33,7 +33,7 @@ The error was found because someone could rerun it. Make that possible for your 
 | A random sample differs every run | **set a seed** |
 | The data was never committed | commit it, and let **the check** catch it |
 
-<p class="more">More: <a href="/lectures/week-1#why-reproducibility-matters">Week 1</a></p>
+<p class="more">More: <a href="../../lectures/week-1#why-reproducibility-matters">Week 1</a></p>
 
 ## Start with a question data can answer
 
@@ -99,7 +99,7 @@ The later period is warmer by 0.82 °C.
 
 <p style="margin-top:1em">You will use these four every week. The guide has every command, for VS Code.</p>
 
-<p class="more">More: <a href="/guide#hand-in-an-assignment">How to hand in</a></p>
+<p class="more">More: <a href="../../guide#hand-in-an-assignment">How to hand in</a></p>
 
 ## The check
 
@@ -108,7 +108,7 @@ When you open or update a pull request, GitHub starts a clean computer, installs
 - **Green:** your analysis reproduces. Anyone can get your numbers.
 - **Red:** something only works on your computer. The log says what.
 
-<p class="more">More: <a href="/guide#when-the-check-is-red">When the check is red</a></p>
+<p class="more">More: <a href="../../guide#when-the-check-is-red">When the check is red</a></p>
 
 # Statistics: the basics {.divider}
 
@@ -123,11 +123,11 @@ When you open or update a pull request, GitHub starts a clean computer, installs
 
 Data are **observations of random variables**. Your mean $\bar x$ is one value of the random variable $\bar X$: another sample would have given another value.
 
-<p class="more">More: <a href="/statistics">Statistics: the basics</a></p>
+<p class="more">More: <a href="../../statistics">Statistics: the basics</a></p>
 
 ## Our example: has Lund got warmer?
 
-<img src="/img/statistics/data.svg" alt="Mean annual temperature in Lund, 1997–2025, with the mean of 1997–2010 and of 2011–2025">
+<img src="../../img/statistics/data.svg" alt="Mean annual temperature in Lund, 1997–2025, with the mean of 1997–2010 and of 2011–2025">
 
 The later period is **0.82 °C** warmer. Is that real, or could weather alone do it?
 
@@ -137,13 +137,13 @@ Lund, not Stockholm: Stockholm is HW1, and we don't give away the answer.
 
 ## Single years scatter a lot
 
-<img src="/img/statistics/spread.svg" alt="Each year's mean temperature as a dot, for both periods, with mean plus and minus one standard deviation">
+<img src="../../img/statistics/spread.svg" alt="Each year's mean temperature as a dot, for both periods, with mean plus and minus one standard deviation">
 
 <p class="small">One year varies by about 0.6 °C. The difference we found is not much larger.</p>
 
 ## Means scatter much less
 
-<img src="/img/statistics/sampling.svg" style="max-height:320px" alt="Simulated: single years scatter widely, means of 14 years scatter much less">
+<img src="../../img/statistics/sampling.svg" style="max-height:320px" alt="Simulated: single years scatter widely, means of 14 years scatter much less">
 
 $$\operatorname{Var}(\bar X) = \frac{\sigma^2}{n} \qquad \Rightarrow \qquad \operatorname{SE} = \frac{\sigma}{\sqrt n} \approx \frac{0.62}{\sqrt{14}} = 0.17 \text{ °C}$$
 
@@ -153,7 +153,7 @@ $$\operatorname{Var}(\bar X) = \frac{\sigma^2}{n} \qquad \Rightarrow \qquad \ope
 
 By the CLT, $\bar X \approx N(\mu, \operatorname{SE}^2)$, so $\;\bar x \pm 1.96\,\operatorname{SE}\;$ covers $\mu$ in 95% of samples.
 
-<img src="/img/statistics/intervals.svg" style="max-height:330px" alt="20 simulated 95% intervals; 19 contain the true mean, one misses">
+<img src="../../img/statistics/intervals.svg" style="max-height:330px" alt="20 simulated 95% intervals; 19 contain the true mean, one misses">
 
 <p class="small">"95%" is a property of the method: about 1 in 20 intervals misses.</p>
 
@@ -165,7 +165,7 @@ The whole interval is above zero: consistent with warming of 0.4 to 1.3 °C, **n
 
 ## The same, by computer: the bootstrap
 
-<img src="/img/statistics/bootstrap.svg" style="max-height:330px" alt="Histogram of the difference in 10,000 resampled datasets, with the middle 95% marked">
+<img src="../../img/statistics/bootstrap.svg" style="max-height:330px" alt="Histogram of the difference in 10,000 resampled datasets, with the middle 95% marked">
 
 Resample the years with replacement, 10,000 times; the middle 95% of the differences is the interval. **No formula needed**, and it works for almost any statistic.
 
@@ -173,7 +173,7 @@ Resample the years with replacement, 10,000 times; the middle 95% of the differe
 
 $H_0$: no difference. Then $\;z = \dfrac{0.82}{0.23} = 3.6\;$ and $\;p = P(|Z| \ge 3.6) \approx 0.0003$.
 
-<img src="/img/statistics/permutation.svg" style="max-height:290px" alt="Differences when the years are shuffled between the periods at random; the observed difference is far in the tail">
+<img src="../../img/statistics/permutation.svg" style="max-height:290px" alt="Differences when the years are shuffled between the periods at random; the observed difference is far in the tail">
 
 <p class="small">By computer: shuffle the years between the periods; how often is the difference as large? About 1 in 1,000.</p>
 
@@ -185,13 +185,13 @@ $H_0$: no difference. Then $\;z = \dfrac{0.82}{0.23} = 3.6\;$ and $\;p = P(|Z| \
 
 ## Correlation and trend
 
-<img src="/img/statistics/trend.svg" alt="Lund annual mean temperature with a fitted straight line">
+<img src="../../img/statistics/trend.svg" alt="Lund annual mean temperature with a fitted straight line">
 
 <p>Slope <b>0.54 °C per decade</b> (95% interval 0.27 to 0.80), $r = 0.62$. Correlation is not causation: here the cause comes from physics, not from this data.</p>
 
 ## The many-tests trap
 
-<img src="/img/statistics/many-tests.svg" style="max-height:330px" alt="20 tests on pure random noise; one has p below 0.05">
+<img src="../../img/statistics/many-tests.svg" style="max-height:330px" alt="20 tests on pure random noise; one has p below 0.05">
 
 <p>Twenty tests on pure noise: one comes out "significant". Test many things and something always will. Decide what to test <b>before</b> you look.</p>
 
@@ -212,4 +212,4 @@ $H_0$: no difference. Then $\;z = \dfrac{0.82}{0.23} = 3.6\;$ and $\;p = P(|Z| \
 
 <p class="big" style="margin-top:1em">Questions?</p>
 
-<p class="more"><a href="/guide#set-up-your-computer">Set up your computer</a> · <a href="/homework/1">HW1</a> · <a href="/lectures/week-1">Week 1</a></p>
+<p class="more"><a href="../../guide#set-up-your-computer">Set up your computer</a> · <a href="../../homework/1">HW1</a> · <a href="../../lectures/week-1">Week 1</a></p>

@@ -73,7 +73,7 @@ html.dark {
 .reveal .lc-row { display: grid; grid-template-columns: 8.5em 1fr; gap: .6em; align-items: center; border-top: 1px solid var(--c-line); }
 .reveal .lc-row p { margin: 0; font-size: .52em; line-height: 1.35; color: var(--c-muted); }
 .reveal .lc-row svg.lc { display: block; max-height: 186px; }
-.reveal .level { display: block; font-family: var(--font-sans); font-size: 1.9em; font-weight: 600; color: var(--c-accent); }
+.reveal .level { display: block; font-family: var(--font-sans); font-size: 1.25em; font-weight: 600; color: var(--c-accent); }
 .reveal .slides section.diagram svg.lc { margin: 2.2em 0 1.2em; }
 
 // Section dividers: big serif title, red rule.
@@ -191,3 +191,9 @@ html.dark {
 .reveal svg.fd + ul, .reveal .sourceCode + ul { margin-top: .3em; }
 .reveal section ul { font-size: .85em; }
 .reveal .milestones { margin-bottom: 1.2em; }
+
+// Close: back to the lecture's page on the site (added by _shared/course.html).
+.deck-close { position: fixed; top: 14px; right: 18px; z-index: 40; font: 500 14px/1 'IBM Plex Sans', system-ui, sans-serif;
+  color: var(--c-muted); text-decoration: none; padding: 7px 10px; border: 1px solid var(--c-line); border-radius: 6px; background: var(--c-bg); }
+.deck-close:hover { color: var(--c-text); border-color: var(--c-text); }
+@media print { .deck-close { display: none; } }

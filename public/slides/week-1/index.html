@@ -95,7 +95,7 @@
     code span.vs { color: #20794d; } /* VerbatimString */
     code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   </style>
-  <link rel="stylesheet" href="../site_libs/revealjs/dist/theme/quarto-3efc1d6f86cda2fe54d3de0c6a0e164d.css">
+  <link rel="stylesheet" href="../site_libs/revealjs/dist/theme/quarto-c7c60747d6a7dded5774c894148236ab.css">
   <link href="../site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
   <link href="../site_libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
   <link href="../site_libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
@@ -271,7 +271,7 @@ A result nobody can reproduce is, scientifically, just a claim.
 </tbody>
 </table>
 <p class="more">
-More: <a href="../lectures/week-1#why-reproducibility-matters">Week 1</a>
+More: <a href="../../lectures/week-1#why-reproducibility-matters">Week 1</a>
 </p>
 </section>
 <section id="start-with-a-question-data-can-answer" class="slide level2">
@@ -361,7 +361,7 @@ Same structure every time: a reader knows where to look, and everything generate
 You will use these four every week. The guide has every command, for VS Code.
 </p>
 <p class="more">
-More: <a href="../guide#hand-in-an-assignment">How to hand in</a>
+More: <a href="../../guide#hand-in-an-assignment">How to hand in</a>
 </p>
 </section>
 <section id="the-check" class="slide level2">
@@ -372,7 +372,7 @@ More: <a href="../guide#hand-in-an-assignment">How to hand in</a>
 <li><strong>Red:</strong> something only works on your computer. The log says what.</li>
 </ul>
 <p class="more">
-More: <a href="../guide#when-the-check-is-red">When the check is red</a>
+More: <a href="../../guide#when-the-check-is-red">When the check is red</a>
 </p>
 </section>
 <section>
@@ -408,13 +408,13 @@ From Probability I to statistics, in fifteen minutes.
 </table>
 <p>Data are <strong>observations of random variables</strong>. Your mean <span class="math inline">\(\bar x\)</span> is one value of the random variable <span class="math inline">\(\bar X\)</span>: another sample would have given another value.</p>
 <p class="more">
-More: <a href="../statistics">Statistics: the basics</a>
+More: <a href="../../statistics">Statistics: the basics</a>
 </p>
 </section>
 <section id="our-example-has-lund-got-warmer" class="slide level2">
 <h2>Our example: has Lund got warmer?</h2>
 
-<img src="../img/statistics/data.svg" alt="Mean annual temperature in Lund, 1997–2025, with the mean of 1997–2010 and of 2011–2025" class="r-stretch"><p>The later period is <strong>0.82 °C</strong> warmer. Is that real, or could weather alone do it?</p>
+<img src="../../img/statistics/data.svg" alt="Mean annual temperature in Lund, 1997–2025, with the mean of 1997–2010 and of 2011–2025" class="r-stretch"><p>The later period is <strong>0.82 °C</strong> warmer. Is that real, or could weather alone do it?</p>
 <aside class="notes">
 <p>Lund, not Stockholm: Stockholm is HW1, and we don’t give away the answer.</p>
 <style type="text/css">
@@ -432,13 +432,13 @@ More: <a href="../statistics">Statistics: the basics</a>
 <section id="single-years-scatter-a-lot" class="slide level2">
 <h2>Single years scatter a lot</h2>
 
-<img src="../img/statistics/spread.svg" alt="Each year's mean temperature as a dot, for both periods, with mean plus and minus one standard deviation" class="r-stretch"><p class="small">
+<img src="../../img/statistics/spread.svg" alt="Each year's mean temperature as a dot, for both periods, with mean plus and minus one standard deviation" class="r-stretch"><p class="small">
 One year varies by about 0.6 °C. The difference we found is not much larger.
 </p>
 </section>
 <section id="means-scatter-much-less" class="slide level2">
 <h2>Means scatter much less</h2>
-<p><img src="../img/statistics/sampling.svg" style="max-height:320px" alt="Simulated: single years scatter widely, means of 14 years scatter much less"></p>
+<p><img src="../../img/statistics/sampling.svg" style="max-height:320px" alt="Simulated: single years scatter widely, means of 14 years scatter much less"></p>
 <p><span class="math display">\[\operatorname{Var}(\bar X) = \frac{\sigma^2}{n} \qquad \Rightarrow \qquad \operatorname{SE} = \frac{\sigma}{\sqrt n} \approx \frac{0.62}{\sqrt{14}} = 0.17 \text{ °C}\]</span></p>
 <p class="small muted">
 To halve the uncertainty, you need four times the data.
@@ -447,7 +447,7 @@ To halve the uncertainty, you need four times the data.
 <section id="confidence-intervals" class="slide level2">
 <h2>Confidence intervals</h2>
 <p>By the CLT, <span class="math inline">\(\bar X \approx N(\mu, \operatorname{SE}^2)\)</span>, so <span class="math inline">\(\;\bar x \pm 1.96\,\operatorname{SE}\;\)</span> covers <span class="math inline">\(\mu\)</span> in 95% of samples.</p>
-<p><img src="../img/statistics/intervals.svg" style="max-height:330px" alt="20 simulated 95% intervals; 19 contain the true mean, one misses"></p>
+<p><img src="../../img/statistics/intervals.svg" style="max-height:330px" alt="20 simulated 95% intervals; 19 contain the true mean, one misses"></p>
 <p class="small">
 “95%” is a property of the method: about 1 in 20 intervals misses.
 </p>
@@ -459,13 +459,13 @@ To halve the uncertainty, you need four times the data.
 </section>
 <section id="the-same-by-computer-the-bootstrap" class="slide level2">
 <h2>The same, by computer: the bootstrap</h2>
-<p><img src="../img/statistics/bootstrap.svg" style="max-height:330px" alt="Histogram of the difference in 10,000 resampled datasets, with the middle 95% marked"></p>
+<p><img src="../../img/statistics/bootstrap.svg" style="max-height:330px" alt="Histogram of the difference in 10,000 resampled datasets, with the middle 95% marked"></p>
 <p>Resample the years with replacement, 10,000 times; the middle 95% of the differences is the interval. <strong>No formula needed</strong>, and it works for almost any statistic.</p>
 </section>
 <section id="could-it-be-chance-a-test" class="slide level2">
 <h2>Could it be chance? A test</h2>
 <p><span class="math inline">\(H_0\)</span>: no difference. Then <span class="math inline">\(\;z = \dfrac{0.82}{0.23} = 3.6\;\)</span> and <span class="math inline">\(\;p = P(|Z| \ge 3.6) \approx 0.0003\)</span>.</p>
-<p><img src="../img/statistics/permutation.svg" style="max-height:290px" alt="Differences when the years are shuffled between the periods at random; the observed difference is far in the tail"></p>
+<p><img src="../../img/statistics/permutation.svg" style="max-height:290px" alt="Differences when the years are shuffled between the periods at random; the observed difference is far in the tail"></p>
 <p class="small">
 By computer: shuffle the years between the periods; how often is the difference as large? About 1 in 1,000.
 </p>
@@ -481,13 +481,13 @@ By computer: shuffle the years between the periods; how often is the difference 
 <section id="correlation-and-trend" class="slide level2">
 <h2>Correlation and trend</h2>
 
-<img src="../img/statistics/trend.svg" alt="Lund annual mean temperature with a fitted straight line" class="r-stretch"><p>
+<img src="../../img/statistics/trend.svg" alt="Lund annual mean temperature with a fitted straight line" class="r-stretch"><p>
 Slope <b>0.54 °C per decade</b> (95% interval 0.27 to 0.80), <span class="math inline">\(r = 0.62\)</span>. Correlation is not causation: here the cause comes from physics, not from this data.
 </p>
 </section>
 <section id="the-many-tests-trap" class="slide level2">
 <h2>The many-tests trap</h2>
-<p><img src="../img/statistics/many-tests.svg" style="max-height:330px" alt="20 tests on pure random noise; one has p below 0.05"></p>
+<p><img src="../../img/statistics/many-tests.svg" style="max-height:330px" alt="20 tests on pure random noise; one has p below 0.05"></p>
 <p>
 Twenty tests on pure noise: one comes out “significant”. Test many things and something always will. Decide what to test <b>before</b> you look.
 </p>
@@ -515,7 +515,7 @@ The years 2011–2025 were on average 0.82 °C warmer in Lund than 1997–2010 (
 Questions?
 </p>
 <p class="more">
-<a href="../guide#set-up-your-computer">Set up your computer</a> · <a href="../homework/1">HW1</a> · <a href="../lectures/week-1">Week 1</a>
+<a href="../../guide#set-up-your-computer">Set up your computer</a> · <a href="../../homework/1">HW1</a> · <a href="../../lectures/week-1">Week 1</a>
 </p>
 
 
@@ -753,7 +753,22 @@ Questions?
           root.classList.toggle('dark', dark)
         })
       })
-    })()
+    })();
+
+    // A close button: back to this lecture's page on the site (/slides/<name>/ -> /lectures/<name>).
+    // Opened from a file rather than the site, it goes to the published site.
+
+    ;(function () {
+      var m = location.pathname.match(/\/slides\/([\w-]+)\//)
+      if (!m) return
+      var page = '/lectures/' + m[1]
+      var a = document.createElement('a')
+      a.className = 'deck-close'
+      a.href = location.protocol === 'file:' ? 'https://su-mt4008.github.io' + page : page
+      a.textContent = '✕ Close slides'
+      a.title = 'Back to the course page for this lecture'
+      document.body.appendChild(a)
+    })();
 
     // Dates and rules come from the site (/course.json, built from course.config.ts), so the slides
     // always show the current values. The text already in the slides is the fallback.

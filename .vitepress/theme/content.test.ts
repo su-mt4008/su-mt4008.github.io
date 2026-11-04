@@ -140,7 +140,7 @@ describe('introduction lecture', () => {
     }
   })
   it('every image the post and the slides use exists', () => {
-    const images = [...post.matchAll(/\]\((\/img\/[^)]+)\)/g), ...deck.matchAll(/src="(\/img\/[^"]+)"/g)].map((m) => m[1])
+    const images = [...post.matchAll(/\]\((\/img\/[^)]+)\)/g), ...deck.matchAll(/src="\.\.\/\.\.(\/img\/[^"]+)"/g)].map((m) => m[1])
     expect(images.length).toBeGreaterThan(15)
     for (const img of images) expect(exists(`public${img}`), img).toBe(true)
   })
@@ -172,4 +172,21 @@ describe('lecture decks', () => {
       .filter((d) => d.isDirectory() && !d.name.startsWith('_') && !d.name.startsWith('.')).map((d) => d.name)
     expect(folders.sort()).toEqual([...decks].sort())
   })
+})
+
+describe('deck links', () => {
+  // Quarto rewrites root paths like /img/x.svg relative to slides/, which breaks them, so decks
+  // use paths relative to their own folder: ../../img/x.svg, ../../about.
+  for (const name of ['introduction', 'week-1']) {
+    it(`${name} uses no root-relative links or images`, () => {
+      expect(page(`slides/${name}/index.qmd`)).not.toMatch(/(href|src)="\/(?!\/)/)
+    })
+    it(`${name} rendered: every image and site link points two levels up`, () => {
+      const html = page(`public/slides/${name}/index.html`)
+      const refs = [...html.matchAll(/(?:href|src)="(\.\.\/[^"#]*)/g)].map((m) => m[1])
+        .filter((r) => !r.includes('site_libs'))
+      expect(refs.length).toBeGreaterThan(5)
+      for (const r of refs) expect(r, r).toMatch(/^\.\.\/\.\.\//)
+    })
+  }
 })

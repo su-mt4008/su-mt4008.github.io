@@ -11,20 +11,17 @@ The session has two halves. The first, these slides, shows what this course is a
 three real projects, then goes through how the course works. After the break comes
 [week 1](/lectures/week-1), with its own slides, including the [statistics you need](/statistics).
 
-## The data science life cycle
+## The data science cycle
 
-Every analysis in this course, from the first assignment to your project, goes through the same
-seven steps. They are also the seven sections of every report you write:
+Every analysis in this course, from the first assignment to your project, goes round the same
+cycle: a **question**, the **data**, **cleaning** it, then **exploration** and **analysis**, round
+and round until the answer holds up, and finally **conclusions**. Being **reproducible** is not a
+last step: it frames every step, from the first line of code.
 
-| Step | What it is for |
-|:--|:--|
-| **Question** | what you want to know, sharp enough that data can answer it |
-| **Data** | where it comes from, how it was collected, what it cannot tell you |
-| **Cleaning** | from raw to usable, every step in code |
-| **Exploration** | look at the data before you test anything |
-| **Analysis** | the comparison, model or test that answers the question |
-| **Conclusions & limitations** | what follows from the analysis, and what doesn't |
-| **How to reproduce** | one command that takes the raw data to the same report |
+<InlineSvg name="diagram-cycle" caption="Exploration and analysis go round until the answer holds up; being reproducible frames every step. After the cycle in Wickham, Çetinkaya-Rundel & Grolemund, R for Data Science (2e)." />
+
+Your reports follow the cycle in seven sections: Question, Data, Cleaning, Exploration,
+Analysis, Conclusions & limitations, and How to reproduce.
 
 Below are three projects told along these steps, from small to ambitious. Each is a complete
 report you can clone and render yourself:
@@ -53,7 +50,7 @@ finding comebacks. Saying that clearly is part of the result, not a footnote.
 <LifeCycle name="names" />
 
 **Why this is a good project:** the question is sharp, the data fits it, and the conclusion says
-exactly how far the data reaches. That is what an **E** looks like.
+exactly how far the data reaches.
 
 ## 2. Why does electricity cost more in Malmö than in Luleå? {#electricity}
 
@@ -88,7 +85,7 @@ the continent. And windy days differ from calm ones in other ways too: correlati
 <LifeCycle name="electricity" />
 
 **Why this is a step up:** several sources combined, a comparison with its uncertainty, and a
-discussion of what the analysis can't separate. That is the kind of work a **C** asks for.
+discussion of what the analysis can't separate.
 
 ## 3. Is AI a bubble? {#ai-bubble}
 
@@ -134,13 +131,13 @@ January.
 
 **Why this is ambitious:** a vague question made measurable, several independent sources,
 results checked against history, and conclusions that would convince a sceptical reader,
-including about what they can't conclude. That is what an **A** looks like.
+including about what they can't conclude.
 
 ## Same cycle, bigger question
 
 The three reports are about the same length. What grows from one to the next is the question,
-the number of sources and the care in the conclusions, not the number of pages. That is how
-the [project](/project) is graded: see what an E, C and A project looks like there.
+the number of sources and the care in the conclusions, not the number of pages. Keep that in
+mind when you plan your [project](/project).
 
 ## How the course works
 

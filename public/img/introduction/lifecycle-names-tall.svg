@@ -1,4 +1,4 @@
-<svg class="lc lc-tall" viewBox="0 0 640 346" role="img" xmlns="http://www.w3.org/2000/svg">
+<svg class="lc lc-tall" viewBox="0 0 640 347" role="img" xmlns="http://www.w3.org/2000/svg">
 <title>Life cycle of the baby names project</title>
 <style>
 .lc text{font-family:var(--font-sans,'IBM Plex Sans',system-ui,sans-serif);fill:var(--c-text,#222)}
@@ -10,8 +10,14 @@
 .lc .node{fill:var(--c-bg,#fff);stroke:var(--c-text,#222);stroke-width:2}
 .lc .node.hot{fill:var(--c-accent,#d6453d);stroke:var(--c-accent,#d6453d)}
 .lc .dot{fill:var(--c-text,#222)}
+.lc .band{fill:var(--c-tint,#f4f4f4);stroke:var(--c-line,#ddd)}
+.lc .bandtext{font-size:13px;fill:var(--c-muted,#777)}
+.lc .bandtext tspan.head{font-weight:600;letter-spacing:.06em}
+.lc .loop{stroke:var(--c-accent,#d6453d);stroke-width:1.6;fill:none}
+.lc .looptip{fill:var(--c-accent,#d6453d)}
+.lc text.loopnote{font-size:12px;fill:var(--c-accent,#d6453d)}
 </style>
-<path class="line" d="M150,24 V303"/>
+<path class="line" d="M150,24 V239"/>
 <text class="step" x="128" y="29" text-anchor="end">Question</text>
 <circle class="node" cx="150" cy="24" r="7"/>
 <text class="note" x="182" y="29">Do names come back after three generations?</text>
@@ -31,7 +37,9 @@
 <circle class="node hot" cx="150" cy="239" r="7"/>
 <text class="note hot" x="182" y="244">yes: Elsa, Alice, Astrid … but only the</text>
 <text class="note hot" x="182" y="265">living are counted</text>
-<text class="step" x="128" y="308" text-anchor="end">Reproduce</text>
-<circle class="node" cx="150" cy="303" r="7"/>
-<text class="note" x="182" y="308">fetch.py + report.qmd</text>
+<path class="loop" d="M159,192 C174,186 174,163 161,159"/>
+<path class="looptip" d="M158,157 L167,156 L163,165 Z"/>
+<text class="loopnote" x="182" y="186.5">↻ round again until it holds up</text>
+<rect class="band" x="20" y="297" width="600" height="30" rx="15"/>
+<text class="bandtext" x="320.0" y="317" text-anchor="middle"><tspan class="head">REPRODUCIBLE THROUGHOUT</tspan>  ·  fetch.py + report.qmd</text>
 </svg>

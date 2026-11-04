@@ -39,25 +39,26 @@ Open with the questions, not the course. Ask the room: which of these could you 
 today, with a laptop? By the end of the course: all three. Each is a full report you can clone.
 :::
 
-## The same seven steps, every time
+## The data science cycle
 
 :::: cols
 ::: {}
-This is the **data science life cycle**.
+Every project in this course goes round this cycle, from HW1 to your group project.
 
-- Every project in this course goes through it, from HW1 to your group project.
-- It is also the **seven sections** of every report you write.
-- It loops: a good answer raises the next question.
+- **Exploration and analysis** go round several times: look, test, look again, until the answer holds up.
+- **Reproducible** is not a last step: it frames every step.
+- Your report follows the cycle, and ends with *How to reproduce*.
 :::
 ::: {}
 ```{=html}
 {{< include ../../public/img/introduction/diagram-cycle.svg >}}
 ```
+<p class="small muted">After the cycle in Wickham, Çetinkaya-Rundel &amp; Grolemund, <i>R for Data Science</i> (2e).</p>
 :::
 ::::
 
 ::: notes
-Keep this slide in mind: every project that follows is told along these seven steps.
+Keep this slide in mind: every project that follows is told along this cycle.
 :::
 
 # Are baby names a fashion? {.divider}
@@ -66,7 +67,7 @@ Keep this slide in mind: every project that follows is told along these seven st
 
 ## Names skip three generations
 
-<img src="/img/introduction/names-comebacks.svg" alt="Share of births named Elsa, Alice and Astrid, 1922–2021: high in the 1920s, almost zero in 1960–80, high again after 2000">
+<img src="../../img/introduction/names-comebacks.svg" alt="Share of births named Elsa, Alice and Astrid, 1922–2021: high in the 1920s, almost zero in 1960–80, high again after 2000">
 
 <p class="small">Share of each birth year with the name, among the 200 most common names in Sweden. Data: SCB.</p>
 
@@ -120,7 +121,7 @@ conclusion and its limitation. A small project with an honest limitation is a go
 
 ## The gap, month by month
 
-<img src="/img/introduction/electricity-zones.svg" alt="Monthly mean spot price in SE4 Malmö and SE1 Luleå, 2023–2025; Malmö is above Luleå almost every month">
+<img src="../../img/introduction/electricity-zones.svg" alt="Monthly mean spot price in SE4 Malmö and SE1 Luleå, 2023–2025; Malmö is above Luleå almost every month">
 
 <p class="small">The shaded area is the gap. Is it the wind? Wind power in the south should push southern prices down.</p>
 
@@ -151,7 +152,7 @@ the result. The rendered report shows every one of these steps in code.
 
 ## Calm days, big gap
 
-<img src="/img/introduction/electricity-wind.svg" alt="Mean price gap by wind quarter: 0.55 SEK per kWh on the calmest days, falling to 0.15 on the windiest">
+<img src="../../img/introduction/electricity-wind.svg" alt="Mean price gap by wind quarter: 0.55 SEK per kWh on the calmest days, falling to 0.15 on the windiest">
 
 On calm days Malmö pays **0.40 kr/kWh more** than on windy days (95% interval 0.34 to 0.47). But wind and temperature explain only **18%** of the day-to-day gap.
 
@@ -183,13 +184,13 @@ Correlation, not cause: windy days also differ in season and demand.
 - So we choose three **signs** people associate with bubbles, and ask how unusual today is on each, compared with 1929, 2000 and the crypto boom.
 
 ::: notes
-This is the step that makes it an A-level project: operationalising. The data can't say
+This is the step that makes it ambitious: operationalising. The data can't say
 "bubble"; it can say how unusual today is on signs that people associate with bubbles.
 :::
 
 ## Valuations: second only to 2000
 
-<img src="/img/introduction/ai-cape.svg" alt="Cyclically adjusted price-earnings ratio of US stocks since 1881, with 1929, 2000 and today marked; today is above 1929 and just below 2000">
+<img src="../../img/introduction/ai-cape.svg" alt="Cyclically adjusted price-earnings ratio of US stocks since 1881, with 1929, 2000 and today marked; today is above 1929 and just below 2000">
 
 <p class="small">CAPE of the S&P composite. Data: Robert Shiller.</p>
 
@@ -200,7 +201,7 @@ A cleaning trap: Shiller writes October as 2026.1, which as a number is the same
 
 ## Prices: an ordinary pace
 
-<img src="/img/introduction/ai-nasdaq.svg" alt="NASDAQ divided by its value five years earlier, since 1976; the 2000 peak is far higher than today">
+<img src="../../img/introduction/ai-nasdaq.svg" alt="NASDAQ divided by its value five years earlier, since 1976; the 2000 peak is far higher than today">
 
 <p class="small">The NASDAQ index divided by its value five years earlier. Data: FRED.</p>
 
@@ -213,7 +214,7 @@ more exciting story and a less true one. Report the evidence that goes against y
 
 ## Attention: four times the crypto peak
 
-<img src="/img/introduction/ai-attention.svg" alt="Share of Hacker News story titles mentioning AI, bitcoin and crypto, 2007 to today; AI is far above the earlier crypto peaks">
+<img src="../../img/introduction/ai-attention.svg" alt="Share of Hacker News story titles mentioning AI, bitcoin and crypto, 2007 to today; AI is far above the earlier crypto peaks">
 
 <p class="small">Share of Hacker News story titles with each word, 3-month average. Data: HN Search API.</p>
 
@@ -231,7 +232,7 @@ more exciting story and a less true one. Report the evidence that goes against y
 - Three signs is our choice. US data, an English-language forum, few past bubbles to compare with.
 
 ::: notes
-An A is not about a bigger dataset. It's about a question that takes real effort, results
+Ambition is not about a bigger dataset. It's about a question that takes real effort, results
 that are checked, and conclusions that would convince a sceptical reader, including what you
 can't conclude.
 :::
@@ -247,19 +248,19 @@ can't conclude.
 ## Same cycle, bigger question
 
 ::: lc-stack
-<div class="lc-row"><p><span class="level">≈ E</span>a clear question, one source, honest about its limits</p>
+<div class="lc-row"><p><span class="level">Small</span>a clear question, one source, honest about its limits</p>
 
 ```{=html}
 {{< include ../../public/img/introduction/lifecycle-names.svg >}}
 ```
 </div>
-<div class="lc-row"><p><span class="level">≈ C</span>sources combined, an analysis beyond description, uncertainty</p>
+<div class="lc-row"><p><span class="level">Medium</span>sources combined, an analysis beyond description, uncertainty</p>
 
 ```{=html}
 {{< include ../../public/img/introduction/lifecycle-electricity.svg >}}
 ```
 </div>
-<div class="lc-row"><p><span class="level">≈ A</span>an ambitious question made measurable, checked, convincing</p>
+<div class="lc-row"><p><span class="level">Ambitious</span>a question made measurable, checked, convincing</p>
 
 ```{=html}
 {{< include ../../public/img/introduction/lifecycle-ai-bubble.svg >}}
@@ -268,8 +269,7 @@ can't conclude.
 :::
 
 ::: notes
-The reports are about the same length. What grows is the question and the work behind it.
-That is exactly how the project is graded. Clone them: github.com/su-mt4008/lecture-demos.
+The reports are about the same length. What grows is the question and the work behind it. Clone them: github.com/su-mt4008/lecture-demos.
 :::
 
 # How the course works {.divider}
@@ -293,7 +293,7 @@ Data science is the whole cycle: from a question, through messy real data, to an
 
 <p style="margin-top:1em">You choose <b>Python or R</b>. Everyone uses <b>Quarto, Git and GitHub, VS Code</b>.</p>
 
-<p class="more">More: <a href="/about">About the course</a></p>
+<p class="more">More: <a href="../../about">About the course</a></p>
 
 ## The course at a glance
 
@@ -333,7 +333,7 @@ Data science is the whole cycle: from a question, through messy real data, to an
 - **Self-study first:** each week's material is on the site. Read it, run the code.
 - **Sessions** <span data-course="hours">13:00–17:00</span> in <span data-course="room">Lecture room 19, Albano Hus 2, 2nd floor</span>: not compulsory, strongly encouraged. Bring your laptop and your questions.
 
-<p class="more">More: <a href="/about#how-a-week-works">How a week works</a></p>
+<p class="more">More: <a href="../../about#how-a-week-works">How a week works</a></p>
 
 ::: notes
 No live demos. The material is written to be worked through; sessions are where you get help.
@@ -352,7 +352,7 @@ No live demos. The material is written to be worked through; sessions are where 
 </tbody>
 </table>
 
-<p class="more">More: <a href="/homework/">Assignments</a></p>
+<p class="more">More: <a href="../../homework/">Assignments</a></p>
 
 ## How assignments are scored
 
@@ -372,7 +372,7 @@ Each assignment is scored **0–100**, and **65** passes. A late hand-in costs *
 <div class="hot"><b>Final deadline <span data-course="finalDeadline">Fri 15 Jan, 23:59</span></b>miss it and you redo all assignments next year</div>
 :::
 
-<p class="more">More: <a href="/homework/">Assignments</a></p>
+<p class="more">More: <a href="../../homework/">Assignments</a></p>
 
 ## How you hand in
 
@@ -384,7 +384,7 @@ Each assignment is scored **0–100**, and **65** passes. A late hand-in costs *
 - Push again to the same branch and the pull request updates; the check runs again.
 - One repository for all five assignments: <code>&lt;username&gt;-assignments</code>. You'll get an invite.
 
-<p class="more">More: <a href="/guide">How we work</a></p>
+<p class="more">More: <a href="../../guide">How we work</a></p>
 
 ::: notes
 We'll go through this in detail in the second half. The check is the reproducibility test:
@@ -405,12 +405,12 @@ green means anyone can get your numbers.
 - Same tools as the assignments: one repository per group, branches, pull requests, the check.
 - Attending the presentations is compulsory.
 
-<p style="margin-top:.6em">Aim for <span class="level-inline">E</span>, <span class="level-inline">C</span> or <span class="level-inline">A</span>, like the three projects. Bigger means <b>more thinking, not more pages</b>.</p>
+<p style="margin-top:.6em">The three projects you just saw are reference points. Bigger means <b>more thinking, not more pages</b>.</p>
 
-<p class="more">More: <a href="/project">Project</a>, with what an E, C and A project looks like</p>
+<p class="more">More: <a href="../../project">Project</a></p>
 
 ::: notes
-The three projects you just saw are the reference points for E, C and A. Start thinking
+The three projects you just saw are reference points. Start thinking
 about groups and questions now: the proposal is in two weeks.
 :::
 
@@ -424,7 +424,7 @@ about groups and questions now: the proposal is in two weeks.
 - Why a step is needed, what a result means, what it can't show, e.g. what a confidence interval says.
 - Prepare with the **Check your understanding** questions on each week's page.
 
-<p class="more">More: <a href="/exam/">Exam</a></p>
+<p class="more">More: <a href="../../exam/">Exam</a></p>
 
 ## Where everything is
 
@@ -442,4 +442,4 @@ about groups and questions now: the proposal is in two weeks.
 
 <p class="big">After the break: reproducible analysis, and the statistics you need for HW1.</p>
 
-<p class="more"><a href="/slides/week-1/index.html">The week 1 slides</a> · <a href="/lectures/introduction">This lecture as a post</a></p>
+<p class="more"><a href="../../slides/week-1/index.html">The week 1 slides</a> · <a href="../../lectures/introduction">This lecture as a post</a></p>
