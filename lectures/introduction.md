@@ -33,6 +33,16 @@ In each diagram, the red step is where the real work of that project was.
 
 *A small project: one source, a clear question, honest about its limits.*
 
+**The workflow**
+
+| Step | What we did |
+|:--|:--|
+| **Data** | Statistics Sweden's open API, table BE0001T100: 200 names × 100 birth years (1922–2021), one request in `names/fetch.py` |
+| **Cleaning** | wide → long, "fewer than ten" as missing, counts → share of each birth year |
+| **Analysis** | each name over 100 years, and a comeback score: common in the 1920s, rare in 1960–80, common again after 2005 |
+| **Results** | Ella, Elsa, Alice, Astrid and Ebba top the score; the ten most common names covered 59% of a year in 1922 and 24% in 2021; only the living are counted |
+
+
 People often say names skip three generations: the names of great-grandparents come back once
 nobody's parents have them. Statistics Sweden (SCB) publishes how many people alive in 2021
 have each of the 200 most common first names, by year of birth from 1922 to 2021. That is
@@ -56,6 +66,16 @@ exactly how far the data reaches.
 ## 2. Why does electricity cost more in Malmö than in Luleå? {#electricity}
 
 *A medium project: sources combined, an analysis beyond description, with its uncertainty.*
+
+**The workflow**
+
+| Step | What we did |
+|:--|:--|
+| **Data** | spot prices from the elprisetjustnu.se API (one request per zone and day: 131,724 prices), and SMHI's wind and temperature in Malmö |
+| **Cleaning** | a daily price per zone weighted by duration, in Swedish dates, joined with the weather: 1,074 days |
+| **Analysis** | the Malmö − Luleå gap per day; calmest vs windiest quarter of days with a bootstrap interval; a straight-line fit on wind and temperature |
+| **Results** | Malmö 0.66 and Luleå 0.31 kr/kWh on average; the gap is 0.40 kr/kWh bigger on calm days (0.34–0.47); weather explains 18% of it |
+
 
 Sweden has four electricity price zones, from SE1 (Luleå) in the north to SE4 (Malmö) in the
 south. Southern households often pay several times as much. How big is the gap, and does it go
@@ -92,6 +112,16 @@ discussion of what the analysis can't separate.
 
 *An ambitious project: a question that first has to be made measurable, checked from several
 sides.*
+
+**The workflow**
+
+| Step | What we did |
+|:--|:--|
+| **Data** | Shiller's valuations (monthly since 1871), the NASDAQ from FRED (daily since 1971), and 4.8 million Hacker News story titles from its search API |
+| **Cleaning** | Shiller's dates (2026.1 is October), complete months up to October 2026, counts → share of all titles |
+| **Analysis** | "bubble" turned into three signs; today's value of each ranked against every past month, and compared with 1929, 2000 and the crypto boom |
+| **Results** | valuations higher than 99% of months; AI in 14% of titles, against bitcoin's peak of 3%; price growth ordinary (×1.6 in five years) |
+
 
 Nobody can measure a bubble, and whether one bursts is a prediction, not a fact in any dataset.
 So the first job, and the hardest, is turning the question into things data can answer. Bubbles

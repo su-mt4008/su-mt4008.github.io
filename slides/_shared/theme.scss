@@ -197,3 +197,17 @@ html.dark {
   color: var(--c-muted); text-decoration: none; padding: 7px 10px; border: 1px solid var(--c-line); border-radius: 6px; background: var(--c-bg); }
 .deck-close:hover { color: var(--c-text); border-color: var(--c-text); }
 @media print { .deck-close { display: none; } }
+
+// A project's workflow: data -> cleaning -> analysis -> results.
+.reveal .workflow { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.4em; margin-top: .4em; font-size: .66em; }
+.reveal .workflow > div { position: relative; background: var(--c-tint); border: 1px solid var(--c-line); border-radius: 8px; padding: .8em .9em; }
+.reveal .workflow > div:not(:last-child)::after { content: "→"; position: absolute; right: -1.2em; top: 1.6em; color: var(--c-faint); font-size: 1.5em; }
+.reveal .workflow .kicker { font-size: .8em; }
+.reveal .workflow b { display: block; font-family: 'IBM Plex Serif', Georgia, serif; font-weight: 500; font-size: 1.35em; line-height: 1.2; margin-bottom: .4em; }
+.reveal .workflow ul { font-size: 1em; margin: 0; }
+.reveal .workflow li { margin-bottom: .35em; line-height: 1.3; }
+.reveal .workflow .result { background: var(--c-text); color: var(--c-bg); border-color: var(--c-text); }
+.reveal .workflow .result li::before { color: var(--c-bg); opacity: .6; }
+.reveal .workflow .result .kicker { color: var(--c-bg); opacity: .8; }
+.reveal .wfcode { margin-top: 1.4em; font-size: .55em; color: var(--c-muted); display: flex; flex-wrap: wrap; gap: .3em 1.4em; align-items: baseline; }
+.reveal .wfcode span { color: var(--c-muted); }

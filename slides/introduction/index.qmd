@@ -66,6 +66,26 @@ Keep this slide in mind: every project that follows is told along this cycle.
 
 <p class="muted">Small project · one source</p>
 
+## The workflow
+
+::: workflow
+<div><span class="kicker">Data</span><b>Statistics Sweden (SCB)</b>
+<ul><li>open API, table BE0001T100</li><li>one request in <code>fetch.py</code></li><li>200 names × 100 birth years, 1922–2021</li></ul></div>
+<div><span class="kicker">Cleaning</span><b>A tidy table</b>
+<ul><li>wide → long: one row per name and year</li><li>"fewer than 10" → missing, not 0</li><li>counts → share of each birth year</li></ul></div>
+<div><span class="kicker">Analysis</span><b>Find the comebacks</b>
+<ul><li>plot each name over 100 years</li><li>a comeback score: common in the 1920s, rare in 1960–80, common again after 2005</li></ul></div>
+<div class="result"><span class="kicker">Results</span><b>Yes, with a catch</b>
+<ul><li>Ella, Elsa, Alice, Astrid, Ebba top the score</li><li>the top 10 names: 59% of a year in 1922, 24% in 2021</li><li>only the living are counted</li></ul></div>
+:::
+
+<p class="wfcode"><code>names/fetch.py</code> → <code>names/data/</code> → <code>names/report.qmd</code> → <code>report.md</code><span>one command: <code>uv run quarto render</code></span></p>
+
+::: notes
+The whole project in one slide: where the data came from, what we did to it, what we found.
+The next slides show the result and the catch.
+:::
+
 ## Names skip three generations
 
 <img src="../../img/introduction/names-comebacks.svg" alt="Share of births named Elsa, Alice and Astrid, 1922–2021: high in the 1920s, almost zero in 1960–80, high again after 2000">
@@ -103,6 +123,25 @@ conclusion and its limitation. A small project with an honest limitation is a go
 # Why does electricity cost more in Malmö than in Luleå? {.divider}
 
 <p class="muted">Medium project · two sources joined</p>
+
+## The workflow
+
+::: workflow
+<div><span class="kicker">Data</span><b>Two open APIs</b>
+<ul><li>spot prices from elprisetjustnu.se: one request per zone and day, 4 × 1,096</li><li>SMHI: wind and temperature in Malmö</li><li>131,724 prices, saved to <code>data/</code></li></ul></div>
+<div><span class="kicker">Cleaning</span><b>One row per day</b>
+<ul><li>daily price per zone, weighted by duration</li><li>Swedish dates, clock changes</li><li>join with the weather: 1,074 days</li></ul></div>
+<div><span class="kicker">Analysis</span><b>Does wind matter?</b>
+<ul><li>gap = Malmö − Luleå, per day</li><li>calmest vs windiest quarter of days</li><li>bootstrap interval; a straight-line fit on wind and temperature</li></ul></div>
+<div class="result"><span class="kicker">Results</span><b>Partly</b>
+<ul><li>Malmö 0.66, Luleå 0.31 kr/kWh on average</li><li>calm days: 0.40 kr/kWh bigger gap (0.34–0.47)</li><li>weather explains 18% of the gap</li></ul></div>
+:::
+
+<p class="wfcode"><code>electricity/fetch_prices.py + fetch_weather.py</code> → <code>electricity/data/</code> → <code>electricity/report.qmd</code> → <code>report.md</code><span>one command: <code>uv run quarto render</code></span></p>
+
+::: notes
+Two sources, joined on the date. The cleaning is where the work was; the next slides show it.
+:::
 
 ## Four zones, one country
 
@@ -174,6 +213,25 @@ Correlation, not cause: windy days also differ in season and demand.
 # Is AI a bubble? {.divider}
 
 <p class="muted">Ambitious project · three sources, and a question that needs work first</p>
+
+## The workflow
+
+::: workflow
+<div><span class="kicker">Data</span><b>Three sources</b>
+<ul><li>Shiller's spreadsheet: valuations, monthly since 1871</li><li>FRED: the NASDAQ, daily since 1971</li><li>Hacker News API: 4.8 million story titles, counted per month and word</li></ul></div>
+<div><span class="kicker">Cleaning</span><b>Months, comparable</b>
+<ul><li>dates like 2026.1 mean October</li><li>complete months only, to Oct 2026</li><li>counts → share of all titles</li></ul></div>
+<div><span class="kicker">Analysis</span><b>How unusual is today?</b>
+<ul><li>turn "bubble" into three signs</li><li>rank today's value against every past month</li><li>compare with 1929, 2000 and crypto</li></ul></div>
+<div class="result"><span class="kicker">Results</span><b>Two of three signs</b>
+<ul><li>valuations: higher than 99% of months</li><li>attention: 14% of titles; bitcoin peaked at 3%</li><li>price growth: ordinary (×1.6 in 5 years)</li></ul></div>
+:::
+
+<p class="wfcode"><code>ai-bubble/fetch.py</code> → <code>ai-bubble/data/</code> → <code>ai-bubble/report.qmd</code> → <code>report.md</code><span>one command: <code>uv run quarto render</code></span></p>
+
+::: notes
+The hard part here is the analysis step: deciding what to measure. The next slide shows how.
+:::
 
 ## You can't measure a bubble, so measure its signs
 

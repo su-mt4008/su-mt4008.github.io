@@ -334,5 +334,26 @@
     "title": "From a question to an answer anyone can check",
     "section": "Next: week 1",
     "text": "Next: week 1\n\nAfter the break: reproducible analysis, and the statistics you need for HW1.\n\n\nThe week 1 slides · This lecture as a post"
+  },
+  {
+    "objectID": "introduction/index.html#the-workflow",
+    "href": "introduction/index.html#the-workflow",
+    "title": "From a question to an answer anyone can check",
+    "section": "The workflow",
+    "text": "The workflow\n\n\nDataStatistics Sweden (SCB)\n\n\nopen API, table BE0001T100\n\n\none request in fetch.py\n\n\n200 names × 100 birth years, 1922–2021\n\n\n\n\nCleaningA tidy table\n\n\nwide → long: one row per name and year\n\n\n“fewer than 10” → missing, not 0\n\n\ncounts → share of each birth year\n\n\n\n\nAnalysisFind the comebacks\n\n\nplot each name over 100 years\n\n\na comeback score: common in the 1920s, rare in 1960–80, common again after 2005\n\n\n\n\nResultsYes, with a catch\n\n\nElla, Elsa, Alice, Astrid, Ebba top the score\n\n\nthe top 10 names: 59% of a year in 1922, 24% in 2021\n\n\nonly the living are counted\n\n\n\n\n\nnames/fetch.py → names/data/ → names/report.qmd → report.mdone command: uv run quarto render\n\n\nThe whole project in one slide: where the data came from, what we did to it, what we found. The next slides show the result and the catch."
+  },
+  {
+    "objectID": "introduction/index.html#the-workflow-1",
+    "href": "introduction/index.html#the-workflow-1",
+    "title": "From a question to an answer anyone can check",
+    "section": "The workflow",
+    "text": "The workflow\n\n\nDataTwo open APIs\n\n\nspot prices from elprisetjustnu.se: one request per zone and day, 4 × 1,096\n\n\nSMHI: wind and temperature in Malmö\n\n\n131,724 prices, saved to data/\n\n\n\n\nCleaningOne row per day\n\n\ndaily price per zone, weighted by duration\n\n\nSwedish dates, clock changes\n\n\njoin with the weather: 1,074 days\n\n\n\n\nAnalysisDoes wind matter?\n\n\ngap = Malmö − Luleå, per day\n\n\ncalmest vs windiest quarter of days\n\n\nbootstrap interval; a straight-line fit on wind and temperature\n\n\n\n\nResultsPartly\n\n\nMalmö 0.66, Luleå 0.31 kr/kWh on average\n\n\ncalm days: 0.40 kr/kWh bigger gap (0.34–0.47)\n\n\nweather explains 18% of the gap\n\n\n\n\n\nelectricity/fetch_prices.py + fetch_weather.py → electricity/data/ → electricity/report.qmd → report.mdone command: uv run quarto render\n\n\nTwo sources, joined on the date. The cleaning is where the work was; the next slides show it."
+  },
+  {
+    "objectID": "introduction/index.html#the-workflow-2",
+    "href": "introduction/index.html#the-workflow-2",
+    "title": "From a question to an answer anyone can check",
+    "section": "The workflow",
+    "text": "The workflow\n\n\nDataThree sources\n\n\nShiller’s spreadsheet: valuations, monthly since 1871\n\n\nFRED: the NASDAQ, daily since 1971\n\n\nHacker News API: 4.8 million story titles, counted per month and word\n\n\n\n\nCleaningMonths, comparable\n\n\ndates like 2026.1 mean October\n\n\ncomplete months only, to Oct 2026\n\n\ncounts → share of all titles\n\n\n\n\nAnalysisHow unusual is today?\n\n\nturn “bubble” into three signs\n\n\nrank today’s value against every past month\n\n\ncompare with 1929, 2000 and crypto\n\n\n\n\nResultsTwo of three signs\n\n\nvaluations: higher than 99% of months\n\n\nattention: 14% of titles; bitcoin peaked at 3%\n\n\nprice growth: ordinary (×1.6 in 5 years)\n\n\n\n\n\nai-bubble/fetch.py → ai-bubble/data/ → ai-bubble/report.qmd → report.mdone command: uv run quarto render\n\n\nThe hard part here is the analysis step: deciding what to measure. The next slide shows how."
   }
 ]

@@ -29,7 +29,7 @@
       vertical-align: middle;
     }
   </style>
-  <link rel="stylesheet" href="../site_libs/revealjs/dist/theme/quarto-c7c60747d6a7dded5774c894148236ab.css">
+  <link rel="stylesheet" href="../site_libs/revealjs/dist/theme/quarto-61b8b29237fdec3b9f62e7ec17f7d6f1.css">
   <link href="../site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
   <link href="../site_libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
   <link href="../site_libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
@@ -296,6 +296,80 @@ After the cycle in Wickham, Çetinkaya-Rundel &amp; Grolemund, <i>R for Data Sci
 Small project · one source
 </p>
 </section>
+<section id="the-workflow" class="slide level2">
+<h2>The workflow</h2>
+<div class="workflow">
+<div>
+<span class="kicker">Data</span><b>Statistics Sweden (SCB)</b>
+<ul>
+<li>
+open API, table BE0001T100
+</li>
+<li>
+one request in <code>fetch.py</code>
+</li>
+<li>
+200 names × 100 birth years, 1922–2021
+</li>
+</ul>
+</div>
+<div>
+<span class="kicker">Cleaning</span><b>A tidy table</b>
+<ul>
+<li>
+wide → long: one row per name and year
+</li>
+<li>
+“fewer than 10” → missing, not 0
+</li>
+<li>
+counts → share of each birth year
+</li>
+</ul>
+</div>
+<div>
+<span class="kicker">Analysis</span><b>Find the comebacks</b>
+<ul>
+<li>
+plot each name over 100 years
+</li>
+<li>
+a comeback score: common in the 1920s, rare in 1960–80, common again after 2005
+</li>
+</ul>
+</div>
+<div class="result">
+<span class="kicker">Results</span><b>Yes, with a catch</b>
+<ul>
+<li>
+Ella, Elsa, Alice, Astrid, Ebba top the score
+</li>
+<li>
+the top 10 names: 59% of a year in 1922, 24% in 2021
+</li>
+<li>
+only the living are counted
+</li>
+</ul>
+</div>
+</div>
+<p class="wfcode">
+<code>names/fetch.py</code> → <code>names/data/</code> → <code>names/report.qmd</code> → <code>report.md</code><span>one command: <code>uv run quarto render</code></span>
+</p>
+<aside class="notes">
+<p>The whole project in one slide: where the data came from, what we did to it, what we found. The next slides show the result and the catch.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
 <section id="names-skip-three-generations" class="slide level2">
 <h2>Names skip three generations</h2>
 
@@ -438,6 +512,83 @@ One source, one straight line. The red step is where the work was. <a href="http
 <p class="muted">
 Medium project · two sources joined
 </p>
+</section>
+<section id="the-workflow-1" class="slide level2">
+<h2>The workflow</h2>
+<div class="workflow">
+<div>
+<span class="kicker">Data</span><b>Two open APIs</b>
+<ul>
+<li>
+spot prices from elprisetjustnu.se: one request per zone and day, 4 × 1,096
+</li>
+<li>
+SMHI: wind and temperature in Malmö
+</li>
+<li>
+131,724 prices, saved to <code>data/</code>
+</li>
+</ul>
+</div>
+<div>
+<span class="kicker">Cleaning</span><b>One row per day</b>
+<ul>
+<li>
+daily price per zone, weighted by duration
+</li>
+<li>
+Swedish dates, clock changes
+</li>
+<li>
+join with the weather: 1,074 days
+</li>
+</ul>
+</div>
+<div>
+<span class="kicker">Analysis</span><b>Does wind matter?</b>
+<ul>
+<li>
+gap = Malmö − Luleå, per day
+</li>
+<li>
+calmest vs windiest quarter of days
+</li>
+<li>
+bootstrap interval; a straight-line fit on wind and temperature
+</li>
+</ul>
+</div>
+<div class="result">
+<span class="kicker">Results</span><b>Partly</b>
+<ul>
+<li>
+Malmö 0.66, Luleå 0.31 kr/kWh on average
+</li>
+<li>
+calm days: 0.40 kr/kWh bigger gap (0.34–0.47)
+</li>
+<li>
+weather explains 18% of the gap
+</li>
+</ul>
+</div>
+</div>
+<p class="wfcode">
+<code>electricity/fetch_prices.py + fetch_weather.py</code> → <code>electricity/data/</code> → <code>electricity/report.qmd</code> → <code>report.md</code><span>one command: <code>uv run quarto render</code></span>
+</p>
+<aside class="notes">
+<p>Two sources, joined on the date. The cleaning is where the work was; the next slides show it.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
 </section>
 <section id="four-zones-one-country" class="slide level2">
 <h2>Four zones, one country</h2>
@@ -700,6 +851,83 @@ Three files, joined into one table. <a href="https://github.com/su-mt4008/lectur
 <p class="muted">
 Ambitious project · three sources, and a question that needs work first
 </p>
+</section>
+<section id="the-workflow-2" class="slide level2">
+<h2>The workflow</h2>
+<div class="workflow">
+<div>
+<span class="kicker">Data</span><b>Three sources</b>
+<ul>
+<li>
+Shiller’s spreadsheet: valuations, monthly since 1871
+</li>
+<li>
+FRED: the NASDAQ, daily since 1971
+</li>
+<li>
+Hacker News API: 4.8 million story titles, counted per month and word
+</li>
+</ul>
+</div>
+<div>
+<span class="kicker">Cleaning</span><b>Months, comparable</b>
+<ul>
+<li>
+dates like 2026.1 mean October
+</li>
+<li>
+complete months only, to Oct 2026
+</li>
+<li>
+counts → share of all titles
+</li>
+</ul>
+</div>
+<div>
+<span class="kicker">Analysis</span><b>How unusual is today?</b>
+<ul>
+<li>
+turn “bubble” into three signs
+</li>
+<li>
+rank today’s value against every past month
+</li>
+<li>
+compare with 1929, 2000 and crypto
+</li>
+</ul>
+</div>
+<div class="result">
+<span class="kicker">Results</span><b>Two of three signs</b>
+<ul>
+<li>
+valuations: higher than 99% of months
+</li>
+<li>
+attention: 14% of titles; bitcoin peaked at 3%
+</li>
+<li>
+price growth: ordinary (×1.6 in 5 years)
+</li>
+</ul>
+</div>
+</div>
+<p class="wfcode">
+<code>ai-bubble/fetch.py</code> → <code>ai-bubble/data/</code> → <code>ai-bubble/report.qmd</code> → <code>report.md</code><span>one command: <code>uv run quarto render</code></span>
+</p>
+<aside class="notes">
+<p>The hard part here is the analysis step: deciding what to measure. The next slide shows how.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
 </section>
 <section id="you-cant-measure-a-bubble-so-measure-its-signs" class="slide level2">
 <h2>You can’t measure a bubble, so measure its signs</h2>
