@@ -32,7 +32,7 @@ engine: markdown
 </div>
 :::
 
-<p class="small muted" style="margin-top:1.5em">All three are real analyses of real data, and you can rerun every one of them.</p>
+<p class="small muted" style="margin-top:1.5em">Each is a complete report you can download and rerun.</p>
 
 ::: notes
 Open with the questions, not the course. Ask the room: which of these could you answer
@@ -47,7 +47,7 @@ Every project in this course goes round this cycle, from HW1 to your group proje
 
 - **Exploration and analysis** go round and round: look, test, look again.
 - To answer more, go back: **fetch more data**, or **refine the question**, and round again.
-- **Reproducible** is not a last step: it frames every step.
+- **Reproducible** applies to every step.
 - Your report follows the cycle, and ends with *How to reproduce*.
 :::
 ::: {}
@@ -97,7 +97,7 @@ Common in the 1920s, nearly gone around 1970 (grey band), back after 2000. Ask: 
 has a grandmother or great-grandmother called Elsa, Alice or Astrid?
 :::
 
-## The catch: only the living are counted
+## Only the living are counted
 
 ```{=html}
 {{< include ../../public/img/introduction/diagram-survivors.svg >}}
@@ -105,28 +105,10 @@ has a grandmother or great-grandmother called Elsa, Alice or Astrid?
 
 - The table counts people **alive in Sweden in 2021**, by year of birth: the dead and the emigrated are gone.
 - It only lists names common **today**, so a 1920s name that never came back is missing.
-- The data is tilted towards finding comebacks. **Saying so is part of the result.**
+- So the data is tilted towards finding comebacks, and the report says so.
 
 ::: notes
-Survivorship bias. This is the step where the real thinking was in this project: the
-conclusion and its limitation. A small project with an honest limitation is a good project.
-:::
-
-## The maths: a comeback score
-
-For each name $n$ and birth year $t$, the **share** of people born that year with the name:
-
-$$s_{n,t} = \frac{\text{people born in year } t \text{ called } n}{\text{people born in year } t \text{ with any of the 200 names}}$$
-
-Average the share over three periods, $\bar s_{\text{1920s}}$ (1922–35), $\bar s_{\text{dip}}$ (1960–80) and $\bar s_{\text{now}}$ (2005–21). A comeback is big when **both** popular periods dwarf the dip:
-
-$$\text{score}(n) = \min\left( \frac{\bar s_{\text{1920s}}}{\bar s_{\text{dip}}},\ \frac{\bar s_{\text{now}}}{\bar s_{\text{dip}}} \right)$$
-
-<p class="small">Elsa: $\min\left(\frac{3.06\%}{0.034\%}, \frac{1.72\%}{0.034\%}\right) = \min(90, 51) = 51$.<br>A name absent in the dip counts as 0.01%, so we never divide by zero.</p>
-
-::: notes
-Why the minimum: a name that was only popular in the 1920s, or only now, should not count as a
-comeback. The minimum is large only if both ratios are large.
+Survivorship bias. In this project the real work was in the conclusion and its limitation.
 :::
 
 ## What was done {.diagram}
@@ -200,11 +182,8 @@ and does it go with the weather? Wind power in the south should push southern pr
 - **22 days** have no weather: dropped, and reported.
 :::
 
-<div class="keyline">None of this shows in the final figure. All of it changes the numbers if done wrong.</div>
-
 ::: notes
-This is what combining sources really means. Each bullet is a bug that would silently shift
-the result. The rendered report shows every one of these steps in code.
+Each bullet, done wrong, would shift the result without any error. The report shows every step in code.
 :::
 
 ## Calm days, big gap
@@ -217,28 +196,6 @@ On calm days the gap is **0.40 kr/kWh bigger** than on windy days, far more than
 "Not chance" comes from a bootstrap interval (0.34–0.47), which you will see in the second half. The 18%: the rest is the
 grid, nuclear maintenance and continental prices, which this data doesn't contain.
 Correlation, not cause: windy days also differ in season and demand.
-:::
-
-## The maths: the gap, and how sure we are {.dense}
-
-A day's price in zone $z$ is the average over its hours and quarter-hours, each counted by how long it lasted:
-
-$$p_{z,d} = \frac{\sum_i \text{price}_i \cdot \text{minutes}_i}{\sum_i \text{minutes}_i} \qquad g_d = p_{\text{Malmö},d} - p_{\text{Luleå},d}$$
-
-Compare the mean gap on the calmest and the windiest quarter of days:
-
-$$\Delta = \bar g_{\text{calm}} - \bar g_{\text{windy}} = 0.55 - 0.15 = 0.40 \text{ kr/kWh}$$
-
-- **How sure?** Redraw the days at random 10,000 times and recompute $\Delta$ each time: the middle 95% runs from 0.34 to 0.47. Zero is far outside, so it is not chance.
-- **How much is weather?** Fit a straight line through wind and temperature:
-
-$$g_d = a + b \cdot \text{wind}_d + c \cdot \text{temp}_d + \text{error}_d \qquad 1 - \frac{\operatorname{Var}(\text{error})}{\operatorname{Var}(g)} = 18\%$$
-
-<p class="small">Each extra m/s of wind lowers the gap by 0.11 kr/kWh; wind and temperature together explain 18% of the day-to-day variation.</p>
-
-::: notes
-The resampling is the bootstrap (week 1, statistics). The fit is a linear regression; they will
-meet it properly later. Here it is enough to say what each number means.
 :::
 
 ## What was done {.diagram}
@@ -272,18 +229,17 @@ meet it properly later. Here it is enough to say what each number means.
 The hard part here is the analysis step: deciding what to measure. The next slide shows how.
 :::
 
-## You can't measure a bubble, so measure its signs
+## Three signs we can measure
 
 ```{=html}
 {{< include ../../public/img/introduction/diagram-operationalise.svg >}}
 ```
 
-- Nobody can observe "a bubble", and whether it bursts is a prediction, not a fact in a dataset.
+- A bubble can't be observed directly, and whether it bursts is a prediction.
 - So we choose three **signs** people associate with bubbles, and ask how unusual today is on each, compared with 1929, 2000 and the crypto boom.
 
 ::: notes
-This is the step that makes it ambitious: deciding what to measure. The data can't say
-"bubble"; it can say how unusual today is on signs that people associate with bubbles.
+Deciding what to measure is the hard part of this project.
 :::
 
 ## Valuations: second only to 2000
@@ -303,11 +259,10 @@ A cleaning trap: Shiller writes October as 2026.1, which as a number is the same
 
 <p class="small">The NASDAQ index divided by its value five years earlier. Data: FRED.</p>
 
-<p>Today ×1.6: higher than only <b>40%</b> of months. In 2000: ×5.9. <span class="accent">This sign is not there.</span></p>
+<p>Today ×1.6: higher than only <b>40%</b> of months. In 2000: ×5.9. <span class="accent">This sign is missing.</span></p>
 
 ::: notes
-This is the slide that makes the project honest. Showing only valuations and attention would make a
-more exciting story and a less true one. Report the evidence that goes against you.
+Report the evidence that goes against your story too.
 :::
 
 ## Attention: four times the crypto peak
@@ -316,7 +271,7 @@ more exciting story and a less true one. Report the evidence that goes against y
 
 <p class="small">Share of Hacker News headlines with each word. Data: Hacker News.</p>
 
-## The honest answer
+## Results
 
 ::: scorecard
 <div class="yes"><span class="tick">✓</span><b>Valuations</b><span class="num">40.7</span><span class="muted">price vs earnings today · 44.2 in 2000</span></div>
@@ -330,30 +285,8 @@ more exciting story and a less true one. Report the evidence that goes against y
 - Three signs is our choice. US data, an English-language forum, few past bubbles to compare with.
 
 ::: notes
-Ambition is not about a bigger dataset. It's about a question that takes real effort, results
-that are checked, and conclusions that would convince a sceptical reader, including what you
-can't conclude.
-:::
-
-## The maths: three signs, one question {.dense}
-
-$$\text{valuation}_t = \frac{\text{price}_t}{\text{mean earnings, previous 10 years}} \qquad \text{growth}_t = \frac{\text{NASDAQ}_t}{\text{NASDAQ}_{t-5\text{ yrs}}}$$
-
-$$\text{attention}_t = \frac{\text{headlines with “AI” in month } t}{\text{all headlines in month } t}$$
-
-Each is compared with its own history. **How unusual is today?** The share of all earlier months with a lower value:
-
-$$\text{rank} = \frac{1}{T}\sum_{s=1}^{T} \mathbf{1}\{x_s < x_{\text{today}}\}$$
-
-| Sign | Today | Rank | Record |
-|:--|--:|--:|:--|
-| valuation (CAPE) | 40.7 | 99% | 44.2, Dec 1999 |
-| growth in 5 years | ×1.6 | 40% | ×5.9, Feb 2000 |
-| attention | 13.7% | 97% | 15.9%, Feb 2026 |
-
-::: notes
-Prices and earnings are adjusted for inflation in Shiller's data. A rank of 99% means only 1% of
-months since 1871 had a higher valuation.
+What makes this project ambitious: a hard question, results checked against history, and
+conclusions that state what can't be concluded.
 :::
 
 ## What was done {.diagram}
@@ -367,7 +300,7 @@ months since 1871 had a higher valuation.
 ## Same cycle, bigger question
 
 ::: lc-stack
-<div class="lc-row"><p><span class="level">Small</span>a clear question, one source, honest about its limits</p>
+<div class="lc-row"><p><span class="level">Small</span>a clear question, one source, its limits stated</p>
 
 ```{=html}
 {{< include ../../public/img/introduction/lifecycle-names.svg >}}
@@ -388,27 +321,10 @@ months since 1871 had a higher valuation.
 :::
 
 ::: notes
-The reports are about the same length. What grows is the question and the work behind it. Clone them: github.com/su-mt4008/lecture-demos.
+The reports are about the same length. Clone them: github.com/su-mt4008/lecture-demos.
 :::
 
 # How the course works {.divider}
-
-## Six weeks, one cycle {.weeks}
-
-Data science is the whole cycle: from a question, through messy real data, to an answer someone else can **check**.
-
-| Week | Topic | Where it is in the cycle |
-|:-|:-----------|:-------|
-| 1 | Reproducible analysis: questions, Git and Quarto | the question · reproducible |
-| 2 | Tables and plots | exploration |
-| 3 | Cleaning and exploring messy data | cleaning · exploration |
-| 4 | Combining data: joins and databases | data · cleaning |
-| 5 | Data from the web | data |
-| 6 | Text as data | data |
-
-<p class="small">Statistics comes in every week: it is how you analyse and how sure you can be. You choose <b>Python or R</b>; everyone uses Quarto, Git and VS Code.</p>
-
-<p class="more">More: <a href="../../about">About the course</a></p>
 
 ## The course at a glance
 
@@ -520,7 +436,7 @@ green means anyone can get your numbers.
 - Same tools as the assignments: one repository per group, branches, pull requests, the check.
 - Attending the presentations is compulsory.
 
-<p style="margin-top:.6em">The three projects you just saw are reference points. Bigger means <b>more thinking, not more pages</b>.</p>
+<p style="margin-top:.6em">Use the three projects you just saw as reference points for scope.</p>
 
 <p class="more">More: <a href="../../project">Project</a></p>
 
@@ -550,7 +466,7 @@ about groups and questions now: the proposal is in two weeks.
 <div><b>TimeEdit</b><span class="muted">rooms and times</span></div>
 :::
 
-- **The site has everything first.** These slides read their dates from it, so if something changes, it changes there.
+- **The site** has all dates and material. These slides read their dates from it.
 - Moodle is only for the proposal. Rooms and times can change at short notice: TimeEdit shows it first.
 
 ## Next: week 1

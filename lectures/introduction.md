@@ -16,8 +16,7 @@ three real projects, then goes through how the course works. After the break com
 Every analysis in this course, from the first assignment to your project, goes round the same
 cycle: a **question**, the **data**, **cleaning** it, then **exploration** and **analysis**, round
 and round, and finally **conclusions**. To answer more, you go back: fetch more data, or refine
-the question, and round again. Being
-**reproducible** is not a last step: it frames every step, from the first line of code.
+the question, and round again. Every step should be **reproducible**.
 
 <InlineSvg name="diagram-cycle" caption="Exploration and analysis go round and round; to answer more, go back to fetch more data or refine the question; being reproducible frames every step. After the cycle in Wickham, Çetinkaya-Rundel & Grolemund, R for Data Science (2e)." />
 
@@ -31,7 +30,7 @@ In each diagram, the red step is where the real work of that project was.
 
 ## 1. Are baby names a fashion? {#names}
 
-*A small project: one source, a clear question, honest about its limits.*
+*A small project: one source, a clear question, its limits stated.*
 
 **The workflow**
 
@@ -53,28 +52,12 @@ enough to check.
 The pattern is easy to find. Elsa, Alice, Astrid, Ebba, Agnes and Axel were common in the 1920s,
 nearly vanished around 1970 and are among the most common names again today.
 
-The interesting part is the **limitation**. The table counts people *alive in 2021*: someone
+The main **limitation**: the table counts people *alive in 2021*: someone
 born in 1925 who has died or emigrated is not in it. And it only lists names that are common
 *today*, so a 1920s name that never came back is missing altogether. The data is tilted towards
-finding comebacks. Saying that clearly is part of the result, not a footnote.
-
-**The maths.** For each name $n$ and birth year $t$, the share of people born that year with the
-name is
-
-$$s_{n,t} = \frac{\text{people born in year } t \text{ called } n}{\text{people born in year } t \text{ with any of the 200 names}}.$$
-
-Average it over three periods, $\bar s_{\text{1920s}}$ (1922–35), $\bar s_{\text{dip}}$ (1960–80) and
-$\bar s_{\text{now}}$ (2005–21). A comeback is big when both popular periods dwarf the dip:
-
-$$\text{score}(n) = \min\left( \frac{\bar s_{\text{1920s}}}{\bar s_{\text{dip}}},\ \frac{\bar s_{\text{now}}}{\bar s_{\text{dip}}} \right).$$
-
-For Elsa: $\min\left(\frac{3.06\%}{0.034\%}, \frac{1.72\%}{0.034\%}\right) = \min(90, 51) = 51$. The minimum
-is large only if both ratios are, so a name that was only popular once doesn't count.
+finding comebacks, and the report says so.
 
 <LifeCycle name="names" />
-
-**Why this is a good project:** the question is sharp, the data fits it, and the conclusion says
-exactly how far the data reaches.
 
 ## 2. Why does electricity cost more in Malmö than in Luleå? {#electricity}
 
@@ -98,8 +81,7 @@ windy days in Malmö.
 ![Monthly mean spot price in SE4 Malmö and SE1 Luleå, 2023–2025](/img/introduction/electricity-zones.svg)
 
 The project combines three files: three years of electricity prices for the four zones from a free online source,
-and SMHI's wind and temperature in Malmö. Most of the work is in the **cleaning**, and none of
-it shows in the final figure:
+and SMHI's wind and temperature in Malmö. Most of the work is in the **cleaning**:
 
 - prices came every hour, then every 15 minutes from October 2025, so a simple average would
   count a quarter-hour as much as an hour;
@@ -116,22 +98,7 @@ But wind and temperature explain only 18% of the day-to-day gap. The rest is wha
 not contain: how much power the grid can carry south, nuclear plants in maintenance, prices on
 the continent. And windy days differ from calm ones in other ways too: correlation, not cause.
 
-**The maths.** A day's price in zone $z$ averages its hours and quarter-hours, each counted by how
-long it lasted, and the gap is Malmö minus Luleå:
-
-$$p_{z,d} = \frac{\sum_i \text{price}_i \cdot \text{minutes}_i}{\sum_i \text{minutes}_i}, \qquad g_d = p_{\text{Malmö},d} - p_{\text{Luleå},d}.$$
-
-The difference between calm and windy days is
-$\Delta = \bar g_{\text{calm}} - \bar g_{\text{windy}} = 0.55 - 0.15 = 0.40$ kr/kWh. To see how sure
-that is, redraw the days at random 10,000 times and recompute $\Delta$: the middle 95% runs from
-0.34 to 0.47, far from zero. To see how much the weather explains, fit a straight line,
-
-$$g_d = a + b \cdot \text{wind}_d + c \cdot \text{temp}_d + \text{error}_d, \qquad 1 - \frac{\operatorname{Var}(\text{error})}{\operatorname{Var}(g)} = 18\%.$$
-
 <LifeCycle name="electricity" />
-
-**Why this is a step up:** several sources combined, a comparison with its uncertainty, and a
-discussion of what the analysis can't separate.
 
 ## 3. Is AI a bubble? {#ai-bubble}
 
@@ -148,9 +115,8 @@ sides.*
 | **Results** | valuations higher than almost any month since 1871; AI in 14% of headlines, against bitcoin's peak of 3%; price growth ordinary (×1.6 in five years) |
 
 
-Nobody can measure a bubble, and whether one bursts is a prediction, not a fact in any dataset.
-So the first job, and the hardest, is turning the question into things data can answer. Bubbles
-are usually described by three signs:
+A bubble can't be measured directly, and whether one bursts is a prediction. So the first step
+is to turn the question into things data can answer. Bubbles are usually described by three signs:
 
 | A bubble means … | We measure | Source |
 |:--|:--|:--|
@@ -171,10 +137,9 @@ Two of the three signs are there. US stocks are priced higher relative to earnin
 time except the months around 2000, and higher than before the 1929 crash. AI is in about 14% of
 Hacker News titles, close to its peak and about four times the highest share bitcoin ever had.
 But the third sign is missing: the NASDAQ is 1.6 times its value five years ago, an ordinary
-pace, far from the 5.9 times of 2000. A project that only showed the first two figures would
-have told a more exciting story, and a less true one.
+pace, far from the 5.9 times of 2000.
 
-The honest conclusion: **two of the three signs that came before earlier crashes are there;
+The conclusion: **two of the three signs that came before earlier crashes are there;
 whether a crash follows is not in the data.** High valuations can last for years, and if AI raises earnings as
 much as the market expects, today's prices may turn out reasonable. The three signs are a
 choice, the data is about the US and an English-language forum, and history has only a handful
@@ -183,27 +148,13 @@ of bubbles to compare with.
 There are cleaning traps here too: Shiller writes October as `2026.1`, which read as a number is
 January.
 
-**The maths.** The three signs are
-
-$$\text{valuation}_t = \frac{\text{price}_t}{\text{mean earnings, previous 10 years}}, \qquad \text{growth}_t = \frac{\text{NASDAQ}_t}{\text{NASDAQ}_{t-5\text{ yrs}}},$$
-
-$$\text{attention}_t = \frac{\text{headlines with “AI” in month } t}{\text{all headlines in month } t}.$$
-
-How unusual today is: the share of earlier months with a lower value,
-$\text{rank} = \frac{1}{T}\sum_{s=1}^{T} \mathbf{1}\{x_s < x_{\text{today}}\}$. Valuation ranks 99%,
-attention 97%, growth only 40%.
-
 <LifeCycle name="ai-bubble" />
-
-**Why this is ambitious:** a vague question made measurable, several independent sources,
-results checked against history, and conclusions that would convince a sceptical reader,
-including about what they can't conclude.
 
 ## Same cycle, bigger question
 
-The three reports are about the same length. What grows from one to the next is the question,
-the number of sources and the care in the conclusions, not the number of pages. Keep that in
-mind when you plan your [project](/project).
+The three reports are about the same length. From one to the next, the question gets harder,
+there are more sources, and the conclusions need more care. Use them as reference points when you
+plan your [project](/project).
 
 ## How the course works
 
