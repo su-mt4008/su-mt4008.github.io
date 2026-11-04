@@ -229,6 +229,6 @@ agg %>%
 
 ## Quick practice
 
-1. Load a small CSV of your choice, compute a new variable (mutate), and plot its distribution, see [link](https://github.com/su-mt4007/data) for data.
+1. Load a small CSV of your choice, compute a new variable (mutate), and plot its distribution, see [link](https://github.com/su-mt4008/data) for data.
 2. Filter to a subset (e.g., a few categories) and compare means with a bar chart or point-range plot.
 3. Create a grouped summary and plot it as small multiples or a stacked bar. 

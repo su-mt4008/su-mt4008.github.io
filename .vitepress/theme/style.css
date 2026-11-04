@@ -1,0 +1,101 @@
+/* MT4008 theme: IBM Plex, black and white with a single red accent. */
+
+:root {
+  --font-serif: 'IBM Plex Serif', Georgia, serif;
+  --font-sans: 'IBM Plex Sans', system-ui, sans-serif;
+  --font-mono: 'IBM Plex Mono', ui-monospace, monospace;
+
+  --c-bg: oklch(98.5% 0 0);
+  --c-text: oklch(20% 0 0);
+  --c-muted: oklch(48% 0 0);
+  --c-line: oklch(90% 0 0);
+  --c-faint: oklch(85% 0 0);
+  --c-tint: oklch(96% 0 0);
+  --c-accent: oklch(58% .2 27);
+}
+
+.dark {
+  --c-bg: oklch(17% 0 0);
+  --c-text: oklch(94% 0 0);
+  --c-muted: oklch(70% 0 0);
+  --c-line: oklch(29% 0 0);
+  --c-faint: oklch(36% 0 0);
+  --c-tint: oklch(21% 0 0);
+  --c-accent: oklch(70% .17 28);
+}
+
+/* Map onto VitePress's own tokens so every default component follows. */
+:root,
+.dark {
+  --vp-font-family-base: var(--font-sans);
+  --vp-font-family-mono: var(--font-mono);
+
+  --vp-c-bg: var(--c-bg);
+  --vp-c-bg-alt: var(--c-tint);
+  --vp-c-bg-elv: var(--c-bg);
+  --vp-c-bg-soft: var(--c-tint);
+  --vp-c-text-1: var(--c-text);
+  --vp-c-text-2: var(--c-muted);
+  --vp-c-text-3: var(--c-muted);
+  --vp-c-divider: var(--c-line);
+  --vp-c-border: var(--c-line);
+  --vp-c-gutter: var(--c-line);
+
+  --vp-c-brand-1: var(--c-text);
+  --vp-c-brand-2: var(--c-text);
+  --vp-c-brand-3: var(--c-text);
+  --vp-c-brand-soft: var(--c-tint);
+
+  --vp-code-block-bg: var(--c-tint);
+  --vp-code-color: var(--c-text);
+  --vp-code-bg: var(--c-tint);
+
+  --vp-button-brand-bg: var(--c-text);
+  --vp-button-brand-text: var(--c-bg);
+  --vp-button-brand-hover-bg: var(--c-muted);
+  --vp-button-brand-hover-text: var(--c-bg);
+}
+
+body {
+  font-variant-numeric: tabular-nums;
+}
+
+/* Headings and site title in serif. */
+.vp-doc h1,
+.vp-doc h2,
+.vp-doc h3,
+.VPNavBarTitle .title {
+  font-family: var(--font-serif);
+  font-weight: 500;
+  letter-spacing: -0.01em;
+}
+
+.VPNavBarTitle .title {
+  font-weight: 600;
+  font-size: 18px;
+}
+
+/* Links are text-coloured and underlined, never coloured. */
+.vp-doc a,
+.mt-home a {
+  color: var(--c-text);
+  font-weight: inherit;
+  text-decoration: underline;
+  text-decoration-color: var(--c-faint);
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.2em;
+  transition: text-decoration-color 0.15s;
+}
+
+.vp-doc a:hover,
+.mt-home a:hover {
+  color: var(--c-text);
+  text-decoration-color: var(--c-text);
+}
+
+/* Mark the current section in the navbar; colour alone can't, it's all black. */
+.VPNavBarMenuLink.active {
+  text-decoration: underline;
+  text-decoration-thickness: 2px;
+  text-underline-offset: 6px;
+}

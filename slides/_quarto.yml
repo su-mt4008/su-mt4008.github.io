@@ -1,0 +1,34 @@
+# Every lecture deck. Render them all from this folder with:  quarto render
+# slides/<name>/index.qmd becomes public/slides/<name>/index.html, served at /slides/<name>/,
+# and the lecture page /lectures/<name> links to it automatically.
+# To add a deck: create <name>/index.qmd (copy week-1's front matter) and add it below.
+project:
+  type: website   # "website" only so the decks share one copy of reveal.js (site_libs/)
+  output-dir: ../public/slides
+  render:
+    - introduction/index.qmd
+    - week-1/index.qmd
+
+format:
+  revealjs:
+    theme: [default, _shared/theme.scss]
+    width: 1280
+    height: 720
+    margin: 0.06
+    center: false
+    transition: none
+    slide-number: c/t
+    hash: true
+    history: true
+    progress: true
+    controls: true
+    controls-layout: bottom-right
+    menu: false
+    preview-links: false
+    link-external-newwindow: true
+    include-in-header:
+      - text: |
+          <link rel="preconnect" href="https://fonts.googleapis.com">
+          <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+          <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Serif:wght@400;500;600&display=swap">
+    include-after-body: _shared/course.html

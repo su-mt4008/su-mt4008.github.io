@@ -1,0 +1,58 @@
+<svg class="fd" viewBox="0 0 1180 360" role="img" xmlns="http://www.w3.org/2000/svg">
+<title>Operationalising: from &#x27;Is AI a bubble?&#x27; to three measurable signs</title>
+<style>
+.fd text{font-family:var(--font-sans,'IBM Plex Sans',system-ui,sans-serif);fill:var(--c-text,#222);font-size:15px}
+.fd .muted{fill:var(--c-muted,#777);font-size:13px}
+.fd .lg{font-size:19px;font-weight:600}
+.fd .lgm{font-size:15px;fill:var(--c-muted,#777)}
+.fd .head{fill:var(--c-muted,#777);font-size:12px;font-weight:600;letter-spacing:.07em}
+.fd .big{font-family:'IBM Plex Serif',Georgia,serif;font-size:22px}
+.fd text.hot,.fd .hot text{fill:var(--c-accent,#d6453d)}
+.fd .box{fill:var(--c-tint,#f4f4f4);stroke:var(--c-line,#ddd);stroke-width:1.5}
+.fd .box.hot{stroke:var(--c-accent,#d6453d);stroke-width:2}
+.fd .box.solid{fill:var(--c-text,#222);stroke:none}
+.fd .solid-text{fill:var(--c-bg,#fff)}
+.fd .edge{stroke:var(--c-faint,#bbb);stroke-width:2;fill:none}
+.fd .edge.hot{stroke:var(--c-accent,#d6453d)}
+.fd .edge.dashed{stroke-dasharray:6 5;stroke:var(--c-muted,#888);stroke-width:1.6}
+.fd .tip{fill:var(--c-faint,#bbb)}
+.fd .tip.hot{fill:var(--c-accent,#d6453d)}
+.fd .node{fill:var(--c-bg,#fff);stroke:var(--c-text,#222);stroke-width:2}
+.fd .bar{fill:var(--c-faint,#bbb)}
+.fd .bar.hot{fill:var(--c-accent,#d6453d)}
+</style>
+<text class="head" x="10" y="18" text-anchor="start">THE QUESTION</text>
+<text class="head" x="300" y="18" text-anchor="start">A BUBBLE WOULD MEAN …</text>
+<text class="head" x="640" y="18" text-anchor="start">WE MEASURE</text>
+<text class="head" x="980" y="18" text-anchor="start">SOURCE</text>
+<rect class="box hot" x="10" y="140" width="230" height="90" rx="6"/>
+<text class="big hot" x="125" y="180" text-anchor="middle">Is AI a bubble?</text>
+<text class="muted" x="125" y="200" text-anchor="middle">can&#x27;t be measured directly</text>
+<rect class="box " x="300" y="40" width="280" height="76" rx="6"/>
+<text x="440" y="83" text-anchor="middle">prices far above earnings</text>
+<rect class="box " x="640" y="40" width="300" height="76" rx="6"/>
+<text x="790" y="83" text-anchor="middle">prices vs 10 years of earnings</text>
+<text class="muted" x="980" y="83" text-anchor="start">Shiller, since 1871</text>
+<path class="edge hot" d="M240,185 C270.0,185 270.0,78 291,78"/>
+<path class="tip hot" d="M300.0,78.0 L289.0,72.0 L289.0,84.0 Z"/>
+<path class="edge" d="M580,78 L631.0,78.0"/>
+<path class="tip" d="M640.0,78.0 L629.0,72.0 L629.0,84.0 Z"/>
+<rect class="box " x="300" y="150" width="280" height="76" rx="6"/>
+<text x="440" y="193" text-anchor="middle">prices rose unusually fast</text>
+<rect class="box " x="640" y="150" width="300" height="76" rx="6"/>
+<text x="790" y="193" text-anchor="middle">tech index vs 5 years before</text>
+<text class="muted" x="980" y="193" text-anchor="start">FRED, since 1971</text>
+<path class="edge hot" d="M240,185 C270.0,185 270.0,188 291,188"/>
+<path class="tip hot" d="M300.0,188.0 L289.0,182.0 L289.0,194.0 Z"/>
+<path class="edge" d="M580,188 L631.0,188.0"/>
+<path class="tip" d="M640.0,188.0 L629.0,182.0 L629.0,194.0 Z"/>
+<rect class="box " x="300" y="260" width="280" height="76" rx="6"/>
+<text x="440" y="303" text-anchor="middle">everyone talks about it</text>
+<rect class="box " x="640" y="260" width="300" height="76" rx="6"/>
+<text x="790" y="303" text-anchor="middle">share of headlines saying “AI”</text>
+<text class="muted" x="980" y="303" text-anchor="start">Hacker News, since 2007</text>
+<path class="edge hot" d="M240,185 C270.0,185 270.0,298 291,298"/>
+<path class="tip hot" d="M300.0,298.0 L289.0,292.0 L289.0,304.0 Z"/>
+<path class="edge" d="M580,298 L631.0,298.0"/>
+<path class="tip" d="M640.0,298.0 L629.0,292.0 L629.0,304.0 Z"/>
+</svg>

@@ -1,0 +1,49 @@
+<script>
+// Follow the site's light/dark choice (VitePress stores it under this key); press "d" to switch.
+(function () {
+  var key = 'vitepress-theme-appearance', root = document.documentElement
+  function choice() { try { return localStorage.getItem(key) } catch (e) { return null } }
+  function apply() {
+    var c = choice()
+    var dark = c === 'dark' || ((!c || c === 'auto') && matchMedia('(prefers-color-scheme: dark)').matches)
+    root.classList.toggle('dark', dark)
+  }
+  apply()
+  window.addEventListener('load', function () {
+    if (window.Reveal) Reveal.addKeyBinding({ keyCode: 68, key: 'D', description: 'Light/dark' }, function () {
+      var dark = !root.classList.contains('dark')
+      try { localStorage.setItem(key, dark ? 'dark' : 'light') } catch (e) {}
+      root.classList.toggle('dark', dark)
+    })
+  })
+})();
+
+// A close button: back to this lecture's page on the site (/slides/<name>/ -> /lectures/<name>).
+// Opened from a file rather than the site, it goes to the published site.
+
+;(function () {
+  var m = location.pathname.match(/\/slides\/([\w-]+)\//)
+  if (!m) return
+  var page = '/lectures/' + m[1]
+  var a = document.createElement('a')
+  a.className = 'deck-close'
+  a.href = location.protocol === 'file:' ? 'https://su-mt4008.github.io' + page : page
+  a.textContent = '✕ Close slides'
+  a.title = 'Back to the course page for this lecture'
+  document.body.appendChild(a)
+})();
+
+// Dates and rules come from the site (/course.json, built from course.config.ts), so the slides
+// always show the current values. The text already in the slides is the fallback.
+fetch('/course.json').then(function (r) { return r.ok ? r.json() : null }).then(function (c) {
+  if (!c) return
+  document.querySelectorAll('[data-course]').forEach(function (el) {
+    var v = el.dataset.course.split('.').reduce(function (o, k) { return o && o[k] }, c)
+    if (typeof v === 'string') el.textContent = v.replace(/^Due /, '')
+  })
+  var rows = document.querySelector('[data-course-assignments]')
+  if (rows && c.assignments) rows.innerHTML = c.assignments.map(function (a) {
+    return '<tr><td><b>' + a.id + '</b> ' + a.name + '</td><td>' + a.due + '</td><td>' + a.peerReview + '</td><td>' + a.final + '</td></tr>'
+  }).join('')
+}).catch(function () {})
+</script>

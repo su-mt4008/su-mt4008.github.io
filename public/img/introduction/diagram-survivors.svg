@@ -1,0 +1,34 @@
+<svg class="fd" viewBox="0 0 1100 300" role="img" xmlns="http://www.w3.org/2000/svg">
+<title>Who is counted: of everyone born in a year, only those alive in Sweden in 2021 with one of the 200 most common names</title>
+<style>
+.fd text{font-family:var(--font-sans,'IBM Plex Sans',system-ui,sans-serif);fill:var(--c-text,#222);font-size:15px}
+.fd .muted{fill:var(--c-muted,#777);font-size:13px}
+.fd .lg{font-size:19px;font-weight:600}
+.fd .lgm{font-size:15px;fill:var(--c-muted,#777)}
+.fd .head{fill:var(--c-muted,#777);font-size:12px;font-weight:600;letter-spacing:.07em}
+.fd .big{font-family:'IBM Plex Serif',Georgia,serif;font-size:22px}
+.fd text.hot,.fd .hot text{fill:var(--c-accent,#d6453d)}
+.fd .box{fill:var(--c-tint,#f4f4f4);stroke:var(--c-line,#ddd);stroke-width:1.5}
+.fd .box.hot{stroke:var(--c-accent,#d6453d);stroke-width:2}
+.fd .box.solid{fill:var(--c-text,#222);stroke:none}
+.fd .solid-text{fill:var(--c-bg,#fff)}
+.fd .edge{stroke:var(--c-faint,#bbb);stroke-width:2;fill:none}
+.fd .edge.hot{stroke:var(--c-accent,#d6453d)}
+.fd .edge.dashed{stroke-dasharray:6 5;stroke:var(--c-muted,#888);stroke-width:1.6}
+.fd .tip{fill:var(--c-faint,#bbb)}
+.fd .tip.hot{fill:var(--c-accent,#d6453d)}
+.fd .node{fill:var(--c-bg,#fff);stroke:var(--c-text,#222);stroke-width:2}
+.fd .bar{fill:var(--c-faint,#bbb)}
+.fd .bar.hot{fill:var(--c-accent,#d6453d)}
+</style>
+<rect class="bar" x="20" y="20" width="1060" height="58" rx="4" opacity="0.55"/>
+<text x="40" y="46" text-anchor="start">Everyone born in Sweden in 1925</text>
+<text class="muted" x="40" y="66" text-anchor="start">the people the question is about</text>
+<rect class="bar" x="20" y="112" width="445" height="58" rx="4" opacity="0.55"/>
+<text x="40" y="138" text-anchor="start">… still alive and living in Sweden in 2021</text>
+<text class="muted" x="40" y="158" text-anchor="start">deaths and emigration remove most</text>
+<rect class="bar hot" x="20" y="204" width="254" height="58" rx="4" opacity="1"/>
+<text class="hot" x="290" y="230" text-anchor="start">… with one of today&#x27;s 200 most common names</text>
+<text class="muted" x="290" y="250" text-anchor="start">what the SCB table counts</text>
+<text class="muted" x="1080" y="292" text-anchor="end">Illustration, not to scale</text>
+</svg>

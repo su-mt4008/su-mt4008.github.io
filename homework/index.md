@@ -1,50 +1,54 @@
-# Homework
+# Assignments
 
 The homework component has **5 assignments**, each paired with a **peer review** of a classmate’s work.
-To **pass**, you must submit **every assignment** and complete **its peer review** by the stated deadlines.
+Each assignment is scored **0–100**, and you need **65** to pass it.
 
-**Deadlines are strict.** Missing either the assignment or the peer-review
-deadline requires an **extra task** to earn credit for that homework (see Moodle
-for details).
+**Hand in on time.** Every on-time assignment gets a **peer review**, and reviewing a classmate’s
+work is **required**. A late assignment misses the peer review and loses **30 points** instead. The **final deadline**
+for all assignments, late or not, is **{{ $course.finalDeadline }}**. If you miss it,
+you will have to redo **all** assignments in the next edition of the course.
 
 Each homework aligns with the weekly material (e.g., **HW1 ↔ Week 1**, **HW2 ↔ Week 2**, …).
 
 ## At a Glance
 
 * **Workload:** 5 assignments + 5 peer reviews
-* **Deadlines per homework:** Assignment **Monday 23:59**, Peer Review **Thursday 23:59** (Europe/Stockholm)
-* **Pass rule (per homework):** Submit **both** the assignment and its peer review by the deadlines.
-
-  * If you miss a deadline, you must complete an **extra task** (assigned at the end of the course).
-  * **Late work cannot earn VG**; late items are graded **Pass/Fail** only.
-* **Grading scale (per homework):** **U (Fail) / G (Pass) / VG (Pass with Distinction)**, based on **completeness, clarity, correctness**.
-* **Final grade for HW module:** Determined by the 5 homework grades:
-
-  * **VG (Pass with Distinction):** ≥ **3** assignments graded **VG** (the rest at least **G**)
-  * **G (Pass):** **All 5** assignments graded **G** or higher
-  * **U (Fail):** Fewer than **5** assignments graded **G**
+* **Deadlines per homework:** hand-in **Monday 23:59**, peer review **Thursday 23:59**, final version **Friday 23:59** (Europe/Stockholm)
+* **Graded version:** your pull request as it stands on **Friday 23:59**, after you have had the chance to act on the review.
+* **Scoring (per homework):** 0–100 points; **65** to pass.
+* **Peer review:** required for every on-time assignment.
+* **Late hand-in:** **−30 points**, and no peer review.
+* **Final deadline for all assignments:** **{{ $course.finalDeadline }}**. Missing it means redoing all assignments in the next edition of the course.
 
 ## How Assignments Work
 
 Each assignment contains a few tasks covering material from previous week(s).
-**Submit a short, blog-style report** with explanations and a clear workflow—**not** a bullet-point list of answers.
+**Write a short, blog-style report** in `report.qmd`, following the seven sections of the template (Question → Data → Cleaning → Exploration → Analysis → Conclusions & limitations → How to reproduce)—**not** a bullet-point list of answers.
 
-### Submission Flow
+### Hand-in
 
-1. Push your work to **your homework GitHub repository** (e.g., `homework-1`). Include a short, readable **report** (notebook or markdown) in the repo.
-2. **Open an issue** in that repo titled **`HW# – Submission`** (e.g., `HW1 – Submission`).
-   *We only grade assignments with this issue.*
-   *(If you use labels, add `ready-for-grading`.)*
+Every assignment is handed in as a **pull request** on GitHub. The full step-by-step is on
+[How we work](/guide#hand-in-an-assignment); in short:
 
-### After Grading
+1. We create **one** private repository for you, **`<username>-assignments`**, from the course
+   template. It has a folder per assignment: `hw1/` … `hw5/`.
+2. For each assignment, work on a branch `hw<n>` in the folder `hw<n>/`, render its
+   `report.qmd`, commit and push.
+3. Open a pull request **from `hw<n>` into `main`** titled **`HW<n>`** by the Monday deadline.
+   *Opening the pull request is the hand-in.* Pushing straight to `main` is not.
+4. The **check** renders your report on a clean computer. A red check still counts as handed in,
+   but you must fix it ([how](/guide#when-the-check-is-red)).
 
-* You may **fix mistakes** identified by the grader. Commit your changes.
-* Add a **comment under the closed submission issue** describing what you changed.
-* We’ll re-check and update your grade if applicable.
+### After Feedback
+
+* Fix what the review points out by pushing new commits to the same branch **until Friday 23:59**;
+  they appear in the same pull request. Reply to each comment saying what you changed.
+* **We grade the version on Friday 23:59**: the latest state of your pull request at that time.
+* Don’t merge the pull request yourself; we merge it when it is accepted.
 
 ## Peer Review
 
-You’ll be assigned a partner (announced in class or on Moodle). Read their report and code, then leave constructive feedback under **their submission issue**.
+After the deadline you get access to a classmate’s repository, until Friday morning. Review their pull request: read the rendered report, then comment on specific lines of code ([how](/guide#review-a-pull-request)).
 
 Address at least:
 
@@ -54,26 +58,20 @@ Address at least:
 
 **Peer-review deadline:** **Thursdays 23:59 (Europe/Stockholm)** for the corresponding homework.
 
-## Schedule (2025)
+## Schedule
 
-All times are **Europe/Stockholm**. Assignments are due **Monday 23:59**; peer reviews are due **Thursdays 23:59**.
+All times are **Europe/Stockholm**. Assignments are due **Monday 23:59**, peer reviews **Thursday 23:59**, and the final version, which is graded, **Friday 23:59**.
 
-| Homework                                         | Assignment deadline       | Peer-review deadline      |
-| :----------------------------------------------- | :------------------------ | :------------------------ |
-| [HW1: GitHub Test-Run](/homework/1)              | **Mon, 2025-11-10 23:59** | **Thu, 2025-11-13 23:59** |
-| [HW2: Tables & Plots — Basic](/homework/2)       | **Mon, 2025-11-17 23:59** | **Thu, 2025-11-20 23:59** |
-| [HW3: Exploring & Visualising Data](/homework/3) | **Mon, 2025-11-24 23:59** | **Thu, 2025-11-27 23:59** |
-| [HW4: SQL & Regex](/homework/4)                  | **Mon, 2025-12-01 23:59** | **Thu, 2025-12-04 23:59** |
-| [HW5: Data from the Web](/homework/5)            | **Mon, 2025-12-08 23:59** | **Thu, 2025-12-11 23:59** |
+<AssignmentSchedule />
 
 ---
 
 ## Notes & Reminders
 
-* **Format:** A short, readable report (notebook or markdown) with clear explanations and a few well-chosen figures.
-* **Reproducibility:** Your repo should run from a fresh clone (data access notes, environment instructions if needed).
+* **Format:** A short, readable report (`report.qmd`, rendered to `report.md`) with clear explanations and a few well-chosen figures.
+* **Reproducibility:** Your repository must render from a fresh clone; the check on your pull request tests exactly that.
 * **Peer-review tone:** Be kind, specific, and actionable—aim to help your classmate improve.
-* **Late work:** Late assignments or reviews require an **extra task** (details on Moodle).
+* **Late work:** A late assignment loses 30 points and is not peer reviewed. Nothing is accepted after **{{ $course.finalDeadline }}**.
 
 ## Academic Integrity & Tools
 

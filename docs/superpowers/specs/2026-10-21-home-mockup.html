@@ -1,0 +1,234 @@
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Serif:wght@400;500;600&display=swap" rel="stylesheet">
+
+<style>
+  .ctl { display:flex; gap:6px; align-items:center; margin:0 0 14px; flex-wrap:wrap; font-size:14px; }
+  .ctl button { font:inherit; font-size:14px; padding:6px 14px; border-radius:5px; border:1px solid rgba(128,128,128,.35); background:transparent; color:inherit; cursor:pointer; }
+  .ctl button.on { background:rgba(128,128,128,.2); }
+
+  .pg { font-family:'IBM Plex Sans',system-ui,sans-serif; font-size:16px; line-height:1.6; color:var(--text); background:var(--bg);
+        border:1px solid var(--line); border-radius:4px; overflow:hidden; font-variant-numeric:tabular-nums;
+        --bg:oklch(97.6% .008 85); --text:oklch(24% .02 260); --muted:oklch(50% .016 260); --line:oklch(88.5% .012 85);
+        --link:oklch(44% .12 255); --acc:oklch(44% .12 255); --faint:oklch(80% .012 85); --tint:oklch(94.5% .014 85); }
+  .pg.dark { --bg:oklch(19% .014 260); --text:oklch(92% .01 85); --muted:oklch(70% .015 260); --line:oklch(29% .015 260);
+        --link:oklch(80% .09 250); --acc:oklch(80% .09 250); --faint:oklch(36% .015 260); --tint:oklch(22.5% .016 260); }
+  /* ---- themes (light, then dark) ---- */
+  .pg.t-navy { --bg:oklch(98% .004 240); --text:oklch(25% .045 255); --muted:oklch(50% .03 255); --line:oklch(90% .01 240);
+        --link:oklch(36% .1 258); --acc:oklch(64% .12 75); --faint:oklch(84% .015 240); --tint:oklch(95.5% .02 85); }
+  .pg.t-navy.dark { --bg:oklch(20% .035 258); --text:oklch(94% .01 85); --muted:oklch(72% .03 250); --line:oklch(31% .035 258);
+        --link:oklch(82% .07 245); --acc:oklch(80% .12 80); --faint:oklch(38% .04 258); --tint:oklch(24% .04 258); }
+
+  .pg.t-forest { --bg:oklch(97.8% .006 140); --text:oklch(23% .02 160); --muted:oklch(49% .018 160); --line:oklch(89.5% .012 140);
+        --link:oklch(42% .09 158); --acc:oklch(42% .09 158); --faint:oklch(82% .02 145); --tint:oklch(95% .02 145); }
+  .pg.t-forest.dark { --bg:oklch(19% .012 160); --text:oklch(93% .01 120); --muted:oklch(70% .015 160); --line:oklch(29% .015 160);
+        --link:oklch(80% .1 155); --acc:oklch(80% .1 155); --faint:oklch(36% .02 160); --tint:oklch(23% .02 160); }
+
+  .pg.t-brick { --bg:oklch(97.4% .007 70); --text:oklch(24% .012 50); --muted:oklch(50% .014 50); --line:oklch(88.5% .012 70);
+        --link:oklch(48% .13 40); --acc:oklch(48% .13 40); --faint:oklch(82% .02 60); --tint:oklch(94.5% .02 60); }
+  .pg.t-brick.dark { --bg:oklch(19% .008 50); --text:oklch(93% .01 70); --muted:oklch(71% .012 60); --line:oklch(29% .01 50);
+        --link:oklch(77% .11 45); --acc:oklch(77% .11 45); --faint:oklch(37% .015 50); --tint:oklch(23% .015 50); }
+
+  .pg.t-plum { --bg:oklch(98% .004 320); --text:oklch(24% .02 320); --muted:oklch(50% .018 320); --line:oklch(90% .008 320);
+        --link:oklch(42% .12 330); --acc:oklch(42% .12 330); --faint:oklch(84% .015 320); --tint:oklch(95.5% .015 320); }
+  .pg.t-plum.dark { --bg:oklch(19% .012 320); --text:oklch(93% .008 320); --muted:oklch(71% .015 320); --line:oklch(30% .015 320);
+        --link:oklch(80% .09 330); --acc:oklch(80% .09 330); --faint:oklch(37% .02 320); --tint:oklch(23% .02 320); }
+
+  .pg.t-mono { --bg:oklch(98.5% 0 0); --text:oklch(20% 0 0); --muted:oklch(48% 0 0); --line:oklch(90% 0 0);
+        --link:oklch(20% 0 0); --acc:oklch(58% .2 27); --faint:oklch(85% 0 0); --tint:oklch(96% 0 0); }
+  .pg.t-mono.dark { --bg:oklch(17% 0 0); --text:oklch(94% 0 0); --muted:oklch(70% 0 0); --line:oklch(29% 0 0);
+        --link:oklch(94% 0 0); --acc:oklch(70% .17 28); --faint:oklch(36% 0 0); --tint:oklch(21% 0 0); }
+  .pg.t-mono a { text-decoration:underline; text-decoration-color:var(--faint); text-underline-offset:.2em; text-decoration-thickness:1px; }
+  .pg.t-mono a:hover { text-decoration-color:var(--text); }
+  .pg.t-mono header a, .pg.t-mono h3 a { text-decoration:none; }
+
+  /* ---- monochrome refinements (stack on top of t-mono) ---- */
+  /* b · Paper: warm paper, tinted ink, deeper vermilion */
+  .pg.m-paper { --bg:oklch(97.4% .007 85); --text:oklch(19% .006 60); --muted:oklch(47% .008 60); --line:oklch(88.5% .008 80);
+        --link:oklch(19% .006 60); --acc:oklch(53% .19 32); --faint:oklch(83% .008 80); --tint:oklch(94.6% .01 80); }
+  .pg.m-paper.dark { --bg:oklch(18.5% .004 60); --text:oklch(93% .008 85); --muted:oklch(70% .006 70); --line:oklch(29% .005 60);
+        --link:oklch(93% .008 85); --acc:oklch(70% .16 35); --faint:oklch(37% .005 60); --tint:oklch(22% .005 60); }
+
+  /* c · Print: same neutrals, stronger structure, red only as a signal */
+  .pg.m-print header { border-bottom:2px solid var(--text); }
+  .pg.m-print .wk.hi .num { color:var(--text); }
+  .pg.m-print .wk.hi .num::after { content:''; display:block; width:10px; height:10px; border-radius:50%; background:var(--acc); margin-top:10px; }
+  .pg.m-print h1 { font-weight:600; letter-spacing:-.02em; }
+  .pg.m-print .lead h2 { font-family:'IBM Plex Serif',serif; font-size:16px; }
+  .pg.m-print .rhythm li:first-child { border-top:2px solid var(--text); }
+  .pg.m-print .wk.zero { background:none; border:1px solid var(--text); }
+  .pg.m-print.during .wk.zero { border:0; }
+  .pg.m-print a:hover { color:var(--acc); text-decoration-color:var(--acc); }
+
+  /* d · Cobalt: mono, but blue instead of red */
+  .pg.m-cobalt { --acc:oklch(48% .19 262); }
+  .pg.m-cobalt.dark { --acc:oklch(74% .13 258); }
+
+  .pg * { box-sizing:border-box; }
+  .pg a { color:var(--link); text-decoration:none; }
+  .pg a:hover { text-decoration:underline; text-decoration-thickness:1px; text-underline-offset:.2em; }
+  .pg .muted { color:var(--muted); }
+
+  .pg header { display:flex; align-items:baseline; gap:28px; padding:22px 48px; border-bottom:1px solid var(--line); }
+  .pg header .home { font-family:'IBM Plex Serif',serif; font-weight:600; font-size:18px; color:var(--text); margin-right:auto; }
+  .pg header nav { display:flex; gap:26px; font-size:15px; }
+  .pg header nav a { color:var(--text); }
+  .pg header nav a.here { color:var(--acc); }
+  .pg .theme { font:inherit; font-size:14px; background:none; border:0; color:var(--muted); cursor:pointer; padding:0; }
+  .pg .theme:hover { color:var(--text); }
+
+  .wrap { display:grid; grid-template-columns:330px minmax(0,1fr); gap:72px; padding:48px 48px 64px; }
+  .lead { position:sticky; top:20px; align-self:start; }
+  .pg h1 { font-family:'IBM Plex Serif',serif; font-weight:500; font-size:44px; line-height:1.08; letter-spacing:-.015em; margin:0 0 18px; }
+  .lead > p { margin:0 0 26px; color:var(--muted); }
+
+  .lead h2 { font-size:14.5px; font-weight:600; margin:0 0 10px; }
+  .nextup { border-top:1px solid var(--line); padding-top:18px; margin-bottom:24px; }
+  .nextup .nu p { margin:0 0 12px; font-size:15px; line-height:1.5; }
+  .nextup .nu p b { font-weight:500; }
+  .pg.before .nu-during, .pg.during .nu-before { display:none; }
+  .quick { display:flex; gap:20px; font-size:14.5px; margin:0; border-top:1px solid var(--line); padding-top:14px; }
+  .rhythm { list-style:none; margin:0 0 28px; padding:0; font-size:14.5px; counter-reset:r; }
+  .rhythm li { display:grid; grid-template-columns:76px 1fr; gap:12px; padding:7px 0; border-top:1px solid var(--line); }
+  .rhythm li:last-child { border-bottom:1px solid var(--line); }
+  .rhythm .when { color:var(--muted); }
+
+  .pg dl { margin:0; display:grid; grid-template-columns:auto 1fr; gap:8px 18px; font-size:14.5px; }
+  .pg dt { color:var(--muted); }
+  .pg dd { margin:0; }
+
+  .wk { display:grid; grid-template-columns:72px minmax(0,1fr); gap:20px; padding:24px 0; border-top:1px solid var(--line); scroll-margin-top:20px; }
+  .wk.first { border-top:0; padding-top:0; }
+  .num { font-family:'IBM Plex Serif',serif; font-size:46px; line-height:1; color:var(--faint); font-weight:400; }
+  .wk.hi .num { color:var(--acc); }
+  .date { font-size:14px; color:var(--muted); }
+  .date b { color:var(--acc); font-weight:600; margin-left:10px; }
+  .pg h3 { font-family:'IBM Plex Serif',serif; font-weight:500; font-size:21px; line-height:1.3; margin:2px 0 8px; }
+  .pg h3 a { color:var(--text); }
+  .bits { font-size:14.5px; color:var(--muted); display:flex; flex-wrap:wrap; gap:4px 22px; }
+  .bits a { font-weight:500; }
+
+  /* week 0 */
+  .wk.zero { background:var(--tint); margin:0 -24px 8px; padding:24px; border-top:0; border-radius:3px; }
+  .steps { list-style:none; margin:6px 0 0; padding:0; font-size:15px; }
+  .steps li { display:grid; grid-template-columns:22px 1fr auto; gap:10px; padding:7px 0; border-top:1px solid var(--line); align-items:baseline; }
+  .steps li:first-child { border-top:0; }
+  .steps .n { color:var(--muted); }
+  .steps .t { color:var(--muted); font-size:13.5px; }
+  .zero .next { margin-top:12px; font-size:15px; font-weight:500; }
+  .pg.during .zero { background:none; margin:0; padding:0 0 24px; }
+  .pg.during .zero .steps, .pg.during .zero .next { display:none; }
+  .pg.during .zero .compact { display:flex; }
+  .zero .compact { display:none; }
+
+  .assess { margin-top:20px; border-top:2px solid var(--text); padding-top:20px; display:grid; grid-template-columns:1fr 1fr; gap:28px; }
+  .assess h3 { margin-top:0; }
+
+  .pg footer { padding:18px 48px; border-top:1px solid var(--line); font-size:14px; color:var(--muted); }
+
+  .notes { margin-top:22px; font-size:15px; line-height:1.55; }
+  .notes ol { padding-left:20px; }
+  .notes li { margin-bottom:6px; }
+</style>
+
+<h2>A lighter left column</h2>
+<p class="subtitle">Only what a student needs at a glance: what’s next, and where to go. Switch the preview to see it change through the term.</p>
+
+<div class="ctl" id="ctl">
+  <span style="opacity:.7">Preview:</span>
+  <button class="on" onclick="setMode('before',this)">Before the course starts</button>
+  <button onclick="setMode('during',this)">During week 3</button>
+</div>
+
+<div class="pg before t-mono" id="pg">
+  <header>
+    <a class="home" href="#">MT4008</a>
+    <nav><a href="#">Course info</a><a href="#">Lectures</a><a href="#">Assignments</a><a href="#">Project</a><a href="#">Exam</a><a href="#" class="muted">Search</a></nav>
+    <button class="theme" onclick="event.stopPropagation();document.getElementById('pg').classList.toggle('dark')">Dark / light</button>
+  </header>
+
+  <div class="wrap">
+    <div class="lead">
+      <h1>Statistical Data Processing</h1>
+      <p>Getting, cleaning, exploring and explaining data, in a way someone else can rerun. Python or R, your choice.</p>
+
+      <div class="nextup">
+        <h2>Next up</h2>
+        <div class="nu nu-before">
+          <p><b>First session</b><br>Mon 3 Nov, 13:00 on campus</p>
+          <p class="muted">Set up before then — see week 0.</p>
+        </div>
+        <div class="nu nu-during">
+          <p><b>Thu 20 Nov, 13:00</b><br>Q&amp;A on <a href="#">Zoom</a></p>
+          <p><b>Mon 24 Nov, 23:59</b><br><a href="#">HW3</a> hand-in</p>
+        </div>
+      </div>
+
+      <p class="quick"><a href="#">Moodle</a><a href="#">Zoom</a><a href="#">TimeEdit</a><a href="#">GitHub</a></p>
+    </div>
+
+    <div>
+      <div class="wk first zero hi" id="w0">
+        <div class="num">0</div>
+        <div>
+          <div class="date">Before Mon 3 Nov <b class="tag-before">Start here</b></div>
+          <h3><a href="#">Get set up</a></h3>
+          <ol class="steps">
+            <li><span class="n">1</span><a href="#">Read how the course works</a><span class="t">5 min</span></li>
+            <li><span class="n">2</span><a href="#">Install Git and Python or R</a><span class="t">30 min</span></li>
+            <li><span class="n">3</span><a href="#">Create a GitHub account and join the course organisation</a><span class="t">10 min</span></li>
+            <li><span class="n">4</span><a href="#">Join the course on Moodle</a><span class="t">Hand-ins go here</span></li>
+          </ol>
+          <div class="next">Then go to <a href="#w1">Week 1</a>, before the first session on Mon 3 Nov.</div>
+          <div class="bits compact"><a href="#">How the course works</a><a href="#">Setup guide</a><a href="#">Moodle</a></div>
+        </div>
+      </div>
+
+      <div class="wk" id="w1"><div class="num">1</div><div><div class="date">Mon 3 Nov</div><h3><a href="#">Reproducible analysis with GitHub, Jupyter and functional programming</a></h3><div class="bits"><span><a href="#">HW1</a> GitHub test-run, due 10 Nov</span><a href="#">Quiz</a></div></div></div>
+      <div class="wk"><div class="num">2</div><div><div class="date">Mon 10 Nov</div><h3><a href="#">DataFrames and visualising data with plots</a></h3><div class="bits"><span><a href="#">HW2</a> Tables and plots, due 17 Nov</span><a href="#">Quiz</a></div></div></div>
+      <div class="wk" id="w3"><div class="num">3</div><div><div class="date">Mon 17 Nov <b class="tag-during" style="display:none">This week</b></div><h3><a href="#">Exploratory data analysis and processing data</a></h3><div class="bits"><span><a href="#">HW3</a> Exploring data, due 24 Nov</span><a href="#">Quiz</a></div></div></div>
+      <div class="wk"><div class="num">4</div><div><div class="date">Mon 24 Nov</div><h3><a href="#">Joining data, SQL and regular expressions</a></h3><div class="bits"><span><a href="#">HW4</a> SQL and regex, due 1 Dec</span><a href="#">Quiz</a></div></div></div>
+      <div class="wk"><div class="num">5</div><div><div class="date">Mon 1 Dec · guest lecture, Pär Villner (Annalect)</div><h3><a href="#">Retrieving data from the web</a></h3><div class="bits"><span><a href="#">HW5</a> Data from the web, due 8 Dec</span><a href="#">Quiz</a></div></div></div>
+      <div class="wk"><div class="num">6</div><div><div class="date">Mon 8 Dec</div><h3><a href="#">Extracting unstructured data with LLMs</a></h3><div class="bits"><span><a href="#">HW6</a> due 15 Dec</span><a href="#">Quiz</a></div></div></div>
+
+      <div class="assess">
+        <div><div class="date">Due Fri 9 Jan, 23:59</div><h3><a href="#">Project</a></h3><div class="bits">An individual, reproducible analysis of a dataset you choose.</div></div>
+        <div><div class="date">Mon 12 Jan, 08:00–11:00</div><h3><a href="#">Exam</a></h3><div class="bits">Written, on campus. What it covers and how to prepare.</div></div>
+      </div>
+    </div>
+  </div>
+
+  <footer>Spotted a mistake? <a href="#">Suggest a change on GitHub</a>.</footer>
+</div>
+
+<div class="notes">
+  <h3>What moved where</h3>
+  <ol>
+    <li><b>“How a week works”</b> → the <i>Course info</i> page (week 0, step 1 links to it). It’s needed once, not every visit.</li>
+    <li><b>Period</b> → already visible from the dates in the week list.</li>
+    <li><b>Grading</b> → the <i>Course info</i> page, and linked from Project and Exam.</li>
+    <li><b>Demo code</b> → linked from each week’s lecture page, where it’s used.</li>
+    <li><b>New: “Next up”</b> — the next two things on the calendar (session or deadline), updated by date.</li>
+  </ol>
+</div>
+
+<script>
+  function setTheme(t, btn) {
+    const pg = document.getElementById('pg');
+    pg.classList.remove('t-navy','t-forest','t-brick','t-plum','t-mono','m-paper','m-print','m-cobalt');
+    if (t) t.split(' ').forEach(c => pg.classList.add(c));
+    document.querySelectorAll('#themes button').forEach(b => b.classList.remove('on'));
+    btn.classList.add('on');
+  }
+  function setMode(m, btn) {
+    const pg = document.getElementById('pg');
+    pg.classList.remove('before', 'during');
+    pg.classList.add(m);
+    const w0 = document.getElementById('w0'), w3 = document.getElementById('w3');
+    w0.classList.toggle('hi', m === 'before');
+    w3.classList.toggle('hi', m === 'during');
+    w0.querySelector('.tag-before').style.display = m === 'before' ? '' : 'none';
+    w3.querySelector('.tag-during').style.display = m === 'during' ? '' : 'none';
+    document.querySelectorAll('#ctl button').forEach(b => b.classList.remove('on'));
+    btn.classList.add('on');
+  }
+</script>

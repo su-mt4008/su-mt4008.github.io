@@ -6,45 +6,61 @@ outline: [2]
 
 ## What this course is about
 
-Data science is mostly about getting, cleaning, exploring, and **explaining** data—clearly and reproducibly. In this course you’ll learn to do exactly that with modern tools. We’ll write code, make plots, and (most importantly) make our work repeatable so that someone else—and future‑you—can run it and get the same results.
+Data science is the craft of turning data into answers you can trust. It starts with a question and ends with a conclusion that someone else can check: you find and collect data, clean it, explore it, analyse it, and explain what you found and how sure you are. This course teaches that whole process, and the best practices and industry tools that make it reliable.
+
+We assume **no background in data science**. You will write code, but code is not the point; with AI tools, writing code is the easy part. What we want you to learn is **the science**: asking a question the data can actually answer, choosing a method that fits, checking your own work, being honest about uncertainty and limitations, and making every step reproducible so that someone else can run it and get the same result.
 
 You can use **Python or R** throughout the course. Pick the one you’re most comfortable with (or want to learn); the ideas are the same.
 
 ## How the course runs
 
-This is a self‑study‑first course. Each week you read/watch the materials, try
-things, and work on a small assignment. Instead of traditional lectures, we meet
-once a week for a **live demo** of last week’s material—think short walk‑through
-+ tips + Q&A—followed by **drop‑in help** time. We also host **Thursday Zoom**
-hours for questions.
+This is a self‑study course: there are no lectures. Each week you work through the week’s material on your own, at your own pace.
+
+Twice a week we meet for **work sessions**. Bring your laptop and work on the material and the assignments in the room, with us there to answer questions. The first session of each week opens with a **15–30 minute walkthrough** of that week’s material: what matters, and what to watch out for. The rest is work time.
+
+**Come to the sessions.** They are where the course happens. Something that takes an evening to untangle alone usually takes five minutes to sort out in the room, and you learn a lot from what others get stuck on.
 
 * Exact days/times/links are on the relevant pages:
-  **[Lectures](/lectures/)** • **[Homework](/homework/)** • **[Project](/project)** • **[Exam](/exam/)**
+  **[Lectures](/lectures/)** • **[Assignments](/homework/)** • **[Project](/project)** • **[Exam](/exam/)**
+
+## How a week works
+
+All times are Stockholm time.
+
+1. **Monday {{ $course.hours }}, {{ $course.room }}:** a short walkthrough of this week’s material, then work time.
+2. **During the week:** work through the material (and its quiz, once quizzes are available) and start the assignment.
+3. **Thursday {{ $course.hours }}, same room:** work time; bring your questions.
+4. **Next Monday 23:59:** hand in the week’s assignment.
+5. **Next Thursday 23:59:** peer review a classmate’s assignment.
+6. **Next Friday 23:59:** last chance to improve your hand-in after the review. This version is graded.
+
+The first session, on {{ $course.firstSession }}, is an **introduction to the course**. The exact dates for every week are on the [home page](/) and in the [assignment schedule](/homework/#schedule).
 
 ## What you’ll be able to do
 
 By the end, you will be able to:
 
-* Use **Git/GitHub** for version control, collaborate with others, and review code.
-* Build **reproducible** analyses in Python or R (clear README, tidy notebooks/scripts, and a workflow others can run).
-* **Retrieve**, **transform**, **explore**, and **visualize** data with confidence.
+* Turn a vague question into one that data can answer, and choose methods that fit it.
+* **Find**, **collect** and **combine** data from files, databases, APIs and the web.
+* **Clean**, **explore** and **visualise** data, and recognise when a pattern might be misleading.
+* Draw conclusions the evidence supports, and state their uncertainty and limitations.
+* Build **reproducible** analyses: version control with **Git/GitHub**, a clear README, and a workflow others can run.
+* Work in a team on shared code with branches, pull requests and code review.
 * Communicate results in a way that’s honest, clear, and useful.
 
 ## How you’re assessed (short version)
 
-You’ll practice every week, do an **individual project**, and finish with an **exam**.
+You’ll practise every week, do a **group project**, and finish with an **exam**.
 
-* **Home assignments:** Weekly. Focus on the data‑analysis pipeline: load → transform → explore → visualize → report. Expect roughly **half‑time study** each week. Details: **[Homework](/homework/)**.
-* **Project:** Pick a public/open dataset and tell a clear, reproducible data story. Details, milestones, and rubric: **[Project](/project)**.
-* **Exam:**  You’ll apply course methods to a given problem. Format and scheduling: **[Exam](/exam/)**.
+* **Assignments:** Weekly. Each one takes a small dataset through the whole pipeline (question → data → cleaning → exploration → analysis → conclusions → reproducibility), with that week’s topic as the focus. Each is scored 0–100, with **65** to pass; late hand-ins lose 30 points, and the final deadline for all of them is {{ $course.finalDeadline }}. Expect roughly **half‑time study** each week. Details: **[Assignments](/homework/)**.
+* **Project:** In groups of 2–3, you choose an ambitious question, hand in a proposal by {{ $course.proposal }}, and carry out a full, reproducible data science project. Details: **[Project](/project)**.
+* **Exam:** Written and theoretical, at the level of the assignments. Details: **[Exam](/exam/)**.
 
-Passing rules, exact deadlines, late/resubmission policies, and feedback timelines live on the relevant pages (and are listed on the relevant pages and on **Moodle**).
-
-The final course grade combines all three components. See **[Final Grade Explanation](/final-grade)** for details.
+Deadlines and late/resubmission policies are on the relevant pages and on **Moodle**.
 
 ## Getting help
 
-* **Live demo + drop‑in + Zoom:** weekly—see **[Lectures](/lectures/)** for times and rooms.
+* **Work sessions:** twice a week; see **[Lectures](/lectures/)** for times and rooms.
 * **TAs & contacts:** see **Moodle** for the current TA list and how to reach us.
 
 ## A note on collaboration & AI tools
@@ -58,9 +74,8 @@ copy/paste or uncredited AI will be considered plagiarism.
 ## Instructor
 
 **Taariq Nazar** — [profile](https://www.su.se/english/profiles/tana2011-1.618737)
-For TA contact info, see [**Moodle**](https://kurser.math.su.se/course/view.php?id=1631) page. 
+For TA contact info, see the <a :href="$course.links.moodle"><strong>Moodle</strong></a> page. 
 
 ## Acknowledgements
 
 This course builds on ideas and materials by **Martin Sköld, Erik Thorsén, Michael Höhle, and Felix Günther**. Thank you!
-

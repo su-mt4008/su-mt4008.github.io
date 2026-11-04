@@ -1,0 +1,53 @@
+<svg class="lc" viewBox="0 0 1100 240" role="img" xmlns="http://www.w3.org/2000/svg">
+<title>Life cycle of the baby names project</title>
+<style>
+.lc text{font-family:var(--font-sans,'IBM Plex Sans',system-ui,sans-serif);fill:var(--c-text,#222)}
+.lc .step{font-size:13px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;fill:var(--c-muted,#777)}
+.lc .note{font-size:14px}
+.lc .src{font-size:13px;fill:var(--c-muted,#777)}
+.lc text.hot{fill:var(--c-accent,#d6453d)}
+.lc .line{stroke:var(--c-faint,#bbb);stroke-width:2;fill:none}
+.lc .node{fill:var(--c-bg,#fff);stroke:var(--c-text,#222);stroke-width:2}
+.lc .node.hot{fill:var(--c-accent,#d6453d);stroke:var(--c-accent,#d6453d)}
+.lc .dot{fill:var(--c-text,#222)}
+.lc .band{fill:var(--c-tint,#f4f4f4);stroke:var(--c-line,#ddd)}
+.lc .bandtext{font-size:13px;fill:var(--c-muted,#777)}
+.lc .bandtext tspan.head{font-weight:600;letter-spacing:.06em}
+.lc .loop{stroke:var(--c-accent,#d6453d);stroke-width:1.6;fill:none}
+.lc .looptip{fill:var(--c-accent,#d6453d)}
+.lc text.loopnote{font-size:12px;fill:var(--c-accent,#d6453d)}
+</style>
+<path class="line" d="M80,104 H1020"/>
+<text class="step" x="80.0" y="30" text-anchor="middle">Question</text>
+<circle class="node" cx="80.0" cy="104" r="7"/>
+<text class="note" x="80.0" y="140" text-anchor="middle">Do names come</text>
+<text class="note" x="80.0" y="160" text-anchor="middle">back after</text>
+<text class="note" x="80.0" y="180" text-anchor="middle">three generations?</text>
+<text class="step" x="228.03149606299215" y="30" text-anchor="middle">Data</text>
+<circle class="node" cx="228.03149606299215" cy="104" r="7"/>
+<text class="note" x="228.03149606299215" y="140" text-anchor="middle">SCB: 200 names by</text>
+<text class="note" x="228.03149606299215" y="160" text-anchor="middle">year of birth</text>
+<text class="step" x="553.7007874015749" y="30" text-anchor="middle">Cleaning</text>
+<circle class="node" cx="553.7007874015749" cy="104" r="7"/>
+<text class="note" x="553.7007874015749" y="140" text-anchor="middle">reshape the table,</text>
+<text class="note" x="553.7007874015749" y="160" text-anchor="middle">handle gaps,</text>
+<text class="note" x="553.7007874015749" y="180" text-anchor="middle">counts → shares</text>
+<text class="step" x="701.732283464567" y="30" text-anchor="middle">Exploration</text>
+<circle class="node" cx="701.732283464567" cy="104" r="7"/>
+<text class="note" x="701.732283464567" y="140" text-anchor="middle">share of each</text>
+<text class="note" x="701.732283464567" y="160" text-anchor="middle">birth year</text>
+<text class="step" x="871.9685039370079" y="30" text-anchor="middle">Analysis</text>
+<circle class="node" cx="871.9685039370079" cy="104" r="7"/>
+<text class="note" x="871.9685039370079" y="140" text-anchor="middle">a comeback</text>
+<text class="note" x="871.9685039370079" y="160" text-anchor="middle">score</text>
+<text class="step hot" x="1020.0" y="30" text-anchor="middle">Conclusions</text>
+<circle class="node hot" cx="1020.0" cy="104" r="7"/>
+<text class="note hot" x="1020.0" y="140" text-anchor="middle">yes: Elsa, Alice,</text>
+<text class="note hot" x="1020.0" y="160" text-anchor="middle">Astrid … but only</text>
+<text class="note hot" x="1020.0" y="180" text-anchor="middle">the living are counted</text>
+<path class="loop" d="M862.9685039370079,95 C841.9685039370079,58 731.732283464567,58 714.732283464567,90"/>
+<path class="looptip" d="M710.732283464567,95 L720.732283464567,89 L713.732283464567,83 Z"/>
+<text class="loopnote" x="786.8503937007874" y="62" text-anchor="middle">round and round</text>
+<rect class="band" x="30" y="200" width="1040" height="30" rx="15"/>
+<text class="bandtext" x="550.0" y="220" text-anchor="middle"><tspan class="head">REPRODUCIBLE THROUGHOUT</tspan>  ·  fetch.py + report.qmd</text>
+</svg>

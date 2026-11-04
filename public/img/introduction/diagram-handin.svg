@@ -1,0 +1,56 @@
+<svg class="fd" viewBox="0 0 1180 250" role="img" xmlns="http://www.w3.org/2000/svg">
+<title>Handing in: branch, work, pull request, the check, review, final version</title>
+<style>
+.fd text{font-family:var(--font-sans,'IBM Plex Sans',system-ui,sans-serif);fill:var(--c-text,#222);font-size:15px}
+.fd .muted{fill:var(--c-muted,#777);font-size:13px}
+.fd .lg{font-size:19px;font-weight:600}
+.fd .lgm{font-size:15px;fill:var(--c-muted,#777)}
+.fd .head{fill:var(--c-muted,#777);font-size:12px;font-weight:600;letter-spacing:.07em}
+.fd .big{font-family:'IBM Plex Serif',Georgia,serif;font-size:22px}
+.fd text.hot,.fd .hot text{fill:var(--c-accent,#d6453d)}
+.fd .box{fill:var(--c-tint,#f4f4f4);stroke:var(--c-line,#ddd);stroke-width:1.5}
+.fd .box.hot{stroke:var(--c-accent,#d6453d);stroke-width:2}
+.fd .box.solid{fill:var(--c-text,#222);stroke:none}
+.fd .solid-text{fill:var(--c-bg,#fff)}
+.fd .edge{stroke:var(--c-faint,#bbb);stroke-width:2;fill:none}
+.fd .edge.hot{stroke:var(--c-accent,#d6453d)}
+.fd .edge.dashed{stroke-dasharray:6 5;stroke:var(--c-muted,#888);stroke-width:1.6}
+.fd .tip{fill:var(--c-faint,#bbb)}
+.fd .tip.hot{fill:var(--c-accent,#d6453d)}
+.fd .node{fill:var(--c-bg,#fff);stroke:var(--c-text,#222);stroke-width:2}
+.fd .bar{fill:var(--c-faint,#bbb)}
+.fd .bar.hot{fill:var(--c-accent,#d6453d)}
+</style>
+<rect class="box " x="10" y="50" width="162" height="86" rx="6"/>
+<text x="91" y="88" text-anchor="middle">Branch</text>
+<text class="muted" x="91" y="108" text-anchor="middle">hw1 from main</text>
+<rect class="box " x="210" y="50" width="162" height="86" rx="6"/>
+<text x="291" y="88" text-anchor="middle">Work</text>
+<text class="muted" x="291" y="108" text-anchor="middle">report.qmd, commit</text>
+<path class="edge" d="M172,93 L201.0,93.0"/>
+<path class="tip" d="M210.0,93.0 L199.0,87.0 L199.0,99.0 Z"/>
+<rect class="box " x="410" y="50" width="162" height="86" rx="6"/>
+<text x="491" y="88" text-anchor="middle">Pull request</text>
+<text class="muted" x="491" y="108" text-anchor="middle">HW1 · Mon 23:59</text>
+<path class="edge" d="M372,93 L401.0,93.0"/>
+<path class="tip" d="M410.0,93.0 L399.0,87.0 L399.0,99.0 Z"/>
+<rect class="box hot" x="610" y="50" width="162" height="86" rx="6"/>
+<text class="hot" x="691" y="88" text-anchor="middle">The check</text>
+<text class="muted" x="691" y="108" text-anchor="middle">renders on a clean PC</text>
+<path class="edge" d="M572,93 L601.0,93.0"/>
+<path class="tip" d="M610.0,93.0 L599.0,87.0 L599.0,99.0 Z"/>
+<rect class="box " x="810" y="50" width="162" height="86" rx="6"/>
+<text x="891" y="88" text-anchor="middle">Peer review</text>
+<text class="muted" x="891" y="108" text-anchor="middle">by Thu 23:59</text>
+<path class="edge" d="M772,93 L801.0,93.0"/>
+<path class="tip" d="M810.0,93.0 L799.0,87.0 L799.0,99.0 Z"/>
+<rect class="box solid" x="1010" y="50" width="162" height="86" rx="6"/>
+<text class="solid-text" x="1091" y="88" text-anchor="middle">Final version</text>
+<text class="solid-text" x="1091" y="108" text-anchor="middle">Fri 23:59 · graded</text>
+<path class="edge" d="M972,93 L1001.0,93.0"/>
+<path class="tip" d="M1010.0,93.0 L999.0,87.0 L999.0,99.0 Z"/>
+<path class="edge hot" d="M691.0,136 L691.0,210 L291.0,210 L291.0,145.0"/>
+<path class="tip hot" d="M291.0,136.0 L285.0,147.0 L297.0,147.0 Z"/>
+<text class="hot" x="491" y="236" text-anchor="middle">red: read the log, fix, push again (as often as you need)</text>
+<text class="muted" x="791" y="82" text-anchor="middle">green</text>
+</svg>

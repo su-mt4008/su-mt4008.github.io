@@ -1,0 +1,59 @@
+<svg class="lc" viewBox="0 0 1100 262" role="img" xmlns="http://www.w3.org/2000/svg">
+<title>Life cycle of the AI bubble project</title>
+<style>
+.lc text{font-family:var(--font-sans,'IBM Plex Sans',system-ui,sans-serif);fill:var(--c-text,#222)}
+.lc .step{font-size:13px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;fill:var(--c-muted,#777)}
+.lc .note{font-size:14px}
+.lc .src{font-size:13px;fill:var(--c-muted,#777)}
+.lc text.hot{fill:var(--c-accent,#d6453d)}
+.lc .line{stroke:var(--c-faint,#bbb);stroke-width:2;fill:none}
+.lc .node{fill:var(--c-bg,#fff);stroke:var(--c-text,#222);stroke-width:2}
+.lc .node.hot{fill:var(--c-accent,#d6453d);stroke:var(--c-accent,#d6453d)}
+.lc .dot{fill:var(--c-text,#222)}
+.lc .band{fill:var(--c-tint,#f4f4f4);stroke:var(--c-line,#ddd)}
+.lc .bandtext{font-size:13px;fill:var(--c-muted,#777)}
+.lc .bandtext tspan.head{font-weight:600;letter-spacing:.06em}
+.lc .loop{stroke:var(--c-accent,#d6453d);stroke-width:1.6;fill:none}
+.lc .looptip{fill:var(--c-accent,#d6453d)}
+.lc text.loopnote{font-size:12px;fill:var(--c-accent,#d6453d)}
+</style>
+<path class="line" d="M80,126 H1020"/>
+<path class="line" d="M228.03149606299215,66 H374.5826771653544 C472.2834645669292,66 488.5669291338583,126 553.7007874015749,126"/>
+<circle class="dot" cx="228.03149606299215" cy="66" r="4"/>
+<text class="src" x="240.03149606299215" y="58">Prices vs earnings, since 1871</text>
+<path class="line" d="M228.03149606299215,96 H374.5826771653544 C472.2834645669292,96 488.5669291338583,126 553.7007874015749,126"/>
+<circle class="dot" cx="228.03149606299215" cy="96" r="4"/>
+<text class="src" x="240.03149606299215" y="88">The NASDAQ tech index</text>
+<circle class="dot" cx="228.03149606299215" cy="126" r="4"/>
+<text class="src" x="240.03149606299215" y="118">Hacker News headlines</text>
+<text class="step hot" x="80.0" y="30" text-anchor="middle">Question</text>
+<circle class="node hot" cx="80.0" cy="126" r="7"/>
+<text class="note hot" x="80.0" y="162" text-anchor="middle">“Bubble” is not</text>
+<text class="note hot" x="80.0" y="182" text-anchor="middle">measurable: turn it</text>
+<text class="note hot" x="80.0" y="202" text-anchor="middle">into three signs</text>
+<text class="step" x="228.03149606299215" y="30" text-anchor="start" dx="-8">Data</text>
+<text class="step" x="553.7007874015749" y="30" text-anchor="middle">Cleaning</text>
+<circle class="node" cx="553.7007874015749" cy="126" r="7"/>
+<text class="note" x="553.7007874015749" y="162" text-anchor="middle">line up months,</text>
+<text class="note" x="553.7007874015749" y="182" text-anchor="middle">careful dates,</text>
+<text class="note" x="553.7007874015749" y="202" text-anchor="middle">counts → shares</text>
+<text class="step" x="701.732283464567" y="30" text-anchor="middle">Exploration</text>
+<circle class="node" cx="701.732283464567" cy="126" r="7"/>
+<text class="note" x="701.732283464567" y="162" text-anchor="middle">each sign against</text>
+<text class="note" x="701.732283464567" y="182" text-anchor="middle">its own history</text>
+<text class="step" x="871.9685039370079" y="30" text-anchor="middle">Analysis</text>
+<circle class="node" cx="871.9685039370079" cy="126" r="7"/>
+<text class="note" x="871.9685039370079" y="162" text-anchor="middle">compare with 1929,</text>
+<text class="note" x="871.9685039370079" y="182" text-anchor="middle">2000 and the</text>
+<text class="note" x="871.9685039370079" y="202" text-anchor="middle">crypto boom</text>
+<text class="step" x="1020.0" y="30" text-anchor="middle">Conclusions</text>
+<circle class="node" cx="1020.0" cy="126" r="7"/>
+<text class="note" x="1020.0" y="162" text-anchor="middle">2 of 3 signs are</text>
+<text class="note" x="1020.0" y="182" text-anchor="middle">there; a crash is</text>
+<text class="note" x="1020.0" y="202" text-anchor="middle">not in the data</text>
+<path class="loop" d="M862.9685039370079,117 C841.9685039370079,80 731.732283464567,80 714.732283464567,112"/>
+<path class="looptip" d="M710.732283464567,117 L720.732283464567,111 L713.732283464567,105 Z"/>
+<text class="loopnote" x="786.8503937007874" y="84" text-anchor="middle">round and round</text>
+<rect class="band" x="30" y="222" width="1040" height="30" rx="15"/>
+<text class="bandtext" x="550.0" y="242" text-anchor="middle"><tspan class="head">REPRODUCIBLE THROUGHOUT</tspan>  ·  one fetch script, three sources saved</text>
+</svg>

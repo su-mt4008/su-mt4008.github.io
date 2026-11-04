@@ -3,6 +3,10 @@ name: Deploy VitePress site to Pages
 on:
   push:
     branches: [main]
+  # Rebuild daily so the home page's server-rendered state (this week, next up)
+  # is never more than a day old before the browser updates it.
+  schedule:
+    - cron: '0 3 * * *'
   workflow_dispatch:
 
 permissions:
