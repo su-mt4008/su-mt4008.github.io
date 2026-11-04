@@ -21,6 +21,10 @@ You also learn the tools you will use every week: VS Code, Git and GitHub, Quart
 and do the small exercises as you go. Then do [HW1](/homework/1). Setup instructions are on
 [How we work](/guide#set-up-your-computer); this page explains the *why*.
 
+**Also read this week:** [Statistics: the basics](/statistics) (about 30 minutes). It builds on
+Probability Theory I and gives you what you need for the **Analysis** and **Conclusions** steps
+below, in HW1 and in every assignment after it.
+
 ## What a data analysis consists of
 
 Every data analysis, from a homework to a published study, goes through the same steps:
@@ -37,7 +41,9 @@ Every data analysis, from a homework to a published study, goes through the same
 
 The tools change from week to week; these steps don’t. Every assignment and the project use them,
 and so does the template your repositories start from. Code is how you carry out the steps, but
-the science is in the questions in the right-hand column.
+the science is in the questions in the right-hand column. For the last two of those questions,
+*does it hold up?* and *how sure are you?*, you need some statistics: see
+[Statistics: the basics](/statistics).
 
 ## Asking a question data can answer
 
@@ -252,6 +258,8 @@ These five habits make an analysis reproducible. They apply to every assignment 
 Do [HW1](/homework/1): the whole workflow once, on Stockholm temperatures.
 
 ## Further reading
+
+- [Statistics: the basics](/statistics), on this site
 
 - [The Turing Way: Guide for reproducible research](https://book.the-turing-way.org/reproducible-research/reproducible-research)
 - [Pro Git](https://git-scm.com/book/en/v2), chapters 1–3

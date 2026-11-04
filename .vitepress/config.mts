@@ -12,6 +12,24 @@ const unpublished = building
   ? course.assignments.flatMap((a, i) => (a.ready ? [] : [`homework/${i + 1}.md`]))
   : []
 
+const lecturesSidebar = [
+  {
+    text: 'Lectures',
+    items: [
+      { text: 'Week 1', link: '/lectures/week-1' },
+      { text: 'Week 2', link: '/lectures/week-2' },
+      { text: 'Week 3', link: '/lectures/week-3' },
+      { text: 'Week 4', link: '/lectures/week-4' },
+      { text: 'Week 5', link: '/lectures/week-5' },
+      { text: 'Week 6', link: '/lectures/week-6' },
+    ]
+  },
+  {
+    text: 'Reference',
+    items: [{ text: 'Statistics: the basics', link: '/statistics' }]
+  }
+]
+
 const courseInfoSidebar = [
   {
     text: 'Course info',
@@ -49,25 +67,14 @@ export default defineConfig({
     },
     nav: [
       { text: 'Course info', link: '/about', activeMatch: '^/(about|guide)' },
-      { text: 'Lectures', link: '/lectures/' },
+      { text: 'Lectures', link: '/lectures/', activeMatch: '^/(lectures|statistics)' },
       { text: 'Assignments', link: '/homework/', activeMatch: '^/homework/' },
       { text: 'Project', link: '/project' },
       { text: 'Exam', link: '/exam/' },
     ],
     sidebar: {
-      '/lectures/': [
-        {
-          text: "Lectures",
-          items: [
-            { text: 'Week 1', link: '/lectures/week-1' },
-            { text: 'Week 2', link: '/lectures/week-2' },
-            { text: 'Week 3', link: '/lectures/week-3' },
-            { text: 'Week 4', link: '/lectures/week-4' },
-            { text: 'Week 5', link: '/lectures/week-5' },
-            { text: 'Week 6', link: '/lectures/week-6' },
-          ]
-        }
-      ],
+      '/lectures/': lecturesSidebar,
+      '/statistics': lecturesSidebar,
       '/homework/': [
         {
           text: "Assignments",

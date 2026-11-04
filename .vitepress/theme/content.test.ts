@@ -110,3 +110,16 @@ describe('one repository per student', () => {
     expect(page('guide.md')).toMatch(/Friday morning/)
   })
 })
+
+describe('statistics page', () => {
+  it('exists, builds on Probability Theory I, and covers the basics', () => {
+    const stats = page('statistics.md')
+    for (const text of ['Probability Theory I', 'centrala gränsvärdessatsen', 'standard error', 'confidence interval', 'p-value', 'bootstrap', 'permutation', 'confounder']) {
+      expect(stats.toLowerCase()).toContain(text.toLowerCase())
+    }
+  })
+  it('is linked from HW1 and week 1', () => {
+    expect(page('homework/1.md')).toContain('/statistics')
+    expect(page('lectures/week-1.md')).toContain('/statistics')
+  })
+})
