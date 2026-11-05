@@ -1,0 +1,105 @@
+<svg class="fd" viewBox="0 0 1160 430" role="img" xmlns="http://www.w3.org/2000/svg">
+<title>Workflow of the electricity price project: prices and weather from two sources, cleaned to one row per day, calm and windy days compared</title>
+<style>
+.fd text{font-family:var(--font-sans,'IBM Plex Sans',system-ui,sans-serif);fill:var(--c-text,#222);font-size:15px}
+.fd .muted{fill:var(--c-muted,#777);font-size:13px}
+.fd .lg{font-size:19px;font-weight:600}
+.fd .lgm{font-size:15px;fill:var(--c-muted,#777)}
+.fd .head{fill:var(--c-muted,#777);font-size:12px;font-weight:600;letter-spacing:.07em}
+.fd .big{font-family:'IBM Plex Serif',Georgia,serif;font-size:22px}
+.fd text.hot,.fd .hot text{fill:var(--c-accent,#d6453d)}
+.fd .box{fill:var(--c-tint,#f4f4f4);stroke:var(--c-line,#ddd);stroke-width:1.5}
+.fd .box.hot{stroke:var(--c-accent,#d6453d);stroke-width:2}
+.fd .box.solid{fill:var(--c-text,#222);stroke:none}
+.fd .solid-text{fill:var(--c-bg,#fff)}
+.fd .edge{stroke:var(--c-faint,#bbb);stroke-width:2;fill:none}
+.fd .edge.hot{stroke:var(--c-accent,#d6453d)}
+.fd .edge.dashed{stroke-dasharray:6 5;stroke:var(--c-muted,#888);stroke-width:1.6}
+.fd .tip{fill:var(--c-faint,#bbb)}
+.fd .tip.hot{fill:var(--c-accent,#d6453d)}
+.fd .node{fill:var(--c-bg,#fff);stroke:var(--c-text,#222);stroke-width:2}
+.fd .bar{fill:var(--c-faint,#bbb)}
+.fd .bar.hot{fill:var(--c-accent,#d6453d)}
+</style>
+<style>
+.fd .ttl{font-size:16px;font-weight:600}
+.fd .det{font-size:13.5px;fill:var(--c-muted,#777)}
+.fd text.ttl.hot,.fd text.colhead.hot,.fd text.worknote{fill:var(--c-accent,#d6453d)}
+.fd .colhead{fill:var(--c-muted,#777);font-size:12px;font-weight:600;letter-spacing:.07em}
+.fd .worknote{font-size:13px;font-weight:600}
+.fd .file{font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:12.5px;fill:var(--c-muted,#777)}
+</style>
+<text class="colhead" x="0" y="30" text-anchor="start">1 · QUESTION</text>
+<text class="colhead" x="230" y="30" text-anchor="start">2 · DATA</text>
+<text class="colhead hot" x="490" y="30" text-anchor="start">3 · CLEANING</text>
+<text class="colhead" x="736" y="30" text-anchor="start">4 · EXPLORATION ⇄ ANALYSIS</text>
+<text class="colhead" x="982" y="30" text-anchor="start">5 · CONCLUSIONS</text>
+<rect class="box" x="0" y="144" width="184" height="130" rx="7"/>
+<text class="ttl" x="13" y="174" text-anchor="start">Why does</text>
+<text class="ttl" x="13" y="194" text-anchor="start">electricity cost</text>
+<text class="ttl" x="13" y="214" text-anchor="start">more in Malmö than</text>
+<text class="ttl" x="13" y="234" text-anchor="start">in Luleå?</text>
+<text class="det" x="13" y="260" text-anchor="start">Is it the wind?</text>
+<rect class="box hot" x="490" y="123" width="200" height="172" rx="7"/>
+<text class="ttl hot" x="503" y="153" text-anchor="start">One row per day</text>
+<text class="det" x="503" y="179" text-anchor="start">hourly and 15-minute</text>
+<text class="det" x="503" y="197" text-anchor="start">prices → one per day</text>
+<text class="det" x="503" y="221" text-anchor="start">clock changes: 23- and</text>
+<text class="det" x="503" y="239" text-anchor="start">25-hour days</text>
+<text class="det" x="503" y="263" text-anchor="start">match prices to weather:</text>
+<text class="det" x="503" y="281" text-anchor="start">1,074 days</text>
+<rect class="box" x="982" y="144" width="178" height="130" rx="7"/>
+<text class="ttl" x="995" y="174" text-anchor="start">Partly</text>
+<text class="det" x="995" y="200" text-anchor="start">0.40 kr/kWh more on</text>
+<text class="det" x="995" y="218" text-anchor="start">calm days</text>
+<text class="det" x="995" y="242" text-anchor="start">but weather explains</text>
+<text class="det" x="995" y="260" text-anchor="start">only 18 %</text>
+<rect class="box" x="230" y="72" width="214" height="106" rx="7"/>
+<text class="ttl" x="243" y="102" text-anchor="start">Spot prices</text>
+<text class="det" x="243" y="128" text-anchor="start">4 zones, 2023–2025, every</text>
+<text class="det" x="243" y="146" text-anchor="start">hour (15 min from Oct</text>
+<text class="det" x="243" y="164" text-anchor="start">2025)</text>
+<path class="edge" d="M184,209.0 C207.0,209.0 207.0,125.0 221,125.0"/>
+<path class="tip" d="M230.0,125.0 L219.0,119.0 L219.0,131.0 Z"/>
+<path class="edge" d="M444,125.0 C467.0,125.0 467.0,209.0 481,209.0"/>
+<path class="tip" d="M490.0,209.0 L479.0,203.0 L479.0,215.0 Z"/>
+<rect class="box" x="230" y="192" width="214" height="70" rx="7"/>
+<text class="ttl" x="243" y="222" text-anchor="start">SMHI wind</text>
+<text class="det" x="243" y="248" text-anchor="start">Malmö, every day</text>
+<path class="edge" d="M184,209.0 C207.0,209.0 207.0,227.0 221,227.0"/>
+<path class="tip" d="M230.0,227.0 L219.0,221.0 L219.0,233.0 Z"/>
+<path class="edge" d="M444,227.0 C467.0,227.0 467.0,209.0 481,209.0"/>
+<path class="tip" d="M490.0,209.0 L479.0,203.0 L479.0,215.0 Z"/>
+<rect class="box" x="230" y="276" width="214" height="70" rx="7"/>
+<text class="ttl" x="243" y="306" text-anchor="start">SMHI temperature</text>
+<text class="det" x="243" y="332" text-anchor="start">Malmö, every day</text>
+<path class="edge" d="M184,209.0 C207.0,209.0 207.0,311.0 221,311.0"/>
+<path class="tip" d="M230.0,311.0 L219.0,305.0 L219.0,317.0 Z"/>
+<path class="edge" d="M444,311.0 C467.0,311.0 467.0,209.0 481,209.0"/>
+<path class="tip" d="M490.0,209.0 L479.0,203.0 L479.0,215.0 Z"/>
+<rect class="box" x="736" y="84" width="200" height="88" rx="7"/>
+<text class="ttl" x="749" y="114" text-anchor="start">The gap over time</text>
+<text class="det" x="749" y="140" text-anchor="start">Malmö minus Luleå, month</text>
+<text class="det" x="749" y="158" text-anchor="start">by month</text>
+<rect class="box" x="736" y="222" width="200" height="112" rx="7"/>
+<text class="ttl" x="749" y="252" text-anchor="start">Calm vs windy days</text>
+<text class="det" x="749" y="278" text-anchor="start">how big is the</text>
+<text class="det" x="749" y="296" text-anchor="start">difference?</text>
+<text class="det" x="749" y="320" text-anchor="start">how sure are we?</text>
+<path class="edge" d="M690,209.0 C713.0,209.0 713.0,128.0 727,128.0"/>
+<path class="tip" d="M736.0,128.0 L725.0,122.0 L725.0,134.0 Z"/>
+<path class="edge" d="M936,278.0 C959.0,278.0 959.0,209.0 973,209.0"/>
+<path class="tip" d="M982.0,209.0 L971.0,203.0 L971.0,215.0 Z"/>
+<path class="edge hot" d="M770,172.0 L770.0,213.0"/>
+<path class="tip hot" d="M770.0,222.0 L776.0,211.0 L764.0,211.0 Z"/>
+<path class="edge hot" d="M902,222.0 L902.0,181.0"/>
+<path class="tip hot" d="M902.0,172.0 L896.0,183.0 L908.0,183.0 Z"/>
+<text class="muted hot" x="836" y="202" text-anchor="middle">round and round</text>
+<text class="worknote" x="490" y="48" text-anchor="start">where the work was</text>
+<text class="file" x="337" y="370" text-anchor="middle">fetch_prices.py + fetch_weather.py → data/</text>
+<text class="file" x="825" y="370" text-anchor="middle">report.qmd → report.md  (cleaning, analysis, figures, text)</text>
+<rect class="box" x="0" y="386" width="1160" height="40" rx="8"/>
+<text class="colhead" x="16" y="411" text-anchor="start">REPRODUCIBLE THROUGHOUT</text>
+<text class="det" x="236" y="411" text-anchor="start">one command reruns it all:</text>
+<text class="file" x="410" y="411" text-anchor="start">uv run quarto render</text>
+</svg>

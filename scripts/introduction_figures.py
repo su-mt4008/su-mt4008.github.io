@@ -520,12 +520,12 @@ d = Diagram(1180, 360, "Operationalising: from 'Is AI a bubble?' to three measur
 for x, h in [(10, "THE QUESTION"), (300, "A BUBBLE WOULD MEAN …"), (640, "WE MEASURE"), (980, "SOURCE")]:
     d.text(x, 18, h, "head")
 d.box(10, 140, 230, 90, ["Is AI a bubble?", "can't be measured directly"], cls="hot", first="big")
-signs = [("prices far above earnings", "prices vs 10 years of earnings", "Shiller, since 1871"),
-         ("prices rose unusually fast", "tech index vs 5 years before", "FRED, since 1971"),
-         ("everyone talks about it", "share of headlines saying “AI”", "Hacker News, since 2007")]
-for k, (mean, measure, source) in enumerate(signs):
+signs = [("Valuations", "prices far above earnings", "prices vs 10 years of earnings", "Shiller, since 1871"),
+         ("Price growth", "prices rose unusually fast", "tech index vs 5 years before", "FRED, since 1971"),
+         ("Attention", "everyone talks about it", "share of headlines saying “AI”", "Hacker News, since 2007")]
+for k, (sign, mean, measure, source) in enumerate(signs):
     y = 40 + k * 110
-    d.box(300, y, 280, 76, [mean])
+    d.box(300, y, 280, 76, [sign, mean], first="lg")
     d.box(640, y, 300, 76, [measure])
     d.text(980, y + 43, source, "muted")
     d.arrow([(240, 185), (300, y + 38)], curve=True, hot=True)
@@ -550,8 +550,9 @@ d.text(10 + 3 * (bw + gap) + bw + gap / 2, 82, "green", "muted", "middle")
 d.save("diagram-handin")
 
 # Week 1: the Git workflow, as a branch graph.
-d = Diagram(1180, 330, "The Git workflow: branch hw1 off main, commit small steps, push and open a pull request, "
-                       "the check and review, push fixes, merged into main when accepted")
+d = Diagram(1180, 450, "The Git workflow: branch hw1 off main, commit small steps, push and open a pull request, "
+                       "the check and review, push fixes, merged into main when accepted; meanwhile hw2 is "
+                       "branched off main and worked on in parallel")
 ym, yb = 260, 140
 node = lambda x, y, hot=False: d.raw(f'<circle class="node" cx="{x}" cy="{y}" r="11"'
                                      + (' style="stroke:var(--c-accent,#d6453d);fill:var(--c-accent,#d6453d)"' if hot else "") + "/>")
@@ -576,6 +577,161 @@ d.text(1080, ym + 38, "merged when accepted", "muted", "middle")
 d.text(120, ym + 38, "the accepted version", "muted", "middle")
 for x, h in [(170, "1 BRANCH"), (320, "2 COMMIT"), (600, "3 PUSH, OPEN A PR"), (840, "4 CHECK, REVIEW, FIX"), (1080, "5 MERGE")]:
     d.text(x, 40, h, "head", "middle")
+# hw2, in parallel: branched off main while hw1 is still in review; its own pull request.
+y2 = 380
+d.text(20, y2 + 6, "hw2", "lg")
+d.text(90, y2 + 6, "starts from main while hw1 is still in review", "muted")
+d.curve((560, ym), (610, ym), (610, y2), (649, y2))
+d.raw(f'<path class="edge" d="M660,{y2} L860,{y2} M1060,{y2} L1160,{y2}"/>')
+for x, label in [(660, "read data"), (760, "plot")]:
+    node(x, y2)
+    d.text(x, y2 + 36, label, "muted", "middle")
+d.arrow([(760, y2), (860, y2)])
+d.text(810, y2 - 12, "push", "muted", "middle")
+d.box(860, y2 - 36, 200, 72, ["Pull request", "“HW2”: in review"])
 d.save("diagram-git")
+
+# ---------------------------------------------------------------------------------------------
+# Workflow flowcharts: one per project, read left to right. Question -> the data sources (one box
+# each) -> cleaning -> exploration and analysis (round and round) -> conclusions, with the file that
+# does each part and the one command that reruns it all. The step where the work was is red.
+FC_STYLE = """<style>
+.fd .ttl{font-size:16px;font-weight:600}
+.fd .det{font-size:13.5px;fill:var(--c-muted,#777)}
+.fd text.ttl.hot,.fd text.colhead.hot,.fd text.worknote{fill:var(--c-accent,#d6453d)}
+.fd .colhead{fill:var(--c-muted,#777);font-size:12px;font-weight:600;letter-spacing:.07em}
+.fd .worknote{font-size:13px;font-weight:600}
+.fd .file{font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:12.5px;fill:var(--c-muted,#777)}
+</style>"""
+FC_COLS = [(0, 184), (230, 214), (490, 200), (736, 200), (982, 178)]   # (x, width) per column
+FC_W, FC_TOP = 1160, 72
+
+
+def fc_lines(title, details, w):
+    """The title's lines, and the detail lines as (text, gap before it): a small gap between items."""
+    ds = [(line, 6 if k == 0 and i else 0) for i, d_ in enumerate(details)
+          for k, line in enumerate(wrap(d_, int((w - 26) / 7.0)))]
+    return wrap(title, int((w - 26) / 8.6)), ds
+
+
+def fc_height(title, details, w):
+    t, ds = fc_lines(title, details, w)
+    return 16 + 20 * len(t) + 6 + sum(18 + g for _, g in ds) + 10
+
+
+def fc_box(d, x, y, w, title, details, hot=False):
+    t, ds = fc_lines(title, details, w)
+    h = fc_height(title, details, w)
+    d.raw(f'<rect class="box{" hot" if hot else ""}" x="{x}" y="{y:.0f}" width="{w}" height="{h}" rx="7"/>')
+    for k, line in enumerate(t):
+        d.text(x + 13, y + 30 + 20 * k, line, "ttl hot" if hot else "ttl")
+    yl = y + 30 + 20 * len(t) + 6
+    for line, g in ds:
+        yl += g
+        d.text(x + 13, yl, line, "det")
+        yl += 18
+    return h
+
+
+def flowchart(name, title, question, sources, cleaning, exploration, analysis, conclusions, hot, files):
+    """Writes flow-<name>.svg. question/cleaning/exploration/analysis/conclusions: (title, [details]);
+    sources: [(name, [details])]; hot: 'question' | 'data' | 'cleaning' | 'analysis' | 'conclusions';
+    files: (fetch script, report) shown under the columns they belong to."""
+    GAP_S, GAP_EA = 14, 50
+    hs = [fc_height(s, ds, FC_COLS[1][1]) for s, ds in sources]
+    stack = sum(hs) + GAP_S * (len(hs) - 1)
+    he, ha = fc_height(*exploration, FC_COLS[3][1]), fc_height(*analysis, FC_COLS[3][1])
+    tall = max(stack, he + GAP_EA + ha, *(fc_height(*b, FC_COLS[i][1]) for i, b in
+                                           [(0, question), (2, cleaning), (4, conclusions)]))
+    cy = FC_TOP + tall / 2
+    bottom = FC_TOP + tall
+    height = bottom + 84
+    d = Diagram(FC_W, height, title)
+    d.raw(FC_STYLE)
+    heads = ["1 · QUESTION", "2 · DATA", "3 · CLEANING", "4 · EXPLORATION ⇄ ANALYSIS", "5 · CONCLUSIONS"]
+    keys = ["question", "data", "cleaning", "analysis", "conclusions"]
+    for (x, w), head, key in zip(FC_COLS, heads, keys):
+        d.text(x, 30, head, "colhead hot" if key == hot else "colhead")
+
+    def single(col, box):          # one box, centred on the flow line; returns (top, height)
+        x, w = FC_COLS[col]
+        h = fc_height(*box, w)
+        fc_box(d, x, cy - h / 2, w, *box, hot=keys[col] == hot)
+        return cy - h / 2, h
+
+    single(0, question)
+    single(2, cleaning)
+    single(4, conclusions)
+    # Data: one box per source; arrows fan out from the question and merge at cleaning.
+    (xq, wq), (xd, wd), (xc, _) = FC_COLS[0], FC_COLS[1], FC_COLS[2]
+    y = cy - stack / 2
+    for (s, ds), h in zip(sources, hs):
+        fc_box(d, xd, y, wd, s, ds, hot=hot == "data")
+        ym = y + h / 2
+        d.arrow([(xq + wq, cy), (xd, ym)], curve=abs(ym - cy) > 1)
+        d.arrow([(xd + wd, ym), (xc, cy)], curve=abs(ym - cy) > 1)
+        y += h + GAP_S
+    # Exploration above analysis, round and round between them.
+    xe, we = FC_COLS[3]
+    ye = cy - (he + GAP_EA + ha) / 2
+    ya = ye + he + GAP_EA
+    fc_box(d, xe, ye, we, *exploration)
+    fc_box(d, xe, ya, we, *analysis, hot=hot == "analysis")
+    d.arrow([(xc + FC_COLS[2][1], cy), (xe, ye + he / 2)], curve=True)
+    d.arrow([(xe + we, ya + ha / 2), (FC_COLS[4][0], cy)], curve=True)
+    d.arrow([(xe + 34, ye + he), (xe + 34, ya)], hot=True)
+    d.arrow([(xe + we - 34, ya), (xe + we - 34, ye + he)], hot=True)
+    d.text(xe + we / 2, ye + he + GAP_EA / 2 + 5, "round and round", "muted hot", "middle")
+    # Where the work was: under the red column's heading.
+    x, _ = FC_COLS[keys.index(hot)]
+    d.text(x, 48, "where the work was", "worknote")
+    # The files that do each part, and the one command that reruns everything.
+    fetch, report = files
+    d.text(xd + wd / 2, bottom + 24, f"{fetch} → data/", "file", "middle")
+    d.text((xc + FC_COLS[4][0] + FC_COLS[4][1]) / 2, bottom + 24,
+           f"{report} → report.md  (cleaning, analysis, figures, text)", "file", "middle")
+    yb = bottom + 40
+    d.raw(f'<rect class="box" x="0" y="{yb:.0f}" width="{FC_W}" height="40" rx="8"/>')
+    d.text(16, yb + 25, "REPRODUCIBLE THROUGHOUT", "colhead")
+    d.text(236, yb + 25, "one command reruns it all:", "det")
+    d.text(410, yb + 25, "uv run quarto render", "file")
+    d.save(f"flow-{name}")
+
+
+flowchart("names", "Workflow of the baby names project: one SCB table, cleaned into shares, a comeback score, "
+                   "and a conclusion with its limitation",
+          ("Are baby names a fashion?", ["Do names come back after three generations?"]),
+          [("Statistics Sweden (SCB)", ["the 200 most common names,", "by year of birth 1922–2021"])],
+          ("A tidy table", ["reshape to one row per name and year", "handle SCB's hidden small counts",
+                            "counts → shares of each year"]),
+          ("Each name over 100 years", ["plot the share per birth year"]),
+          ("A comeback score", ["common in 1922–35, rare in 1960–80, common again in 2005–21"]),
+          ("Yes, with a catch", ["Ella, Elsa, Alice, Astrid top the score",
+                                 "limitation: only people alive in 2021 are counted"]),
+          hot="conclusions", files=("fetch.py", "report.qmd"))
+flowchart("electricity", "Workflow of the electricity price project: prices and weather from two sources, "
+                         "cleaned to one row per day, calm and windy days compared",
+          ("Why does electricity cost more in Malmö than in Luleå?", ["Is it the wind?"]),
+          [("Spot prices", ["4 zones, 2023–2025, every hour (15 min from Oct 2025)"]), ("SMHI wind", ["Malmö, every day"]),
+           ("SMHI temperature", ["Malmö, every day"])],
+          ("One row per day", ["hourly and 15-minute prices → one per day", "clock changes: 23- and 25-hour days",
+                               "match prices to weather: 1,074 days"]),
+          ("The gap over time", ["Malmö minus Luleå, month by month"]),
+          ("Calm vs windy days", ["how big is the difference?", "how sure are we?"]),
+          ("Partly", ["0.40 kr/kWh more on calm days", "but weather explains only 18 %"]),
+          hot="cleaning", files=("fetch_prices.py + fetch_weather.py", "report.qmd"))
+flowchart("ai-bubble", "Workflow of the AI bubble project: a vague question turned into three measurable signs, "
+                       "three sources lined up by month, today compared with past bubbles",
+          ("Is AI a bubble?", ["can't be measured directly", "so: three signs we can measure",
+                               "valuations, price growth, attention"]),
+          [("Robert Shiller", ["prices vs earnings, since 1871"]), ("FRED", ["the NASDAQ index, since 1971"]),
+           ("Hacker News", ["4.8 million headlines"])],
+          ("Months, comparable", ["line up the sources by month", "Shiller writes October as .1",
+                                  "counts → shares of headlines"]),
+          ("Each sign over time", ["today against its own history"]),
+          ("How unusual is today?", ["compare with 1929, 2000 and the crypto boom"]),
+          ("Two of three signs", ["valuations and attention: yes", "price growth: no",
+                                  "a crash is not in the data"]),
+          hot="question", files=("fetch.py", "report.qmd"))
 
 print("wrote", sorted(p.name for p in OUT.glob("*.svg")))

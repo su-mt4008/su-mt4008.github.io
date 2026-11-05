@@ -1,5 +1,5 @@
-<svg class="fd" viewBox="0 0 1180 330" role="img" xmlns="http://www.w3.org/2000/svg">
-<title>The Git workflow: branch hw1 off main, commit small steps, push and open a pull request, the check and review, push fixes, merged into main when accepted</title>
+<svg class="fd" viewBox="0 0 1180 450" role="img" xmlns="http://www.w3.org/2000/svg">
+<title>The Git workflow: branch hw1 off main, commit small steps, push and open a pull request, the check and review, push fixes, merged into main when accepted; meanwhile hw2 is branched off main and worked on in parallel</title>
 <style>
 .fd text{font-family:var(--font-sans,'IBM Plex Sans',system-ui,sans-serif);fill:var(--c-text,#222);font-size:15px}
 .fd .muted{fill:var(--c-muted,#777);font-size:13px}
@@ -53,4 +53,19 @@
 <text class="head" x="600" y="40" text-anchor="middle">3 PUSH, OPEN A PR</text>
 <text class="head" x="840" y="40" text-anchor="middle">4 CHECK, REVIEW, FIX</text>
 <text class="head" x="1080" y="40" text-anchor="middle">5 MERGE</text>
+<text class="lg" x="20" y="386" text-anchor="start">hw2</text>
+<text class="muted" x="90" y="386" text-anchor="start">starts from main while hw1 is still in review</text>
+<path class="edge" d="M560,260 C610,260 610,380 640.0,380.0"/>
+<path class="tip" d="M649.0,380.0 L638.0,374.0 L638.0,386.0 Z"/>
+<path class="edge" d="M660,380 L860,380 M1060,380 L1160,380"/>
+<circle class="node" cx="660" cy="380" r="11"/>
+<text class="muted" x="660" y="416" text-anchor="middle">read data</text>
+<circle class="node" cx="760" cy="380" r="11"/>
+<text class="muted" x="760" y="416" text-anchor="middle">plot</text>
+<path class="edge" d="M760,380 L851.0,380.0"/>
+<path class="tip" d="M860.0,380.0 L849.0,374.0 L849.0,386.0 Z"/>
+<text class="muted" x="810" y="368" text-anchor="middle">push</text>
+<rect class="box " x="860" y="344" width="200" height="72" rx="6"/>
+<text x="960" y="375" text-anchor="middle">Pull request</text>
+<text class="muted" x="960" y="395" text-anchor="middle">“HW2”: in review</text>
 </svg>

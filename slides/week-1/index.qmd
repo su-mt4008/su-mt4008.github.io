@@ -5,7 +5,7 @@ author: "Per Alexandersson and Taariq Nazar"
 date: "Thursday 5 November 2026"
 date-format: "dddd D MMMM YYYY"
 engine: markdown
-# Presented after the break in the first session, ≈ 45 min: week 1 ≈ 25, statistics ≈ 20.
+# Presented after the break in the first session, ≈ 50 min: week 1 ≈ 25, statistics ≈ 25.
 # The page for this deck is /lectures/week-1; details are on /statistics and /guide.
 ---
 
@@ -97,13 +97,13 @@ The later period is warmer by 0.82 °C.
 ```
 
 ::: twocol
-- **branch:** a separate line of work, `hw1` next to `main`.
+- **branch:** a separate line of work per assignment, `hw1` and `hw2` next to `main`.
 - **commit:** save a snapshot, with a message saying why.
 - **push:** send your commits to GitHub.
 - **pull request:** your hand-in; the check runs and the review happens there.
 :::
 
-<p class="small muted">Push fixes to the same branch and the pull request updates. We merge it when it is accepted; the guide has every step in VS Code.</p>
+<p class="small muted">Push fixes to the same branch and the pull request updates. The guide has every step in VS Code.</p>
 
 <p class="more">More: <a href="../../guide#hand-in-an-assignment">How to hand in</a></p>
 
@@ -141,47 +141,148 @@ The later period is **0.82 °C** warmer. Is that real, or could weather alone do
 Lund, not Stockholm: Stockholm is HW1, and we don't give away the answer.
 :::
 
+## Notation: what is $\bar X$?
+
+::: notation
+| Symbol | What it is | Lund, 1997–2010 |
+|:--|:--|:--|
+| $n$ | the number of years | $n = 14$ |
+| $X_1, \dots, X_n$ | each year's mean temperature, as a **random variable**: what the weather *could* give | |
+| $x_1, \dots, x_n$ | the values we **observed** | 8.58, 8.43, 9.14, … °C (1997, 1998, 1999, …) |
+| $\bar X = \frac{1}{n}\sum_i X_i$ | the sample mean as a **random variable**: other years' weather would give another value | |
+| $\bar x = \frac{1}{n}\sum_i x_i$ | the **number** we computed: one value of $\bar X$ | $\bar x = 8.89$ °C |
+| $\mu$ | the **true** mean of the period's climate. Unknown: what we want to know | ? |
+| $\sigma$, $s$ | spread of single years: $\sigma$ the true value, $s$ our estimate from the data | $s = 0.62$ °C |
+:::
+
+<p class="small">$\bar x$ is our <b>estimate</b> of $\mu$. Statistics asks: how far from $\mu$ could $\bar x$ be?</p>
+
+::: notes
+Capital letters are random variables (before we look), small letters are the numbers we got.
+:::
+
 ## Single years scatter a lot
 
 <img src="../../img/statistics/spread.svg" alt="Each year's mean temperature as a dot, for both periods, with mean plus and minus one standard deviation">
 
-<p class="small">One year varies by about 0.6 °C. The difference we found is not much larger.</p>
+<p class="small">One year varies by about $s = 0.62$ °C. The difference we found, 0.82 °C, is not much larger.</p>
 
 ## Means scatter much less
 
-<img src="../../img/statistics/sampling.svg" style="max-height:320px" alt="Simulated: single years scatter widely, means of 14 years scatter much less">
+<img src="../../img/statistics/sampling.svg" style="max-height:250px" alt="Simulated: single years scatter widely, means of 14 years scatter much less">
 
-$$\operatorname{Var}(\bar X) = \frac{\sigma^2}{n} \qquad \Rightarrow \qquad \operatorname{SE} = \frac{\sigma}{\sqrt n} \approx \frac{0.62}{\sqrt{14}} = 0.17 \text{ °C}$$
+<p class="small"><b>What was simulated:</b> grey, 100,000 single years drawn from $N(8.89,\ 0.62^2)$. Red, 100,000 times: draw 14 such years and take their mean $\bar x$. The means cluster far closer to $\mu$.</p>
 
-<p class="small muted">To halve the uncertainty, you need four times the data.</p>
+$$\operatorname{SE} = \operatorname{sd}(\bar X) = \frac{\sigma}{\sqrt n} \approx \frac{s}{\sqrt n} = \frac{0.62}{\sqrt{14}} = 0.17 \text{ °C}$$
 
-## Confidence intervals
+<p class="small muted">The <b>standard error</b> (SE) is the standard deviation of $\bar X$: how far $\bar x$ typically lands from $\mu$. To halve it, you need four times the data.</p>
 
-By the CLT, $\bar X \approx N(\mu, \operatorname{SE}^2)$, so $\;\bar x \pm 1.96\,\operatorname{SE}\;$ covers $\mu$ in 95% of samples.
+## Where 1.96 comes from
 
-<img src="../../img/statistics/intervals.svg" style="max-height:330px" alt="20 simulated 95% intervals; 19 contain the true mean, one misses">
+:::: cols
+::: {}
+1. CLT: $\bar X \approx N(\mu,\ \operatorname{SE}^2)$.
+2. Standardise: $Z = \dfrac{\bar X - \mu}{\operatorname{SE}} \approx N(0, 1)$.
+3. For $N(0,1)$: $P(-1.96 \le Z \le 1.96) = 0.95$. 1.96 leaves **2.5% in each tail**.
+4. Rearrange for $\mu$: $P\big(\bar X - 1.96\,\operatorname{SE} \le \mu \le \bar X + 1.96\,\operatorname{SE}\big) = 0.95$.
+:::
+::: {}
+<img src="../../img/statistics/normal-95.svg" alt="The standard normal curve with the middle 95% between −1.96 and 1.96 shaded, and 2.5% in each tail">
 
-<p class="small">"95%" is a property of the method: about 1 in 20 intervals misses.</p>
+<p class="small muted">Other levels: 90% → 1.64, 99% → 2.58.</p>
+:::
+::::
+
+::: notes
+1.96 is the 97.5% quantile of the standard normal. With only 14 years the t-distribution
+gives 2.16, a slightly wider interval; 1.96 is the large-sample value, and the bootstrap avoids the choice.
+:::
+
+## A confidence interval for Lund
+
+Put in the numbers for 1997–2010:
+
+$$\bar x \pm 1.96\,\operatorname{SE} = 8.89 \pm 1.96 \cdot 0.17 = [8.56,\ 9.22] \text{ °C}$$
+
+<img src="../../img/statistics/intervals.svg" style="max-height:260px" alt="20 simulated 95% intervals; 19 contain the true mean, one misses">
+
+<p class="small">The <b>interval</b> is random, $\mu$ is fixed. "95%" is a property of the method: of 20 new samples, about 19 intervals cover $\mu$ and 1 misses.</p>
 
 ## The difference, with its uncertainty
 
-$$\operatorname{SE}_{\text{diff}} = \sqrt{\frac{s_a^2}{n_a} + \frac{s_b^2}{n_b}} = 0.23 \qquad 0.82 \pm 1.96 \cdot 0.23 = [0.37,\ 1.27] \text{ °C}$$
+- **Estimate:** $\bar x_b - \bar x_a = 9.71 - 8.89 = 0.82$ °C (2011–2025 minus 1997–2010).
+- **Its SE:** for independent means the variances add, $\operatorname{Var}(\bar X_b - \bar X_a) = \frac{\sigma_b^2}{n_b} + \frac{\sigma_a^2}{n_a}$, so
+
+$$\operatorname{SE}_{\text{diff}} = \sqrt{\frac{s_b^2}{n_b} + \frac{s_a^2}{n_a}} = \sqrt{\frac{0.62^2}{15} + \frac{0.62^2}{14}} = 0.23 \text{ °C}$$
+
+- **Interval:** $0.82 \pm 1.96 \cdot 0.23 = [0.37,\ 1.27]$ °C.
 
 The whole interval is above zero: consistent with warming of 0.4 to 1.3 °C, **not** with no warming.
 
 ## The same, by computer: the bootstrap
 
-<img src="../../img/statistics/bootstrap.svg" style="max-height:330px" alt="Histogram of the difference in 10,000 resampled datasets, with the middle 95% marked">
+:::: cols
+::: {}
+**What is done**
 
-Resample the years with replacement, 10,000 times; the middle 95% of the differences is the interval. **No formula needed**, and it works for almost any statistic.
+1. Draw 14 years **from the 14 of 1997–2010, with replacement**: some years twice, some not at all.
+2. Do the same for the 15 years of 2011–2025.
+3. Compute the difference of the two means.
+4. Repeat **10,000 times**.
+5. The middle 95% of the 10,000 differences is the interval: **[0.40, 1.26]** °C.
+:::
+::: {}
+::: resample
+<div><span class="lab">data</span><span>1997</span><span>1998</span><span>1999</span><span>2000</span><span>…</span><span>2010</span></div>
+<div><span class="lab">draw 1</span><span>1998</span><span class="dup">1998</span><span>2000</span><span>1997</span><span>…</span><span>2004</span></div>
+<div><span class="lab">draw 2</span><span>2010</span><span>1999</span><span>2003</span><span class="dup">2003</span><span>…</span><span>1997</span></div>
+:::
+<img src="../../img/statistics/bootstrap.svg" style="max-height:200px" alt="Histogram of the difference in 10,000 resampled datasets, with the middle 95% marked">
+:::
+::::
 
-## Could it be chance? A test
+<p class="small muted">Why it works: the resampled datasets vary about as much as new real data would. No formula needed, and it works for almost any statistic.</p>
 
-$H_0$: no difference. Then $\;z = \dfrac{0.82}{0.23} = 3.6\;$ and $\;p = P(|Z| \ge 3.6) \approx 0.0003$.
+## Could it be chance? A test, step by step
 
-<img src="../../img/statistics/permutation.svg" style="max-height:290px" alt="Differences when the years are shuffled between the periods at random; the observed difference is far in the tail">
+:::: cols
+::: {}
+1. **Hypothesis** $H_0$: $\mu_b = \mu_a$. No warming: the 0.82 °C is weather alone.
+2. **Test statistic:** how many SEs is the difference from 0? $z = \dfrac{0.82 - 0}{0.23} = 3.6$.
+3. **If $H_0$ is true**, $Z \approx N(0,1)$: beyond ±1.96 only 5% of the time.
+4. **p-value:** $P(|Z| \ge 3.6) \approx 0.0003$. Without warming, a difference this large would turn up about 3 times in 10,000.
+5. **Conclusion:** $p < 0.05$, so we reject $H_0$. Same as: 0 is outside the 95% interval.
+:::
+::: {}
+<img src="../../img/statistics/z-test.svg" alt="Standard normal curve under H0, with ±1.96 dashed and the observed z = 3.6 far in the right tail">
+:::
+::::
 
-<p class="small">By computer: shuffle the years between the periods; how often is the difference as large? About 1 in 1,000.</p>
+## The same test, by computer: shuffling
+
+:::: cols
+::: {}
+**What is done**
+
+<p class="intro">If $H_0$ is true, it doesn't matter which period a year belongs to. So:</p>
+
+1. Put all 29 years in one pile.
+2. Deal them out **at random**: 14 to "1997–2010", 15 to "2011–2025".
+3. Compute the difference of the two means.
+4. Repeat **10,000 times**.
+5. How often is the difference at least as large as 0.82 °C? About **1 in 1,000**: $p \approx 0.001$.
+:::
+::: {}
+<img src="../../img/statistics/permutation.svg" alt="Differences when the years are shuffled between the periods at random; the observed difference is far in the tail">
+
+<p class="small muted">No normal distribution needed. Both ways, $p$ is far below 0.05.</p>
+:::
+::::
+
+::: notes
+The normal approximation gives 0.0003, the shuffle 0.001: with 29 years they differ a little,
+but both say the same thing.
+:::
 
 ## What a p-value is not
 
@@ -193,7 +294,7 @@ $H_0$: no difference. Then $\;z = \dfrac{0.82}{0.23} = 3.6\;$ and $\;p = P(|Z| \
 
 <img src="../../img/statistics/trend.svg" alt="Lund annual mean temperature with a fitted straight line">
 
-<p>Slope <b>0.54 °C per decade</b> (95% interval 0.27 to 0.80), $r = 0.62$. Correlation is not causation: here the cause comes from physics, not from this data.</p>
+<p>Slope <b>0.54 °C per decade</b> (95% interval 0.28 to 0.79), $r = 0.62$. Correlation is not causation: here the cause comes from physics, not from this data.</p>
 
 ## The many-tests trap
 

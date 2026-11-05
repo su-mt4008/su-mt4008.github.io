@@ -10,7 +10,7 @@
   <meta name="generator" content="quarto-1.8.25">
 
   <meta name="author" content="Per Alexandersson and Taariq Nazar">
-  <title>From a question to an answer anyone can check</title>
+  <title>Introduction to Statistical Data Processing</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
@@ -29,7 +29,7 @@
       vertical-align: middle;
     }
   </style>
-  <link rel="stylesheet" href="../site_libs/revealjs/dist/theme/quarto-da0446bcae4605be1bb550f88e8f39b8.css">
+  <link rel="stylesheet" href="../site_libs/revealjs/dist/theme/quarto-07a7cab5ec89dbaf9451e784d07c89ef.css">
   <link href="../site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
   <link href="../site_libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
   <link href="../site_libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
@@ -130,8 +130,8 @@
     <div class="slides">
 
 <section id="title-slide" class="quarto-title-block center">
-  <h1 class="title">From a question to an answer anyone can check</h1>
-  <p class="subtitle">MT4008 Statistical Data Processing · Introduction</p>
+  <h1 class="title">Introduction to Statistical Data Processing</h1>
+  <p class="subtitle">MT4008</p>
 
 <div class="quarto-title-authors">
 <div class="quarto-title-author">
@@ -143,48 +143,27 @@ Per Alexandersson and Taariq Nazar
 
   <p class="date">Thursday 5 November 2026</p>
 </section>
-<section id="three-questions" class="slide level2">
-<h2>Three questions</h2>
-<div class="trio">
+<section id="overview" class="slide level2">
+<h2>Overview</h2>
+<div class="agenda">
 <div>
-<p class="kicker">
-Small
-</p>
-<p class="q">
-Are baby names a fashion?
-</p>
-<p class="muted">
-One table from Statistics Sweden.
-</p>
+<span class="n">1</span><b>The data science cycle</b><span class="muted">the steps every project in this course goes through</span>
 </div>
 <div>
-<p class="kicker">
-Medium
-</p>
-<p class="q">
-Why does electricity cost more in Malmö than in Luleå?
-</p>
-<p class="muted">
-Electricity prices, put side by side with the weather.
-</p>
+<span class="n">2</span><b>Course aims</b><span class="muted">what you will be able to do by January</span>
 </div>
 <div>
-<p class="kicker">
-Ambitious
-</p>
-<p class="q">
-Is AI a bubble?
-</p>
-<p class="muted">
-Three sources, and a question that first has to be made measurable.
-</p>
+<span class="n">3</span><b>Motivating examples</b><span class="muted">three projects, small, medium and ambitious, each a full report</span>
+</div>
+<div>
+<span class="n">4</span><b>How the course works</b><span class="muted">weeks, assignments, the project, the exam</span>
 </div>
 </div>
-<p class="small muted" style="margin-top:1.5em">
-Each is a complete report you can download and rerun.
+<p class="small muted" style="margin-top:1.4em">
+After the break: week 1, reproducible analysis and the statistics you need for HW1.
 </p>
 <aside class="notes">
-<p>Open with the questions, not the course. Ask the room: which of these could you answer today, with a laptop? By the end of the course: all three. Each is a full report you can clone.</p>
+<p>The plan for today. The cycle first, because every example and every assignment is told along it.</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -289,6 +268,96 @@ After the cycle in Wickham, Çetinkaya-Rundel &amp; Grolemund, <i>R for Data Sci
           display:block!important;
       }</style></aside>
 </section>
+<section id="course-aims" class="slide level2">
+<h2>Course aims</h2>
+<p class="big">
+From a question to an answer anyone can check.
+</p>
+<p class="muted">
+You will write code, but code is not the point. The science is.
+</p>
+<div class="twocol aims">
+<ul>
+<li>Turn a vague question into one that <strong>data can answer</strong>, and choose methods that fit it.</li>
+<li><strong>Find, collect and combine</strong> data from files, databases, APIs and the web.</li>
+<li><strong>Clean, explore and visualise</strong> data, and see when a pattern might mislead.</li>
+<li>Draw conclusions the evidence supports, with their <strong>uncertainty and limitations</strong>.</li>
+<li>Make every analysis <strong>reproducible</strong>: Git and GitHub, a clear README, a workflow others can run.</li>
+<li>Work in a <strong>team</strong> on shared code: branches, pull requests, code review.</li>
+<li><strong>Communicate</strong> results honestly, clearly and usefully.</li>
+</ul>
+</div>
+<p class="more">
+More: <a href="../../about#what-you-ll-be-able-to-do">Course information</a>
+</p>
+<aside class="notes">
+<p>One aim per step of the cycle, plus working together and telling others. The three projects that follow show what this looks like at three levels of ambition.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="motivating-examples" class="slide level2">
+<h2>Motivating examples</h2>
+<div class="trio">
+<div>
+<p class="kicker">
+Small
+</p>
+<p class="q">
+Are baby names a fashion?
+</p>
+<p class="muted">
+One table from Statistics Sweden.
+</p>
+</div>
+<div>
+<p class="kicker">
+Medium
+</p>
+<p class="q">
+Why does electricity cost more in Malmö than in Luleå?
+</p>
+<p class="muted">
+Electricity prices, put side by side with the weather.
+</p>
+</div>
+<div>
+<p class="kicker">
+Ambitious
+</p>
+<p class="q">
+Is AI a bubble?
+</p>
+<p class="muted">
+Three sources, and a question that first has to be made measurable.
+</p>
+</div>
+</div>
+<p class="small muted" style="margin-top:1.5em">
+Each is a complete report you can download and rerun.
+</p>
+<aside class="notes">
+<p>Ask the room: which of these could you answer today, with a laptop? By the end of the course: all three. Each is a full report you can clone.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
 <section>
 <section id="are-baby-names-a-fashion" class="title-slide slide level1 divider center">
 <h1>Are baby names a fashion?</h1>
@@ -296,8 +365,43 @@ After the cycle in Wickham, Çetinkaya-Rundel &amp; Grolemund, <i>R for Data Sci
 Small project · one source
 </p>
 </section>
-<section id="the-workflow" class="slide level2">
-<h2>The workflow</h2>
+<section id="aim" class="slide level2" data-project="Baby names">
+<h2>Aim</h2>
+<p class="lead">
+Are baby names a fashion: do they come and go, and come back?
+</p>
+<div class="cols">
+<div>
+<ul>
+<li>A fashion is popular, then forgotten, then popular again.</li>
+<li>Parents often name children after grandparents or great-grandparents. If names are a fashion, a name should <strong>come back after about three generations</strong>.</li>
+</ul>
+</div>
+<div class="fragment">
+<p><strong>What we need to find out</strong></p>
+<ul>
+<li>How common each name was, <strong>every year for 100 years</strong>.</li>
+<li>Which names were common, then rare, then common again.</li>
+<li>What the data can and <strong>cannot</strong> tell us.</li>
+</ul>
+</div>
+</div>
+<aside class="notes">
+<p>Before anything is done: what are we trying to find out, and what would count as an answer?</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="overview-1" class="slide level2" data-project="Baby names">
+<h2>Overview</h2>
 <div class="workflow">
 <div>
 <span class="kicker">Data</span><b>Statistics Sweden (SCB)</b>
@@ -331,7 +435,7 @@ turn counts into shares, so years can be compared
 plot each name over 100 years
 </li>
 <li>
-a comeback score: common in the 1920s, rare in 1960–80, common again after 2005
+a comeback score: common in 1922–35, rare in 1960–80, common again in 2005–21
 </li>
 </ul>
 </div>
@@ -342,7 +446,7 @@ a comeback score: common in the 1920s, rare in 1960–80, common again after 200
 Ella, Elsa, Alice, Astrid, Ebba top the score
 </li>
 <li>
-the top 10 names: 59% of a year in 1922, 24% in 2021
+the top 10 names: 59% of those counted for 1922, 24% for 2021
 </li>
 <li>
 only the living are counted
@@ -367,8 +471,47 @@ only the living are counted
           display:block!important;
       }</style></aside>
 </section>
-<section id="names-skip-three-generations" class="slide level2">
-<h2>Names skip three generations</h2>
+<section id="measures" class="slide level2" data-project="Baby names">
+<h2>Measures</h2>
+<div class="defs two">
+<div>
+<b>Share of a birth year</b>
+<p>
+How common a name is among the babies born in one year.
+</p>
+<p class="muted">
+People born that year with the name, divided by everyone born that year with one of the 200 names in the table. A share, not a count, so years with many or few births can be compared.
+</p>
+</div>
+<div>
+<b>Comeback score</b>
+<p>
+How well a name fits “common, then rare, then common again”.
+</p>
+<p class="muted">
+Its share in 1922–35 divided by its share in 1960–80, and its share in 2005–21 divided by its share in 1960–80; the score is the smaller of the two. High only if the name was common both before and after the dip.
+</p>
+</div>
+</div>
+<aside class="notes">
+<p>Two numbers, defined before any graph. The comeback score takes the smaller ratio, so a name has to be common on both sides of the dip to score high.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="results" class="slide level2" data-project="Baby names">
+<h2>Results</h2>
+<p class="lead">
+Names skip three generations.
+</p>
 
 <img src="../../img/introduction/names-comebacks.svg" alt="Share of births named Elsa, Alice and Astrid, 1922–2021: high in the 1920s, almost zero in 1960–80, high again after 2000" class="r-stretch"><p class="small">
 Share of each birth year with the name, among the 200 most common names in Sweden. Data: SCB.
@@ -387,10 +530,70 @@ Share of each birth year with the name, among the 200 most common names in Swede
           display:block!important;
       }</style></aside>
 </section>
-<section id="only-the-living-are-counted" class="slide level2">
-<h2>Only the living are counted</h2>
-<svg class="fd" viewbox="0 0 1100 300" role="img" xmlns="http://www.w3.org/2000/svg">
-<title>Who is counted: of everyone born in a year, only those alive in Sweden in 2021 with one of the 200 most common names</title>
+<section id="limitations" class="slide level2" data-project="Baby names">
+<h2>Limitations</h2>
+<p class="lead">
+The table only shows people alive today, with names common today.
+</p>
+<div class="defs two lim">
+<div>
+<b>Only the living are counted</b>
+<p>
+SCB counts people <b>alive in Sweden in 2021</b>, by year of birth. The dead and the emigrated are gone.
+</p>
+<p class="muted">
+Born 1922: only <b>1,543</b> people left in the table. Born 1970: <b>82,020</b>. The 1920s shares rest on few people, and SCB hides counts under 10.
+</p>
+</div>
+<div>
+<b>Only names common today</b>
+<p>
+The 200 names are the most common in Sweden <b>today</b>. A 1920s name that never came back is not in the list.
+</p>
+<p class="muted">
+For 1922, only <b>44</b> of the 200 names are visible. Fashions that died for good can’t be seen, so the data <b>favours finding comebacks</b>.
+</p>
+</div>
+<div>
+<b>Shares of 200 names, not of all babies</b>
+<p>
+A share is out of the people with one of these 200 names, not out of everyone born that year.
+</p>
+<p class="muted">
+For 2021 the table has <b>26,599</b> people: most babies today have names outside the list.
+</p>
+</div>
+<div>
+<b>Our choice of periods</b>
+<p>
+The score uses 1922–35, 1960–80 and 2005–21: our choice.
+</p>
+<p class="muted">
+Checked: moving the cut-offs by about five years keeps <b>9–10</b> of the same top ten. This one matters little.
+</p>
+</div>
+</div>
+<p class="small" style="margin-top:.8em">
+So: these names really did come back, but the data can’t tell us how common comebacks are, or <b>why</b> names come back.
+</p>
+<aside class="notes">
+<p>Survivorship bias is the big one: the table is a picture of who is alive today, so it can show names that came back but not names that disappeared. The cut-off check is an example of testing your own choice and reporting that it holds.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="workflow" class="slide level2 diagram" data-project="Baby names">
+<h2>Workflow</h2>
+<svg class="fd" viewbox="0 0 1160 420" role="img" xmlns="http://www.w3.org/2000/svg">
+<title>Workflow of the baby names project: one SCB table, cleaned into shares, a comeback score, and a conclusion with its limitation</title>
 <style>
 .fd text{font-family:var(--font-sans,'IBM Plex Sans',system-ui,sans-serif);fill:var(--c-text,#222);font-size:15px}
 .fd .muted{fill:var(--c-muted,#777);font-size:13px}
@@ -412,25 +615,124 @@ Share of each birth year with the name, among the 200 most common names in Swede
 .fd .bar{fill:var(--c-faint,#bbb)}
 .fd .bar.hot{fill:var(--c-accent,#d6453d)}
 </style>
-<rect class="bar" x="20" y="20" width="1060" height="58" rx="4" opacity="0.55"></rect>
-<text x="40" y="46" text-anchor="start">Everyone born in Sweden in 1925</text>
-<text class="muted" x="40" y="66" text-anchor="start">the people the question is about</text>
-<rect class="bar" x="20" y="112" width="445" height="58" rx="4" opacity="0.55"></rect>
-<text x="40" y="138" text-anchor="start">… still alive and living in Sweden in 2021</text>
-<text class="muted" x="40" y="158" text-anchor="start">deaths and emigration remove most</text>
-<rect class="bar hot" x="20" y="204" width="254" height="58" rx="4" opacity="1"></rect>
-<text class="hot" x="290" y="230" text-anchor="start">… with one of today's 200 most common names</text>
-<text class="muted" x="290" y="250" text-anchor="start">what the SCB table counts</text>
-<text class="muted" x="1080" y="292" text-anchor="end">Illustration, not to scale</text>
+<style>
+.fd .ttl{font-size:16px;font-weight:600}
+.fd .det{font-size:13.5px;fill:var(--c-muted,#777)}
+.fd text.ttl.hot,.fd text.colhead.hot,.fd text.worknote{fill:var(--c-accent,#d6453d)}
+.fd .colhead{fill:var(--c-muted,#777);font-size:12px;font-weight:600;letter-spacing:.07em}
+.fd .worknote{font-size:13px;font-weight:600}
+.fd .file{font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:12.5px;fill:var(--c-muted,#777)}
+</style>
+<text class="colhead" x="0" y="30" text-anchor="start">1 · QUESTION</text>
+<text class="colhead" x="230" y="30" text-anchor="start">2 · DATA</text>
+<text class="colhead" x="490" y="30" text-anchor="start">3 · CLEANING</text>
+<text class="colhead" x="736" y="30" text-anchor="start">4 · EXPLORATION ⇄ ANALYSIS</text>
+<text class="colhead hot" x="982" y="30" text-anchor="start">5 · CONCLUSIONS</text>
+<rect class="box" x="0" y="141" width="184" height="126" rx="7"></rect>
+<text class="ttl" x="13" y="171" text-anchor="start">Are baby names a</text>
+<text class="ttl" x="13" y="191" text-anchor="start">fashion?</text>
+<text class="det" x="13" y="217" text-anchor="start">Do names come back</text>
+<text class="det" x="13" y="235" text-anchor="start">after three</text>
+<text class="det" x="13" y="253" text-anchor="start">generations?</text>
+<rect class="box" x="490" y="118" width="200" height="172" rx="7"></rect>
+<text class="ttl" x="503" y="148" text-anchor="start">A tidy table</text>
+<text class="det" x="503" y="174" text-anchor="start">reshape to one row per</text>
+<text class="det" x="503" y="192" text-anchor="start">name and year</text>
+<text class="det" x="503" y="216" text-anchor="start">handle SCB's hidden</text>
+<text class="det" x="503" y="234" text-anchor="start">small counts</text>
+<text class="det" x="503" y="258" text-anchor="start">counts → shares of each</text>
+<text class="det" x="503" y="276" text-anchor="start">year</text>
+<rect class="box hot" x="982" y="130" width="178" height="148" rx="7"></rect>
+<text class="ttl hot" x="995" y="160" text-anchor="start">Yes, with a catch</text>
+<text class="det" x="995" y="186" text-anchor="start">Ella, Elsa, Alice,</text>
+<text class="det" x="995" y="204" text-anchor="start">Astrid top the score</text>
+<text class="det" x="995" y="228" text-anchor="start">limitation: only</text>
+<text class="det" x="995" y="246" text-anchor="start">people alive in 2021</text>
+<text class="det" x="995" y="264" text-anchor="start">are counted</text>
+<rect class="box" x="230" y="147" width="214" height="114" rx="7"></rect>
+<text class="ttl" x="243" y="177" text-anchor="start">Statistics Sweden</text>
+<text class="ttl" x="243" y="197" text-anchor="start">(SCB)</text>
+<text class="det" x="243" y="223" text-anchor="start">the 200 most common names,</text>
+<text class="det" x="243" y="247" text-anchor="start">by year of birth 1922–2021</text>
+<path class="edge" d="M184,204.0 L221.0,204.0"></path>
+<path class="tip" d="M230.0,204.0 L219.0,198.0 L219.0,210.0 Z"></path>
+<path class="edge" d="M444,204.0 L481.0,204.0"></path>
+<path class="tip" d="M490.0,204.0 L479.0,198.0 L479.0,210.0 Z"></path>
+<rect class="box" x="736" y="72" width="200" height="108" rx="7"></rect>
+<text class="ttl" x="749" y="102" text-anchor="start">Each name over 100</text>
+<text class="ttl" x="749" y="122" text-anchor="start">years</text>
+<text class="det" x="749" y="148" text-anchor="start">plot the share per birth</text>
+<text class="det" x="749" y="166" text-anchor="start">year</text>
+<rect class="box" x="736" y="230" width="200" height="106" rx="7"></rect>
+<text class="ttl" x="749" y="260" text-anchor="start">A comeback score</text>
+<text class="det" x="749" y="286" text-anchor="start">common in 1922–35, rare</text>
+<text class="det" x="749" y="304" text-anchor="start">in 1960–80, common again</text>
+<text class="det" x="749" y="322" text-anchor="start">in 2005–21</text>
+<path class="edge" d="M690,204.0 C713.0,204.0 713.0,126.0 727,126.0"></path>
+<path class="tip" d="M736.0,126.0 L725.0,120.0 L725.0,132.0 Z"></path>
+<path class="edge" d="M936,283.0 C959.0,283.0 959.0,204.0 973,204.0"></path>
+<path class="tip" d="M982.0,204.0 L971.0,198.0 L971.0,210.0 Z"></path>
+<path class="edge hot" d="M770,180.0 L770.0,221.0"></path>
+<path class="tip hot" d="M770.0,230.0 L776.0,219.0 L764.0,219.0 Z"></path>
+<path class="edge hot" d="M902,230.0 L902.0,189.0"></path>
+<path class="tip hot" d="M902.0,180.0 L896.0,191.0 L908.0,191.0 Z"></path>
+<text class="muted hot" x="836" y="210" text-anchor="middle">round and round</text>
+<text class="worknote" x="982" y="48" text-anchor="start">where the work was</text>
+<text class="file" x="337" y="360" text-anchor="middle">fetch.py → data/</text>
+<text class="file" x="825" y="360" text-anchor="middle">report.qmd → report.md  (cleaning, analysis, figures, text)</text>
+<rect class="box" x="0" y="376" width="1160" height="40" rx="8"></rect>
+<text class="colhead" x="16" y="401" text-anchor="start">REPRODUCIBLE THROUGHOUT</text>
+<text class="det" x="236" y="401" text-anchor="start">one command reruns it all:</text>
+<text class="file" x="410" y="401" text-anchor="start">uv run quarto render</text>
 </svg>
 
-<ul>
-<li>The table counts people <strong>alive in Sweden in 2021</strong>, by year of birth: the dead and the emigrated are gone.</li>
-<li>It only lists names common <strong>today</strong>, so a 1920s name that never came back is missing.</li>
-<li>So the data is tilted towards finding comebacks, and the report says so.</li>
-</ul>
+<p class="small muted">
+One source, one straight line. <a href="https://github.com/su-mt4008/lecture-demos/tree/main/introduction/names">The report on GitHub</a>
+</p>
 <aside class="notes">
-<p>Survivorship bias. In this project the real work was in the conclusion and its limitation.</p>
+<p>Read it left to right: the question, the one source, what cleaning did, the analysis, and the conclusion with its limitation. The red step is where the work was.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section></section>
+<section>
+<section id="why-does-electricity-cost-more-in-malmö-than-in-luleå" class="title-slide slide level1 divider center">
+<h1>Why does electricity cost more in Malmö than in Luleå?</h1>
+<p class="muted">
+Medium project · two sources combined
+</p>
+</section>
+<section id="aim-1" class="slide level2" data-project="Electricity prices">
+<h2>Aim</h2>
+<p class="lead">
+How much more does the south pay for electricity, and is the weather the reason?
+</p>
+<div class="cols">
+<div>
+<ul>
+<li>Electricity in Malmö usually costs more than in Luleå, although it is the same country and the same market.</li>
+<li>One explanation: when there is <strong>little wind</strong> in the south, power has to come from the north, and the grid can’t carry enough.</li>
+</ul>
+</div>
+<div class="fragment">
+<p><strong>What we need to find out</strong></p>
+<ul>
+<li>How big the <strong>gap</strong> between Malmö and Luleå is, day by day.</li>
+<li>Whether the gap is <strong>bigger on calm days</strong> than on windy days.</li>
+<li><strong>How sure</strong> we can be, and <strong>how much</strong> of the gap the weather explains.</li>
+</ul>
+</div>
+</div>
+<aside class="notes">
+<p>The question and what would answer it, before any data. The next slide is the background needed to follow it: the four price zones.</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -443,81 +745,74 @@ Share of each birth year with the name, among the 200 most common names in Swede
           display:block!important;
       }</style></aside>
 </section>
-<section id="what-was-done" class="slide level2 diagram">
-<h2>What was done</h2>
-<svg class="lc" viewbox="0 0 1100 240" role="img" xmlns="http://www.w3.org/2000/svg">
-<title>Life cycle of the baby names project</title>
+<section id="background" class="slide level2" data-project="Electricity prices">
+<h2>Background</h2>
+<p class="lead">
+Four zones, one country.
+</p>
+<div class="cols">
+<div>
+<ul>
+<li>Since 2011 Sweden has <strong>four price zones</strong>, SE1 in the north to SE4 in the south.</li>
+<li>Much of the power is produced in the north, much of it used in the south.</li>
+<li>When the grid can’t carry enough south, the prices split.</li>
+</ul>
+</div>
+<div>
+<svg class="fd" viewbox="0 0 640 330" role="img" xmlns="http://www.w3.org/2000/svg">
+<title>Mean spot price per price zone, 2023–2025, from north to south</title>
 <style>
-.lc text{font-family:var(--font-sans,'IBM Plex Sans',system-ui,sans-serif);fill:var(--c-text,#222)}
-.lc .step{font-size:13px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;fill:var(--c-muted,#777)}
-.lc .note{font-size:14px}
-.lc .src{font-size:13px;fill:var(--c-muted,#777)}
-.lc text.hot{fill:var(--c-accent,#d6453d)}
-.lc .line{stroke:var(--c-faint,#bbb);stroke-width:2;fill:none}
-.lc .node{fill:var(--c-bg,#fff);stroke:var(--c-text,#222);stroke-width:2}
-.lc .node.hot{fill:var(--c-accent,#d6453d);stroke:var(--c-accent,#d6453d)}
-.lc .dot{fill:var(--c-text,#222)}
-.lc .band{fill:var(--c-tint,#f4f4f4);stroke:var(--c-line,#ddd)}
-.lc .bandtext{font-size:13px;fill:var(--c-muted,#777)}
-.lc .bandtext tspan.head{font-weight:600;letter-spacing:.06em}
-.lc .loop{stroke:var(--c-accent,#d6453d);stroke-width:1.6;fill:none}
-.lc .looptip{fill:var(--c-accent,#d6453d)}
-.lc text.loopnote{font-size:12px;fill:var(--c-accent,#d6453d)}
+.fd text{font-family:var(--font-sans,'IBM Plex Sans',system-ui,sans-serif);fill:var(--c-text,#222);font-size:15px}
+.fd .muted{fill:var(--c-muted,#777);font-size:13px}
+.fd .lg{font-size:19px;font-weight:600}
+.fd .lgm{font-size:15px;fill:var(--c-muted,#777)}
+.fd .head{fill:var(--c-muted,#777);font-size:12px;font-weight:600;letter-spacing:.07em}
+.fd .big{font-family:'IBM Plex Serif',Georgia,serif;font-size:22px}
+.fd text.hot,.fd .hot text{fill:var(--c-accent,#d6453d)}
+.fd .box{fill:var(--c-tint,#f4f4f4);stroke:var(--c-line,#ddd);stroke-width:1.5}
+.fd .box.hot{stroke:var(--c-accent,#d6453d);stroke-width:2}
+.fd .box.solid{fill:var(--c-text,#222);stroke:none}
+.fd .solid-text{fill:var(--c-bg,#fff)}
+.fd .edge{stroke:var(--c-faint,#bbb);stroke-width:2;fill:none}
+.fd .edge.hot{stroke:var(--c-accent,#d6453d)}
+.fd .edge.dashed{stroke-dasharray:6 5;stroke:var(--c-muted,#888);stroke-width:1.6}
+.fd .tip{fill:var(--c-faint,#bbb)}
+.fd .tip.hot{fill:var(--c-accent,#d6453d)}
+.fd .node{fill:var(--c-bg,#fff);stroke:var(--c-text,#222);stroke-width:2}
+.fd .bar{fill:var(--c-faint,#bbb)}
+.fd .bar.hot{fill:var(--c-accent,#d6453d)}
 </style>
-<path class="line" d="M80,104 H1020"></path>
-<text class="step" x="80.0" y="30" text-anchor="middle">Question</text>
-<circle class="node" cx="80.0" cy="104" r="7"></circle>
-<text class="note" x="80.0" y="140" text-anchor="middle">Do names come</text>
-<text class="note" x="80.0" y="160" text-anchor="middle">back after</text>
-<text class="note" x="80.0" y="180" text-anchor="middle">three generations?</text>
-<text class="step" x="228.03149606299215" y="30" text-anchor="middle">Data</text>
-<circle class="node" cx="228.03149606299215" cy="104" r="7"></circle>
-<text class="note" x="228.03149606299215" y="140" text-anchor="middle">SCB: 200 names by</text>
-<text class="note" x="228.03149606299215" y="160" text-anchor="middle">year of birth</text>
-<text class="step" x="553.7007874015749" y="30" text-anchor="middle">Cleaning</text>
-<circle class="node" cx="553.7007874015749" cy="104" r="7"></circle>
-<text class="note" x="553.7007874015749" y="140" text-anchor="middle">reshape the table,</text>
-<text class="note" x="553.7007874015749" y="160" text-anchor="middle">handle gaps,</text>
-<text class="note" x="553.7007874015749" y="180" text-anchor="middle">counts → shares</text>
-<text class="step" x="701.732283464567" y="30" text-anchor="middle">Exploration</text>
-<circle class="node" cx="701.732283464567" cy="104" r="7"></circle>
-<text class="note" x="701.732283464567" y="140" text-anchor="middle">share of each</text>
-<text class="note" x="701.732283464567" y="160" text-anchor="middle">birth year</text>
-<text class="step" x="871.9685039370079" y="30" text-anchor="middle">Analysis</text>
-<circle class="node" cx="871.9685039370079" cy="104" r="7"></circle>
-<text class="note" x="871.9685039370079" y="140" text-anchor="middle">a comeback</text>
-<text class="note" x="871.9685039370079" y="160" text-anchor="middle">score</text>
-<text class="step hot" x="1020.0" y="30" text-anchor="middle">Conclusions</text>
-<circle class="node hot" cx="1020.0" cy="104" r="7"></circle>
-<text class="note hot" x="1020.0" y="140" text-anchor="middle">yes: Elsa, Alice,</text>
-<text class="note hot" x="1020.0" y="160" text-anchor="middle">Astrid … but only</text>
-<text class="note hot" x="1020.0" y="180" text-anchor="middle">the living are counted</text>
-<path class="loop" d="M862.9685039370079,95 C841.9685039370079,58 731.732283464567,58 714.732283464567,90"></path>
-<path class="looptip" d="M710.732283464567,95 L720.732283464567,89 L713.732283464567,83 Z"></path>
-<text class="loopnote" x="786.8503937007874" y="62" text-anchor="middle">round and round</text>
-<rect class="band" x="30" y="200" width="1040" height="30" rx="15"></rect>
-<text class="bandtext" x="550.0" y="220" text-anchor="middle"><tspan class="head">REPRODUCIBLE THROUGHOUT</tspan>  ·  fetch.py + report.qmd</text>
+<text class="lg" x="178" y="64" text-anchor="end">SE1  Luleå</text>
+<rect class="bar" x="192" y="38" width="156" height="40" rx="3"></rect>
+<text class="lg" x="358" y="64" text-anchor="start">0.31 kr</text>
+<text class="lg" x="178" y="136" text-anchor="end">SE2  Sundsvall</text>
+<rect class="bar" x="192" y="110" width="155" height="40" rx="3"></rect>
+<text class="lg" x="357" y="136" text-anchor="start">0.31 kr</text>
+<text class="lg" x="178" y="208" text-anchor="end">SE3  Stockholm</text>
+<rect class="bar" x="192" y="182" width="254" height="40" rx="3"></rect>
+<text class="lg" x="456" y="208" text-anchor="start">0.51 kr</text>
+<text class="lg hot" x="178" y="280" text-anchor="end">SE4  Malmö</text>
+<rect class="bar hot" x="192" y="254" width="330" height="40" rx="3"></rect>
+<text class="lg hot" x="532" y="280" text-anchor="start">0.66 kr</text>
+<path class="edge" d="M40,40 L40.0,291.0"></path>
+<path class="tip" d="M40.0,300.0 L46.0,289.0 L34.0,289.0 Z"></path>
+<text class="muted" x="52" y="44">north</text><text class="muted" x="52" y="300">south</text>
 </svg>
 
 <p class="small muted">
-One source, one straight line. The red step is where the work was. <a href="https://github.com/su-mt4008/lecture-demos/tree/main/introduction/names">The report on GitHub</a>
+Mean spot price 2023–2025. Data: Nord Pool via elprisetjustnu.se.
 </p>
-</section></section>
-<section>
-<section id="why-does-electricity-cost-more-in-malmö-than-in-luleå" class="title-slide slide level1 divider center">
-<h1>Why does electricity cost more in Malmö than in Luleå?</h1>
-<p class="muted">
-Medium project · two sources combined
-</p>
+</div>
+</div>
 </section>
-<section id="the-workflow-1" class="slide level2">
-<h2>The workflow</h2>
+<section id="overview-2" class="slide level2" data-project="Electricity prices">
+<h2>Overview</h2>
 <div class="workflow">
 <div>
 <span class="kicker">Data</span><b>Two free online sources</b>
 <ul>
 <li>
-electricity prices for the four zones, every hour for three years
+electricity prices for the four zones, every hour (every 15 minutes from October 2025), 2023–2025
 </li>
 <li>
 SMHI: wind and temperature in Malmö
@@ -574,7 +869,7 @@ but weather explains only about a fifth of it
 <code>electricity/fetch_prices.py + fetch_weather.py</code> → <code>electricity/data/</code> → <code>electricity/report.qmd</code> → <code>report.md</code><span>one command: <code>uv run quarto render</code></span>
 </p>
 <aside class="notes">
-<p>Two sources, put side by side by date. The cleaning is where the work was; the next slides show it.</p>
+<p>Two sources, put side by side by date. The cleaning is where the work was; the next slide shows it.</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -587,85 +882,11 @@ but weather explains only about a fifth of it
           display:block!important;
       }</style></aside>
 </section>
-<section id="four-zones-one-country" class="slide level2">
-<h2>Four zones, one country</h2>
-<div class="cols">
-<div>
-<ul>
-<li>Since 2011 Sweden has <strong>four price zones</strong>, SE1 in the north to SE4 in the south.</li>
-<li>Much of the power is produced in the north, much of it used in the south.</li>
-<li>When the grid can’t carry enough south, the prices split.</li>
-</ul>
-</div>
-<div>
-<svg class="fd" viewbox="0 0 640 330" role="img" xmlns="http://www.w3.org/2000/svg">
-<title>Mean spot price per price zone, 2023–2025, from north to south</title>
-<style>
-.fd text{font-family:var(--font-sans,'IBM Plex Sans',system-ui,sans-serif);fill:var(--c-text,#222);font-size:15px}
-.fd .muted{fill:var(--c-muted,#777);font-size:13px}
-.fd .lg{font-size:19px;font-weight:600}
-.fd .lgm{font-size:15px;fill:var(--c-muted,#777)}
-.fd .head{fill:var(--c-muted,#777);font-size:12px;font-weight:600;letter-spacing:.07em}
-.fd .big{font-family:'IBM Plex Serif',Georgia,serif;font-size:22px}
-.fd text.hot,.fd .hot text{fill:var(--c-accent,#d6453d)}
-.fd .box{fill:var(--c-tint,#f4f4f4);stroke:var(--c-line,#ddd);stroke-width:1.5}
-.fd .box.hot{stroke:var(--c-accent,#d6453d);stroke-width:2}
-.fd .box.solid{fill:var(--c-text,#222);stroke:none}
-.fd .solid-text{fill:var(--c-bg,#fff)}
-.fd .edge{stroke:var(--c-faint,#bbb);stroke-width:2;fill:none}
-.fd .edge.hot{stroke:var(--c-accent,#d6453d)}
-.fd .edge.dashed{stroke-dasharray:6 5;stroke:var(--c-muted,#888);stroke-width:1.6}
-.fd .tip{fill:var(--c-faint,#bbb)}
-.fd .tip.hot{fill:var(--c-accent,#d6453d)}
-.fd .node{fill:var(--c-bg,#fff);stroke:var(--c-text,#222);stroke-width:2}
-.fd .bar{fill:var(--c-faint,#bbb)}
-.fd .bar.hot{fill:var(--c-accent,#d6453d)}
-</style>
-<text class="lg" x="178" y="64" text-anchor="end">SE1  Luleå</text>
-<rect class="bar" x="192" y="38" width="156" height="40" rx="3"></rect>
-<text class="lg" x="358" y="64" text-anchor="start">0.31 kr</text>
-<text class="lg" x="178" y="136" text-anchor="end">SE2  Sundsvall</text>
-<rect class="bar" x="192" y="110" width="155" height="40" rx="3"></rect>
-<text class="lg" x="357" y="136" text-anchor="start">0.31 kr</text>
-<text class="lg" x="178" y="208" text-anchor="end">SE3  Stockholm</text>
-<rect class="bar" x="192" y="182" width="254" height="40" rx="3"></rect>
-<text class="lg" x="456" y="208" text-anchor="start">0.51 kr</text>
-<text class="lg hot" x="178" y="280" text-anchor="end">SE4  Malmö</text>
-<rect class="bar hot" x="192" y="254" width="330" height="40" rx="3"></rect>
-<text class="lg hot" x="532" y="280" text-anchor="start">0.66 kr</text>
-<path class="edge" d="M40,40 L40.0,291.0"></path>
-<path class="tip" d="M40.0,300.0 L46.0,289.0 L34.0,289.0 Z"></path>
-<text class="muted" x="52" y="44">north</text><text class="muted" x="52" y="300">south</text>
-</svg>
-
-<p class="small muted">
-Mean spot price 2023–2025. Data: Nord Pool via elprisetjustnu.se.
+<section id="data-cleaning" class="slide level2" data-project="Electricity prices">
+<h2>Data cleaning</h2>
+<p class="lead">
+Where the work was.
 </p>
-</div>
-</div>
-</section>
-<section id="the-gap-month-by-month" class="slide level2">
-<h2>The gap, month by month</h2>
-
-<img src="../../img/introduction/electricity-zones.svg" alt="Monthly mean spot price in SE4 Malmö and SE1 Luleå, 2023–2025; Malmö is above Luleå almost every month" class="r-stretch"><p class="small">
-The shaded area is the gap. Is it the wind? Wind power in the south should push southern prices down.
-</p>
-<aside class="notes">
-<p>Sweden has four price zones since 2011. The gap is the shaded area. Question: how big is it, and does it go with the weather? Wind power in the south should push southern prices down.</p>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
-</section>
-<section id="where-the-work-was-cleaning" class="slide level2">
-<h2>Where the work was: cleaning</h2>
 <svg class="fd" viewbox="0 0 1180 330" role="img" xmlns="http://www.w3.org/2000/svg">
 <title>Cleaning: three raw files become one table of days</title>
 <style>
@@ -755,10 +976,90 @@ The shaded area is the gap. Is it the wind? Wind power in the south should push 
           display:block!important;
       }</style></aside>
 </section>
-<section id="calm-days-big-gap" class="slide level2">
-<h2>Calm days, big gap</h2>
+<section id="measures-1" class="slide level2" data-project="Electricity prices">
+<h2>Measures</h2>
+<div class="defs four">
+<div>
+<b>Daily price</b>
+<p>
+What electricity cost in a zone on one day.
+</p>
+<p class="muted">
+The average of the hourly (later 15-minute) prices, each weighted by how long it lasted. In kr/kWh.
+</p>
+</div>
+<div>
+<b>The gap</b>
+<p>
+How much more Malmö paid than Luleå.
+</p>
+<p class="muted">
+Malmö’s (SE4) daily price minus Luleå’s (SE1), for each day. Positive: the south paid more.
+</p>
+</div>
+<div>
+<b>Wind quarters</b>
+<p>
+Calm days compared with windy days.
+</p>
+<p class="muted">
+Sort the days by the wind in Malmö and split them into four equal groups, from the calmest quarter to the windiest.
+</p>
+</div>
+<div>
+<b>Share explained</b>
+<p>
+How much of the gap goes with the weather.
+</p>
+<p class="muted">
+Fit a straight line of the gap on wind and temperature: the share of the day-to-day ups and downs the line accounts for (R²).
+</p>
+</div>
+</div>
+<aside class="notes">
+<p>Four numbers, defined before any graph: the next slides use each of them.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="exploration" class="slide level2" data-project="Electricity prices">
+<h2>Exploration</h2>
+<p class="lead">
+The gap, month by month.
+</p>
 
-<img src="../../img/introduction/electricity-wind.svg" alt="Mean price gap by wind quarter: 0.55 SEK per kWh on the calmest days, falling to 0.15 on the windiest" class="r-stretch"><p>On calm days the gap is <strong>0.40 kr/kWh bigger</strong> than on windy days, far more than chance would give. But wind and temperature explain only <strong>18%</strong> of the day-to-day gap.</p>
+<img src="../../img/introduction/electricity-zones.svg" alt="Monthly mean spot price in SE4 Malmö and SE1 Luleå, 2023–2025; Malmö is above Luleå almost every month" class="r-stretch"><p class="small">
+The shaded area is the gap. Is it the wind? Wind power in the south should push southern prices down.
+</p>
+<aside class="notes">
+<p>The gap is the shaded area. Question: how big is it, and does it go with the weather?</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="results-1" class="slide level2" data-project="Electricity prices">
+<h2>Results</h2>
+<p class="lead">
+Calm days, big gap.
+</p>
+
+<img src="../../img/introduction/electricity-wind.svg" alt="Mean price gap by wind quarter: 0.55 SEK per kWh on the calmest days, falling to 0.15 on the windiest" class="r-stretch"><p>On the calmest quarter of days the gap is <strong>0.40 kr/kWh bigger</strong> than on the windiest quarter, far more than chance would give. But wind and temperature explain only <strong>18%</strong> of the day-to-day gap.</p>
 <aside class="notes">
 <p>“Not chance” comes from a bootstrap interval (0.34–0.47), which you will see in the second half. The 18%: the rest is the grid, nuclear maintenance and continental prices, which this data doesn’t contain. Correlation, not cause: windy days also differ in season and demand.</p>
 <style type="text/css">
@@ -773,70 +1074,116 @@ The shaded area is the gap. Is it the wind? Wind power in the south should push 
           display:block!important;
       }</style></aside>
 </section>
-<section id="what-was-done-1" class="slide level2 diagram">
-<h2>What was done</h2>
-<svg class="lc" viewbox="0 0 1100 262" role="img" xmlns="http://www.w3.org/2000/svg">
-<title>Life cycle of the electricity price project</title>
+<section id="workflow-1" class="slide level2 diagram" data-project="Electricity prices">
+<h2>Workflow</h2>
+<svg class="fd" viewbox="0 0 1160 430" role="img" xmlns="http://www.w3.org/2000/svg">
+<title>Workflow of the electricity price project: prices and weather from two sources, cleaned to one row per day, calm and windy days compared</title>
 <style>
-.lc text{font-family:var(--font-sans,'IBM Plex Sans',system-ui,sans-serif);fill:var(--c-text,#222)}
-.lc .step{font-size:13px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;fill:var(--c-muted,#777)}
-.lc .note{font-size:14px}
-.lc .src{font-size:13px;fill:var(--c-muted,#777)}
-.lc text.hot{fill:var(--c-accent,#d6453d)}
-.lc .line{stroke:var(--c-faint,#bbb);stroke-width:2;fill:none}
-.lc .node{fill:var(--c-bg,#fff);stroke:var(--c-text,#222);stroke-width:2}
-.lc .node.hot{fill:var(--c-accent,#d6453d);stroke:var(--c-accent,#d6453d)}
-.lc .dot{fill:var(--c-text,#222)}
-.lc .band{fill:var(--c-tint,#f4f4f4);stroke:var(--c-line,#ddd)}
-.lc .bandtext{font-size:13px;fill:var(--c-muted,#777)}
-.lc .bandtext tspan.head{font-weight:600;letter-spacing:.06em}
-.lc .loop{stroke:var(--c-accent,#d6453d);stroke-width:1.6;fill:none}
-.lc .looptip{fill:var(--c-accent,#d6453d)}
-.lc text.loopnote{font-size:12px;fill:var(--c-accent,#d6453d)}
+.fd text{font-family:var(--font-sans,'IBM Plex Sans',system-ui,sans-serif);fill:var(--c-text,#222);font-size:15px}
+.fd .muted{fill:var(--c-muted,#777);font-size:13px}
+.fd .lg{font-size:19px;font-weight:600}
+.fd .lgm{font-size:15px;fill:var(--c-muted,#777)}
+.fd .head{fill:var(--c-muted,#777);font-size:12px;font-weight:600;letter-spacing:.07em}
+.fd .big{font-family:'IBM Plex Serif',Georgia,serif;font-size:22px}
+.fd text.hot,.fd .hot text{fill:var(--c-accent,#d6453d)}
+.fd .box{fill:var(--c-tint,#f4f4f4);stroke:var(--c-line,#ddd);stroke-width:1.5}
+.fd .box.hot{stroke:var(--c-accent,#d6453d);stroke-width:2}
+.fd .box.solid{fill:var(--c-text,#222);stroke:none}
+.fd .solid-text{fill:var(--c-bg,#fff)}
+.fd .edge{stroke:var(--c-faint,#bbb);stroke-width:2;fill:none}
+.fd .edge.hot{stroke:var(--c-accent,#d6453d)}
+.fd .edge.dashed{stroke-dasharray:6 5;stroke:var(--c-muted,#888);stroke-width:1.6}
+.fd .tip{fill:var(--c-faint,#bbb)}
+.fd .tip.hot{fill:var(--c-accent,#d6453d)}
+.fd .node{fill:var(--c-bg,#fff);stroke:var(--c-text,#222);stroke-width:2}
+.fd .bar{fill:var(--c-faint,#bbb)}
+.fd .bar.hot{fill:var(--c-accent,#d6453d)}
 </style>
-<path class="line" d="M80,126 H1020"></path>
-<path class="line" d="M228.03149606299215,66 H374.5826771653544 C472.2834645669292,66 488.5669291338583,126 553.7007874015749,126"></path>
-<circle class="dot" cx="228.03149606299215" cy="66" r="4"></circle>
-<text class="src" x="240.03149606299215" y="58">Electricity prices, 4 zones</text>
-<path class="line" d="M228.03149606299215,96 H374.5826771653544 C472.2834645669292,96 488.5669291338583,126 553.7007874015749,126"></path>
-<circle class="dot" cx="228.03149606299215" cy="96" r="4"></circle>
-<text class="src" x="240.03149606299215" y="88">SMHI wind, Malmö</text>
-<circle class="dot" cx="228.03149606299215" cy="126" r="4"></circle>
-<text class="src" x="240.03149606299215" y="118">SMHI temperature, Malmö</text>
-<text class="step" x="80.0" y="30" text-anchor="middle">Question</text>
-<circle class="node" cx="80.0" cy="126" r="7"></circle>
-<text class="note" x="80.0" y="162" text-anchor="middle">How big is the</text>
-<text class="note" x="80.0" y="182" text-anchor="middle">south–north gap,</text>
-<text class="note" x="80.0" y="202" text-anchor="middle">and is it the wind?</text>
-<text class="step" x="228.03149606299215" y="30" text-anchor="start" dx="-8">Data</text>
-<text class="step hot" x="553.7007874015749" y="30" text-anchor="middle">Cleaning</text>
-<circle class="node hot" cx="553.7007874015749" cy="126" r="7"></circle>
-<text class="note hot" x="553.7007874015749" y="162" text-anchor="middle">one price a day,</text>
-<text class="note hot" x="553.7007874015749" y="182" text-anchor="middle">clock changes,</text>
-<text class="note hot" x="553.7007874015749" y="202" text-anchor="middle">match to weather</text>
-<text class="step" x="701.732283464567" y="30" text-anchor="middle">Exploration</text>
-<circle class="node" cx="701.732283464567" cy="126" r="7"></circle>
-<text class="note" x="701.732283464567" y="162" text-anchor="middle">prices per zone</text>
-<text class="note" x="701.732283464567" y="182" text-anchor="middle">over 3 years</text>
-<text class="step" x="871.9685039370079" y="30" text-anchor="middle">Analysis</text>
-<circle class="node" cx="871.9685039370079" cy="126" r="7"></circle>
-<text class="note" x="871.9685039370079" y="162" text-anchor="middle">calm vs windy</text>
-<text class="note" x="871.9685039370079" y="182" text-anchor="middle">days: how sure,</text>
-<text class="note" x="871.9685039370079" y="202" text-anchor="middle">how much weather?</text>
-<text class="step" x="1020.0" y="30" text-anchor="middle">Conclusions</text>
-<circle class="node" cx="1020.0" cy="126" r="7"></circle>
-<text class="note" x="1020.0" y="162" text-anchor="middle">0.40 kr/kWh more</text>
-<text class="note" x="1020.0" y="182" text-anchor="middle">on calm days;</text>
-<text class="note" x="1020.0" y="202" text-anchor="middle">weather explains 18 %</text>
-<path class="loop" d="M862.9685039370079,117 C841.9685039370079,80 731.732283464567,80 714.732283464567,112"></path>
-<path class="looptip" d="M710.732283464567,117 L720.732283464567,111 L713.732283464567,105 Z"></path>
-<text class="loopnote" x="786.8503937007874" y="84" text-anchor="middle">round and round</text>
-<rect class="band" x="30" y="222" width="1040" height="30" rx="15"></rect>
-<text class="bandtext" x="550.0" y="242" text-anchor="middle"><tspan class="head">REPRODUCIBLE THROUGHOUT</tspan>  ·  two fetch scripts, saved raw data</text>
+<style>
+.fd .ttl{font-size:16px;font-weight:600}
+.fd .det{font-size:13.5px;fill:var(--c-muted,#777)}
+.fd text.ttl.hot,.fd text.colhead.hot,.fd text.worknote{fill:var(--c-accent,#d6453d)}
+.fd .colhead{fill:var(--c-muted,#777);font-size:12px;font-weight:600;letter-spacing:.07em}
+.fd .worknote{font-size:13px;font-weight:600}
+.fd .file{font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:12.5px;fill:var(--c-muted,#777)}
+</style>
+<text class="colhead" x="0" y="30" text-anchor="start">1 · QUESTION</text>
+<text class="colhead" x="230" y="30" text-anchor="start">2 · DATA</text>
+<text class="colhead hot" x="490" y="30" text-anchor="start">3 · CLEANING</text>
+<text class="colhead" x="736" y="30" text-anchor="start">4 · EXPLORATION ⇄ ANALYSIS</text>
+<text class="colhead" x="982" y="30" text-anchor="start">5 · CONCLUSIONS</text>
+<rect class="box" x="0" y="144" width="184" height="130" rx="7"></rect>
+<text class="ttl" x="13" y="174" text-anchor="start">Why does</text>
+<text class="ttl" x="13" y="194" text-anchor="start">electricity cost</text>
+<text class="ttl" x="13" y="214" text-anchor="start">more in Malmö than</text>
+<text class="ttl" x="13" y="234" text-anchor="start">in Luleå?</text>
+<text class="det" x="13" y="260" text-anchor="start">Is it the wind?</text>
+<rect class="box hot" x="490" y="123" width="200" height="172" rx="7"></rect>
+<text class="ttl hot" x="503" y="153" text-anchor="start">One row per day</text>
+<text class="det" x="503" y="179" text-anchor="start">hourly and 15-minute</text>
+<text class="det" x="503" y="197" text-anchor="start">prices → one per day</text>
+<text class="det" x="503" y="221" text-anchor="start">clock changes: 23- and</text>
+<text class="det" x="503" y="239" text-anchor="start">25-hour days</text>
+<text class="det" x="503" y="263" text-anchor="start">match prices to weather:</text>
+<text class="det" x="503" y="281" text-anchor="start">1,074 days</text>
+<rect class="box" x="982" y="144" width="178" height="130" rx="7"></rect>
+<text class="ttl" x="995" y="174" text-anchor="start">Partly</text>
+<text class="det" x="995" y="200" text-anchor="start">0.40 kr/kWh more on</text>
+<text class="det" x="995" y="218" text-anchor="start">calm days</text>
+<text class="det" x="995" y="242" text-anchor="start">but weather explains</text>
+<text class="det" x="995" y="260" text-anchor="start">only 18 %</text>
+<rect class="box" x="230" y="72" width="214" height="106" rx="7"></rect>
+<text class="ttl" x="243" y="102" text-anchor="start">Spot prices</text>
+<text class="det" x="243" y="128" text-anchor="start">4 zones, 2023–2025, every</text>
+<text class="det" x="243" y="146" text-anchor="start">hour (15 min from Oct</text>
+<text class="det" x="243" y="164" text-anchor="start">2025)</text>
+<path class="edge" d="M184,209.0 C207.0,209.0 207.0,125.0 221,125.0"></path>
+<path class="tip" d="M230.0,125.0 L219.0,119.0 L219.0,131.0 Z"></path>
+<path class="edge" d="M444,125.0 C467.0,125.0 467.0,209.0 481,209.0"></path>
+<path class="tip" d="M490.0,209.0 L479.0,203.0 L479.0,215.0 Z"></path>
+<rect class="box" x="230" y="192" width="214" height="70" rx="7"></rect>
+<text class="ttl" x="243" y="222" text-anchor="start">SMHI wind</text>
+<text class="det" x="243" y="248" text-anchor="start">Malmö, every day</text>
+<path class="edge" d="M184,209.0 C207.0,209.0 207.0,227.0 221,227.0"></path>
+<path class="tip" d="M230.0,227.0 L219.0,221.0 L219.0,233.0 Z"></path>
+<path class="edge" d="M444,227.0 C467.0,227.0 467.0,209.0 481,209.0"></path>
+<path class="tip" d="M490.0,209.0 L479.0,203.0 L479.0,215.0 Z"></path>
+<rect class="box" x="230" y="276" width="214" height="70" rx="7"></rect>
+<text class="ttl" x="243" y="306" text-anchor="start">SMHI temperature</text>
+<text class="det" x="243" y="332" text-anchor="start">Malmö, every day</text>
+<path class="edge" d="M184,209.0 C207.0,209.0 207.0,311.0 221,311.0"></path>
+<path class="tip" d="M230.0,311.0 L219.0,305.0 L219.0,317.0 Z"></path>
+<path class="edge" d="M444,311.0 C467.0,311.0 467.0,209.0 481,209.0"></path>
+<path class="tip" d="M490.0,209.0 L479.0,203.0 L479.0,215.0 Z"></path>
+<rect class="box" x="736" y="84" width="200" height="88" rx="7"></rect>
+<text class="ttl" x="749" y="114" text-anchor="start">The gap over time</text>
+<text class="det" x="749" y="140" text-anchor="start">Malmö minus Luleå, month</text>
+<text class="det" x="749" y="158" text-anchor="start">by month</text>
+<rect class="box" x="736" y="222" width="200" height="112" rx="7"></rect>
+<text class="ttl" x="749" y="252" text-anchor="start">Calm vs windy days</text>
+<text class="det" x="749" y="278" text-anchor="start">how big is the</text>
+<text class="det" x="749" y="296" text-anchor="start">difference?</text>
+<text class="det" x="749" y="320" text-anchor="start">how sure are we?</text>
+<path class="edge" d="M690,209.0 C713.0,209.0 713.0,128.0 727,128.0"></path>
+<path class="tip" d="M736.0,128.0 L725.0,122.0 L725.0,134.0 Z"></path>
+<path class="edge" d="M936,278.0 C959.0,278.0 959.0,209.0 973,209.0"></path>
+<path class="tip" d="M982.0,209.0 L971.0,203.0 L971.0,215.0 Z"></path>
+<path class="edge hot" d="M770,172.0 L770.0,213.0"></path>
+<path class="tip hot" d="M770.0,222.0 L776.0,211.0 L764.0,211.0 Z"></path>
+<path class="edge hot" d="M902,222.0 L902.0,181.0"></path>
+<path class="tip hot" d="M902.0,172.0 L896.0,183.0 L908.0,183.0 Z"></path>
+<text class="muted hot" x="836" y="202" text-anchor="middle">round and round</text>
+<text class="worknote" x="490" y="48" text-anchor="start">where the work was</text>
+<text class="file" x="337" y="370" text-anchor="middle">fetch_prices.py + fetch_weather.py → data/</text>
+<text class="file" x="825" y="370" text-anchor="middle">report.qmd → report.md  (cleaning, analysis, figures, text)</text>
+<rect class="box" x="0" y="386" width="1160" height="40" rx="8"></rect>
+<text class="colhead" x="16" y="411" text-anchor="start">REPRODUCIBLE THROUGHOUT</text>
+<text class="det" x="236" y="411" text-anchor="start">one command reruns it all:</text>
+<text class="file" x="410" y="411" text-anchor="start">uv run quarto render</text>
 </svg>
 
 <p class="small muted">
-Three files, combined into one table. <a href="https://github.com/su-mt4008/lecture-demos/tree/main/introduction/electricity">The report on GitHub</a>
+Three files, combined into one table per day. <a href="https://github.com/su-mt4008/lecture-demos/tree/main/introduction/electricity">The report on GitHub</a>
 </p>
 </section></section>
 <section>
@@ -846,8 +1193,172 @@ Three files, combined into one table. <a href="https://github.com/su-mt4008/lect
 Ambitious project · three sources, and a question that needs work first
 </p>
 </section>
-<section id="the-workflow-2" class="slide level2">
-<h2>The workflow</h2>
+<section id="aim-2" class="slide level2" data-project="AI bubble">
+<h2>Aim</h2>
+<p class="lead">
+Many say AI shares are in a bubble. What can data say about that?
+</p>
+<div class="cols">
+<div>
+<ul>
+<li>In a <strong>bubble</strong>, prices rise far above what things are worth, until they crash. 1929 and the dot-com boom of 2000 are famous examples.</li>
+<li>But “bubble” can’t be <strong>observed directly</strong>, and whether it bursts is a <strong>prediction</strong>.</li>
+</ul>
+</div>
+<div class="fragment">
+<p><strong>What we need to find out</strong></p>
+<ul>
+<li>Which <strong>measurable signs</strong> people mean when they say “bubble”.</li>
+<li>How unusual <strong>today</strong> is on each sign, compared with <strong>1929, 2000 and the crypto boom</strong>.</li>
+<li>What the data <strong>can’t</strong> answer.</li>
+</ul>
+</div>
+</div>
+<aside class="notes">
+<p>The hard part comes first here: the question has to be made measurable before any data is fetched.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="research-question" class="slide level2" data-project="AI bubble">
+<h2>Research question</h2>
+<p class="lead">
+From a vague question to three signs we can measure.
+</p>
+<svg class="fd" viewbox="0 0 1180 360" role="img" xmlns="http://www.w3.org/2000/svg">
+<title>Operationalising: from 'Is AI a bubble?' to three measurable signs</title>
+<style>
+.fd text{font-family:var(--font-sans,'IBM Plex Sans',system-ui,sans-serif);fill:var(--c-text,#222);font-size:15px}
+.fd .muted{fill:var(--c-muted,#777);font-size:13px}
+.fd .lg{font-size:19px;font-weight:600}
+.fd .lgm{font-size:15px;fill:var(--c-muted,#777)}
+.fd .head{fill:var(--c-muted,#777);font-size:12px;font-weight:600;letter-spacing:.07em}
+.fd .big{font-family:'IBM Plex Serif',Georgia,serif;font-size:22px}
+.fd text.hot,.fd .hot text{fill:var(--c-accent,#d6453d)}
+.fd .box{fill:var(--c-tint,#f4f4f4);stroke:var(--c-line,#ddd);stroke-width:1.5}
+.fd .box.hot{stroke:var(--c-accent,#d6453d);stroke-width:2}
+.fd .box.solid{fill:var(--c-text,#222);stroke:none}
+.fd .solid-text{fill:var(--c-bg,#fff)}
+.fd .edge{stroke:var(--c-faint,#bbb);stroke-width:2;fill:none}
+.fd .edge.hot{stroke:var(--c-accent,#d6453d)}
+.fd .edge.dashed{stroke-dasharray:6 5;stroke:var(--c-muted,#888);stroke-width:1.6}
+.fd .tip{fill:var(--c-faint,#bbb)}
+.fd .tip.hot{fill:var(--c-accent,#d6453d)}
+.fd .node{fill:var(--c-bg,#fff);stroke:var(--c-text,#222);stroke-width:2}
+.fd .bar{fill:var(--c-faint,#bbb)}
+.fd .bar.hot{fill:var(--c-accent,#d6453d)}
+</style>
+<text class="head" x="10" y="18" text-anchor="start">THE QUESTION</text>
+<text class="head" x="300" y="18" text-anchor="start">A BUBBLE WOULD MEAN …</text>
+<text class="head" x="640" y="18" text-anchor="start">WE MEASURE</text>
+<text class="head" x="980" y="18" text-anchor="start">SOURCE</text>
+<rect class="box hot" x="10" y="140" width="230" height="90" rx="6"></rect>
+<text class="big hot" x="125" y="180" text-anchor="middle">Is AI a bubble?</text>
+<text class="muted" x="125" y="200" text-anchor="middle">can't be measured directly</text>
+<rect class="box " x="300" y="40" width="280" height="76" rx="6"></rect>
+<text class="lg" x="440" y="73" text-anchor="middle">Valuations</text>
+<text class="muted" x="440" y="93" text-anchor="middle">prices far above earnings</text>
+<rect class="box " x="640" y="40" width="300" height="76" rx="6"></rect>
+<text x="790" y="83" text-anchor="middle">prices vs 10 years of earnings</text>
+<text class="muted" x="980" y="83" text-anchor="start">Shiller, since 1871</text>
+<path class="edge hot" d="M240,185 C270.0,185 270.0,78 291,78"></path>
+<path class="tip hot" d="M300.0,78.0 L289.0,72.0 L289.0,84.0 Z"></path>
+<path class="edge" d="M580,78 L631.0,78.0"></path>
+<path class="tip" d="M640.0,78.0 L629.0,72.0 L629.0,84.0 Z"></path>
+<rect class="box " x="300" y="150" width="280" height="76" rx="6"></rect>
+<text class="lg" x="440" y="183" text-anchor="middle">Price growth</text>
+<text class="muted" x="440" y="203" text-anchor="middle">prices rose unusually fast</text>
+<rect class="box " x="640" y="150" width="300" height="76" rx="6"></rect>
+<text x="790" y="193" text-anchor="middle">tech index vs 5 years before</text>
+<text class="muted" x="980" y="193" text-anchor="start">FRED, since 1971</text>
+<path class="edge hot" d="M240,185 C270.0,185 270.0,188 291,188"></path>
+<path class="tip hot" d="M300.0,188.0 L289.0,182.0 L289.0,194.0 Z"></path>
+<path class="edge" d="M580,188 L631.0,188.0"></path>
+<path class="tip" d="M640.0,188.0 L629.0,182.0 L629.0,194.0 Z"></path>
+<rect class="box " x="300" y="260" width="280" height="76" rx="6"></rect>
+<text class="lg" x="440" y="293" text-anchor="middle">Attention</text>
+<text class="muted" x="440" y="313" text-anchor="middle">everyone talks about it</text>
+<rect class="box " x="640" y="260" width="300" height="76" rx="6"></rect>
+<text x="790" y="303" text-anchor="middle">share of headlines saying “AI”</text>
+<text class="muted" x="980" y="303" text-anchor="start">Hacker News, since 2007</text>
+<path class="edge hot" d="M240,185 C270.0,185 270.0,298 291,298"></path>
+<path class="tip hot" d="M300.0,298.0 L289.0,292.0 L289.0,304.0 Z"></path>
+<path class="edge" d="M580,298 L631.0,298.0"></path>
+<path class="tip" d="M640.0,298.0 L629.0,292.0 L629.0,304.0 Z"></path>
+</svg>
+
+<aside class="notes">
+<p>Deciding what to measure is the hard part of this project. The next slide says what each sign is.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="measures-2" class="slide level2" data-project="AI bubble">
+<h2>Measures</h2>
+<div class="defs">
+<div>
+<b>Valuations</b>
+<p>
+How expensive shares are compared with what the companies earn.
+</p>
+<p class="muted">
+US share prices divided by the average earnings of the last 10 years (Shiller’s “CAPE”). 40 means paying 40 kr for every 1 kr of yearly profit.
+</p>
+</div>
+<div>
+<b>Price growth</b>
+<p>
+How fast prices have risen.
+</p>
+<p class="muted">
+The NASDAQ tech index today divided by its value 5 years earlier. ×2 means prices doubled in 5 years.
+</p>
+</div>
+<div>
+<b>Attention</b>
+<p>
+How much people talk about it.
+</p>
+<p class="muted">
+The share of Hacker News headlines (a tech forum) that mention AI, compared with bitcoin and crypto earlier.
+</p>
+</div>
+</div>
+<p style="margin-top:1em">
+For each: how does <b>today</b> compare with every month before, and with <b>1929, 2000 and crypto</b>?
+</p>
+<aside class="notes">
+<p>Make sure everyone knows what each number means before we look at any results.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="overview-3" class="slide level2" data-project="AI bubble">
+<h2>Overview</h2>
 <div class="workflow">
 <div>
 <span class="kicker">Data</span><b>Three sources</b>
@@ -881,7 +1392,7 @@ use shares of all headlines, not raw counts
 <span class="kicker">Analysis</span><b>How unusual is today?</b>
 <ul>
 <li>
-turn “bubble” into three signs we can measure
+each sign against its own history
 </li>
 <li>
 how unusual is today, compared with every month before?
@@ -910,7 +1421,7 @@ price growth: ordinary (×1.6 in 5 years)
 <code>ai-bubble/fetch.py</code> → <code>ai-bubble/data/</code> → <code>ai-bubble/report.qmd</code> → <code>report.md</code><span>one command: <code>uv run quarto render</code></span>
 </p>
 <aside class="notes">
-<p>The hard part here is the analysis step: deciding what to measure. The next slide shows how.</p>
+<p>The whole project in one slide. Next: the three signs, one at a time.</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -923,90 +1434,14 @@ price growth: ordinary (×1.6 in 5 years)
           display:block!important;
       }</style></aside>
 </section>
-<section id="three-signs-we-can-measure" class="slide level2">
-<h2>Three signs we can measure</h2>
-<svg class="fd" viewbox="0 0 1180 360" role="img" xmlns="http://www.w3.org/2000/svg">
-<title>Operationalising: from 'Is AI a bubble?' to three measurable signs</title>
-<style>
-.fd text{font-family:var(--font-sans,'IBM Plex Sans',system-ui,sans-serif);fill:var(--c-text,#222);font-size:15px}
-.fd .muted{fill:var(--c-muted,#777);font-size:13px}
-.fd .lg{font-size:19px;font-weight:600}
-.fd .lgm{font-size:15px;fill:var(--c-muted,#777)}
-.fd .head{fill:var(--c-muted,#777);font-size:12px;font-weight:600;letter-spacing:.07em}
-.fd .big{font-family:'IBM Plex Serif',Georgia,serif;font-size:22px}
-.fd text.hot,.fd .hot text{fill:var(--c-accent,#d6453d)}
-.fd .box{fill:var(--c-tint,#f4f4f4);stroke:var(--c-line,#ddd);stroke-width:1.5}
-.fd .box.hot{stroke:var(--c-accent,#d6453d);stroke-width:2}
-.fd .box.solid{fill:var(--c-text,#222);stroke:none}
-.fd .solid-text{fill:var(--c-bg,#fff)}
-.fd .edge{stroke:var(--c-faint,#bbb);stroke-width:2;fill:none}
-.fd .edge.hot{stroke:var(--c-accent,#d6453d)}
-.fd .edge.dashed{stroke-dasharray:6 5;stroke:var(--c-muted,#888);stroke-width:1.6}
-.fd .tip{fill:var(--c-faint,#bbb)}
-.fd .tip.hot{fill:var(--c-accent,#d6453d)}
-.fd .node{fill:var(--c-bg,#fff);stroke:var(--c-text,#222);stroke-width:2}
-.fd .bar{fill:var(--c-faint,#bbb)}
-.fd .bar.hot{fill:var(--c-accent,#d6453d)}
-</style>
-<text class="head" x="10" y="18" text-anchor="start">THE QUESTION</text>
-<text class="head" x="300" y="18" text-anchor="start">A BUBBLE WOULD MEAN …</text>
-<text class="head" x="640" y="18" text-anchor="start">WE MEASURE</text>
-<text class="head" x="980" y="18" text-anchor="start">SOURCE</text>
-<rect class="box hot" x="10" y="140" width="230" height="90" rx="6"></rect>
-<text class="big hot" x="125" y="180" text-anchor="middle">Is AI a bubble?</text>
-<text class="muted" x="125" y="200" text-anchor="middle">can't be measured directly</text>
-<rect class="box " x="300" y="40" width="280" height="76" rx="6"></rect>
-<text x="440" y="83" text-anchor="middle">prices far above earnings</text>
-<rect class="box " x="640" y="40" width="300" height="76" rx="6"></rect>
-<text x="790" y="83" text-anchor="middle">prices vs 10 years of earnings</text>
-<text class="muted" x="980" y="83" text-anchor="start">Shiller, since 1871</text>
-<path class="edge hot" d="M240,185 C270.0,185 270.0,78 291,78"></path>
-<path class="tip hot" d="M300.0,78.0 L289.0,72.0 L289.0,84.0 Z"></path>
-<path class="edge" d="M580,78 L631.0,78.0"></path>
-<path class="tip" d="M640.0,78.0 L629.0,72.0 L629.0,84.0 Z"></path>
-<rect class="box " x="300" y="150" width="280" height="76" rx="6"></rect>
-<text x="440" y="193" text-anchor="middle">prices rose unusually fast</text>
-<rect class="box " x="640" y="150" width="300" height="76" rx="6"></rect>
-<text x="790" y="193" text-anchor="middle">tech index vs 5 years before</text>
-<text class="muted" x="980" y="193" text-anchor="start">FRED, since 1971</text>
-<path class="edge hot" d="M240,185 C270.0,185 270.0,188 291,188"></path>
-<path class="tip hot" d="M300.0,188.0 L289.0,182.0 L289.0,194.0 Z"></path>
-<path class="edge" d="M580,188 L631.0,188.0"></path>
-<path class="tip" d="M640.0,188.0 L629.0,182.0 L629.0,194.0 Z"></path>
-<rect class="box " x="300" y="260" width="280" height="76" rx="6"></rect>
-<text x="440" y="303" text-anchor="middle">everyone talks about it</text>
-<rect class="box " x="640" y="260" width="300" height="76" rx="6"></rect>
-<text x="790" y="303" text-anchor="middle">share of headlines saying “AI”</text>
-<text class="muted" x="980" y="303" text-anchor="start">Hacker News, since 2007</text>
-<path class="edge hot" d="M240,185 C270.0,185 270.0,298 291,298"></path>
-<path class="tip hot" d="M300.0,298.0 L289.0,292.0 L289.0,304.0 Z"></path>
-<path class="edge" d="M580,298 L631.0,298.0"></path>
-<path class="tip" d="M640.0,298.0 L629.0,292.0 L629.0,304.0 Z"></path>
-</svg>
-
-<ul>
-<li>A bubble can’t be observed directly, and whether it bursts is a prediction.</li>
-<li>So we choose three <strong>signs</strong> people associate with bubbles, and ask how unusual today is on each, compared with 1929, 2000 and the crypto boom.</li>
-</ul>
-<aside class="notes">
-<p>Deciding what to measure is the hard part of this project.</p>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
-</section>
-<section id="valuations-second-only-to-2000" class="slide level2">
-<h2>Valuations: second only to 2000</h2>
+<section id="results-valuations" class="slide level2" data-project="AI bubble">
+<h2>Results: valuations</h2>
+<p class="lead">
+Second only to 2000.
+</p>
 
 <img src="../../img/introduction/ai-cape.svg" alt="Cyclically adjusted price-earnings ratio of US stocks since 1881, with 1929, 2000 and today marked; today is above 1929 and just below 2000" class="r-stretch"><p class="small">
-US share prices compared with ten years of company earnings (Shiller’s “CAPE”). Data: Robert Shiller.
+<b>Valuations:</b> US share prices divided by ten years of company earnings (Shiller’s “CAPE”). Higher means more expensive. Data: Robert Shiller.
 </p>
 <aside class="notes">
 <p>Only the months around the 2000 peak were higher. 1929 was lower than today. A cleaning trap: Shiller writes October as 2026.1, which as a number is the same as January.</p>
@@ -1022,11 +1457,14 @@ US share prices compared with ten years of company earnings (Shiller’s “CAPE
           display:block!important;
       }</style></aside>
 </section>
-<section id="prices-an-ordinary-pace" class="slide level2">
-<h2>Prices: an ordinary pace</h2>
+<section id="results-price-growth" class="slide level2" data-project="AI bubble">
+<h2>Results: price growth</h2>
+<p class="lead">
+An ordinary pace.
+</p>
 
 <img src="../../img/introduction/ai-nasdaq.svg" alt="NASDAQ divided by its value five years earlier, since 1976; the 2000 peak is far higher than today" class="r-stretch"><p class="small">
-The NASDAQ index divided by its value five years earlier. Data: FRED.
+<b>Price growth:</b> the NASDAQ index divided by its value five years earlier. ×2 means prices doubled. Data: FRED.
 </p>
 <p>
 Today ×1.6: higher than only <b>40%</b> of months. In 2000: ×5.9. <span class="accent">This sign is missing.</span>
@@ -1045,15 +1483,18 @@ Today ×1.6: higher than only <b>40%</b> of months. In 2000: ×5.9. <span class=
           display:block!important;
       }</style></aside>
 </section>
-<section id="attention-four-times-the-crypto-peak" class="slide level2">
-<h2>Attention: four times the crypto peak</h2>
+<section id="results-attention" class="slide level2" data-project="AI bubble">
+<h2>Results: attention</h2>
+<p class="lead">
+Four times bitcoin’s peak.
+</p>
 
 <img src="../../img/introduction/ai-attention.svg" alt="Share of Hacker News story titles mentioning AI, bitcoin and crypto, 2007 to today; AI is far above the earlier crypto peaks" class="r-stretch"><p class="small">
-Share of Hacker News headlines with each word. Data: Hacker News.
+<b>Attention:</b> the share of Hacker News headlines with each word. Data: Hacker News.
 </p>
 </section>
-<section id="results" class="slide level2">
-<h2>Results</h2>
+<section id="conclusions-and-limitations" class="slide level2" data-project="AI bubble">
+<h2>Conclusions and limitations</h2>
 <div class="scorecard">
 <div class="yes">
 <span class="tick">✓</span><b>Valuations</b><span class="num">40.7</span><span class="muted">price vs earnings today · 44.2 in 2000</span>
@@ -1086,74 +1527,127 @@ Two of three signs are there. Whether a crash follows is <span class="accent">no
           display:block!important;
       }</style></aside>
 </section>
-<section id="what-was-done-2" class="slide level2 diagram">
-<h2>What was done</h2>
-<svg class="lc" viewbox="0 0 1100 262" role="img" xmlns="http://www.w3.org/2000/svg">
-<title>Life cycle of the AI bubble project</title>
+<section id="workflow-2" class="slide level2 diagram" data-project="AI bubble">
+<h2>Workflow</h2>
+<svg class="fd" viewbox="0 0 1160 430" role="img" xmlns="http://www.w3.org/2000/svg">
+<title>Workflow of the AI bubble project: a vague question turned into three measurable signs, three sources lined up by month, today compared with past bubbles</title>
 <style>
-.lc text{font-family:var(--font-sans,'IBM Plex Sans',system-ui,sans-serif);fill:var(--c-text,#222)}
-.lc .step{font-size:13px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;fill:var(--c-muted,#777)}
-.lc .note{font-size:14px}
-.lc .src{font-size:13px;fill:var(--c-muted,#777)}
-.lc text.hot{fill:var(--c-accent,#d6453d)}
-.lc .line{stroke:var(--c-faint,#bbb);stroke-width:2;fill:none}
-.lc .node{fill:var(--c-bg,#fff);stroke:var(--c-text,#222);stroke-width:2}
-.lc .node.hot{fill:var(--c-accent,#d6453d);stroke:var(--c-accent,#d6453d)}
-.lc .dot{fill:var(--c-text,#222)}
-.lc .band{fill:var(--c-tint,#f4f4f4);stroke:var(--c-line,#ddd)}
-.lc .bandtext{font-size:13px;fill:var(--c-muted,#777)}
-.lc .bandtext tspan.head{font-weight:600;letter-spacing:.06em}
-.lc .loop{stroke:var(--c-accent,#d6453d);stroke-width:1.6;fill:none}
-.lc .looptip{fill:var(--c-accent,#d6453d)}
-.lc text.loopnote{font-size:12px;fill:var(--c-accent,#d6453d)}
+.fd text{font-family:var(--font-sans,'IBM Plex Sans',system-ui,sans-serif);fill:var(--c-text,#222);font-size:15px}
+.fd .muted{fill:var(--c-muted,#777);font-size:13px}
+.fd .lg{font-size:19px;font-weight:600}
+.fd .lgm{font-size:15px;fill:var(--c-muted,#777)}
+.fd .head{fill:var(--c-muted,#777);font-size:12px;font-weight:600;letter-spacing:.07em}
+.fd .big{font-family:'IBM Plex Serif',Georgia,serif;font-size:22px}
+.fd text.hot,.fd .hot text{fill:var(--c-accent,#d6453d)}
+.fd .box{fill:var(--c-tint,#f4f4f4);stroke:var(--c-line,#ddd);stroke-width:1.5}
+.fd .box.hot{stroke:var(--c-accent,#d6453d);stroke-width:2}
+.fd .box.solid{fill:var(--c-text,#222);stroke:none}
+.fd .solid-text{fill:var(--c-bg,#fff)}
+.fd .edge{stroke:var(--c-faint,#bbb);stroke-width:2;fill:none}
+.fd .edge.hot{stroke:var(--c-accent,#d6453d)}
+.fd .edge.dashed{stroke-dasharray:6 5;stroke:var(--c-muted,#888);stroke-width:1.6}
+.fd .tip{fill:var(--c-faint,#bbb)}
+.fd .tip.hot{fill:var(--c-accent,#d6453d)}
+.fd .node{fill:var(--c-bg,#fff);stroke:var(--c-text,#222);stroke-width:2}
+.fd .bar{fill:var(--c-faint,#bbb)}
+.fd .bar.hot{fill:var(--c-accent,#d6453d)}
 </style>
-<path class="line" d="M80,126 H1020"></path>
-<path class="line" d="M228.03149606299215,66 H374.5826771653544 C472.2834645669292,66 488.5669291338583,126 553.7007874015749,126"></path>
-<circle class="dot" cx="228.03149606299215" cy="66" r="4"></circle>
-<text class="src" x="240.03149606299215" y="58">Prices vs earnings, since 1871</text>
-<path class="line" d="M228.03149606299215,96 H374.5826771653544 C472.2834645669292,96 488.5669291338583,126 553.7007874015749,126"></path>
-<circle class="dot" cx="228.03149606299215" cy="96" r="4"></circle>
-<text class="src" x="240.03149606299215" y="88">The NASDAQ tech index</text>
-<circle class="dot" cx="228.03149606299215" cy="126" r="4"></circle>
-<text class="src" x="240.03149606299215" y="118">Hacker News headlines</text>
-<text class="step hot" x="80.0" y="30" text-anchor="middle">Question</text>
-<circle class="node hot" cx="80.0" cy="126" r="7"></circle>
-<text class="note hot" x="80.0" y="162" text-anchor="middle">“Bubble” is not</text>
-<text class="note hot" x="80.0" y="182" text-anchor="middle">measurable: turn it</text>
-<text class="note hot" x="80.0" y="202" text-anchor="middle">into three signs</text>
-<text class="step" x="228.03149606299215" y="30" text-anchor="start" dx="-8">Data</text>
-<text class="step" x="553.7007874015749" y="30" text-anchor="middle">Cleaning</text>
-<circle class="node" cx="553.7007874015749" cy="126" r="7"></circle>
-<text class="note" x="553.7007874015749" y="162" text-anchor="middle">line up months,</text>
-<text class="note" x="553.7007874015749" y="182" text-anchor="middle">careful dates,</text>
-<text class="note" x="553.7007874015749" y="202" text-anchor="middle">counts → shares</text>
-<text class="step" x="701.732283464567" y="30" text-anchor="middle">Exploration</text>
-<circle class="node" cx="701.732283464567" cy="126" r="7"></circle>
-<text class="note" x="701.732283464567" y="162" text-anchor="middle">each sign against</text>
-<text class="note" x="701.732283464567" y="182" text-anchor="middle">its own history</text>
-<text class="step" x="871.9685039370079" y="30" text-anchor="middle">Analysis</text>
-<circle class="node" cx="871.9685039370079" cy="126" r="7"></circle>
-<text class="note" x="871.9685039370079" y="162" text-anchor="middle">compare with 1929,</text>
-<text class="note" x="871.9685039370079" y="182" text-anchor="middle">2000 and the</text>
-<text class="note" x="871.9685039370079" y="202" text-anchor="middle">crypto boom</text>
-<text class="step" x="1020.0" y="30" text-anchor="middle">Conclusions</text>
-<circle class="node" cx="1020.0" cy="126" r="7"></circle>
-<text class="note" x="1020.0" y="162" text-anchor="middle">2 of 3 signs are</text>
-<text class="note" x="1020.0" y="182" text-anchor="middle">there; a crash is</text>
-<text class="note" x="1020.0" y="202" text-anchor="middle">not in the data</text>
-<path class="loop" d="M862.9685039370079,117 C841.9685039370079,80 731.732283464567,80 714.732283464567,112"></path>
-<path class="looptip" d="M710.732283464567,117 L720.732283464567,111 L713.732283464567,105 Z"></path>
-<text class="loopnote" x="786.8503937007874" y="84" text-anchor="middle">round and round</text>
-<rect class="band" x="30" y="222" width="1040" height="30" rx="15"></rect>
-<text class="bandtext" x="550.0" y="242" text-anchor="middle"><tspan class="head">REPRODUCIBLE THROUGHOUT</tspan>  ·  one fetch script, three sources saved</text>
+<style>
+.fd .ttl{font-size:16px;font-weight:600}
+.fd .det{font-size:13.5px;fill:var(--c-muted,#777)}
+.fd text.ttl.hot,.fd text.colhead.hot,.fd text.worknote{fill:var(--c-accent,#d6453d)}
+.fd .colhead{fill:var(--c-muted,#777);font-size:12px;font-weight:600;letter-spacing:.07em}
+.fd .worknote{font-size:13px;font-weight:600}
+.fd .file{font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:12.5px;fill:var(--c-muted,#777)}
+</style>
+<text class="colhead hot" x="0" y="30" text-anchor="start">1 · QUESTION</text>
+<text class="colhead" x="230" y="30" text-anchor="start">2 · DATA</text>
+<text class="colhead" x="490" y="30" text-anchor="start">3 · CLEANING</text>
+<text class="colhead" x="736" y="30" text-anchor="start">4 · EXPLORATION ⇄ ANALYSIS</text>
+<text class="colhead" x="982" y="30" text-anchor="start">5 · CONCLUSIONS</text>
+<rect class="box hot" x="0" y="123" width="184" height="172" rx="7"></rect>
+<text class="ttl hot" x="13" y="153" text-anchor="start">Is AI a bubble?</text>
+<text class="det" x="13" y="179" text-anchor="start">can't be measured</text>
+<text class="det" x="13" y="197" text-anchor="start">directly</text>
+<text class="det" x="13" y="221" text-anchor="start">so: three signs we can</text>
+<text class="det" x="13" y="239" text-anchor="start">measure</text>
+<text class="det" x="13" y="263" text-anchor="start">valuations, price</text>
+<text class="det" x="13" y="281" text-anchor="start">growth, attention</text>
+<rect class="box" x="490" y="123" width="200" height="172" rx="7"></rect>
+<text class="ttl" x="503" y="153" text-anchor="start">Months, comparable</text>
+<text class="det" x="503" y="179" text-anchor="start">line up the sources by</text>
+<text class="det" x="503" y="197" text-anchor="start">month</text>
+<text class="det" x="503" y="221" text-anchor="start">Shiller writes October</text>
+<text class="det" x="503" y="239" text-anchor="start">as .1</text>
+<text class="det" x="503" y="263" text-anchor="start">counts → shares of</text>
+<text class="det" x="503" y="281" text-anchor="start">headlines</text>
+<rect class="box" x="982" y="122" width="178" height="174" rx="7"></rect>
+<text class="ttl" x="995" y="152" text-anchor="start">Two of three</text>
+<text class="ttl" x="995" y="172" text-anchor="start">signs</text>
+<text class="det" x="995" y="198" text-anchor="start">valuations and</text>
+<text class="det" x="995" y="216" text-anchor="start">attention: yes</text>
+<text class="det" x="995" y="240" text-anchor="start">price growth: no</text>
+<text class="det" x="995" y="264" text-anchor="start">a crash is not in the</text>
+<text class="det" x="995" y="282" text-anchor="start">data</text>
+<rect class="box" x="230" y="72" width="214" height="88" rx="7"></rect>
+<text class="ttl" x="243" y="102" text-anchor="start">Robert Shiller</text>
+<text class="det" x="243" y="128" text-anchor="start">prices vs earnings, since</text>
+<text class="det" x="243" y="146" text-anchor="start">1871</text>
+<path class="edge" d="M184,209.0 C207.0,209.0 207.0,116.0 221,116.0"></path>
+<path class="tip" d="M230.0,116.0 L219.0,110.0 L219.0,122.0 Z"></path>
+<path class="edge" d="M444,116.0 C467.0,116.0 467.0,209.0 481,209.0"></path>
+<path class="tip" d="M490.0,209.0 L479.0,203.0 L479.0,215.0 Z"></path>
+<rect class="box" x="230" y="174" width="214" height="88" rx="7"></rect>
+<text class="ttl" x="243" y="204" text-anchor="start">FRED</text>
+<text class="det" x="243" y="230" text-anchor="start">the NASDAQ index, since</text>
+<text class="det" x="243" y="248" text-anchor="start">1971</text>
+<path class="edge" d="M184,209.0 C207.0,209.0 207.0,218.0 221,218.0"></path>
+<path class="tip" d="M230.0,218.0 L219.0,212.0 L219.0,224.0 Z"></path>
+<path class="edge" d="M444,218.0 C467.0,218.0 467.0,209.0 481,209.0"></path>
+<path class="tip" d="M490.0,209.0 L479.0,203.0 L479.0,215.0 Z"></path>
+<rect class="box" x="230" y="276" width="214" height="70" rx="7"></rect>
+<text class="ttl" x="243" y="306" text-anchor="start">Hacker News</text>
+<text class="det" x="243" y="332" text-anchor="start">4.8 million headlines</text>
+<path class="edge" d="M184,209.0 C207.0,209.0 207.0,311.0 221,311.0"></path>
+<path class="tip" d="M230.0,311.0 L219.0,305.0 L219.0,317.0 Z"></path>
+<path class="edge" d="M444,311.0 C467.0,311.0 467.0,209.0 481,209.0"></path>
+<path class="tip" d="M490.0,209.0 L479.0,203.0 L479.0,215.0 Z"></path>
+<rect class="box" x="736" y="86" width="200" height="88" rx="7"></rect>
+<text class="ttl" x="749" y="116" text-anchor="start">Each sign over time</text>
+<text class="det" x="749" y="142" text-anchor="start">today against its own</text>
+<text class="det" x="749" y="160" text-anchor="start">history</text>
+<rect class="box" x="736" y="224" width="200" height="108" rx="7"></rect>
+<text class="ttl" x="749" y="254" text-anchor="start">How unusual is</text>
+<text class="ttl" x="749" y="274" text-anchor="start">today?</text>
+<text class="det" x="749" y="300" text-anchor="start">compare with 1929, 2000</text>
+<text class="det" x="749" y="318" text-anchor="start">and the crypto boom</text>
+<path class="edge" d="M690,209.0 C713.0,209.0 713.0,130.0 727,130.0"></path>
+<path class="tip" d="M736.0,130.0 L725.0,124.0 L725.0,136.0 Z"></path>
+<path class="edge" d="M936,278.0 C959.0,278.0 959.0,209.0 973,209.0"></path>
+<path class="tip" d="M982.0,209.0 L971.0,203.0 L971.0,215.0 Z"></path>
+<path class="edge hot" d="M770,174.0 L770.0,215.0"></path>
+<path class="tip hot" d="M770.0,224.0 L776.0,213.0 L764.0,213.0 Z"></path>
+<path class="edge hot" d="M902,224.0 L902.0,183.0"></path>
+<path class="tip hot" d="M902.0,174.0 L896.0,185.0 L908.0,185.0 Z"></path>
+<text class="muted hot" x="836" y="204" text-anchor="middle">round and round</text>
+<text class="worknote" x="0" y="48" text-anchor="start">where the work was</text>
+<text class="file" x="337" y="370" text-anchor="middle">fetch.py → data/</text>
+<text class="file" x="825" y="370" text-anchor="middle">report.qmd → report.md  (cleaning, analysis, figures, text)</text>
+<rect class="box" x="0" y="386" width="1160" height="40" rx="8"></rect>
+<text class="colhead" x="16" y="411" text-anchor="start">REPRODUCIBLE THROUGHOUT</text>
+<text class="det" x="236" y="411" text-anchor="start">one command reruns it all:</text>
+<text class="file" x="410" y="411" text-anchor="start">uv run quarto render</text>
 </svg>
 
 <p class="small muted">
 The red step: the question itself. <a href="https://github.com/su-mt4008/lecture-demos/tree/main/introduction/ai-bubble">The report on GitHub</a>
 </p>
 </section>
-<section id="same-cycle-bigger-question" class="slide level2">
-<h2>Same cycle, bigger question</h2>
+<section id="summary-of-the-examples" class="slide level2">
+<h2>Summary of the examples</h2>
+<p class="lead">
+Same cycle, bigger question.
+</p>
 <div class="lc-stack">
 <div class="lc-row">
 <p>
@@ -1364,8 +1858,8 @@ The red step: the question itself. <a href="https://github.com/su-mt4008/lecture
 <h1>How the course works</h1>
 
 </section>
-<section id="the-course-at-a-glance" class="slide level2">
-<h2>The course at a glance</h2>
+<section id="schedule" class="slide level2">
+<h2>Schedule</h2>
 <div class="timeline">
 <div class="col">
 <b>W1</b><span data-course="weeks.0.start">Mon 2 Nov</span>
@@ -1420,8 +1914,8 @@ Project due<br><span data-course="project">Fri 8 Jan, 23:59</span><br>Exam<br><s
 Each assignment is handed in on the Monday after its week. Last chance for any assignment: <span data-course="finalDeadline">Fri 15 Jan, 23:59</span>.
 </p>
 </section>
-<section id="a-week" class="slide level2">
-<h2>A week</h2>
+<section id="weekly-rhythm" class="slide level2">
+<h2>Weekly rhythm</h2>
 <div class="weekstrip">
 <div class="day">
 <b>Mon</b>
@@ -1478,8 +1972,8 @@ More: <a href="../../about#how-a-week-works">How a week works</a>
           display:block!important;
       }</style></aside>
 </section>
-<section id="five-assignments" class="slide level2">
-<h2>Five assignments</h2>
+<section id="assignments" class="slide level2">
+<h2>Assignments</h2>
 <table>
 <thead>
 <tr>
@@ -1574,8 +2068,8 @@ Fri 11 Dec, 23:59
 More: <a href="../../homework/">Assignments</a>
 </p>
 </section>
-<section id="how-assignments-are-scored" class="slide level2">
-<h2>How assignments are scored</h2>
+<section id="grading" class="slide level2">
+<h2>Grading</h2>
 <p>Each assignment is scored <strong>0–100</strong>, and <strong>65</strong> passes. A late hand-in costs <strong>30 points</strong>:</p>
 <div class="scale">
 <div class="track">
@@ -1620,8 +2114,8 @@ late: 80 − 30 = 50, not passed
 More: <a href="../../homework/">Assignments</a>
 </p>
 </section>
-<section id="how-you-hand-in" class="slide level2">
-<h2>How you hand in</h2>
+<section id="hand-in" class="slide level2">
+<h2>Hand-in</h2>
 <svg class="fd" viewbox="0 0 1180 250" role="img" xmlns="http://www.w3.org/2000/svg">
 <title>Handing in: branch, work, pull request, the check, review, final version</title>
 <style>
@@ -1701,8 +2195,8 @@ More: <a href="../../guide">How we work</a>
           display:block!important;
       }</style></aside>
 </section>
-<section id="the-project" class="slide level2">
-<h2>The project</h2>
+<section id="project" class="slide level2">
+<h2>Project</h2>
 <div class="milestones">
 <div>
 <span class="when">Now</span><b>Form a group</b>2–3 people, a question of your own
@@ -1745,8 +2239,8 @@ More: <a href="../../project">Project</a>
           display:block!important;
       }</style></aside>
 </section>
-<section id="the-exam" class="slide level2">
-<h2>The exam</h2>
+<section id="exam" class="slide level2">
+<h2>Exam</h2>
 <div class="bigfact">
 <div>
 <span class="num" data-course="exam">Sat 9 Jan, 09:00–11:00</span><span class="muted">written, on campus · register in Ladok</span>
@@ -1761,8 +2255,8 @@ More: <a href="../../project">Project</a>
 More: <a href="../../exam/">Exam</a>
 </p>
 </section>
-<section id="where-everything-is" class="slide level2">
-<h2>Where everything is</h2>
+<section id="resources" class="slide level2">
+<h2>Resources</h2>
 <div class="hub">
 <div class="main">
 <b>The course site</b><span>su-mt4008.github.io</span><span class="muted">material, assignments, dates, the setup guide</span>

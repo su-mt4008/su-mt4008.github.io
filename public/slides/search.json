@@ -42,11 +42,11 @@
     "text": "Quarto: text and code in one file\n## Analysis\n\n```{python}\nyearly = temps.groupby(\"year\")[\"temp\"].mean()\nyearly.loc[2011:].mean() - yearly.loc[:2010].mean()\n```\n\nThe later period is warmer by 0.82 °C.\n\nquarto render runs the code and writes report.md with the results and figures.\nThe numbers in your text come from the code, not copied by hand."
   },
   {
-    "objectID": "week-1/index.html#git-four-words",
-    "href": "week-1/index.html#git-four-words",
+    "objectID": "week-1/index.html#git-the-workflow",
+    "href": "week-1/index.html#git-the-workflow",
     "title": "Reproducible analysis",
-    "section": "Git: four words",
-    "text": "Git: four words\n\ncommit: save a snapshot, with a message saying why.\nbranch: a separate line of work; hw1 next to main.\npush: send your commits to GitHub.\npull request: “please look at this branch”: where the check runs and the review happens.\n\n\nYou will use these four every week. The guide has every command, for VS Code.\n\n\nMore: How to hand in"
+    "section": "Git: the workflow",
+    "text": "Git: the workflow\n\nThe Git workflow: branch hw1 off main, commit small steps, push and open a pull request, the check and review, push fixes, merged into main when accepted; meanwhile hw2 is branched off main and worked on in parallel\n\n\n\n\n\n\n\nmain\nhw1\n\nPull request\n“HW1”: your hand-in\n\n\npush\n\nread data\n\nplot\n\nwrite up\n\nfixes\ncheck ✓\n\n\nmerged when accepted\nthe accepted version\n1 BRANCH\n2 COMMIT\n3 PUSH, OPEN A PR\n4 CHECK, REVIEW, FIX\n5 MERGE\nhw2\nstarts from main while hw1 is still in review\n\n\n\n\nread data\n\nplot\n\n\npush\n\nPull request\n“HW2”: in review\n\n\n\n\nbranch: a separate line of work per assignment, hw1 and hw2 next to main.\ncommit: save a snapshot, with a message saying why.\npush: send your commits to GitHub.\npull request: your hand-in; the check runs and the review happens there.\n\n\n\nPush fixes to the same branch and the pull request updates. The guide has every step in VS Code.\n\n\nMore: How to hand in"
   },
   {
     "objectID": "week-1/index.html#the-check",
@@ -70,46 +70,67 @@
     "text": "Our example: has Lund got warmer?\n\nThe later period is 0.82 °C warmer. Is that real, or could weather alone do it?\n\nLund, not Stockholm: Stockholm is HW1, and we don’t give away the answer."
   },
   {
+    "objectID": "week-1/index.html#notation-what-is-bar-x",
+    "href": "week-1/index.html#notation-what-is-bar-x",
+    "title": "Reproducible analysis",
+    "section": "Notation: what is \\(\\bar X\\)?",
+    "text": "Notation: what is \\(\\bar X\\)?\n\n\n\n\n\n\n\n\n\nSymbol\nWhat it is\nLund, 1997–2010\n\n\n\n\n\\(n\\)\nthe number of years\n\\(n = 14\\)\n\n\n\\(X_1, \\dots, X_n\\)\neach year’s mean temperature, as a random variable: what the weather could give\n\n\n\n\\(x_1, \\dots, x_n\\)\nthe values we observed\n8.58, 8.43, 9.14, … °C (1997, 1998, 1999, …)\n\n\n\\(\\bar X = \\frac{1}{n}\\sum_i X_i\\)\nthe sample mean as a random variable: other years’ weather would give another value\n\n\n\n\\(\\bar x = \\frac{1}{n}\\sum_i x_i\\)\nthe number we computed: one value of \\(\\bar X\\)\n\\(\\bar x = 8.89\\) °C\n\n\n\\(\\mu\\)\nthe true mean of the period’s climate. Unknown: what we want to know\n?\n\n\n\\(\\sigma\\), \\(s\\)\nspread of single years: \\(\\sigma\\) the true value, \\(s\\) our estimate from the data\n\\(s = 0.62\\) °C\n\n\n\n\n\n\\(\\bar x\\) is our estimate of \\(\\mu\\). Statistics asks: how far from \\(\\mu\\) could \\(\\bar x\\) be?\n\n\nCapital letters are random variables (before we look), small letters are the numbers we got."
+  },
+  {
     "objectID": "week-1/index.html#single-years-scatter-a-lot",
     "href": "week-1/index.html#single-years-scatter-a-lot",
     "title": "Reproducible analysis",
     "section": "Single years scatter a lot",
-    "text": "Single years scatter a lot\n\n\nOne year varies by about 0.6 °C. The difference we found is not much larger."
+    "text": "Single years scatter a lot\n\n\nOne year varies by about \\(s = 0.62\\) °C. The difference we found, 0.82 °C, is not much larger."
   },
   {
     "objectID": "week-1/index.html#means-scatter-much-less",
     "href": "week-1/index.html#means-scatter-much-less",
     "title": "Reproducible analysis",
     "section": "Means scatter much less",
-    "text": "Means scatter much less\n\n\\[\\operatorname{Var}(\\bar X) = \\frac{\\sigma^2}{n} \\qquad \\Rightarrow \\qquad \\operatorname{SE} = \\frac{\\sigma}{\\sqrt n} \\approx \\frac{0.62}{\\sqrt{14}} = 0.17 \\text{ °C}\\]\n\nTo halve the uncertainty, you need four times the data."
+    "text": "Means scatter much less\n\n\nWhat was simulated: grey, 100,000 single years drawn from \\(N(8.89,\\ 0.62^2)\\). Red, 100,000 times: draw 14 such years and take their mean \\(\\bar x\\). The means cluster far closer to \\(\\mu\\).\n\n\\[\\operatorname{SE} = \\operatorname{sd}(\\bar X) = \\frac{\\sigma}{\\sqrt n} \\approx \\frac{s}{\\sqrt n} = \\frac{0.62}{\\sqrt{14}} = 0.17 \\text{ °C}\\]\n\nThe standard error (SE) is the standard deviation of \\(\\bar X\\): how far \\(\\bar x\\) typically lands from \\(\\mu\\). To halve it, you need four times the data."
   },
   {
-    "objectID": "week-1/index.html#confidence-intervals",
-    "href": "week-1/index.html#confidence-intervals",
+    "objectID": "week-1/index.html#where-1.96-comes-from",
+    "href": "week-1/index.html#where-1.96-comes-from",
     "title": "Reproducible analysis",
-    "section": "Confidence intervals",
-    "text": "Confidence intervals\nBy the CLT, \\(\\bar X \\approx N(\\mu, \\operatorname{SE}^2)\\), so \\(\\;\\bar x \\pm 1.96\\,\\operatorname{SE}\\;\\) covers \\(\\mu\\) in 95% of samples.\n\n\n“95%” is a property of the method: about 1 in 20 intervals misses."
+    "section": "Where 1.96 comes from",
+    "text": "Where 1.96 comes from\n\n\n\nCLT: \\(\\bar X \\approx N(\\mu,\\ \\operatorname{SE}^2)\\).\nStandardise: \\(Z = \\dfrac{\\bar X - \\mu}{\\operatorname{SE}} \\approx N(0, 1)\\).\nFor \\(N(0,1)\\): \\(P(-1.96 \\le Z \\le 1.96) = 0.95\\). 1.96 leaves 2.5% in each tail.\nRearrange for \\(\\mu\\): \\(P\\big(\\bar X - 1.96\\,\\operatorname{SE} \\le \\mu \\le \\bar X + 1.96\\,\\operatorname{SE}\\big) = 0.95\\).\n\n\n\n\n\nOther levels: 90% → 1.64, 99% → 2.58.\n\n\n\n\n1.96 is the 97.5% quantile of the standard normal. With only 14 years the t-distribution gives 2.16, a slightly wider interval; 1.96 is the large-sample value, and the bootstrap avoids the choice."
+  },
+  {
+    "objectID": "week-1/index.html#a-confidence-interval-for-lund",
+    "href": "week-1/index.html#a-confidence-interval-for-lund",
+    "title": "Reproducible analysis",
+    "section": "A confidence interval for Lund",
+    "text": "A confidence interval for Lund\nPut in the numbers for 1997–2010:\n\\[\\bar x \\pm 1.96\\,\\operatorname{SE} = 8.89 \\pm 1.96 \\cdot 0.17 = [8.56,\\ 9.22] \\text{ °C}\\]\n\n\nThe interval is random, \\(\\mu\\) is fixed. “95%” is a property of the method: of 20 new samples, about 19 intervals cover \\(\\mu\\) and 1 misses."
   },
   {
     "objectID": "week-1/index.html#the-difference-with-its-uncertainty",
     "href": "week-1/index.html#the-difference-with-its-uncertainty",
     "title": "Reproducible analysis",
     "section": "The difference, with its uncertainty",
-    "text": "The difference, with its uncertainty\n\\[\\operatorname{SE}_{\\text{diff}} = \\sqrt{\\frac{s_a^2}{n_a} + \\frac{s_b^2}{n_b}} = 0.23 \\qquad 0.82 \\pm 1.96 \\cdot 0.23 = [0.37,\\ 1.27] \\text{ °C}\\]\nThe whole interval is above zero: consistent with warming of 0.4 to 1.3 °C, not with no warming."
+    "text": "The difference, with its uncertainty\n\nEstimate: \\(\\bar x_b - \\bar x_a = 9.71 - 8.89 = 0.82\\) °C (2011–2025 minus 1997–2010).\nIts SE: for independent means the variances add, \\(\\operatorname{Var}(\\bar X_b - \\bar X_a) = \\frac{\\sigma_b^2}{n_b} + \\frac{\\sigma_a^2}{n_a}\\), so\n\n\\[\\operatorname{SE}_{\\text{diff}} = \\sqrt{\\frac{s_b^2}{n_b} + \\frac{s_a^2}{n_a}} = \\sqrt{\\frac{0.62^2}{15} + \\frac{0.62^2}{14}} = 0.23 \\text{ °C}\\]\n\nInterval: \\(0.82 \\pm 1.96 \\cdot 0.23 = [0.37,\\ 1.27]\\) °C.\n\nThe whole interval is above zero: consistent with warming of 0.4 to 1.3 °C, not with no warming."
   },
   {
     "objectID": "week-1/index.html#the-same-by-computer-the-bootstrap",
     "href": "week-1/index.html#the-same-by-computer-the-bootstrap",
     "title": "Reproducible analysis",
     "section": "The same, by computer: the bootstrap",
-    "text": "The same, by computer: the bootstrap\n\nResample the years with replacement, 10,000 times; the middle 95% of the differences is the interval. No formula needed, and it works for almost any statistic."
+    "text": "The same, by computer: the bootstrap\n\n\nWhat is done\n\nDraw 14 years from the 14 of 1997–2010, with replacement: some years twice, some not at all.\nDo the same for the 15 years of 2011–2025.\nCompute the difference of the two means.\nRepeat 10,000 times.\nThe middle 95% of the 10,000 differences is the interval: [0.40, 1.26] °C.\n\n\n\n\n\ndata1997199819992000…2010\n\n\ndraw 11998199820001997…2004\n\n\ndraw 22010199920032003…1997\n\n\n\n\n\n\nWhy it works: the resampled datasets vary about as much as new real data would. No formula needed, and it works for almost any statistic."
   },
   {
-    "objectID": "week-1/index.html#could-it-be-chance-a-test",
-    "href": "week-1/index.html#could-it-be-chance-a-test",
+    "objectID": "week-1/index.html#could-it-be-chance-a-test-step-by-step",
+    "href": "week-1/index.html#could-it-be-chance-a-test-step-by-step",
     "title": "Reproducible analysis",
-    "section": "Could it be chance? A test",
-    "text": "Could it be chance? A test\n\\(H_0\\): no difference. Then \\(\\;z = \\dfrac{0.82}{0.23} = 3.6\\;\\) and \\(\\;p = P(|Z| \\ge 3.6) \\approx 0.0003\\).\n\n\nBy computer: shuffle the years between the periods; how often is the difference as large? About 1 in 1,000."
+    "section": "Could it be chance? A test, step by step",
+    "text": "Could it be chance? A test, step by step\n\n\n\nHypothesis \\(H_0\\): \\(\\mu_b = \\mu_a\\). No warming: the 0.82 °C is weather alone.\nTest statistic: how many SEs is the difference from 0? \\(z = \\dfrac{0.82 - 0}{0.23} = 3.6\\).\nIf \\(H_0\\) is true, \\(Z \\approx N(0,1)\\): beyond ±1.96 only 5% of the time.\np-value: \\(P(|Z| \\ge 3.6) \\approx 0.0003\\). Without warming, a difference this large would turn up about 3 times in 10,000.\nConclusion: \\(p &lt; 0.05\\), so we reject \\(H_0\\). Same as: 0 is outside the 95% interval."
+  },
+  {
+    "objectID": "week-1/index.html#the-same-test-by-computer-shuffling",
+    "href": "week-1/index.html#the-same-test-by-computer-shuffling",
+    "title": "Reproducible analysis",
+    "section": "The same test, by computer: shuffling",
+    "text": "The same test, by computer: shuffling\n\n\nWhat is done\n\nIf \\(H_0\\) is true, it doesn’t matter which period a year belongs to. So:\n\n\nPut all 29 years in one pile.\nDeal them out at random: 14 to “1997–2010”, 15 to “2011–2025”.\nCompute the difference of the two means.\nRepeat 10,000 times.\nHow often is the difference at least as large as 0.82 °C? About 1 in 1,000: \\(p \\approx 0.001\\).\n\n\n\n\n\nNo normal distribution needed. Both ways, \\(p\\) is far below 0.05.\n\n\n\n\nThe normal approximation gives 0.0003, the shuffle 0.001: with 29 years they differ a little, but both say the same thing."
   },
   {
     "objectID": "week-1/index.html#what-a-p-value-is-not",
@@ -123,7 +144,7 @@
     "href": "week-1/index.html#correlation-and-trend",
     "title": "Reproducible analysis",
     "section": "Correlation and trend",
-    "text": "Correlation and trend\n\n\nSlope 0.54 °C per decade (95% interval 0.27 to 0.80), \\(r = 0.62\\). Correlation is not causation: here the cause comes from physics, not from this data."
+    "text": "Correlation and trend\n\n\nSlope 0.54 °C per decade (95% interval 0.28 to 0.79), \\(r = 0.62\\). Correlation is not causation: here the cause comes from physics, not from this data."
   },
   {
     "objectID": "week-1/index.html#the-many-tests-trap",
@@ -147,213 +168,262 @@
     "text": "Before Monday\n\nSet up your computer: follow the guide. Problems? Bring them to Monday’s session.\nAccept the invite to your &lt;username&gt;-assignments repository.\nRead week 1 and Statistics: the basics.\nHW1: “Your first reproducible report”, due Mon 9 Nov, 23:59.\n\n\nQuestions?\n\n\nSet up your computer · HW1 · Week 1"
   },
   {
-    "objectID": "introduction/index.html#three-questions",
-    "href": "introduction/index.html#three-questions",
-    "title": "From a question to an answer anyone can check",
-    "section": "Three questions",
-    "text": "Three questions\n\n\n\nSmall\n\n\nAre baby names a fashion?\n\n\nOne table from Statistics Sweden.\n\n\n\n\nMedium\n\n\nWhy does electricity cost more in Malmö than in Luleå?\n\n\nElectricity prices, put side by side with the weather.\n\n\n\n\nAmbitious\n\n\nIs AI a bubble?\n\n\nThree sources, and a question that first has to be made measurable.\n\n\n\n\nEach is a complete report you can download and rerun.\n\n\nOpen with the questions, not the course. Ask the room: which of these could you answer today, with a laptop? By the end of the course: all three. Each is a full report you can clone."
+    "objectID": "introduction/index.html#overview",
+    "href": "introduction/index.html#overview",
+    "title": "Introduction to Statistical Data Processing",
+    "section": "Overview",
+    "text": "Overview\n\n\n1The data science cyclethe steps every project in this course goes through\n\n\n2Course aimswhat you will be able to do by January\n\n\n3Motivating examplesthree projects, small, medium and ambitious, each a full report\n\n\n4How the course worksweeks, assignments, the project, the exam\n\n\n\nAfter the break: week 1, reproducible analysis and the statistics you need for HW1.\n\n\nThe plan for today. The cycle first, because every example and every assignment is told along it."
   },
   {
     "objectID": "introduction/index.html#the-data-science-cycle",
     "href": "introduction/index.html#the-data-science-cycle",
-    "title": "From a question to an answer anyone can check",
+    "title": "Introduction to Statistical Data Processing",
     "section": "The data science cycle",
     "text": "The data science cycle\n\n\nEvery project in this course goes round this cycle, from HW1 to your group project.\n\nExploration and analysis go round and round: look, test, look again.\nTo answer more, go back: fetch more data, or refine the question, and round again.\nReproducible applies to every step.\nYour report follows the cycle, and ends with How to reproduce.\n\n\n\n\nThe data science cycle: question, data, cleaning, then exploration and analysis round and round, then conclusions; to answer more, back to the data or the question; all of it reproducible\n\n\n\nQuestion\n\nData\n\nCleaning\n\n\nExploration\n\nAnalysis\n\nConclusions\n\n\n\n\n\n\n\n\n\n\n\n\nround and round\n\n\nto answer more: fetch more data\n\n\nrefine the question\nREPRODUCIBLE THROUGHOUT\ncode, not clicks · relative paths · a lockfile · Quarto · Git\n\n\n\nAfter the cycle in Wickham, Çetinkaya-Rundel & Grolemund, R for Data Science (2e).\n\n\n\n\nKeep this slide in mind: every project that follows is told along this cycle."
   },
   {
-    "objectID": "introduction/index.html#the-workflow",
-    "href": "introduction/index.html#the-workflow",
-    "title": "From a question to an answer anyone can check",
-    "section": "The workflow",
-    "text": "The workflow\n\n\nDataStatistics Sweden (SCB)\n\n\ndownloaded straight from their database by a short script\n\n\nhow many people born each year 1922–2021 have each of the 200 most common names\n\n\n\n\nCleaningA tidy table\n\n\nreshape the table so it is easy to work with\n\n\nhandle the gaps: SCB hides very small numbers\n\n\nturn counts into shares, so years can be compared\n\n\n\n\nAnalysisFind the comebacks\n\n\nplot each name over 100 years\n\n\na comeback score: common in the 1920s, rare in 1960–80, common again after 2005\n\n\n\n\nResultsYes, with a catch\n\n\nElla, Elsa, Alice, Astrid, Ebba top the score\n\n\nthe top 10 names: 59% of a year in 1922, 24% in 2021\n\n\nonly the living are counted\n\n\n\n\n\nnames/fetch.py → names/data/ → names/report.qmd → report.mdone command: uv run quarto render\n\n\nThe whole project in one slide: where the data came from, what we did to it, what we found. The next slides show the result and the catch."
+    "objectID": "introduction/index.html#course-aims",
+    "href": "introduction/index.html#course-aims",
+    "title": "Introduction to Statistical Data Processing",
+    "section": "Course aims",
+    "text": "Course aims\n\nFrom a question to an answer anyone can check.\n\n\nYou will write code, but code is not the point. The science is.\n\n\n\nTurn a vague question into one that data can answer, and choose methods that fit it.\nFind, collect and combine data from files, databases, APIs and the web.\nClean, explore and visualise data, and see when a pattern might mislead.\nDraw conclusions the evidence supports, with their uncertainty and limitations.\nMake every analysis reproducible: Git and GitHub, a clear README, a workflow others can run.\nWork in a team on shared code: branches, pull requests, code review.\nCommunicate results honestly, clearly and usefully.\n\n\n\nMore: Course information\n\n\nOne aim per step of the cycle, plus working together and telling others. The three projects that follow show what this looks like at three levels of ambition."
   },
   {
-    "objectID": "introduction/index.html#names-skip-three-generations",
-    "href": "introduction/index.html#names-skip-three-generations",
-    "title": "From a question to an answer anyone can check",
-    "section": "Names skip three generations",
-    "text": "Names skip three generations\n\n\nShare of each birth year with the name, among the 200 most common names in Sweden. Data: SCB.\n\n\nCommon in the 1920s, nearly gone around 1970 (grey band), back after 2000. Ask: who in the room has a grandmother or great-grandmother called Elsa, Alice or Astrid?"
+    "objectID": "introduction/index.html#motivating-examples",
+    "href": "introduction/index.html#motivating-examples",
+    "title": "Introduction to Statistical Data Processing",
+    "section": "Motivating examples",
+    "text": "Motivating examples\n\n\n\nSmall\n\n\nAre baby names a fashion?\n\n\nOne table from Statistics Sweden.\n\n\n\n\nMedium\n\n\nWhy does electricity cost more in Malmö than in Luleå?\n\n\nElectricity prices, put side by side with the weather.\n\n\n\n\nAmbitious\n\n\nIs AI a bubble?\n\n\nThree sources, and a question that first has to be made measurable.\n\n\n\n\nEach is a complete report you can download and rerun.\n\n\nAsk the room: which of these could you answer today, with a laptop? By the end of the course: all three. Each is a full report you can clone."
   },
   {
-    "objectID": "introduction/index.html#only-the-living-are-counted",
-    "href": "introduction/index.html#only-the-living-are-counted",
-    "title": "From a question to an answer anyone can check",
-    "section": "Only the living are counted",
-    "text": "Only the living are counted\n\nWho is counted: of everyone born in a year, only those alive in Sweden in 2021 with one of the 200 most common names\n\n\nEveryone born in Sweden in 1925\nthe people the question is about\n\n… still alive and living in Sweden in 2021\ndeaths and emigration remove most\n\n… with one of today's 200 most common names\nwhat the SCB table counts\nIllustration, not to scale\n\n\n\nThe table counts people alive in Sweden in 2021, by year of birth: the dead and the emigrated are gone.\nIt only lists names common today, so a 1920s name that never came back is missing.\nSo the data is tilted towards finding comebacks, and the report says so.\n\n\nSurvivorship bias. In this project the real work was in the conclusion and its limitation."
+    "objectID": "introduction/index.html#aim",
+    "href": "introduction/index.html#aim",
+    "title": "Introduction to Statistical Data Processing",
+    "section": "Aim",
+    "text": "Aim\n\nAre baby names a fashion: do they come and go, and come back?\n\n\n\n\nA fashion is popular, then forgotten, then popular again.\nParents often name children after grandparents or great-grandparents. If names are a fashion, a name should come back after about three generations.\n\n\n\nWhat we need to find out\n\nHow common each name was, every year for 100 years.\nWhich names were common, then rare, then common again.\nWhat the data can and cannot tell us.\n\n\n\n\nBefore anything is done: what are we trying to find out, and what would count as an answer?"
   },
   {
-    "objectID": "introduction/index.html#what-was-done",
-    "href": "introduction/index.html#what-was-done",
-    "title": "From a question to an answer anyone can check",
-    "section": "What was done",
-    "text": "What was done\n\nLife cycle of the baby names project\n\n\nQuestion\n\nDo names come\nback after\nthree generations?\nData\n\nSCB: 200 names by\nyear of birth\nCleaning\n\nreshape the table,\nhandle gaps,\ncounts → shares\nExploration\n\nshare of each\nbirth year\nAnalysis\n\na comeback\nscore\nConclusions\n\nyes: Elsa, Alice,\nAstrid … but only\nthe living are counted\n\n\nround and round\n\nREPRODUCIBLE THROUGHOUT  ·  fetch.py + report.qmd\n\n\n\nOne source, one straight line. The red step is where the work was. The report on GitHub"
+    "objectID": "introduction/index.html#overview-1",
+    "href": "introduction/index.html#overview-1",
+    "title": "Introduction to Statistical Data Processing",
+    "section": "Overview",
+    "text": "Overview\n\n\nDataStatistics Sweden (SCB)\n\n\ndownloaded straight from their database by a short script\n\n\nhow many people born each year 1922–2021 have each of the 200 most common names\n\n\n\n\nCleaningA tidy table\n\n\nreshape the table so it is easy to work with\n\n\nhandle the gaps: SCB hides very small numbers\n\n\nturn counts into shares, so years can be compared\n\n\n\n\nAnalysisFind the comebacks\n\n\nplot each name over 100 years\n\n\na comeback score: common in 1922–35, rare in 1960–80, common again in 2005–21\n\n\n\n\nResultsYes, with a catch\n\n\nElla, Elsa, Alice, Astrid, Ebba top the score\n\n\nthe top 10 names: 59% of those counted for 1922, 24% for 2021\n\n\nonly the living are counted\n\n\n\n\n\nnames/fetch.py → names/data/ → names/report.qmd → report.mdone command: uv run quarto render\n\n\nThe whole project in one slide: where the data came from, what we did to it, what we found. The next slides show the result and the catch."
   },
   {
-    "objectID": "introduction/index.html#the-workflow-1",
-    "href": "introduction/index.html#the-workflow-1",
-    "title": "From a question to an answer anyone can check",
-    "section": "The workflow",
-    "text": "The workflow\n\n\nDataTwo free online sources\n\n\nelectricity prices for the four zones, every hour for three years\n\n\nSMHI: wind and temperature in Malmö\n\n\ndownloaded by a script and saved, so anyone can rerun it\n\n\n\n\nCleaningOne row per day\n\n\none price per zone and day\n\n\nwatch out for clock changes\n\n\nput prices and weather side by side: 1,074 days\n\n\n\n\nAnalysisDoes wind matter?\n\n\nthe gap: Malmö minus Luleå, each day\n\n\ncompare calm days with windy days\n\n\nhow sure can we be, and how much does weather explain?\n\n\n\n\nResultsPartly\n\n\nMalmö 0.66, Luleå 0.31 kr/kWh on average\n\n\non calm days the gap is 0.40 kr/kWh bigger: not chance\n\n\nbut weather explains only about a fifth of it\n\n\n\n\n\nelectricity/fetch_prices.py + fetch_weather.py → electricity/data/ → electricity/report.qmd → report.mdone command: uv run quarto render\n\n\nTwo sources, put side by side by date. The cleaning is where the work was; the next slides show it."
-  },
-  {
-    "objectID": "introduction/index.html#four-zones-one-country",
-    "href": "introduction/index.html#four-zones-one-country",
-    "title": "From a question to an answer anyone can check",
-    "section": "Four zones, one country",
-    "text": "Four zones, one country\n\n\n\nSince 2011 Sweden has four price zones, SE1 in the north to SE4 in the south.\nMuch of the power is produced in the north, much of it used in the south.\nWhen the grid can’t carry enough south, the prices split.\n\n\n\n\nMean spot price per price zone, 2023–2025, from north to south\n\nSE1  Luleå\n\n0.31 kr\nSE2  Sundsvall\n\n0.31 kr\nSE3  Stockholm\n\n0.51 kr\nSE4  Malmö\n\n0.66 kr\n\n\nnorthsouth\n\n\n\nMean spot price 2023–2025. Data: Nord Pool via elprisetjustnu.se."
-  },
-  {
-    "objectID": "introduction/index.html#the-gap-month-by-month",
-    "href": "introduction/index.html#the-gap-month-by-month",
-    "title": "From a question to an answer anyone can check",
-    "section": "The gap, month by month",
-    "text": "The gap, month by month\n\n\nThe shaded area is the gap. Is it the wind? Wind power in the south should push southern prices down.\n\n\nSweden has four price zones since 2011. The gap is the shaded area. Question: how big is it, and does it go with the weather? Wind power in the south should push southern prices down."
-  },
-  {
-    "objectID": "introduction/index.html#where-the-work-was-cleaning",
-    "href": "introduction/index.html#where-the-work-was-cleaning",
-    "title": "From a question to an answer anyone can check",
-    "section": "Where the work was: cleaning",
-    "text": "Where the work was: cleaning\n\nCleaning: three raw files become one table of days\n\n\nElectricity prices\n4 zones, every hour\nin world time\n\nSMHI wind, Malmö\nevery hour\n\nSMHI temperature, Malmö\ndaily\n\nOne price per zone and day\nhours and quarter-hours counted fairly\nSwedish days: 23 or 25 hours twice a year\n\nDaily mean wind\n\nSide by side\nby date\n1,096 days\n\nDrop\n22 days\nno weather\n\n1,074\ndays\nto analyse\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nPrices came every hour, then from October 2025 every 15 minutes: a simple average counts them wrongly.\nClocks change twice a year: some days have 23 or 25 hours.\nPrices use world time, the weather Swedish dates: match them to the right day.\n22 days have no weather: dropped, and reported.\n\n\n\nEach bullet, done wrong, would shift the result without any error. The report shows every step in code."
-  },
-  {
-    "objectID": "introduction/index.html#calm-days-big-gap",
-    "href": "introduction/index.html#calm-days-big-gap",
-    "title": "From a question to an answer anyone can check",
-    "section": "Calm days, big gap",
-    "text": "Calm days, big gap\n\nOn calm days the gap is 0.40 kr/kWh bigger than on windy days, far more than chance would give. But wind and temperature explain only 18% of the day-to-day gap.\n\n“Not chance” comes from a bootstrap interval (0.34–0.47), which you will see in the second half. The 18%: the rest is the grid, nuclear maintenance and continental prices, which this data doesn’t contain. Correlation, not cause: windy days also differ in season and demand."
-  },
-  {
-    "objectID": "introduction/index.html#what-was-done-1",
-    "href": "introduction/index.html#what-was-done-1",
-    "title": "From a question to an answer anyone can check",
-    "section": "What was done",
-    "text": "What was done\n\nLife cycle of the electricity price project\n\n\n\n\nElectricity prices, 4 zones\n\n\nSMHI wind, Malmö\n\nSMHI temperature, Malmö\nQuestion\n\nHow big is the\nsouth–north gap,\nand is it the wind?\nData\nCleaning\n\none price a day,\nclock changes,\nmatch to weather\nExploration\n\nprices per zone\nover 3 years\nAnalysis\n\ncalm vs windy\ndays: how sure,\nhow much weather?\nConclusions\n\n0.40 kr/kWh more\non calm days;\nweather explains 18 %\n\n\nround and round\n\nREPRODUCIBLE THROUGHOUT  ·  two fetch scripts, saved raw data\n\n\n\nThree files, combined into one table. The report on GitHub"
-  },
-  {
-    "objectID": "introduction/index.html#the-workflow-2",
-    "href": "introduction/index.html#the-workflow-2",
-    "title": "From a question to an answer anyone can check",
-    "section": "The workflow",
-    "text": "The workflow\n\n\nDataThree sources\n\n\nshare prices vs company earnings, every month since 1871\n\n\nthe NASDAQ tech index since 1971\n\n\n4.8 million headlines from Hacker News, a tech forum\n\n\n\n\nCleaningMonths, comparable\n\n\nline the three sources up month by month\n\n\nread the dates carefully: one source writes October oddly\n\n\nuse shares of all headlines, not raw counts\n\n\n\n\nAnalysisHow unusual is today?\n\n\nturn “bubble” into three signs we can measure\n\n\nhow unusual is today, compared with every month before?\n\n\ncompare with 1929, 2000 and crypto\n\n\n\n\nResultsTwo of three signs\n\n\nvaluations: higher than almost every month since 1871\n\n\nattention: AI is in 14% of headlines; bitcoin peaked at 3%\n\n\nprice growth: ordinary (×1.6 in 5 years)\n\n\n\n\n\nai-bubble/fetch.py → ai-bubble/data/ → ai-bubble/report.qmd → report.mdone command: uv run quarto render\n\n\nThe hard part here is the analysis step: deciding what to measure. The next slide shows how."
-  },
-  {
-    "objectID": "introduction/index.html#three-signs-we-can-measure",
-    "href": "introduction/index.html#three-signs-we-can-measure",
-    "title": "From a question to an answer anyone can check",
-    "section": "Three signs we can measure",
-    "text": "Three signs we can measure\n\nOperationalising: from 'Is AI a bubble?' to three measurable signs\n\nTHE QUESTION\nA BUBBLE WOULD MEAN …\nWE MEASURE\nSOURCE\n\nIs AI a bubble?\ncan't be measured directly\n\nprices far above earnings\n\nprices vs 10 years of earnings\nShiller, since 1871\n\n\n\n\n\nprices rose unusually fast\n\ntech index vs 5 years before\nFRED, since 1971\n\n\n\n\n\neveryone talks about it\n\nshare of headlines saying “AI”\nHacker News, since 2007\n\n\n\n\n\n\n\nA bubble can’t be observed directly, and whether it bursts is a prediction.\nSo we choose three signs people associate with bubbles, and ask how unusual today is on each, compared with 1929, 2000 and the crypto boom.\n\n\nDeciding what to measure is the hard part of this project."
-  },
-  {
-    "objectID": "introduction/index.html#valuations-second-only-to-2000",
-    "href": "introduction/index.html#valuations-second-only-to-2000",
-    "title": "From a question to an answer anyone can check",
-    "section": "Valuations: second only to 2000",
-    "text": "Valuations: second only to 2000\n\n\nUS share prices compared with ten years of company earnings (Shiller’s “CAPE”). Data: Robert Shiller.\n\n\nOnly the months around the 2000 peak were higher. 1929 was lower than today. A cleaning trap: Shiller writes October as 2026.1, which as a number is the same as January."
-  },
-  {
-    "objectID": "introduction/index.html#prices-an-ordinary-pace",
-    "href": "introduction/index.html#prices-an-ordinary-pace",
-    "title": "From a question to an answer anyone can check",
-    "section": "Prices: an ordinary pace",
-    "text": "Prices: an ordinary pace\n\n\nThe NASDAQ index divided by its value five years earlier. Data: FRED.\n\n\nToday ×1.6: higher than only 40% of months. In 2000: ×5.9. This sign is missing.\n\n\nReport the evidence that goes against your story too."
-  },
-  {
-    "objectID": "introduction/index.html#attention-four-times-the-crypto-peak",
-    "href": "introduction/index.html#attention-four-times-the-crypto-peak",
-    "title": "From a question to an answer anyone can check",
-    "section": "Attention: four times the crypto peak",
-    "text": "Attention: four times the crypto peak\n\n\nShare of Hacker News headlines with each word. Data: Hacker News."
+    "objectID": "introduction/index.html#measures",
+    "href": "introduction/index.html#measures",
+    "title": "Introduction to Statistical Data Processing",
+    "section": "Measures",
+    "text": "Measures\n\n\nShare of a birth year\n\nHow common a name is among the babies born in one year.\n\n\nPeople born that year with the name, divided by everyone born that year with one of the 200 names in the table. A share, not a count, so years with many or few births can be compared.\n\n\n\nComeback score\n\nHow well a name fits “common, then rare, then common again”.\n\n\nIts share in 1922–35 divided by its share in 1960–80, and its share in 2005–21 divided by its share in 1960–80; the score is the smaller of the two. High only if the name was common both before and after the dip.\n\n\n\n\nTwo numbers, defined before any graph. The comeback score takes the smaller ratio, so a name has to be common on both sides of the dip to score high."
   },
   {
     "objectID": "introduction/index.html#results",
     "href": "introduction/index.html#results",
-    "title": "From a question to an answer anyone can check",
+    "title": "Introduction to Statistical Data Processing",
     "section": "Results",
-    "text": "Results\n\n\n✓Valuations40.7price vs earnings today · 44.2 in 2000\n\n\n✓Attention14 %of HN titles · bitcoin’s peak: 3 %\n\n\n✗Price growth×1.6in 5 years · ×5.9 in 2000\n\n\n\nTwo of three signs are there. Whether a crash follows is not in the data.\n\n\nHigh valuations can last for years; if AI raises earnings as expected, prices may be right.\nThree signs is our choice. US data, an English-language forum, few past bubbles to compare with.\n\n\nWhat makes this project ambitious: a hard question, results checked against history, and conclusions that state what can’t be concluded."
+    "text": "Results\n\nNames skip three generations.\n\n\n\nShare of each birth year with the name, among the 200 most common names in Sweden. Data: SCB.\n\n\nCommon in the 1920s, nearly gone around 1970 (grey band), back after 2000. Ask: who in the room has a grandmother or great-grandmother called Elsa, Alice or Astrid?"
   },
   {
-    "objectID": "introduction/index.html#what-was-done-2",
-    "href": "introduction/index.html#what-was-done-2",
-    "title": "From a question to an answer anyone can check",
-    "section": "What was done",
-    "text": "What was done\n\nLife cycle of the AI bubble project\n\n\n\n\nPrices vs earnings, since 1871\n\n\nThe NASDAQ tech index\n\nHacker News headlines\nQuestion\n\n“Bubble” is not\nmeasurable: turn it\ninto three signs\nData\nCleaning\n\nline up months,\ncareful dates,\ncounts → shares\nExploration\n\neach sign against\nits own history\nAnalysis\n\ncompare with 1929,\n2000 and the\ncrypto boom\nConclusions\n\n2 of 3 signs are\nthere; a crash is\nnot in the data\n\n\nround and round\n\nREPRODUCIBLE THROUGHOUT  ·  one fetch script, three sources saved\n\n\n\nThe red step: the question itself. The report on GitHub"
+    "objectID": "introduction/index.html#limitations",
+    "href": "introduction/index.html#limitations",
+    "title": "Introduction to Statistical Data Processing",
+    "section": "Limitations",
+    "text": "Limitations\n\nThe table only shows people alive today, with names common today.\n\n\n\nOnly the living are counted\n\nSCB counts people alive in Sweden in 2021, by year of birth. The dead and the emigrated are gone.\n\n\nBorn 1922: only 1,543 people left in the table. Born 1970: 82,020. The 1920s shares rest on few people, and SCB hides counts under 10.\n\n\n\nOnly names common today\n\nThe 200 names are the most common in Sweden today. A 1920s name that never came back is not in the list.\n\n\nFor 1922, only 44 of the 200 names are visible. Fashions that died for good can’t be seen, so the data favours finding comebacks.\n\n\n\nShares of 200 names, not of all babies\n\nA share is out of the people with one of these 200 names, not out of everyone born that year.\n\n\nFor 2021 the table has 26,599 people: most babies today have names outside the list.\n\n\n\nOur choice of periods\n\nThe score uses 1922–35, 1960–80 and 2005–21: our choice.\n\n\nChecked: moving the cut-offs by about five years keeps 9–10 of the same top ten. This one matters little.\n\n\n\n\nSo: these names really did come back, but the data can’t tell us how common comebacks are, or why names come back.\n\n\nSurvivorship bias is the big one: the table is a picture of who is alive today, so it can show names that came back but not names that disappeared. The cut-off check is an example of testing your own choice and reporting that it holds."
   },
   {
-    "objectID": "introduction/index.html#same-cycle-bigger-question",
-    "href": "introduction/index.html#same-cycle-bigger-question",
-    "title": "From a question to an answer anyone can check",
-    "section": "Same cycle, bigger question",
-    "text": "Same cycle, bigger question\n\n\n\nSmalla clear question, one source, its limits stated\n\n\nLife cycle of the baby names project\n\n\nQuestion\n\nDo names come\nback after\nthree generations?\nData\n\nSCB: 200 names by\nyear of birth\nCleaning\n\nreshape the table,\nhandle gaps,\ncounts → shares\nExploration\n\nshare of each\nbirth year\nAnalysis\n\na comeback\nscore\nConclusions\n\nyes: Elsa, Alice,\nAstrid … but only\nthe living are counted\n\n\nround and round\n\nREPRODUCIBLE THROUGHOUT  ·  fetch.py + report.qmd\n\n\n\n\n\nMediumsources combined, an analysis beyond description, uncertainty\n\n\nLife cycle of the electricity price project\n\n\n\n\nElectricity prices, 4 zones\n\n\nSMHI wind, Malmö\n\nSMHI temperature, Malmö\nQuestion\n\nHow big is the\nsouth–north gap,\nand is it the wind?\nData\nCleaning\n\none price a day,\nclock changes,\nmatch to weather\nExploration\n\nprices per zone\nover 3 years\nAnalysis\n\ncalm vs windy\ndays: how sure,\nhow much weather?\nConclusions\n\n0.40 kr/kWh more\non calm days;\nweather explains 18 %\n\n\nround and round\n\nREPRODUCIBLE THROUGHOUT  ·  two fetch scripts, saved raw data\n\n\n\n\n\nAmbitiousa question made measurable, checked, convincing\n\n\nLife cycle of the AI bubble project\n\n\n\n\nPrices vs earnings, since 1871\n\n\nThe NASDAQ tech index\n\nHacker News headlines\nQuestion\n\n“Bubble” is not\nmeasurable: turn it\ninto three signs\nData\nCleaning\n\nline up months,\ncareful dates,\ncounts → shares\nExploration\n\neach sign against\nits own history\nAnalysis\n\ncompare with 1929,\n2000 and the\ncrypto boom\nConclusions\n\n2 of 3 signs are\nthere; a crash is\nnot in the data\n\n\nround and round\n\nREPRODUCIBLE THROUGHOUT  ·  one fetch script, three sources saved\n\n\n\n\n\nThe reports are about the same length. Clone them: github.com/su-mt4008/lecture-demos."
+    "objectID": "introduction/index.html#workflow",
+    "href": "introduction/index.html#workflow",
+    "title": "Introduction to Statistical Data Processing",
+    "section": "Workflow",
+    "text": "Workflow\n\nWorkflow of the baby names project: one SCB table, cleaned into shares, a comeback score, and a conclusion with its limitation\n\n\n1 · QUESTION\n2 · DATA\n3 · CLEANING\n4 · EXPLORATION ⇄ ANALYSIS\n5 · CONCLUSIONS\n\nAre baby names a\nfashion?\nDo names come back\nafter three\ngenerations?\n\nA tidy table\nreshape to one row per\nname and year\nhandle SCB's hidden\nsmall counts\ncounts → shares of each\nyear\n\nYes, with a catch\nElla, Elsa, Alice,\nAstrid top the score\nlimitation: only\npeople alive in 2021\nare counted\n\nStatistics Sweden\n(SCB)\nthe 200 most common names,\nby year of birth 1922–2021\n\n\n\n\n\nEach name over 100\nyears\nplot the share per birth\nyear\n\nA comeback score\ncommon in 1922–35, rare\nin 1960–80, common again\nin 2005–21\n\n\n\n\n\n\n\n\nround and round\nwhere the work was\nfetch.py → data/\nreport.qmd → report.md  (cleaning, analysis, figures, text)\n\nREPRODUCIBLE THROUGHOUT\none command reruns it all:\nuv run quarto render\n\n\n\nOne source, one straight line. The report on GitHub\n\n\nRead it left to right: the question, the one source, what cleaning did, the analysis, and the conclusion with its limitation. The red step is where the work was."
   },
   {
-    "objectID": "introduction/index.html#the-course-at-a-glance",
-    "href": "introduction/index.html#the-course-at-a-glance",
-    "title": "From a question to an answer anyone can check",
-    "section": "The course at a glance",
-    "text": "The course at a glance\n\n\nW1Mon 2 Nov\n\n\nW2Mon 9 Nov\n\n\nW3Mon 16 Nov\n\n\nW4Mon 23 Nov\n\n\nW5Mon 30 Nov\n\n\nW6Mon 7 Dec\n\n\nBreakChristmas\n\n\nJanuary \n\n\nHW1\n\n\nHW2\n\n\nHW3\n\n\nHW4\n\n\nHW5\n\n\nProject, in groups of 2–3\n\n\nProposalThu 19 Nov, 23:59\n\n\nProject dueFri 8 Jan, 23:59ExamSat 9 Jan, 09:00–11:00PresentationsMon 11 Jan, 13:00–16:00\n\n\n\nEach assignment is handed in on the Monday after its week. Last chance for any assignment: Fri 15 Jan, 23:59."
+    "objectID": "introduction/index.html#aim-1",
+    "href": "introduction/index.html#aim-1",
+    "title": "Introduction to Statistical Data Processing",
+    "section": "Aim",
+    "text": "Aim\n\nHow much more does the south pay for electricity, and is the weather the reason?\n\n\n\n\nElectricity in Malmö usually costs more than in Luleå, although it is the same country and the same market.\nOne explanation: when there is little wind in the south, power has to come from the north, and the grid can’t carry enough.\n\n\n\nWhat we need to find out\n\nHow big the gap between Malmö and Luleå is, day by day.\nWhether the gap is bigger on calm days than on windy days.\nHow sure we can be, and how much of the gap the weather explains.\n\n\n\n\nThe question and what would answer it, before any data. The next slide is the background needed to follow it: the four price zones."
   },
   {
-    "objectID": "introduction/index.html#a-week",
-    "href": "introduction/index.html#a-week",
-    "title": "From a question to an answer anyone can check",
-    "section": "A week",
-    "text": "A week\n\n\nMon\n\n\nTue\n\n\nWed\n\n\nThu\n\n\nFri\n\n\n13–17 walkthrough (15–30 min), then work\n\n\nself-study: read the week’s page, run the code\n\n\n13–17 work session\n\n\n23:59 hand in last week’s assignment\n\n\n23:59 your peer review done\n\n\n23:59 final version: graded\n\n\n\nSelf-study first: each week’s material is on the site. Read it, run the code.\nSessions 13:00–17:00 in Lecture room 19, Albano Hus 2, 2nd floor: not compulsory, strongly encouraged. Bring your laptop and your questions.\n\n\nMore: How a week works\n\n\nNo live demos. The material is written to be worked through; sessions are where you get help."
+    "objectID": "introduction/index.html#background",
+    "href": "introduction/index.html#background",
+    "title": "Introduction to Statistical Data Processing",
+    "section": "Background",
+    "text": "Background\n\nFour zones, one country.\n\n\n\n\nSince 2011 Sweden has four price zones, SE1 in the north to SE4 in the south.\nMuch of the power is produced in the north, much of it used in the south.\nWhen the grid can’t carry enough south, the prices split.\n\n\n\n\nMean spot price per price zone, 2023–2025, from north to south\n\nSE1  Luleå\n\n0.31 kr\nSE2  Sundsvall\n\n0.31 kr\nSE3  Stockholm\n\n0.51 kr\nSE4  Malmö\n\n0.66 kr\n\n\nnorthsouth\n\n\n\nMean spot price 2023–2025. Data: Nord Pool via elprisetjustnu.se."
   },
   {
-    "objectID": "introduction/index.html#five-assignments",
-    "href": "introduction/index.html#five-assignments",
-    "title": "From a question to an answer anyone can check",
-    "section": "Five assignments",
-    "text": "Five assignments\n\n\n\n\nAssignment\n\n\nHand in\n\n\nPeer review\n\n\nFinal version\n\n\n\n\n\n\nHW1 Your first reproducible report\n\n\nMon 9 Nov, 23:59\n\n\nThu 12 Nov, 23:59\n\n\nFri 13 Nov, 23:59\n\n\n\n\nHW2 Tables and plots\n\n\nMon 16 Nov, 23:59\n\n\nThu 19 Nov, 23:59\n\n\nFri 20 Nov, 23:59\n\n\n\n\nHW3 Exploring and visualising data\n\n\nMon 23 Nov, 23:59\n\n\nThu 26 Nov, 23:59\n\n\nFri 27 Nov, 23:59\n\n\n\n\nHW4 SQL and regex\n\n\nMon 30 Nov, 23:59\n\n\nThu 3 Dec, 23:59\n\n\nFri 4 Dec, 23:59\n\n\n\n\nHW5 Data from the web\n\n\nMon 7 Dec, 23:59\n\n\nThu 10 Dec, 23:59\n\n\nFri 11 Dec, 23:59\n\n\n\n\n\nMore: Assignments"
+    "objectID": "introduction/index.html#overview-2",
+    "href": "introduction/index.html#overview-2",
+    "title": "Introduction to Statistical Data Processing",
+    "section": "Overview",
+    "text": "Overview\n\n\nDataTwo free online sources\n\n\nelectricity prices for the four zones, every hour (every 15 minutes from October 2025), 2023–2025\n\n\nSMHI: wind and temperature in Malmö\n\n\ndownloaded by a script and saved, so anyone can rerun it\n\n\n\n\nCleaningOne row per day\n\n\none price per zone and day\n\n\nwatch out for clock changes\n\n\nput prices and weather side by side: 1,074 days\n\n\n\n\nAnalysisDoes wind matter?\n\n\nthe gap: Malmö minus Luleå, each day\n\n\ncompare calm days with windy days\n\n\nhow sure can we be, and how much does weather explain?\n\n\n\n\nResultsPartly\n\n\nMalmö 0.66, Luleå 0.31 kr/kWh on average\n\n\non calm days the gap is 0.40 kr/kWh bigger: not chance\n\n\nbut weather explains only about a fifth of it\n\n\n\n\n\nelectricity/fetch_prices.py + fetch_weather.py → electricity/data/ → electricity/report.qmd → report.mdone command: uv run quarto render\n\n\nTwo sources, put side by side by date. The cleaning is where the work was; the next slide shows it."
   },
   {
-    "objectID": "introduction/index.html#how-assignments-are-scored",
-    "href": "introduction/index.html#how-assignments-are-scored",
-    "title": "From a question to an answer anyone can check",
-    "section": "How assignments are scored",
-    "text": "How assignments are scored\nEach assignment is scored 0–100, and 65 passes. A late hand-in costs 30 points:\n\n\n\n\n\n\n\n\n\n\n0\n\n\n65 pass\n\n\n100\n\n\n80\n\n\nlate: 80 − 30 = 50, not passed\n\n\n\n\nPeer review is requiredreview a classmate by Thursday 23:59\n\n\nImprove until Fridaythe Friday 23:59 version is graded\n\n\nLate: −30and no peer review\n\n\nFinal deadline Fri 15 Jan, 23:59miss it and you redo all assignments next year\n\n\n\nMore: Assignments"
+    "objectID": "introduction/index.html#data-cleaning",
+    "href": "introduction/index.html#data-cleaning",
+    "title": "Introduction to Statistical Data Processing",
+    "section": "Data cleaning",
+    "text": "Data cleaning\n\nWhere the work was.\n\n\nCleaning: three raw files become one table of days\n\n\nElectricity prices\n4 zones, every hour\nin world time\n\nSMHI wind, Malmö\nevery hour\n\nSMHI temperature, Malmö\ndaily\n\nOne price per zone and day\nhours and quarter-hours counted fairly\nSwedish days: 23 or 25 hours twice a year\n\nDaily mean wind\n\nSide by side\nby date\n1,096 days\n\nDrop\n22 days\nno weather\n\n1,074\ndays\nto analyse\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nPrices came every hour, then from October 2025 every 15 minutes: a simple average counts them wrongly.\nClocks change twice a year: some days have 23 or 25 hours.\nPrices use world time, the weather Swedish dates: match them to the right day.\n22 days have no weather: dropped, and reported.\n\n\n\nEach bullet, done wrong, would shift the result without any error. The report shows every step in code."
   },
   {
-    "objectID": "introduction/index.html#how-you-hand-in",
-    "href": "introduction/index.html#how-you-hand-in",
-    "title": "From a question to an answer anyone can check",
-    "section": "How you hand in",
-    "text": "How you hand in\n\nHanding in: branch, work, pull request, the check, review, final version\n\n\nBranch\nhw1 from main\n\nWork\nreport.qmd, commit\n\n\n\nPull request\nHW1 · Mon 23:59\n\n\n\nThe check\nrenders on a clean PC\n\n\n\nPeer review\nby Thu 23:59\n\n\n\nFinal version\nFri 23:59 · graded\n\n\n\n\nred: read the log, fix, push again (as often as you need)\ngreen\n\n\n\nThe check renders your report on a clean computer. Green means anyone can get your numbers.\nPush again to the same branch and the pull request updates; the check runs again.\nOne repository for all five assignments: &lt;username&gt;-assignments. You’ll get an invite.\n\n\nMore: How we work\n\n\nWe’ll go through this in detail in the second half. The check is the reproducibility test: green means anyone can get your numbers."
+    "objectID": "introduction/index.html#measures-1",
+    "href": "introduction/index.html#measures-1",
+    "title": "Introduction to Statistical Data Processing",
+    "section": "Measures",
+    "text": "Measures\n\n\nDaily price\n\nWhat electricity cost in a zone on one day.\n\n\nThe average of the hourly (later 15-minute) prices, each weighted by how long it lasted. In kr/kWh.\n\n\n\nThe gap\n\nHow much more Malmö paid than Luleå.\n\n\nMalmö’s (SE4) daily price minus Luleå’s (SE1), for each day. Positive: the south paid more.\n\n\n\nWind quarters\n\nCalm days compared with windy days.\n\n\nSort the days by the wind in Malmö and split them into four equal groups, from the calmest quarter to the windiest.\n\n\n\nShare explained\n\nHow much of the gap goes with the weather.\n\n\nFit a straight line of the gap on wind and temperature: the share of the day-to-day ups and downs the line accounts for (R²).\n\n\n\n\nFour numbers, defined before any graph: the next slides use each of them."
   },
   {
-    "objectID": "introduction/index.html#the-project",
-    "href": "introduction/index.html#the-project",
-    "title": "From a question to an answer anyone can check",
-    "section": "The project",
-    "text": "The project\n\n\nNowForm a group2–3 people, a question of your own\n\n\nThu 19 Nov, 23:59Proposal on Moodlemembers, scope, target grade\n\n\nNov – JanThe full cyclereproducible, with pull requests\n\n\nFri 8 Jan, 23:59Hand inreport about as long as an assignment\n\n\nMon 11 Jan, 13:00–16:00Present15–20 minutes per group\n\n\n\nThe proposal names the group, the question and its data, and the grade you aim for. We check that the scope fits that grade.\nSame tools as the assignments: one repository per group, branches, pull requests, the check.\nAttending the presentations is compulsory.\n\n\nUse the three projects you just saw as reference points for scope.\n\n\nMore: Project\n\n\nThe three projects you just saw are reference points. Start thinking about groups and questions now: the proposal is in two weeks."
+    "objectID": "introduction/index.html#exploration",
+    "href": "introduction/index.html#exploration",
+    "title": "Introduction to Statistical Data Processing",
+    "section": "Exploration",
+    "text": "Exploration\n\nThe gap, month by month.\n\n\n\nThe shaded area is the gap. Is it the wind? Wind power in the south should push southern prices down.\n\n\nThe gap is the shaded area. Question: how big is it, and does it go with the weather?"
   },
   {
-    "objectID": "introduction/index.html#the-exam",
-    "href": "introduction/index.html#the-exam",
-    "title": "From a question to an answer anyone can check",
-    "section": "The exam",
-    "text": "The exam\n\n\nSat 9 Jan, 09:00–11:00written, on campus · register in Ladok\n\n\n\nTheoretical: the ideas behind what you did, at the level of the assignments.\nWhy a step is needed, what a result means, what it can’t show, e.g. what a confidence interval says.\nPrepare with the Check your understanding questions on each week’s page.\n\n\nMore: Exam"
+    "objectID": "introduction/index.html#results-1",
+    "href": "introduction/index.html#results-1",
+    "title": "Introduction to Statistical Data Processing",
+    "section": "Results",
+    "text": "Results\n\nCalm days, big gap.\n\n\nOn the calmest quarter of days the gap is 0.40 kr/kWh bigger than on the windiest quarter, far more than chance would give. But wind and temperature explain only 18% of the day-to-day gap.\n\n“Not chance” comes from a bootstrap interval (0.34–0.47), which you will see in the second half. The 18%: the rest is the grid, nuclear maintenance and continental prices, which this data doesn’t contain. Correlation, not cause: windy days also differ in season and demand."
   },
   {
-    "objectID": "introduction/index.html#where-everything-is",
-    "href": "introduction/index.html#where-everything-is",
-    "title": "From a question to an answer anyone can check",
-    "section": "Where everything is",
-    "text": "Where everything is\n\n\nThe course sitesu-mt4008.github.iomaterial, assignments, dates, the setup guide\n\n\nGitHubhand-ins, the check, peer review\n\n\nMoodlethe project proposal\n\n\nTimeEditrooms and times\n\n\n\nThe site has all dates and material. These slides read their dates from it.\nMoodle is only for the proposal. Rooms and times can change at short notice: TimeEdit shows it first."
+    "objectID": "introduction/index.html#workflow-1",
+    "href": "introduction/index.html#workflow-1",
+    "title": "Introduction to Statistical Data Processing",
+    "section": "Workflow",
+    "text": "Workflow\n\nWorkflow of the electricity price project: prices and weather from two sources, cleaned to one row per day, calm and windy days compared\n\n\n1 · QUESTION\n2 · DATA\n3 · CLEANING\n4 · EXPLORATION ⇄ ANALYSIS\n5 · CONCLUSIONS\n\nWhy does\nelectricity cost\nmore in Malmö than\nin Luleå?\nIs it the wind?\n\nOne row per day\nhourly and 15-minute\nprices → one per day\nclock changes: 23- and\n25-hour days\nmatch prices to weather:\n1,074 days\n\nPartly\n0.40 kr/kWh more on\ncalm days\nbut weather explains\nonly 18 %\n\nSpot prices\n4 zones, 2023–2025, every\nhour (15 min from Oct\n2025)\n\n\n\n\n\nSMHI wind\nMalmö, every day\n\n\n\n\n\nSMHI temperature\nMalmö, every day\n\n\n\n\n\nThe gap over time\nMalmö minus Luleå, month\nby month\n\nCalm vs windy days\nhow big is the\ndifference?\nhow sure are we?\n\n\n\n\n\n\n\n\nround and round\nwhere the work was\nfetch_prices.py + fetch_weather.py → data/\nreport.qmd → report.md  (cleaning, analysis, figures, text)\n\nREPRODUCIBLE THROUGHOUT\none command reruns it all:\nuv run quarto render\n\n\n\nThree files, combined into one table per day. The report on GitHub"
+  },
+  {
+    "objectID": "introduction/index.html#aim-2",
+    "href": "introduction/index.html#aim-2",
+    "title": "Introduction to Statistical Data Processing",
+    "section": "Aim",
+    "text": "Aim\n\nMany say AI shares are in a bubble. What can data say about that?\n\n\n\n\nIn a bubble, prices rise far above what things are worth, until they crash. 1929 and the dot-com boom of 2000 are famous examples.\nBut “bubble” can’t be observed directly, and whether it bursts is a prediction.\n\n\n\nWhat we need to find out\n\nWhich measurable signs people mean when they say “bubble”.\nHow unusual today is on each sign, compared with 1929, 2000 and the crypto boom.\nWhat the data can’t answer.\n\n\n\n\nThe hard part comes first here: the question has to be made measurable before any data is fetched."
+  },
+  {
+    "objectID": "introduction/index.html#research-question",
+    "href": "introduction/index.html#research-question",
+    "title": "Introduction to Statistical Data Processing",
+    "section": "Research question",
+    "text": "Research question\n\nFrom a vague question to three signs we can measure.\n\n\nOperationalising: from 'Is AI a bubble?' to three measurable signs\n\nTHE QUESTION\nA BUBBLE WOULD MEAN …\nWE MEASURE\nSOURCE\n\nIs AI a bubble?\ncan't be measured directly\n\nValuations\nprices far above earnings\n\nprices vs 10 years of earnings\nShiller, since 1871\n\n\n\n\n\nPrice growth\nprices rose unusually fast\n\ntech index vs 5 years before\nFRED, since 1971\n\n\n\n\n\nAttention\neveryone talks about it\n\nshare of headlines saying “AI”\nHacker News, since 2007\n\n\n\n\n\n\n\nDeciding what to measure is the hard part of this project. The next slide says what each sign is."
+  },
+  {
+    "objectID": "introduction/index.html#measures-2",
+    "href": "introduction/index.html#measures-2",
+    "title": "Introduction to Statistical Data Processing",
+    "section": "Measures",
+    "text": "Measures\n\n\nValuations\n\nHow expensive shares are compared with what the companies earn.\n\n\nUS share prices divided by the average earnings of the last 10 years (Shiller’s “CAPE”). 40 means paying 40 kr for every 1 kr of yearly profit.\n\n\n\nPrice growth\n\nHow fast prices have risen.\n\n\nThe NASDAQ tech index today divided by its value 5 years earlier. ×2 means prices doubled in 5 years.\n\n\n\nAttention\n\nHow much people talk about it.\n\n\nThe share of Hacker News headlines (a tech forum) that mention AI, compared with bitcoin and crypto earlier.\n\n\n\n\nFor each: how does today compare with every month before, and with 1929, 2000 and crypto?\n\n\nMake sure everyone knows what each number means before we look at any results."
+  },
+  {
+    "objectID": "introduction/index.html#overview-3",
+    "href": "introduction/index.html#overview-3",
+    "title": "Introduction to Statistical Data Processing",
+    "section": "Overview",
+    "text": "Overview\n\n\nDataThree sources\n\n\nshare prices vs company earnings, every month since 1871\n\n\nthe NASDAQ tech index since 1971\n\n\n4.8 million headlines from Hacker News, a tech forum\n\n\n\n\nCleaningMonths, comparable\n\n\nline the three sources up month by month\n\n\nread the dates carefully: one source writes October oddly\n\n\nuse shares of all headlines, not raw counts\n\n\n\n\nAnalysisHow unusual is today?\n\n\neach sign against its own history\n\n\nhow unusual is today, compared with every month before?\n\n\ncompare with 1929, 2000 and crypto\n\n\n\n\nResultsTwo of three signs\n\n\nvaluations: higher than almost every month since 1871\n\n\nattention: AI is in 14% of headlines; bitcoin peaked at 3%\n\n\nprice growth: ordinary (×1.6 in 5 years)\n\n\n\n\n\nai-bubble/fetch.py → ai-bubble/data/ → ai-bubble/report.qmd → report.mdone command: uv run quarto render\n\n\nThe whole project in one slide. Next: the three signs, one at a time."
+  },
+  {
+    "objectID": "introduction/index.html#results-valuations",
+    "href": "introduction/index.html#results-valuations",
+    "title": "Introduction to Statistical Data Processing",
+    "section": "Results: valuations",
+    "text": "Results: valuations\n\nSecond only to 2000.\n\n\n\nValuations: US share prices divided by ten years of company earnings (Shiller’s “CAPE”). Higher means more expensive. Data: Robert Shiller.\n\n\nOnly the months around the 2000 peak were higher. 1929 was lower than today. A cleaning trap: Shiller writes October as 2026.1, which as a number is the same as January."
+  },
+  {
+    "objectID": "introduction/index.html#results-price-growth",
+    "href": "introduction/index.html#results-price-growth",
+    "title": "Introduction to Statistical Data Processing",
+    "section": "Results: price growth",
+    "text": "Results: price growth\n\nAn ordinary pace.\n\n\n\nPrice growth: the NASDAQ index divided by its value five years earlier. ×2 means prices doubled. Data: FRED.\n\n\nToday ×1.6: higher than only 40% of months. In 2000: ×5.9. This sign is missing.\n\n\nReport the evidence that goes against your story too."
+  },
+  {
+    "objectID": "introduction/index.html#results-attention",
+    "href": "introduction/index.html#results-attention",
+    "title": "Introduction to Statistical Data Processing",
+    "section": "Results: attention",
+    "text": "Results: attention\n\nFour times bitcoin’s peak.\n\n\n\nAttention: the share of Hacker News headlines with each word. Data: Hacker News."
+  },
+  {
+    "objectID": "introduction/index.html#conclusions-and-limitations",
+    "href": "introduction/index.html#conclusions-and-limitations",
+    "title": "Introduction to Statistical Data Processing",
+    "section": "Conclusions and limitations",
+    "text": "Conclusions and limitations\n\n\n✓Valuations40.7price vs earnings today · 44.2 in 2000\n\n\n✓Attention14 %of HN titles · bitcoin’s peak: 3 %\n\n\n✗Price growth×1.6in 5 years · ×5.9 in 2000\n\n\n\nTwo of three signs are there. Whether a crash follows is not in the data.\n\n\nHigh valuations can last for years; if AI raises earnings as expected, prices may be right.\nThree signs is our choice. US data, an English-language forum, few past bubbles to compare with.\n\n\nWhat makes this project ambitious: a hard question, results checked against history, and conclusions that state what can’t be concluded."
+  },
+  {
+    "objectID": "introduction/index.html#workflow-2",
+    "href": "introduction/index.html#workflow-2",
+    "title": "Introduction to Statistical Data Processing",
+    "section": "Workflow",
+    "text": "Workflow\n\nWorkflow of the AI bubble project: a vague question turned into three measurable signs, three sources lined up by month, today compared with past bubbles\n\n\n1 · QUESTION\n2 · DATA\n3 · CLEANING\n4 · EXPLORATION ⇄ ANALYSIS\n5 · CONCLUSIONS\n\nIs AI a bubble?\ncan't be measured\ndirectly\nso: three signs we can\nmeasure\nvaluations, price\ngrowth, attention\n\nMonths, comparable\nline up the sources by\nmonth\nShiller writes October\nas .1\ncounts → shares of\nheadlines\n\nTwo of three\nsigns\nvaluations and\nattention: yes\nprice growth: no\na crash is not in the\ndata\n\nRobert Shiller\nprices vs earnings, since\n1871\n\n\n\n\n\nFRED\nthe NASDAQ index, since\n1971\n\n\n\n\n\nHacker News\n4.8 million headlines\n\n\n\n\n\nEach sign over time\ntoday against its own\nhistory\n\nHow unusual is\ntoday?\ncompare with 1929, 2000\nand the crypto boom\n\n\n\n\n\n\n\n\nround and round\nwhere the work was\nfetch.py → data/\nreport.qmd → report.md  (cleaning, analysis, figures, text)\n\nREPRODUCIBLE THROUGHOUT\none command reruns it all:\nuv run quarto render\n\n\n\nThe red step: the question itself. The report on GitHub"
+  },
+  {
+    "objectID": "introduction/index.html#summary-of-the-examples",
+    "href": "introduction/index.html#summary-of-the-examples",
+    "title": "Introduction to Statistical Data Processing",
+    "section": "Summary of the examples",
+    "text": "Summary of the examples\n\nSame cycle, bigger question.\n\n\n\n\nSmalla clear question, one source, its limits stated\n\n\nLife cycle of the baby names project\n\n\nQuestion\n\nDo names come\nback after\nthree generations?\nData\n\nSCB: 200 names by\nyear of birth\nCleaning\n\nreshape the table,\nhandle gaps,\ncounts → shares\nExploration\n\nshare of each\nbirth year\nAnalysis\n\na comeback\nscore\nConclusions\n\nyes: Elsa, Alice,\nAstrid … but only\nthe living are counted\n\n\nround and round\n\nREPRODUCIBLE THROUGHOUT  ·  fetch.py + report.qmd\n\n\n\n\n\nMediumsources combined, an analysis beyond description, uncertainty\n\n\nLife cycle of the electricity price project\n\n\n\n\nElectricity prices, 4 zones\n\n\nSMHI wind, Malmö\n\nSMHI temperature, Malmö\nQuestion\n\nHow big is the\nsouth–north gap,\nand is it the wind?\nData\nCleaning\n\none price a day,\nclock changes,\nmatch to weather\nExploration\n\nprices per zone\nover 3 years\nAnalysis\n\ncalm vs windy\ndays: how sure,\nhow much weather?\nConclusions\n\n0.40 kr/kWh more\non calm days;\nweather explains 18 %\n\n\nround and round\n\nREPRODUCIBLE THROUGHOUT  ·  two fetch scripts, saved raw data\n\n\n\n\n\nAmbitiousa question made measurable, checked, convincing\n\n\nLife cycle of the AI bubble project\n\n\n\n\nPrices vs earnings, since 1871\n\n\nThe NASDAQ tech index\n\nHacker News headlines\nQuestion\n\n“Bubble” is not\nmeasurable: turn it\ninto three signs\nData\nCleaning\n\nline up months,\ncareful dates,\ncounts → shares\nExploration\n\neach sign against\nits own history\nAnalysis\n\ncompare with 1929,\n2000 and the\ncrypto boom\nConclusions\n\n2 of 3 signs are\nthere; a crash is\nnot in the data\n\n\nround and round\n\nREPRODUCIBLE THROUGHOUT  ·  one fetch script, three sources saved\n\n\n\n\n\nThe reports are about the same length. Clone them: github.com/su-mt4008/lecture-demos."
+  },
+  {
+    "objectID": "introduction/index.html#schedule",
+    "href": "introduction/index.html#schedule",
+    "title": "Introduction to Statistical Data Processing",
+    "section": "Schedule",
+    "text": "Schedule\n\n\nW1Mon 2 Nov\n\n\nW2Mon 9 Nov\n\n\nW3Mon 16 Nov\n\n\nW4Mon 23 Nov\n\n\nW5Mon 30 Nov\n\n\nW6Mon 7 Dec\n\n\nBreakChristmas\n\n\nJanuary \n\n\nHW1\n\n\nHW2\n\n\nHW3\n\n\nHW4\n\n\nHW5\n\n\nProject, in groups of 2–3\n\n\nProposalThu 19 Nov, 23:59\n\n\nProject dueFri 8 Jan, 23:59ExamSat 9 Jan, 09:00–11:00PresentationsMon 11 Jan, 13:00–16:00\n\n\n\nEach assignment is handed in on the Monday after its week. Last chance for any assignment: Fri 15 Jan, 23:59."
+  },
+  {
+    "objectID": "introduction/index.html#weekly-rhythm",
+    "href": "introduction/index.html#weekly-rhythm",
+    "title": "Introduction to Statistical Data Processing",
+    "section": "Weekly rhythm",
+    "text": "Weekly rhythm\n\n\nMon\n\n\nTue\n\n\nWed\n\n\nThu\n\n\nFri\n\n\n13–17 walkthrough (15–30 min), then work\n\n\nself-study: read the week’s page, run the code\n\n\n13–17 work session\n\n\n23:59 hand in last week’s assignment\n\n\n23:59 your peer review done\n\n\n23:59 final version: graded\n\n\n\nSelf-study first: each week’s material is on the site. Read it, run the code.\nSessions 13:00–17:00 in Lecture room 19, Albano Hus 2, 2nd floor: not compulsory, strongly encouraged. Bring your laptop and your questions.\n\n\nMore: How a week works\n\n\nNo live demos. The material is written to be worked through; sessions are where you get help."
+  },
+  {
+    "objectID": "introduction/index.html#assignments",
+    "href": "introduction/index.html#assignments",
+    "title": "Introduction to Statistical Data Processing",
+    "section": "Assignments",
+    "text": "Assignments\n\n\n\n\nAssignment\n\n\nHand in\n\n\nPeer review\n\n\nFinal version\n\n\n\n\n\n\nHW1 Your first reproducible report\n\n\nMon 9 Nov, 23:59\n\n\nThu 12 Nov, 23:59\n\n\nFri 13 Nov, 23:59\n\n\n\n\nHW2 Tables and plots\n\n\nMon 16 Nov, 23:59\n\n\nThu 19 Nov, 23:59\n\n\nFri 20 Nov, 23:59\n\n\n\n\nHW3 Exploring and visualising data\n\n\nMon 23 Nov, 23:59\n\n\nThu 26 Nov, 23:59\n\n\nFri 27 Nov, 23:59\n\n\n\n\nHW4 SQL and regex\n\n\nMon 30 Nov, 23:59\n\n\nThu 3 Dec, 23:59\n\n\nFri 4 Dec, 23:59\n\n\n\n\nHW5 Data from the web\n\n\nMon 7 Dec, 23:59\n\n\nThu 10 Dec, 23:59\n\n\nFri 11 Dec, 23:59\n\n\n\n\n\nMore: Assignments"
+  },
+  {
+    "objectID": "introduction/index.html#grading",
+    "href": "introduction/index.html#grading",
+    "title": "Introduction to Statistical Data Processing",
+    "section": "Grading",
+    "text": "Grading\nEach assignment is scored 0–100, and 65 passes. A late hand-in costs 30 points:\n\n\n\n\n\n\n\n\n\n\n0\n\n\n65 pass\n\n\n100\n\n\n80\n\n\nlate: 80 − 30 = 50, not passed\n\n\n\n\nPeer review is requiredreview a classmate by Thursday 23:59\n\n\nImprove until Fridaythe Friday 23:59 version is graded\n\n\nLate: −30and no peer review\n\n\nFinal deadline Fri 15 Jan, 23:59miss it and you redo all assignments next year\n\n\n\nMore: Assignments"
+  },
+  {
+    "objectID": "introduction/index.html#hand-in",
+    "href": "introduction/index.html#hand-in",
+    "title": "Introduction to Statistical Data Processing",
+    "section": "Hand-in",
+    "text": "Hand-in\n\nHanding in: branch, work, pull request, the check, review, final version\n\n\nBranch\nhw1 from main\n\nWork\nreport.qmd, commit\n\n\n\nPull request\nHW1 · Mon 23:59\n\n\n\nThe check\nrenders on a clean PC\n\n\n\nPeer review\nby Thu 23:59\n\n\n\nFinal version\nFri 23:59 · graded\n\n\n\n\nred: read the log, fix, push again (as often as you need)\ngreen\n\n\n\nThe check renders your report on a clean computer. Green means anyone can get your numbers.\nPush again to the same branch and the pull request updates; the check runs again.\nOne repository for all five assignments: &lt;username&gt;-assignments. You’ll get an invite.\n\n\nMore: How we work\n\n\nWe’ll go through this in detail in the second half. The check is the reproducibility test: green means anyone can get your numbers."
+  },
+  {
+    "objectID": "introduction/index.html#project",
+    "href": "introduction/index.html#project",
+    "title": "Introduction to Statistical Data Processing",
+    "section": "Project",
+    "text": "Project\n\n\nNowForm a group2–3 people, a question of your own\n\n\nThu 19 Nov, 23:59Proposal on Moodlemembers, scope, target grade\n\n\nNov – JanThe full cyclereproducible, with pull requests\n\n\nFri 8 Jan, 23:59Hand inreport about as long as an assignment\n\n\nMon 11 Jan, 13:00–16:00Present15–20 minutes per group\n\n\n\nThe proposal names the group, the question and its data, and the grade you aim for. We check that the scope fits that grade.\nSame tools as the assignments: one repository per group, branches, pull requests, the check.\nAttending the presentations is compulsory.\n\n\nUse the three projects you just saw as reference points for scope.\n\n\nMore: Project\n\n\nThe three projects you just saw are reference points. Start thinking about groups and questions now: the proposal is in two weeks."
+  },
+  {
+    "objectID": "introduction/index.html#exam",
+    "href": "introduction/index.html#exam",
+    "title": "Introduction to Statistical Data Processing",
+    "section": "Exam",
+    "text": "Exam\n\n\nSat 9 Jan, 09:00–11:00written, on campus · register in Ladok\n\n\n\nTheoretical: the ideas behind what you did, at the level of the assignments.\nWhy a step is needed, what a result means, what it can’t show, e.g. what a confidence interval says.\nPrepare with the Check your understanding questions on each week’s page.\n\n\nMore: Exam"
+  },
+  {
+    "objectID": "introduction/index.html#resources",
+    "href": "introduction/index.html#resources",
+    "title": "Introduction to Statistical Data Processing",
+    "section": "Resources",
+    "text": "Resources\n\n\nThe course sitesu-mt4008.github.iomaterial, assignments, dates, the setup guide\n\n\nGitHubhand-ins, the check, peer review\n\n\nMoodlethe project proposal\n\n\nTimeEditrooms and times\n\n\n\nThe site has all dates and material. These slides read their dates from it.\nMoodle is only for the proposal. Rooms and times can change at short notice: TimeEdit shows it first."
   },
   {
     "objectID": "introduction/index.html#next-week-1",
     "href": "introduction/index.html#next-week-1",
-    "title": "From a question to an answer anyone can check",
+    "title": "Introduction to Statistical Data Processing",
     "section": "Next: week 1",
     "text": "Next: week 1\n\nAfter the break: reproducible analysis, and the statistics you need for HW1.\n\n\nThe week 1 slides · This lecture as a post"
-  },
-  {
-    "objectID": "week-1/index.html#git-the-workflow",
-    "href": "week-1/index.html#git-the-workflow",
-    "title": "Reproducible analysis",
-    "section": "Git: the workflow",
-    "text": "Git: the workflow\n\nThe Git workflow: branch hw1 off main, commit small steps, push and open a pull request, the check and review, push fixes, merged into main when accepted\n\n\n\n\n\n\n\nmain\nhw1\n\nPull request\n“HW1”: your hand-in\n\n\npush\n\nread data\n\nplot\n\nwrite up\n\nfixes\ncheck ✓\n\n\nmerged when accepted\nthe accepted version\n1 BRANCH\n2 COMMIT\n3 PUSH, OPEN A PR\n4 CHECK, REVIEW, FIX\n5 MERGE\n\n\n\n\nbranch: a separate line of work, hw1 next to main.\ncommit: save a snapshot, with a message saying why.\npush: send your commits to GitHub.\npull request: your hand-in; the check runs and the review happens there.\n\n\n\nPush fixes to the same branch and the pull request updates. We merge it when it is accepted; the guide has every step in VS Code.\n\n\nMore: How to hand in"
   }
 ]

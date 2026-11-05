@@ -1,42 +1,33 @@
 ---
-title: "From a question to an answer anyone can check"
-subtitle: "MT4008 Statistical Data Processing · Introduction"
+title: "Introduction to Statistical Data Processing"
+subtitle: "MT4008"
 author: "Per Alexandersson and Taariq Nazar"
 date: "Thursday 5 November 2026"
 date-format: "dddd D MMMM YYYY"
 engine: markdown
 # Speaker notes: press "s" in the browser. Press "d" to switch light/dark.
-# Timing ≈ 45 min: three projects ≈ 5 + 10 + 10, the course ≈ 20. Then the week 1 deck.
+# Order: overview, the data science cycle, course aims, three example projects, how the course works.
+# Timing ≈ 45 min: cycle and aims ≈ 5, three projects ≈ 5 + 10 + 10, the course ≈ 15. Then the week 1 deck.
+# Project slides are titled by topic (Aim, Overview, Results, ...); the project name sits above
+# the title (data-project). Each project opens with its aim, before anything that was done.
 # Dates in <span data-course="..."> are filled in from the site (/course.json), so they
 # follow course.config.ts; the text written here is only the fallback.
 # Figures: uv run scripts/introduction_figures.py ../lecture-demos/introduction
 ---
 
-## Three questions
+## Overview
 
-::: trio
-<div>
-<p class="kicker">Small</p>
-<p class="q">Are baby names a fashion?</p>
-<p class="muted">One table from Statistics Sweden.</p>
-</div>
-<div>
-<p class="kicker">Medium</p>
-<p class="q">Why does electricity cost more in Malmö than in Luleå?</p>
-<p class="muted">Electricity prices, put side by side with the weather.</p>
-</div>
-<div>
-<p class="kicker">Ambitious</p>
-<p class="q">Is AI a bubble?</p>
-<p class="muted">Three sources, and a question that first has to be made measurable.</p>
-</div>
+::: agenda
+<div><span class="n">1</span><b>The data science cycle</b><span class="muted">the steps every project in this course goes through</span></div>
+<div><span class="n">2</span><b>Course aims</b><span class="muted">what you will be able to do by January</span></div>
+<div><span class="n">3</span><b>Motivating examples</b><span class="muted">three projects, small, medium and ambitious, each a full report</span></div>
+<div><span class="n">4</span><b>How the course works</b><span class="muted">weeks, assignments, the project, the exam</span></div>
 :::
 
-<p class="small muted" style="margin-top:1.5em">Each is a complete report you can download and rerun.</p>
+<p class="small muted" style="margin-top:1.4em">After the break: week 1, reproducible analysis and the statistics you need for HW1.</p>
 
 ::: notes
-Open with the questions, not the course. Ask the room: which of these could you answer
-today, with a laptop? By the end of the course: all three. Each is a full report you can clone.
+The plan for today. The cycle first, because every example and every assignment is told along it.
 :::
 
 ## The data science cycle
@@ -62,11 +53,83 @@ Every project in this course goes round this cycle, from HW1 to your group proje
 Keep this slide in mind: every project that follows is told along this cycle.
 :::
 
+## Course aims
+
+<p class="big">From a question to an answer anyone can check.</p>
+
+<p class="muted">You will write code, but code is not the point. The science is.</p>
+
+::: {.twocol .aims}
+- Turn a vague question into one that **data can answer**, and choose methods that fit it.
+- **Find, collect and combine** data from files, databases, APIs and the web.
+- **Clean, explore and visualise** data, and see when a pattern might mislead.
+- Draw conclusions the evidence supports, with their **uncertainty and limitations**.
+- Make every analysis **reproducible**: Git and GitHub, a clear README, a workflow others can run.
+- Work in a **team** on shared code: branches, pull requests, code review.
+- **Communicate** results honestly, clearly and usefully.
+:::
+
+<p class="more">More: <a href="../../about#what-you-ll-be-able-to-do">Course information</a></p>
+
+::: notes
+One aim per step of the cycle, plus working together and telling others. The three projects
+that follow show what this looks like at three levels of ambition.
+:::
+
+## Motivating examples
+
+::: trio
+<div>
+<p class="kicker">Small</p>
+<p class="q">Are baby names a fashion?</p>
+<p class="muted">One table from Statistics Sweden.</p>
+</div>
+<div>
+<p class="kicker">Medium</p>
+<p class="q">Why does electricity cost more in Malmö than in Luleå?</p>
+<p class="muted">Electricity prices, put side by side with the weather.</p>
+</div>
+<div>
+<p class="kicker">Ambitious</p>
+<p class="q">Is AI a bubble?</p>
+<p class="muted">Three sources, and a question that first has to be made measurable.</p>
+</div>
+:::
+
+<p class="small muted" style="margin-top:1.5em">Each is a complete report you can download and rerun.</p>
+
+::: notes
+Ask the room: which of these could you answer today, with a laptop? By the end of the course:
+all three. Each is a full report you can clone.
+:::
+
 # Are baby names a fashion? {.divider}
 
 <p class="muted">Small project · one source</p>
 
-## The workflow
+## Aim {data-project="Baby names"}
+
+<p class="lead">Are baby names a fashion: do they come and go, and come back?</p>
+
+:::: cols
+::: {}
+- A fashion is popular, then forgotten, then popular again.
+- Parents often name children after grandparents or great-grandparents. If names are a fashion, a name should **come back after about three generations**.
+:::
+::: {.fragment}
+**What we need to find out**
+
+- How common each name was, **every year for 100 years**.
+- Which names were common, then rare, then common again.
+- What the data can and **cannot** tell us.
+:::
+::::
+
+::: notes
+Before anything is done: what are we trying to find out, and what would count as an answer?
+:::
+
+## Overview {data-project="Baby names"}
 
 ::: workflow
 <div><span class="kicker">Data</span><b>Statistics Sweden (SCB)</b>
@@ -74,9 +137,9 @@ Keep this slide in mind: every project that follows is told along this cycle.
 <div><span class="kicker">Cleaning</span><b>A tidy table</b>
 <ul><li>reshape the table so it is easy to work with</li><li>handle the gaps: SCB hides very small numbers</li><li>turn counts into shares, so years can be compared</li></ul></div>
 <div><span class="kicker">Analysis</span><b>Find the comebacks</b>
-<ul><li>plot each name over 100 years</li><li>a comeback score: common in the 1920s, rare in 1960–80, common again after 2005</li></ul></div>
+<ul><li>plot each name over 100 years</li><li>a comeback score: common in 1922–35, rare in 1960–80, common again in 2005–21</li></ul></div>
 <div class="result"><span class="kicker">Results</span><b>Yes, with a catch</b>
-<ul><li>Ella, Elsa, Alice, Astrid, Ebba top the score</li><li>the top 10 names: 59% of a year in 1922, 24% in 2021</li><li>only the living are counted</li></ul></div>
+<ul><li>Ella, Elsa, Alice, Astrid, Ebba top the score</li><li>the top 10 names: 59% of those counted for 1922, 24% for 2021</li><li>only the living are counted</li></ul></div>
 :::
 
 <p class="wfcode"><code>names/fetch.py</code> → <code>names/data/</code> → <code>names/report.qmd</code> → <code>report.md</code><span>one command: <code>uv run quarto render</code></span></p>
@@ -86,7 +149,21 @@ The whole project in one slide: where the data came from, what we did to it, wha
 The next slides show the result and the catch.
 :::
 
-## Names skip three generations
+## Measures {data-project="Baby names"}
+
+::: {.defs .two}
+<div><b>Share of a birth year</b><p>How common a name is among the babies born in one year.</p><p class="muted">People born that year with the name, divided by everyone born that year with one of the 200 names in the table. A share, not a count, so years with many or few births can be compared.</p></div>
+<div><b>Comeback score</b><p>How well a name fits "common, then rare, then common again".</p><p class="muted">Its share in 1922–35 divided by its share in 1960–80, and its share in 2005–21 divided by its share in 1960–80; the score is the smaller of the two. High only if the name was common both before and after the dip.</p></div>
+:::
+
+::: notes
+Two numbers, defined before any graph. The comeback score takes the smaller ratio, so a name has
+to be common on both sides of the dip to score high.
+:::
+
+## Results {data-project="Baby names"}
+
+<p class="lead">Names skip three generations.</p>
 
 <img src="../../img/introduction/names-comebacks.svg" alt="Share of births named Elsa, Alice and Astrid, 1922–2021: high in the 1920s, almost zero in 1960–80, high again after 2000">
 
@@ -97,52 +174,68 @@ Common in the 1920s, nearly gone around 1970 (grey band), back after 2000. Ask: 
 has a grandmother or great-grandmother called Elsa, Alice or Astrid?
 :::
 
-## Only the living are counted
+## Limitations {data-project="Baby names"}
 
-```{=html}
-{{< include ../../public/img/introduction/diagram-survivors.svg >}}
-```
+<p class="lead">The table only shows people alive today, with names common today.</p>
 
-- The table counts people **alive in Sweden in 2021**, by year of birth: the dead and the emigrated are gone.
-- It only lists names common **today**, so a 1920s name that never came back is missing.
-- So the data is tilted towards finding comebacks, and the report says so.
-
-::: notes
-Survivorship bias. In this project the real work was in the conclusion and its limitation.
+::: {.defs .two .lim}
+<div><b>Only the living are counted</b><p>SCB counts people <b>alive in Sweden in 2021</b>, by year of birth. The dead and the emigrated are gone.</p><p class="muted">Born 1922: only <b>1,543</b> people left in the table. Born 1970: <b>82,020</b>. The 1920s shares rest on few people, and SCB hides counts under 10.</p></div>
+<div><b>Only names common today</b><p>The 200 names are the most common in Sweden <b>today</b>. A 1920s name that never came back is not in the list.</p><p class="muted">For 1922, only <b>44</b> of the 200 names are visible. Fashions that died for good can't be seen, so the data <b>favours finding comebacks</b>.</p></div>
+<div><b>Shares of 200 names, not of all babies</b><p>A share is out of the people with one of these 200 names, not out of everyone born that year.</p><p class="muted">For 2021 the table has <b>26,599</b> people: most babies today have names outside the list.</p></div>
+<div><b>Our choice of periods</b><p>The score uses 1922–35, 1960–80 and 2005–21: our choice.</p><p class="muted">Checked: moving the cut-offs by about five years keeps <b>9–10</b> of the same top ten. This one matters little.</p></div>
 :::
 
-## What was done {.diagram}
+<p class="small" style="margin-top:.8em">So: these names really did come back, but the data can't tell us how common comebacks are, or <b>why</b> names come back.</p>
+
+::: notes
+Survivorship bias is the big one: the table is a picture of who is alive today, so it can show
+names that came back but not names that disappeared. The cut-off check is an example of testing
+your own choice and reporting that it holds.
+:::
+
+## Workflow {.diagram data-project="Baby names"}
 
 ```{=html}
-{{< include ../../public/img/introduction/lifecycle-names.svg >}}
+{{< include ../../public/img/introduction/flow-names.svg >}}
 ```
 
-<p class="small muted">One source, one straight line. The red step is where the work was. <a href="https://github.com/su-mt4008/lecture-demos/tree/main/introduction/names">The report on GitHub</a></p>
+<p class="small muted">One source, one straight line. <a href="https://github.com/su-mt4008/lecture-demos/tree/main/introduction/names">The report on GitHub</a></p>
+
+::: notes
+Read it left to right: the question, the one source, what cleaning did, the analysis, and the
+conclusion with its limitation. The red step is where the work was.
+:::
 
 # Why does electricity cost more in Malmö than in Luleå? {.divider}
 
 <p class="muted">Medium project · two sources combined</p>
 
-## The workflow
+## Aim {data-project="Electricity prices"}
 
-::: workflow
-<div><span class="kicker">Data</span><b>Two free online sources</b>
-<ul><li>electricity prices for the four zones, every hour for three years</li><li>SMHI: wind and temperature in Malmö</li><li>downloaded by a script and saved, so anyone can rerun it</li></ul></div>
-<div><span class="kicker">Cleaning</span><b>One row per day</b>
-<ul><li>one price per zone and day</li><li>watch out for clock changes</li><li>put prices and weather side by side: 1,074 days</li></ul></div>
-<div><span class="kicker">Analysis</span><b>Does wind matter?</b>
-<ul><li>the gap: Malmö minus Luleå, each day</li><li>compare calm days with windy days</li><li>how sure can we be, and how much does weather explain?</li></ul></div>
-<div class="result"><span class="kicker">Results</span><b>Partly</b>
-<ul><li>Malmö 0.66, Luleå 0.31 kr/kWh on average</li><li>on calm days the gap is 0.40 kr/kWh bigger: not chance</li><li>but weather explains only about a fifth of it</li></ul></div>
+<p class="lead">How much more does the south pay for electricity, and is the weather the reason?</p>
+
+:::: cols
+::: {}
+- Electricity in Malmö usually costs more than in Luleå, although it is the same country and the same market.
+- One explanation: when there is **little wind** in the south, power has to come from the north, and the grid can't carry enough.
 :::
+::: {.fragment}
+**What we need to find out**
 
-<p class="wfcode"><code>electricity/fetch_prices.py + fetch_weather.py</code> → <code>electricity/data/</code> → <code>electricity/report.qmd</code> → <code>report.md</code><span>one command: <code>uv run quarto render</code></span></p>
+- How big the **gap** between Malmö and Luleå is, day by day.
+- Whether the gap is **bigger on calm days** than on windy days.
+- **How sure** we can be, and **how much** of the gap the weather explains.
+:::
+::::
 
 ::: notes
-Two sources, put side by side by date. The cleaning is where the work was; the next slides show it.
+The question and what would answer it, before any data. The next slide is the background
+needed to follow it: the four price zones.
 :::
 
-## Four zones, one country
+## Background {data-project="Electricity prices"}
+
+<p class="lead">Four zones, one country.</p>
 
 :::: cols
 ::: {}
@@ -158,18 +251,28 @@ Two sources, put side by side by date. The cleaning is where the work was; the n
 :::
 ::::
 
-## The gap, month by month
+## Overview {data-project="Electricity prices"}
 
-<img src="../../img/introduction/electricity-zones.svg" alt="Monthly mean spot price in SE4 Malmö and SE1 Luleå, 2023–2025; Malmö is above Luleå almost every month">
-
-<p class="small">The shaded area is the gap. Is it the wind? Wind power in the south should push southern prices down.</p>
-
-::: notes
-Sweden has four price zones since 2011. The gap is the shaded area. Question: how big is it,
-and does it go with the weather? Wind power in the south should push southern prices down.
+::: workflow
+<div><span class="kicker">Data</span><b>Two free online sources</b>
+<ul><li>electricity prices for the four zones, every hour (every 15 minutes from October 2025), 2023–2025</li><li>SMHI: wind and temperature in Malmö</li><li>downloaded by a script and saved, so anyone can rerun it</li></ul></div>
+<div><span class="kicker">Cleaning</span><b>One row per day</b>
+<ul><li>one price per zone and day</li><li>watch out for clock changes</li><li>put prices and weather side by side: 1,074 days</li></ul></div>
+<div><span class="kicker">Analysis</span><b>Does wind matter?</b>
+<ul><li>the gap: Malmö minus Luleå, each day</li><li>compare calm days with windy days</li><li>how sure can we be, and how much does weather explain?</li></ul></div>
+<div class="result"><span class="kicker">Results</span><b>Partly</b>
+<ul><li>Malmö 0.66, Luleå 0.31 kr/kWh on average</li><li>on calm days the gap is 0.40 kr/kWh bigger: not chance</li><li>but weather explains only about a fifth of it</li></ul></div>
 :::
 
-## Where the work was: cleaning
+<p class="wfcode"><code>electricity/fetch_prices.py + fetch_weather.py</code> → <code>electricity/data/</code> → <code>electricity/report.qmd</code> → <code>report.md</code><span>one command: <code>uv run quarto render</code></span></p>
+
+::: notes
+Two sources, put side by side by date. The cleaning is where the work was; the next slide shows it.
+:::
+
+## Data cleaning {data-project="Electricity prices"}
+
+<p class="lead">Where the work was.</p>
 
 ```{=html}
 {{< include ../../public/img/introduction/diagram-cleaning.svg >}}
@@ -186,11 +289,38 @@ and does it go with the weather? Wind power in the south should push southern pr
 Each bullet, done wrong, would shift the result without any error. The report shows every step in code.
 :::
 
-## Calm days, big gap
+## Measures {data-project="Electricity prices"}
+
+::: {.defs .four}
+<div><b>Daily price</b><p>What electricity cost in a zone on one day.</p><p class="muted">The average of the hourly (later 15-minute) prices, each weighted by how long it lasted. In kr/kWh.</p></div>
+<div><b>The gap</b><p>How much more Malmö paid than Luleå.</p><p class="muted">Malmö's (SE4) daily price minus Luleå's (SE1), for each day. Positive: the south paid more.</p></div>
+<div><b>Wind quarters</b><p>Calm days compared with windy days.</p><p class="muted">Sort the days by the wind in Malmö and split them into four equal groups, from the calmest quarter to the windiest.</p></div>
+<div><b>Share explained</b><p>How much of the gap goes with the weather.</p><p class="muted">Fit a straight line of the gap on wind and temperature: the share of the day-to-day ups and downs the line accounts for (R²).</p></div>
+:::
+
+::: notes
+Four numbers, defined before any graph: the next slides use each of them.
+:::
+
+## Exploration {data-project="Electricity prices"}
+
+<p class="lead">The gap, month by month.</p>
+
+<img src="../../img/introduction/electricity-zones.svg" alt="Monthly mean spot price in SE4 Malmö and SE1 Luleå, 2023–2025; Malmö is above Luleå almost every month">
+
+<p class="small">The shaded area is the gap. Is it the wind? Wind power in the south should push southern prices down.</p>
+
+::: notes
+The gap is the shaded area. Question: how big is it, and does it go with the weather?
+:::
+
+## Results {data-project="Electricity prices"}
+
+<p class="lead">Calm days, big gap.</p>
 
 <img src="../../img/introduction/electricity-wind.svg" alt="Mean price gap by wind quarter: 0.55 SEK per kWh on the calmest days, falling to 0.15 on the windiest">
 
-On calm days the gap is **0.40 kr/kWh bigger** than on windy days, far more than chance would give. But wind and temperature explain only **18%** of the day-to-day gap.
+On the calmest quarter of days the gap is **0.40 kr/kWh bigger** than on the windiest quarter, far more than chance would give. But wind and temperature explain only **18%** of the day-to-day gap.
 
 ::: notes
 "Not chance" comes from a bootstrap interval (0.34–0.47), which you will see in the second half. The 18%: the rest is the
@@ -198,19 +328,67 @@ grid, nuclear maintenance and continental prices, which this data doesn't contai
 Correlation, not cause: windy days also differ in season and demand.
 :::
 
-## What was done {.diagram}
+## Workflow {.diagram data-project="Electricity prices"}
 
 ```{=html}
-{{< include ../../public/img/introduction/lifecycle-electricity.svg >}}
+{{< include ../../public/img/introduction/flow-electricity.svg >}}
 ```
 
-<p class="small muted">Three files, combined into one table. <a href="https://github.com/su-mt4008/lecture-demos/tree/main/introduction/electricity">The report on GitHub</a></p>
+<p class="small muted">Three files, combined into one table per day. <a href="https://github.com/su-mt4008/lecture-demos/tree/main/introduction/electricity">The report on GitHub</a></p>
 
 # Is AI a bubble? {.divider}
 
 <p class="muted">Ambitious project · three sources, and a question that needs work first</p>
 
-## The workflow
+## Aim {data-project="AI bubble"}
+
+<p class="lead">Many say AI shares are in a bubble. What can data say about that?</p>
+
+:::: cols
+::: {}
+- In a **bubble**, prices rise far above what things are worth, until they crash. 1929 and the dot-com boom of 2000 are famous examples.
+- But "bubble" can't be **observed directly**, and whether it bursts is a **prediction**.
+:::
+::: {.fragment}
+**What we need to find out**
+
+- Which **measurable signs** people mean when they say "bubble".
+- How unusual **today** is on each sign, compared with **1929, 2000 and the crypto boom**.
+- What the data **can't** answer.
+:::
+::::
+
+::: notes
+The hard part comes first here: the question has to be made measurable before any data is fetched.
+:::
+
+## Research question {data-project="AI bubble"}
+
+<p class="lead">From a vague question to three signs we can measure.</p>
+
+```{=html}
+{{< include ../../public/img/introduction/diagram-operationalise.svg >}}
+```
+
+::: notes
+Deciding what to measure is the hard part of this project. The next slide says what each sign is.
+:::
+
+## Measures {data-project="AI bubble"}
+
+::: defs
+<div><b>Valuations</b><p>How expensive shares are compared with what the companies earn.</p><p class="muted">US share prices divided by the average earnings of the last 10 years (Shiller's "CAPE"). 40 means paying 40 kr for every 1 kr of yearly profit.</p></div>
+<div><b>Price growth</b><p>How fast prices have risen.</p><p class="muted">The NASDAQ tech index today divided by its value 5 years earlier. ×2 means prices doubled in 5 years.</p></div>
+<div><b>Attention</b><p>How much people talk about it.</p><p class="muted">The share of Hacker News headlines (a tech forum) that mention AI, compared with bitcoin and crypto earlier.</p></div>
+:::
+
+<p style="margin-top:1em">For each: how does <b>today</b> compare with every month before, and with <b>1929, 2000 and crypto</b>?</p>
+
+::: notes
+Make sure everyone knows what each number means before we look at any results.
+:::
+
+## Overview {data-project="AI bubble"}
 
 ::: workflow
 <div><span class="kicker">Data</span><b>Three sources</b>
@@ -218,7 +396,7 @@ Correlation, not cause: windy days also differ in season and demand.
 <div><span class="kicker">Cleaning</span><b>Months, comparable</b>
 <ul><li>line the three sources up month by month</li><li>read the dates carefully: one source writes October oddly</li><li>use shares of all headlines, not raw counts</li></ul></div>
 <div><span class="kicker">Analysis</span><b>How unusual is today?</b>
-<ul><li>turn "bubble" into three signs we can measure</li><li>how unusual is today, compared with every month before?</li><li>compare with 1929, 2000 and crypto</li></ul></div>
+<ul><li>each sign against its own history</li><li>how unusual is today, compared with every month before?</li><li>compare with 1929, 2000 and crypto</li></ul></div>
 <div class="result"><span class="kicker">Results</span><b>Two of three signs</b>
 <ul><li>valuations: higher than almost every month since 1871</li><li>attention: AI is in 14% of headlines; bitcoin peaked at 3%</li><li>price growth: ordinary (×1.6 in 5 years)</li></ul></div>
 :::
@@ -226,38 +404,29 @@ Correlation, not cause: windy days also differ in season and demand.
 <p class="wfcode"><code>ai-bubble/fetch.py</code> → <code>ai-bubble/data/</code> → <code>ai-bubble/report.qmd</code> → <code>report.md</code><span>one command: <code>uv run quarto render</code></span></p>
 
 ::: notes
-The hard part here is the analysis step: deciding what to measure. The next slide shows how.
+The whole project in one slide. Next: the three signs, one at a time.
 :::
 
-## Three signs we can measure
+## Results: valuations {data-project="AI bubble"}
 
-```{=html}
-{{< include ../../public/img/introduction/diagram-operationalise.svg >}}
-```
-
-- A bubble can't be observed directly, and whether it bursts is a prediction.
-- So we choose three **signs** people associate with bubbles, and ask how unusual today is on each, compared with 1929, 2000 and the crypto boom.
-
-::: notes
-Deciding what to measure is the hard part of this project.
-:::
-
-## Valuations: second only to 2000
+<p class="lead">Second only to 2000.</p>
 
 <img src="../../img/introduction/ai-cape.svg" alt="Cyclically adjusted price-earnings ratio of US stocks since 1881, with 1929, 2000 and today marked; today is above 1929 and just below 2000">
 
-<p class="small">US share prices compared with ten years of company earnings (Shiller's "CAPE"). Data: Robert Shiller.</p>
+<p class="small"><b>Valuations:</b> US share prices divided by ten years of company earnings (Shiller's "CAPE"). Higher means more expensive. Data: Robert Shiller.</p>
 
 ::: notes
 Only the months around the 2000 peak were higher. 1929 was lower than today.
 A cleaning trap: Shiller writes October as 2026.1, which as a number is the same as January.
 :::
 
-## Prices: an ordinary pace
+## Results: price growth {data-project="AI bubble"}
+
+<p class="lead">An ordinary pace.</p>
 
 <img src="../../img/introduction/ai-nasdaq.svg" alt="NASDAQ divided by its value five years earlier, since 1976; the 2000 peak is far higher than today">
 
-<p class="small">The NASDAQ index divided by its value five years earlier. Data: FRED.</p>
+<p class="small"><b>Price growth:</b> the NASDAQ index divided by its value five years earlier. ×2 means prices doubled. Data: FRED.</p>
 
 <p>Today ×1.6: higher than only <b>40%</b> of months. In 2000: ×5.9. <span class="accent">This sign is missing.</span></p>
 
@@ -265,13 +434,15 @@ A cleaning trap: Shiller writes October as 2026.1, which as a number is the same
 Report the evidence that goes against your story too.
 :::
 
-## Attention: four times the crypto peak
+## Results: attention {data-project="AI bubble"}
+
+<p class="lead">Four times bitcoin's peak.</p>
 
 <img src="../../img/introduction/ai-attention.svg" alt="Share of Hacker News story titles mentioning AI, bitcoin and crypto, 2007 to today; AI is far above the earlier crypto peaks">
 
-<p class="small">Share of Hacker News headlines with each word. Data: Hacker News.</p>
+<p class="small"><b>Attention:</b> the share of Hacker News headlines with each word. Data: Hacker News.</p>
 
-## Results
+## Conclusions and limitations {data-project="AI bubble"}
 
 ::: scorecard
 <div class="yes"><span class="tick">✓</span><b>Valuations</b><span class="num">40.7</span><span class="muted">price vs earnings today · 44.2 in 2000</span></div>
@@ -289,15 +460,17 @@ What makes this project ambitious: a hard question, results checked against hist
 conclusions that state what can't be concluded.
 :::
 
-## What was done {.diagram}
+## Workflow {.diagram data-project="AI bubble"}
 
 ```{=html}
-{{< include ../../public/img/introduction/lifecycle-ai-bubble.svg >}}
+{{< include ../../public/img/introduction/flow-ai-bubble.svg >}}
 ```
 
 <p class="small muted">The red step: the question itself. <a href="https://github.com/su-mt4008/lecture-demos/tree/main/introduction/ai-bubble">The report on GitHub</a></p>
 
-## Same cycle, bigger question
+## Summary of the examples
+
+<p class="lead">Same cycle, bigger question.</p>
 
 ::: lc-stack
 <div class="lc-row"><p><span class="level">Small</span>a clear question, one source, its limits stated</p>
@@ -326,7 +499,7 @@ The reports are about the same length. Clone them: github.com/su-mt4008/lecture-
 
 # How the course works {.divider}
 
-## The course at a glance
+## Schedule
 
 ::: timeline
 <div class="col"><b>W1</b><span data-course="weeks.0.start">Mon 2 Nov</span></div>
@@ -349,7 +522,7 @@ The reports are about the same length. Clone them: github.com/su-mt4008/lecture-
 
 <p class="small muted">Each assignment is handed in on the Monday after its week. Last chance for any assignment: <span data-course="finalDeadline">Fri 15 Jan, 23:59</span>.</p>
 
-## A week
+## Weekly rhythm
 
 ::: weekstrip
 <div class="day"><b>Mon</b></div><div class="day"><b>Tue</b></div><div class="day"><b>Wed</b></div><div class="day"><b>Thu</b></div><div class="day"><b>Fri</b></div>
@@ -370,7 +543,7 @@ The reports are about the same length. Clone them: github.com/su-mt4008/lecture-
 No live demos. The material is written to be worked through; sessions are where you get help.
 :::
 
-## Five assignments
+## Assignments
 
 <table>
 <thead><tr><th>Assignment</th><th>Hand in</th><th>Peer review</th><th>Final version</th></tr></thead>
@@ -385,7 +558,7 @@ No live demos. The material is written to be worked through; sessions are where 
 
 <p class="more">More: <a href="../../homework/">Assignments</a></p>
 
-## How assignments are scored
+## Grading
 
 Each assignment is scored **0–100**, and **65** passes. A late hand-in costs **30 points**:
 
@@ -405,7 +578,7 @@ Each assignment is scored **0–100**, and **65** passes. A late hand-in costs *
 
 <p class="more">More: <a href="../../homework/">Assignments</a></p>
 
-## How you hand in
+## Hand-in
 
 ```{=html}
 {{< include ../../public/img/introduction/diagram-handin.svg >}}
@@ -422,7 +595,7 @@ We'll go through this in detail in the second half. The check is the reproducibi
 green means anyone can get your numbers.
 :::
 
-## The project
+## Project
 
 ::: milestones
 <div><span class="when">Now</span><b>Form a group</b>2–3 people, a question of your own</div>
@@ -445,7 +618,7 @@ The three projects you just saw are reference points. Start thinking
 about groups and questions now: the proposal is in two weeks.
 :::
 
-## The exam
+## Exam
 
 ::: bigfact
 <div><span class="num" data-course="exam">Sat 9 Jan, 09:00–11:00</span><span class="muted">written, on campus · register in Ladok</span></div>
@@ -457,7 +630,7 @@ about groups and questions now: the proposal is in two weeks.
 
 <p class="more">More: <a href="../../exam/">Exam</a></p>
 
-## Where everything is
+## Resources
 
 ::: hub
 <div class="main"><b>The course site</b><span>su-mt4008.github.io</span><span class="muted">material, assignments, dates, the setup guide</span></div>
