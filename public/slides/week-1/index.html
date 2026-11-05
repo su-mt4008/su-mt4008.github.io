@@ -95,7 +95,7 @@
     code span.vs { color: #20794d; } /* VerbatimString */
     code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   </style>
-  <link rel="stylesheet" href="../site_libs/revealjs/dist/theme/quarto-da0446bcae4605be1bb550f88e8f39b8.css">
+  <link rel="stylesheet" href="../site_libs/revealjs/dist/theme/quarto-07a7cab5ec89dbaf9451e784d07c89ef.css">
   <link href="../site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
   <link href="../site_libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
   <link href="../site_libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
@@ -351,8 +351,8 @@ Same structure every time: a reader knows where to look, and everything generate
 </section>
 <section id="git-the-workflow" class="slide level2">
 <h2>Git: the workflow</h2>
-<svg class="fd" viewbox="0 0 1180 330" role="img" xmlns="http://www.w3.org/2000/svg">
-<title>The Git workflow: branch hw1 off main, commit small steps, push and open a pull request, the check and review, push fixes, merged into main when accepted</title>
+<svg class="fd" viewbox="0 0 1180 450" role="img" xmlns="http://www.w3.org/2000/svg">
+<title>The Git workflow: branch hw1 off main, commit small steps, push and open a pull request, the check and review, push fixes, merged into main when accepted; meanwhile hw2 is branched off main and worked on in parallel</title>
 <style>
 .fd text{font-family:var(--font-sans,'IBM Plex Sans',system-ui,sans-serif);fill:var(--c-text,#222);font-size:15px}
 .fd .muted{fill:var(--c-muted,#777);font-size:13px}
@@ -406,18 +406,33 @@ Same structure every time: a reader knows where to look, and everything generate
 <text class="head" x="600" y="40" text-anchor="middle">3 PUSH, OPEN A PR</text>
 <text class="head" x="840" y="40" text-anchor="middle">4 CHECK, REVIEW, FIX</text>
 <text class="head" x="1080" y="40" text-anchor="middle">5 MERGE</text>
+<text class="lg" x="20" y="386" text-anchor="start">hw2</text>
+<text class="muted" x="90" y="386" text-anchor="start">starts from main while hw1 is still in review</text>
+<path class="edge" d="M560,260 C610,260 610,380 640.0,380.0"></path>
+<path class="tip" d="M649.0,380.0 L638.0,374.0 L638.0,386.0 Z"></path>
+<path class="edge" d="M660,380 L860,380 M1060,380 L1160,380"></path>
+<circle class="node" cx="660" cy="380" r="11"></circle>
+<text class="muted" x="660" y="416" text-anchor="middle">read data</text>
+<circle class="node" cx="760" cy="380" r="11"></circle>
+<text class="muted" x="760" y="416" text-anchor="middle">plot</text>
+<path class="edge" d="M760,380 L851.0,380.0"></path>
+<path class="tip" d="M860.0,380.0 L849.0,374.0 L849.0,386.0 Z"></path>
+<text class="muted" x="810" y="368" text-anchor="middle">push</text>
+<rect class="box " x="860" y="344" width="200" height="72" rx="6"></rect>
+<text x="960" y="375" text-anchor="middle">Pull request</text>
+<text class="muted" x="960" y="395" text-anchor="middle">“HW2”: in review</text>
 </svg>
 
 <div class="twocol">
 <ul>
-<li><strong>branch:</strong> a separate line of work, <code>hw1</code> next to <code>main</code>.</li>
+<li><strong>branch:</strong> a separate line of work per assignment, <code>hw1</code> and <code>hw2</code> next to <code>main</code>.</li>
 <li><strong>commit:</strong> save a snapshot, with a message saying why.</li>
 <li><strong>push:</strong> send your commits to GitHub.</li>
 <li><strong>pull request:</strong> your hand-in; the check runs and the review happens there.</li>
 </ul>
 </div>
 <p class="small muted">
-Push fixes to the same branch and the pull request updates. We merge it when it is accepted; the guide has every step in VS Code.
+Push fixes to the same branch and the pull request updates. The guide has every step in VS Code.
 </p>
 <p class="more">
 More: <a href="../../guide#hand-in-an-assignment">How to hand in</a>
@@ -488,46 +503,234 @@ More: <a href="../../statistics">Statistics: the basics</a>
           display:block!important;
       }</style></aside>
 </section>
+<section id="notation-what-is-bar-x" class="slide level2">
+<h2>Notation: what is <span class="math inline">\(\bar X\)</span>?</h2>
+<div class="notation">
+<table class="caption-top">
+<colgroup>
+<col style="width: 33%">
+<col style="width: 33%">
+<col style="width: 33%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Symbol</th>
+<th style="text-align: left;">What it is</th>
+<th style="text-align: left;">Lund, 1997–2010</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"><span class="math inline">\(n\)</span></td>
+<td style="text-align: left;">the number of years</td>
+<td style="text-align: left;"><span class="math inline">\(n = 14\)</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><span class="math inline">\(X_1, \dots, X_n\)</span></td>
+<td style="text-align: left;">each year’s mean temperature, as a <strong>random variable</strong>: what the weather <em>could</em> give</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><span class="math inline">\(x_1, \dots, x_n\)</span></td>
+<td style="text-align: left;">the values we <strong>observed</strong></td>
+<td style="text-align: left;">8.58, 8.43, 9.14, … °C (1997, 1998, 1999, …)</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><span class="math inline">\(\bar X = \frac{1}{n}\sum_i X_i\)</span></td>
+<td style="text-align: left;">the sample mean as a <strong>random variable</strong>: other years’ weather would give another value</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><span class="math inline">\(\bar x = \frac{1}{n}\sum_i x_i\)</span></td>
+<td style="text-align: left;">the <strong>number</strong> we computed: one value of <span class="math inline">\(\bar X\)</span></td>
+<td style="text-align: left;"><span class="math inline">\(\bar x = 8.89\)</span> °C</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><span class="math inline">\(\mu\)</span></td>
+<td style="text-align: left;">the <strong>true</strong> mean of the period’s climate. Unknown: what we want to know</td>
+<td style="text-align: left;">?</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><span class="math inline">\(\sigma\)</span>, <span class="math inline">\(s\)</span></td>
+<td style="text-align: left;">spread of single years: <span class="math inline">\(\sigma\)</span> the true value, <span class="math inline">\(s\)</span> our estimate from the data</td>
+<td style="text-align: left;"><span class="math inline">\(s = 0.62\)</span> °C</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p class="small">
+<span class="math inline">\(\bar x\)</span> is our <b>estimate</b> of <span class="math inline">\(\mu\)</span>. Statistics asks: how far from <span class="math inline">\(\mu\)</span> could <span class="math inline">\(\bar x\)</span> be?
+</p>
+<aside class="notes">
+<p>Capital letters are random variables (before we look), small letters are the numbers we got.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
 <section id="single-years-scatter-a-lot" class="slide level2">
 <h2>Single years scatter a lot</h2>
 
 <img src="../../img/statistics/spread.svg" alt="Each year's mean temperature as a dot, for both periods, with mean plus and minus one standard deviation" class="r-stretch"><p class="small">
-One year varies by about 0.6 °C. The difference we found is not much larger.
+One year varies by about <span class="math inline">\(s = 0.62\)</span> °C. The difference we found, 0.82 °C, is not much larger.
 </p>
 </section>
 <section id="means-scatter-much-less" class="slide level2">
 <h2>Means scatter much less</h2>
-<p><img src="../../img/statistics/sampling.svg" style="max-height:320px" alt="Simulated: single years scatter widely, means of 14 years scatter much less"></p>
-<p><span class="math display">\[\operatorname{Var}(\bar X) = \frac{\sigma^2}{n} \qquad \Rightarrow \qquad \operatorname{SE} = \frac{\sigma}{\sqrt n} \approx \frac{0.62}{\sqrt{14}} = 0.17 \text{ °C}\]</span></p>
+<p><img src="../../img/statistics/sampling.svg" style="max-height:250px" alt="Simulated: single years scatter widely, means of 14 years scatter much less"></p>
+<p class="small">
+<b>What was simulated:</b> grey, 100,000 single years drawn from <span class="math inline">\(N(8.89,\ 0.62^2)\)</span>. Red, 100,000 times: draw 14 such years and take their mean <span class="math inline">\(\bar x\)</span>. The means cluster far closer to <span class="math inline">\(\mu\)</span>.
+</p>
+<p><span class="math display">\[\operatorname{SE} = \operatorname{sd}(\bar X) = \frac{\sigma}{\sqrt n} \approx \frac{s}{\sqrt n} = \frac{0.62}{\sqrt{14}} = 0.17 \text{ °C}\]</span></p>
 <p class="small muted">
-To halve the uncertainty, you need four times the data.
+The <b>standard error</b> (SE) is the standard deviation of <span class="math inline">\(\bar X\)</span>: how far <span class="math inline">\(\bar x\)</span> typically lands from <span class="math inline">\(\mu\)</span>. To halve it, you need four times the data.
 </p>
 </section>
-<section id="confidence-intervals" class="slide level2">
-<h2>Confidence intervals</h2>
-<p>By the CLT, <span class="math inline">\(\bar X \approx N(\mu, \operatorname{SE}^2)\)</span>, so <span class="math inline">\(\;\bar x \pm 1.96\,\operatorname{SE}\;\)</span> covers <span class="math inline">\(\mu\)</span> in 95% of samples.</p>
-<p><img src="../../img/statistics/intervals.svg" style="max-height:330px" alt="20 simulated 95% intervals; 19 contain the true mean, one misses"></p>
+<section id="where-1.96-comes-from" class="slide level2">
+<h2>Where 1.96 comes from</h2>
+<div class="cols">
+<div>
+<ol type="1">
+<li>CLT: <span class="math inline">\(\bar X \approx N(\mu,\ \operatorname{SE}^2)\)</span>.</li>
+<li>Standardise: <span class="math inline">\(Z = \dfrac{\bar X - \mu}{\operatorname{SE}} \approx N(0, 1)\)</span>.</li>
+<li>For <span class="math inline">\(N(0,1)\)</span>: <span class="math inline">\(P(-1.96 \le Z \le 1.96) = 0.95\)</span>. 1.96 leaves <strong>2.5% in each tail</strong>.</li>
+<li>Rearrange for <span class="math inline">\(\mu\)</span>: <span class="math inline">\(P\big(\bar X - 1.96\,\operatorname{SE} \le \mu \le \bar X + 1.96\,\operatorname{SE}\big) = 0.95\)</span>.</li>
+</ol>
+</div>
+<div>
+<p><img src="../../img/statistics/normal-95.svg" alt="The standard normal curve with the middle 95% between −1.96 and 1.96 shaded, and 2.5% in each tail"></p>
+<p class="small muted">
+Other levels: 90% → 1.64, 99% → 2.58.
+</p>
+</div>
+</div>
+<aside class="notes">
+<p>1.96 is the 97.5% quantile of the standard normal. With only 14 years the t-distribution gives 2.16, a slightly wider interval; 1.96 is the large-sample value, and the bootstrap avoids the choice.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="a-confidence-interval-for-lund" class="slide level2">
+<h2>A confidence interval for Lund</h2>
+<p>Put in the numbers for 1997–2010:</p>
+<p><span class="math display">\[\bar x \pm 1.96\,\operatorname{SE} = 8.89 \pm 1.96 \cdot 0.17 = [8.56,\ 9.22] \text{ °C}\]</span></p>
+<p><img src="../../img/statistics/intervals.svg" style="max-height:260px" alt="20 simulated 95% intervals; 19 contain the true mean, one misses"></p>
 <p class="small">
-“95%” is a property of the method: about 1 in 20 intervals misses.
+The <b>interval</b> is random, <span class="math inline">\(\mu\)</span> is fixed. “95%” is a property of the method: of 20 new samples, about 19 intervals cover <span class="math inline">\(\mu\)</span> and 1 misses.
 </p>
 </section>
 <section id="the-difference-with-its-uncertainty" class="slide level2">
 <h2>The difference, with its uncertainty</h2>
-<p><span class="math display">\[\operatorname{SE}_{\text{diff}} = \sqrt{\frac{s_a^2}{n_a} + \frac{s_b^2}{n_b}} = 0.23 \qquad 0.82 \pm 1.96 \cdot 0.23 = [0.37,\ 1.27] \text{ °C}\]</span></p>
+<ul>
+<li><strong>Estimate:</strong> <span class="math inline">\(\bar x_b - \bar x_a = 9.71 - 8.89 = 0.82\)</span> °C (2011–2025 minus 1997–2010).</li>
+<li><strong>Its SE:</strong> for independent means the variances add, <span class="math inline">\(\operatorname{Var}(\bar X_b - \bar X_a) = \frac{\sigma_b^2}{n_b} + \frac{\sigma_a^2}{n_a}\)</span>, so</li>
+</ul>
+<p><span class="math display">\[\operatorname{SE}_{\text{diff}} = \sqrt{\frac{s_b^2}{n_b} + \frac{s_a^2}{n_a}} = \sqrt{\frac{0.62^2}{15} + \frac{0.62^2}{14}} = 0.23 \text{ °C}\]</span></p>
+<ul>
+<li><strong>Interval:</strong> <span class="math inline">\(0.82 \pm 1.96 \cdot 0.23 = [0.37,\ 1.27]\)</span> °C.</li>
+</ul>
 <p>The whole interval is above zero: consistent with warming of 0.4 to 1.3 °C, <strong>not</strong> with no warming.</p>
 </section>
 <section id="the-same-by-computer-the-bootstrap" class="slide level2">
 <h2>The same, by computer: the bootstrap</h2>
-<p><img src="../../img/statistics/bootstrap.svg" style="max-height:330px" alt="Histogram of the difference in 10,000 resampled datasets, with the middle 95% marked"></p>
-<p>Resample the years with replacement, 10,000 times; the middle 95% of the differences is the interval. <strong>No formula needed</strong>, and it works for almost any statistic.</p>
-</section>
-<section id="could-it-be-chance-a-test" class="slide level2">
-<h2>Could it be chance? A test</h2>
-<p><span class="math inline">\(H_0\)</span>: no difference. Then <span class="math inline">\(\;z = \dfrac{0.82}{0.23} = 3.6\;\)</span> and <span class="math inline">\(\;p = P(|Z| \ge 3.6) \approx 0.0003\)</span>.</p>
-<p><img src="../../img/statistics/permutation.svg" style="max-height:290px" alt="Differences when the years are shuffled between the periods at random; the observed difference is far in the tail"></p>
-<p class="small">
-By computer: shuffle the years between the periods; how often is the difference as large? About 1 in 1,000.
+<div class="cols">
+<div>
+<p><strong>What is done</strong></p>
+<ol type="1">
+<li>Draw 14 years <strong>from the 14 of 1997–2010, with replacement</strong>: some years twice, some not at all.</li>
+<li>Do the same for the 15 years of 2011–2025.</li>
+<li>Compute the difference of the two means.</li>
+<li>Repeat <strong>10,000 times</strong>.</li>
+<li>The middle 95% of the 10,000 differences is the interval: <strong>[0.40, 1.26]</strong> °C.</li>
+</ol>
+</div>
+<div>
+<div class="resample">
+<div>
+<span class="lab">data</span><span>1997</span><span>1998</span><span>1999</span><span>2000</span><span>…</span><span>2010</span>
+</div>
+<div>
+<span class="lab">draw 1</span><span>1998</span><span class="dup">1998</span><span>2000</span><span>1997</span><span>…</span><span>2004</span>
+</div>
+<div>
+<span class="lab">draw 2</span><span>2010</span><span>1999</span><span>2003</span><span class="dup">2003</span><span>…</span><span>1997</span>
+</div>
+</div>
+<p><img src="../../img/statistics/bootstrap.svg" style="max-height:200px" alt="Histogram of the difference in 10,000 resampled datasets, with the middle 95% marked"></p>
+</div>
+</div>
+<p class="small muted">
+Why it works: the resampled datasets vary about as much as new real data would. No formula needed, and it works for almost any statistic.
 </p>
+</section>
+<section id="could-it-be-chance-a-test-step-by-step" class="slide level2">
+<h2>Could it be chance? A test, step by step</h2>
+<div class="cols">
+<div>
+<ol type="1">
+<li><strong>Hypothesis</strong> <span class="math inline">\(H_0\)</span>: <span class="math inline">\(\mu_b = \mu_a\)</span>. No warming: the 0.82 °C is weather alone.</li>
+<li><strong>Test statistic:</strong> how many SEs is the difference from 0? <span class="math inline">\(z = \dfrac{0.82 - 0}{0.23} = 3.6\)</span>.</li>
+<li><strong>If <span class="math inline">\(H_0\)</span> is true</strong>, <span class="math inline">\(Z \approx N(0,1)\)</span>: beyond ±1.96 only 5% of the time.</li>
+<li><strong>p-value:</strong> <span class="math inline">\(P(|Z| \ge 3.6) \approx 0.0003\)</span>. Without warming, a difference this large would turn up about 3 times in 10,000.</li>
+<li><strong>Conclusion:</strong> <span class="math inline">\(p &lt; 0.05\)</span>, so we reject <span class="math inline">\(H_0\)</span>. Same as: 0 is outside the 95% interval.</li>
+</ol>
+</div>
+<div>
+<p><img src="../../img/statistics/z-test.svg" alt="Standard normal curve under H0, with ±1.96 dashed and the observed z = 3.6 far in the right tail"></p>
+</div>
+</div>
+</section>
+<section id="the-same-test-by-computer-shuffling" class="slide level2">
+<h2>The same test, by computer: shuffling</h2>
+<div class="cols">
+<div>
+<p><strong>What is done</strong></p>
+<p class="intro">
+If <span class="math inline">\(H_0\)</span> is true, it doesn’t matter which period a year belongs to. So:
+</p>
+<ol type="1">
+<li>Put all 29 years in one pile.</li>
+<li>Deal them out <strong>at random</strong>: 14 to “1997–2010”, 15 to “2011–2025”.</li>
+<li>Compute the difference of the two means.</li>
+<li>Repeat <strong>10,000 times</strong>.</li>
+<li>How often is the difference at least as large as 0.82 °C? About <strong>1 in 1,000</strong>: <span class="math inline">\(p \approx 0.001\)</span>.</li>
+</ol>
+</div>
+<div>
+<p><img src="../../img/statistics/permutation.svg" alt="Differences when the years are shuffled between the periods at random; the observed difference is far in the tail"></p>
+<p class="small muted">
+No normal distribution needed. Both ways, <span class="math inline">\(p\)</span> is far below 0.05.
+</p>
+</div>
+</div>
+<aside class="notes">
+<p>The normal approximation gives 0.0003, the shuffle 0.001: with 29 years they differ a little, but both say the same thing.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
 </section>
 <section id="what-a-p-value-is-not" class="slide level2">
 <h2>What a p-value is not</h2>
@@ -541,7 +744,7 @@ By computer: shuffle the years between the periods; how often is the difference 
 <h2>Correlation and trend</h2>
 
 <img src="../../img/statistics/trend.svg" alt="Lund annual mean temperature with a fitted straight line" class="r-stretch"><p>
-Slope <b>0.54 °C per decade</b> (95% interval 0.27 to 0.80), <span class="math inline">\(r = 0.62\)</span>. Correlation is not causation: here the cause comes from physics, not from this data.
+Slope <b>0.54 °C per decade</b> (95% interval 0.28 to 0.79), <span class="math inline">\(r = 0.62\)</span>. Correlation is not causation: here the cause comes from physics, not from this data.
 </p>
 </section>
 <section id="the-many-tests-trap" class="slide level2">

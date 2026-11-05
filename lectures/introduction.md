@@ -39,7 +39,7 @@ In each diagram, the red step is where the real work of that project was.
 | **Data** | downloaded from Statistics Sweden by a short script: how many people born each year 1922–2021 have each of the 200 most common names |
 | **Cleaning** | reshape the table, handle the very small numbers SCB hides, turn counts into shares so years can be compared |
 | **Analysis** | each name over 100 years, and a comeback score: common in the 1920s, rare in 1960–80, common again after 2005 |
-| **Results** | Ella, Elsa, Alice, Astrid and Ebba top the score; the ten most common names covered 59% of a year in 1922 and 24% in 2021; only the living are counted |
+| **Results** | Ella, Elsa, Alice, Astrid and Ebba top the score; the ten most common names covered 59% of those counted for 1922 and 24% for 2021; only the living are counted |
 
 
 People often say names skip three generations: the names of great-grandparents come back once
@@ -67,7 +67,7 @@ finding comebacks, and the report says so.
 
 | Step | What we did |
 |:--|:--|
-| **Data** | electricity prices for the four zones, every hour for three years, and SMHI's wind and temperature in Malmö, downloaded by scripts |
+| **Data** | electricity prices for the four zones, every hour (every 15 minutes from October 2025) for three years, and SMHI's wind and temperature in Malmö, downloaded by scripts |
 | **Cleaning** | one price per zone and day, careful with clock changes, prices and weather side by side: 1,074 days |
 | **Analysis** | the gap between Malmö and Luleå each day; calm days compared with windy days; how sure we can be, and how much the weather explains |
 | **Results** | Malmö 0.66 and Luleå 0.31 kr/kWh on average; the gap is 0.40 kr/kWh bigger on calm days, far more than chance; the weather explains only about a fifth of it |

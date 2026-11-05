@@ -315,7 +315,7 @@ uses every year and answers the question in a natural unit.
 
 ![Mean annual temperature in Lund with the least-squares line](/img/statistics/trend.svg)
 
-The slope is **0.54 °C per decade**, with a 95% interval of about [0.27, 0.80]. Like the mean,
+The slope is **0.54 °C per decade**, with a 95% interval of about [0.28, 0.79]. Like the mean,
 the slope is an estimate with a standard error, and software gives you both.
 
 :::code-group

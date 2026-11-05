@@ -119,6 +119,47 @@ save(fig, "intervals")
 se_diff = np.sqrt(a.var() / len(a) + b.var() / len(b))
 print(f"se_diff={se_diff:.2f} formula 95% CI=({diff - 1.96 * se_diff:.2f}, {diff + 1.96 * se_diff:.2f}) z={diff / se_diff:.2f}")
 
+# Where 1.96 comes from: the standard normal, with the middle 95% shaded.
+print(f"95% CI for mean_a: ({a.mean() - 1.96 * se:.2f}, {a.mean() + 1.96 * se:.2f})")
+zz = np.linspace(-4.2, 4.2, 600)
+pdf = np.exp(-zz ** 2 / 2) / np.sqrt(2 * np.pi)
+fig, ax = plt.subplots(figsize=(6, 2.8))
+ax.plot(zz, pdf, color=INK, lw=1.5)
+mid = np.abs(zz) <= 1.96
+ax.fill_between(zz[mid], pdf[mid], color=LIGHT)
+for side in (-1, 1):
+    tail = side * zz >= 1.96
+    ax.fill_between(zz[tail], pdf[tail], color=RED, alpha=.85)
+    ax.text(side * 2.9, .05, "2.5 %", color=RED, ha="center")
+ax.text(0, .15, "95 %", ha="center", fontsize=14)
+ax.set_ylim(0, .43)
+ax.set_xticks([-1.96, 0, 1.96])
+ax.set_xticklabels(["−1.96", "0", "1.96"])
+ax.set_yticks([])
+ax.spines["left"].set_visible(False)
+ax.set_xlabel("Z = (X̄ − μ) / SE, which is approximately N(0, 1)")
+save(fig, "normal-95")
+
+# The test: where the observed z falls if there were no difference.
+z_obs = diff / se_diff
+fig, ax = plt.subplots(figsize=(6, 2.8))
+ax.plot(zz, pdf, color=INK, lw=1.5)
+ax.fill_between(zz[np.abs(zz) <= 1.96], pdf[np.abs(zz) <= 1.96], color=LIGHT)
+for side in (-1, 1):
+    ax.axvline(side * 1.96, color=GREY, ls="--", lw=1)
+    tail = side * zz >= z_obs
+    ax.fill_between(zz[tail], pdf[tail], color=RED)
+ax.axvline(z_obs, color=RED, lw=2)
+ax.text(z_obs - .1, .3, f"observed\nz = {z_obs:.1f}", color=RED, va="center", ha="right")
+ax.text(0, .15, "95 %", ha="center", fontsize=14)
+ax.set_ylim(0, .43)
+ax.set_xticks([-1.96, 0, 1.96])
+ax.set_xticklabels(["−1.96", "0", "1.96"])
+ax.set_yticks([])
+ax.spines["left"].set_visible(False)
+ax.set_xlabel("z if H₀ is true: approximately N(0, 1)")
+save(fig, "z-test")
+
 # 5. Bootstrap
 boot = np.array([rng.choice(b.values, len(b)).mean() - rng.choice(a.values, len(a)).mean() for _ in range(10_000)])
 lo, hi = np.percentile(boot, [2.5, 97.5])
