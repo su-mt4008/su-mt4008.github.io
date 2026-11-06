@@ -12,7 +12,7 @@ export const hours = { start: config.sessionStart, end: config.sessionEnd }
 
 const topics = [
   { title: 'Reproducible Analysis: Questions, Git and Quarto', hw: 'HW1' },
-  { title: 'DataFrames & Visualising Data with Plots', hw: 'HW2' },
+  { title: 'Tables and Honest Plots', hw: 'HW2' },
   { title: 'Exploratory Data Analysis (EDA) & Processing Data', hw: 'HW3' },
   { title: 'Joining Data, SQL, and an Introduction to RegEx', hw: 'HW4' },
   // TODO(owner): guest lecture in HT26? Add it as `note`.

@@ -1,171 +1,108 @@
 [
   {
-    "objectID": "week-1/index.html#can-someone-else-get-your-numbers",
-    "href": "week-1/index.html#can-someone-else-get-your-numbers",
-    "title": "Reproducible analysis",
-    "section": "Can someone else get your numbers?",
-    "text": "Can someone else get your numbers?\nIn 2010, an influential economics paper found that growth falls sharply when government debt passes 90% of GDP. Governments cited it.\nIn 2013 a student tried to reproduce it from the authors’ spreadsheet, and found rows left out of an average. The striking result shrank to a modest one.\n\nA result nobody can reproduce is, scientifically, just a claim.\n\n\nReinhart and Rogoff (2010), “Growth in a Time of Debt”; Herndon, Ash and Pollin (2013). The error was found because someone could rerun it. Make that possible for your own work."
+    "objectID": "week-2/index.html#this-week-in-the-cycle",
+    "href": "week-2/index.html#this-week-in-the-cycle",
+    "title": "Tables and honest plots",
+    "section": "This week in the cycle",
+    "text": "This week in the cycle\n\n\nQuestion\n\n\nData\n\n\nCleaning\n\n\nExploration\n\n\nAnalysis\n\n\nConclusions\n\n\nReproduce\n\n\n\nRead a real file correctly, and check it.\nShape it with five verbs.\nSummarise groups: size, centre, spread, and uncertainty when the data are a sample.\nPlot so the reader sees what the data support, and no more.\n\n\nExample all week: turnout in the 2018 Riksdag election, 290 municipalities. HW2 uses other data."
   },
   {
-    "objectID": "week-1/index.html#why-analyses-dont-reproduce",
-    "href": "week-1/index.html#why-analyses-dont-reproduce",
-    "title": "Reproducible analysis",
-    "section": "Why analyses don’t reproduce",
-    "text": "Why analyses don’t reproduce\n\n\n\n\n\n\n\nWhat goes wrong\nThe habit that prevents it\n\n\n\n\nDifferent package versions\na locked environment\n\n\nA variable you made by hand, then deleted the code\nrender from scratch\n\n\nYou fixed a typo in the CSV, in Excel\nnever edit raw data; change it in code\n\n\nC:\\Users\\anna\\Downloads\\data.csv\nrelative paths: data/raw/data.csv\n\n\nA random sample differs every run\nset a seed\n\n\nThe data was never committed\ncommit it, and let the check catch it\n\n\n\n\nMore: Week 1"
+    "objectID": "week-2/index.html#who-voted-least-in-2018",
+    "href": "week-2/index.html#who-voted-least-in-2018",
+    "title": "Tables and honest plots",
+    "section": "Who voted least in 2018?",
+    "text": "Who voted least in 2018?\n\n\nMost municipalities voted between 84% and 91%. Three are far below. A table of 290 rows would never show you that."
   },
   {
-    "objectID": "week-1/index.html#start-with-a-question-data-can-answer",
-    "href": "week-1/index.html#start-with-a-question-data-can-answer",
-    "title": "Reproducible analysis",
-    "section": "Start with a question data can answer",
-    "text": "Start with a question data can answer\n\n\n\n\n\n\n\nVague\nAnswerable\n\n\n\n\n“Look at Stockholm’s weather.”\nHas Stockholm’s mean annual temperature changed since the late 1990s?\n\n\n“Analyse electricity prices.”\nHow much more did southern Sweden pay than the north in 2023–25?\n\n\n“Is AI a bubble?”\nHow do three signs of a bubble compare with 1929 and 2000?\n\n\n\n\nA good question names what you measure, where and when, and what you’ll compare."
+    "objectID": "week-2/index.html#reading-a-real-file",
+    "href": "week-2/index.html#reading-a-real-file",
+    "title": "Tables and honest plots",
+    "section": "Reading a real file",
+    "text": "Reading a real file\nLÄNSKOD;KOMMUNKOD;LÄNSNAMN;KOMMUNNAMN;M;C;…;VALDELTAGANDE\n1;14;Stockholms län;Upplands Väsby;23,11;6,26;…;84,7\n\n\n\nYou see\nIt means\nTell the function\n\n\n\n\n;\nsemicolon separator\nsep=\";\" · read_csv2()\n\n\n23,11\ndecimal comma\ndecimal=\",\" · read_csv2()\n\n\nÄ, Ö\nencoding matters\nencoding=\"utf-8-sig\"\n\n\n\n\nDefaults fail loudly, or worse, silently: with only sep=“;”, turnout is read as text."
   },
   {
-    "objectID": "week-1/index.html#your-repository",
-    "href": "week-1/index.html#your-repository",
-    "title": "Reproducible analysis",
-    "section": "Your repository",
-    "text": "Your repository\n&lt;username&gt;-assignments/\n├─ hw1/\n│  ├─ report.qmd     ← your report: text and code, seven sections\n│  ├─ report.md      ← the rendered report (made by Quarto)\n│  └─ data/raw/      ← data exactly as you got it, with its source\n├─ hw2/ … hw5/\n├─ example/          ← a worked example of a report\n├─ pyproject.toml + uv.lock   or   renv.lock   ← the locked environment\n└─ .github/workflows/check.yml                ← the reproducibility check\n\nSame structure every time: a reader knows where to look, and everything generated can be remade with one command."
+    "objectID": "week-2/index.html#check-what-you-got",
+    "href": "week-2/index.html#check-what-you-got",
+    "title": "Tables and honest plots",
+    "section": "Check what you got",
+    "text": "Check what you got\nraw.shape     # (290, 45): the number of rows you expected?\nraw.dtypes    # numbers as numbers, not text?\nraw.head()    # does it look like the file?\n\nThree lines, right after reading, every time.\nRecompute a column from its parts: voters / electorate should match the turnout column.\nNever open the raw file in Excel and save it."
   },
   {
-    "objectID": "week-1/index.html#lockfiles-works-on-my-machine-works-on-every-machine",
-    "href": "week-1/index.html#lockfiles-works-on-my-machine-works-on-every-machine",
-    "title": "Reproducible analysis",
-    "section": "Lockfiles: “works on my machine” → works on every machine",
-    "text": "Lockfiles: “works on my machine” → works on every machine\n\nYour code depends on packages, and packages change.\nA lockfile records the exact version of every package.\nAnyone can rebuild the same environment from it:\n\nuv sync                      # Python\nRscript -e \"renv::restore()\" # R\n\nAdd a package with uv add pandas or renv::install(\"dplyr\") + renv::snapshot(). Never edit the lockfile by hand."
+    "objectID": "week-2/index.html#tidy-data",
+    "href": "week-2/index.html#tidy-data",
+    "title": "Tables and honest plots",
+    "section": "Tidy data",
+    "text": "Tidy data\n\n\nTidy: one row per observation, one column per variable, one value per cell.\n\n\n\nmunicipality\ncounty\nturnout\n\n\n\n\nHaparanda\nNorrbotten\n72.8\n\n\nLomma\nSkåne\n93.9\n\n\n\n\n\nNot tidy: a variable hidden in the column names.\n\n\n\nmunicipality\n2014\n2018\n\n\n\n\nHaparanda\n…\n72.8\n\n\nLomma\n…\n93.9\n\n\n\n\n\n\nTools expect tidy tables. Reshaping between the two is week 3."
   },
   {
-    "objectID": "week-1/index.html#quarto-text-and-code-in-one-file",
-    "href": "week-1/index.html#quarto-text-and-code-in-one-file",
-    "title": "Reproducible analysis",
-    "section": "Quarto: text and code in one file",
-    "text": "Quarto: text and code in one file\n## Analysis\n\n```{python}\nyearly = temps.groupby(\"year\")[\"temp\"].mean()\nyearly.loc[2011:].mean() - yearly.loc[:2010].mean()\n```\n\nThe later period is warmer by 0.82 °C.\n\nquarto render runs the code and writes report.md with the results and figures.\nThe numbers in your text come from the code, not copied by hand."
+    "objectID": "week-2/index.html#the-five-verbs",
+    "href": "week-2/index.html#the-five-verbs",
+    "title": "Tables and honest plots",
+    "section": "The five verbs",
+    "text": "The five verbs\n\n\n\n\n\n\n\n\nVerb\npandas\ndplyr\n\n\n\n\nselect columns\ndf[[\"a\", \"b\"]]\nselect(a, b)\n\n\nfilter rows\ndf.query(\"a &gt; 1\")\nfilter(a &gt; 1)\n\n\nmutate: a new column\ndf.assign(c=...)\nmutate(c = ...)\n\n\narrange: sort\ndf.sort_values(\"a\")\narrange(a)\n\n\ngroup and summarise\ndf.groupby(\"g\").agg(...)\ngroup_by(g) \\|&gt; summarise(...)\n\n\n\n\nAlmost everything you do to a table combines these five. One step per line, so a reviewer can comment on each."
   },
   {
-    "objectID": "week-1/index.html#git-the-workflow",
-    "href": "week-1/index.html#git-the-workflow",
-    "title": "Reproducible analysis",
-    "section": "Git: the workflow",
-    "text": "Git: the workflow\n\nThe Git workflow: branch hw1 off main, commit small steps, push and open a pull request, the check and review, push fixes, merged into main when accepted; meanwhile hw2 is branched off main and worked on in parallel\n\n\n\n\n\n\n\nmain\nhw1\n\nPull request\n“HW1”: your hand-in\n\n\npush\n\nread data\n\nplot\n\nwrite up\n\nfixes\ncheck ✓\n\n\nmerged when accepted\nthe accepted version\n1 BRANCH\n2 COMMIT\n3 PUSH, OPEN A PR\n4 CHECK, REVIEW, FIX\n5 MERGE\nhw2\nstarts from main while hw1 is still in review\n\n\n\n\nread data\n\nplot\n\n\npush\n\nPull request\n“HW2”: in review\n\n\n\n\nbranch: a separate line of work per assignment, hw1 and hw2 next to main.\ncommit: save a snapshot, with a message saying why.\npush: send your commits to GitHub.\npull request: your hand-in; the check runs and the review happens there.\n\n\n\nPush fixes to the same branch and the pull request updates. The guide has every step in VS Code.\n\n\nMore: How to hand in"
+    "objectID": "week-2/index.html#summarise-every-group-the-same-way",
+    "href": "week-2/index.html#summarise-every-group-the-same-way",
+    "title": "Tables and honest plots",
+    "section": "Summarise every group the same way",
+    "text": "Summarise every group the same way\n\n\n\nCounty\nn\nmean\nmedian\nsd\n\n\n\n\nNorrbotten\n14\n84.3\n85.3\n4.3\n\n\nVästerbotten\n15\n85.2\n85.0\n2.1\n\n\n…\n\n\n\n\n\n\nGotland\n1\n88.8\n88.8\n–\n\n\nÖstergötland\n13\n88.9\n89.1\n1.1\n\n\n\n\nn: Gotland is one municipality. No spread, an unreliable “mean”.\nmean vs median: Haparanda drags Norrbotten’s mean down.\nspread vs difference: within some counties, municipalities differ by more than counties do."
   },
   {
-    "objectID": "week-1/index.html#the-check",
-    "href": "week-1/index.html#the-check",
-    "title": "Reproducible analysis",
-    "section": "The check",
-    "text": "The check\nWhen you open or update a pull request, GitHub starts a clean computer, installs your locked environment and renders your report.\n\nGreen: your analysis reproduces. Anyone can get your numbers.\nRed: something only works on your computer. The log says what.\n\n\nMore: When the check is red"
+    "objectID": "week-2/index.html#sample-or-population",
+    "href": "week-2/index.html#sample-or-population",
+    "title": "Tables and honest plots",
+    "section": "Sample or population?",
+    "text": "Sample or population?\n\n\nThe election: all 290 municipalities.\nThe table is the 2018 result. There is no sampling uncertainty to report.\n\n\nHW2: 158 apartment sales.\nSome of the sales that could have happened. Each group mean gets its interval:\n\\[\\bar x \\pm 1.96\\,\\frac{s}{\\sqrt n}\\]\n\n\n\nMore: Statistics, section 4"
   },
   {
-    "objectID": "week-1/index.html#probability-statistics",
-    "href": "week-1/index.html#probability-statistics",
-    "title": "Reproducible analysis",
-    "section": "Probability ↔︎ statistics",
-    "text": "Probability ↔︎ statistics\n\n\n\n\n\n\n\nProbability (MT3001)\nStatistics (now)\n\n\n\n\nYou know the model: \\(X \\sim N(\\mu, \\sigma^2)\\)\nYou have the data: \\(x_1, \\dots, x_n\\)\n\n\nWhat will the data look like?\nWhat was the model? And how sure are you?\n\n\n\nData are observations of random variables. Your mean \\(\\bar x\\) is one value of the random variable \\(\\bar X\\): another sample would have given another value.\n\nMore: Statistics: the basics"
+    "objectID": "week-2/index.html#compare-groups-show-the-data",
+    "href": "week-2/index.html#compare-groups-show-the-data",
+    "title": "Tables and honest plots",
+    "section": "Compare groups: show the data",
+    "text": "Compare groups: show the data"
   },
   {
-    "objectID": "week-1/index.html#our-example-has-lund-got-warmer",
-    "href": "week-1/index.html#our-example-has-lund-got-warmer",
-    "title": "Reproducible analysis",
-    "section": "Our example: has Lund got warmer?",
-    "text": "Our example: has Lund got warmer?\n\nThe later period is 0.82 °C warmer. Is that real, or could weather alone do it?\n\nLund, not Stockholm: Stockholm is HW1, and we don’t give away the answer."
+    "objectID": "week-2/index.html#start-the-axis-at-zero-for-bars",
+    "href": "week-2/index.html#start-the-axis-at-zero-for-bars",
+    "title": "Tables and honest plots",
+    "section": "Start the axis at zero, for bars",
+    "text": "Start the axis at zero, for bars\n\n\nLeft: Östergötland’s bar looks fifteen times as long. Its turnout is 4.5 points higher, about 5% more.\n\n\nThe eye reads a bar’s length. To show small differences, use dots."
   },
   {
-    "objectID": "week-1/index.html#notation-what-is-bar-x",
-    "href": "week-1/index.html#notation-what-is-bar-x",
-    "title": "Reproducible analysis",
-    "section": "Notation: what is \\(\\bar X\\)?",
-    "text": "Notation: what is \\(\\bar X\\)?\n\n\n\n\n\n\n\n\n\nSymbol\nWhat it is\nLund, 1997–2010\n\n\n\n\n\\(n\\)\nthe number of years\n\\(n = 14\\)\n\n\n\\(X_1, \\dots, X_n\\)\neach year’s mean temperature, as a random variable: what the weather could give\n\n\n\n\\(x_1, \\dots, x_n\\)\nthe values we observed\n8.58, 8.43, 9.14, … °C (1997, 1998, 1999, …)\n\n\n\\(\\bar X = \\frac{1}{n}\\sum_i X_i\\)\nthe sample mean as a random variable: other years’ weather would give another value\n\n\n\n\\(\\bar x = \\frac{1}{n}\\sum_i x_i\\)\nthe number we computed: one value of \\(\\bar X\\)\n\\(\\bar x = 8.89\\) °C\n\n\n\\(\\mu\\)\nthe true mean of the period’s climate. Unknown: what we want to know\n?\n\n\n\\(\\sigma\\), \\(s\\)\nspread of single years: \\(\\sigma\\) the true value, \\(s\\) our estimate from the data\n\\(s = 0.62\\) °C\n\n\n\n\n\n\\(\\bar x\\) is our estimate of \\(\\mu\\). Statistics asks: how far from \\(\\mu\\) could \\(\\bar x\\) be?\n\n\nCapital letters are random variables (before we look), small letters are the numbers we got."
+    "objectID": "week-2/index.html#a-log-scale-for-sizes",
+    "href": "week-2/index.html#a-log-scale-for-sizes",
+    "title": "Tables and honest plots",
+    "section": "A log scale for sizes",
+    "text": "A log scale for sizes\n\n\nFrom 1 886 to 704 157 people entitled to vote: each step on the axis is ten times the last. Say so on the axis. No strong pattern: size alone says little about turnout."
   },
   {
-    "objectID": "week-1/index.html#single-years-scatter-a-lot",
-    "href": "week-1/index.html#single-years-scatter-a-lot",
-    "title": "Reproducible analysis",
-    "section": "Single years scatter a lot",
-    "text": "Single years scatter a lot\n\n\nOne year varies by about \\(s = 0.62\\) °C. The difference we found, 0.82 °C, is not much larger."
+    "objectID": "week-2/index.html#honest-plots-a-checklist",
+    "href": "week-2/index.html#honest-plots-a-checklist",
+    "title": "Tables and honest plots",
+    "section": "Honest plots: a checklist",
+    "text": "Honest plots: a checklist\n\n\nThe caption says what to see.\nAxes labelled, with units.\nBars start at zero.\nShow the data, not only summaries.\nShow uncertainty when it is a sample.\nSame scale on panels you compare.\nNo 3D, no second y-axis.\nState any transformation."
   },
   {
-    "objectID": "week-1/index.html#means-scatter-much-less",
-    "href": "week-1/index.html#means-scatter-much-less",
-    "title": "Reproducible analysis",
-    "section": "Means scatter much less",
-    "text": "Means scatter much less\n\n\nWhat was simulated: grey, 100,000 single years drawn from \\(N(8.89,\\ 0.62^2)\\). Red, 100,000 times: draw 14 such years and take their mean \\(\\bar x\\). The means cluster far closer to \\(\\mu\\).\n\n\\[\\operatorname{SE} = \\operatorname{sd}(\\bar X) = \\frac{\\sigma}{\\sqrt n} \\approx \\frac{s}{\\sqrt n} = \\frac{0.62}{\\sqrt{14}} = 0.17 \\text{ °C}\\]\n\nThe standard error (SE) is the standard deviation of \\(\\bar X\\): how far \\(\\bar x\\) typically lands from \\(\\mu\\). To halve it, you need four times the data."
+    "objectID": "week-2/index.html#a-review-that-helps",
+    "href": "week-2/index.html#a-review-that-helps",
+    "title": "Tables and honest plots",
+    "section": "A review that helps",
+    "text": "A review that helps\n\n\n\n\n\n\n\nLess helpful\nMore helpful\n\n\n\n\n“The plot is confusing.”\n“The y-axis starts at 50 000, so the 1-room bar looks twice the 3-room bar. Start at zero, or use dots.”\n\n\n“Good job!”\n“The table with n and an interval per group made the conclusion easy to check.”\n\n\n“Wrong numbers.”\n“Line 42 drops every row with any missing value, so all 158 sales are gone. Drop only rows missing livingArea.”\n\n\n\n\nComment on a line in Files changed; use suggestion blocks for small fixes."
   },
   {
-    "objectID": "week-1/index.html#where-1.96-comes-from",
-    "href": "week-1/index.html#where-1.96-comes-from",
-    "title": "Reproducible analysis",
-    "section": "Where 1.96 comes from",
-    "text": "Where 1.96 comes from\n\n\n\nCLT: \\(\\bar X \\approx N(\\mu,\\ \\operatorname{SE}^2)\\).\nStandardise: \\(Z = \\dfrac{\\bar X - \\mu}{\\operatorname{SE}} \\approx N(0, 1)\\).\nFor \\(N(0,1)\\): \\(P(-1.96 \\le Z \\le 1.96) = 0.95\\). 1.96 leaves 2.5% in each tail.\nRearrange for \\(\\mu\\): \\(P\\big(\\bar X - 1.96\\,\\operatorname{SE} \\le \\mu \\le \\bar X + 1.96\\,\\operatorname{SE}\\big) = 0.95\\).\n\n\n\n\n\nOther levels: 90% → 1.64, 99% → 2.58.\n\n\n\n\n1.96 is the 97.5% quantile of the standard normal. With only 14 years the t-distribution gives 2.16, a slightly wider interval; 1.96 is the large-sample value, and the bootstrap avoids the choice."
+    "objectID": "week-2/index.html#hw2-tables-and-plots",
+    "href": "week-2/index.html#hw2-tables-and-plots",
+    "title": "Tables and honest plots",
+    "section": "HW2: Tables and plots",
+    "text": "HW2: Tables and plots\nHow does the price per m² depend on the number of rooms, in Ekhagen?\n\n158 apartment sales, 2012–2018.\nYour choices: how to group the rooms, what to drop. Write down why.\nA group table with n, mean, median, sd and a 95% interval.\nA figure that shows every sale, and the means with their intervals.\nPrices rose over 2012–2018. Could that affect your answer?\n\nDue Mon 16 Nov, 23:59 · peer review by Thu 19 Nov, 23:59.\n\nHW2 · Week 2 · Statistics"
   },
   {
-    "objectID": "week-1/index.html#a-confidence-interval-for-lund",
-    "href": "week-1/index.html#a-confidence-interval-for-lund",
-    "title": "Reproducible analysis",
-    "section": "A confidence interval for Lund",
-    "text": "A confidence interval for Lund\nPut in the numbers for 1997–2010:\n\\[\\bar x \\pm 1.96\\,\\operatorname{SE} = 8.89 \\pm 1.96 \\cdot 0.17 = [8.56,\\ 9.22] \\text{ °C}\\]\n\n\nThe interval is random, \\(\\mu\\) is fixed. “95%” is a property of the method: of 20 new samples, about 19 intervals cover \\(\\mu\\) and 1 misses."
-  },
-  {
-    "objectID": "week-1/index.html#the-difference-with-its-uncertainty",
-    "href": "week-1/index.html#the-difference-with-its-uncertainty",
-    "title": "Reproducible analysis",
-    "section": "The difference, with its uncertainty",
-    "text": "The difference, with its uncertainty\n\nEstimate: \\(\\bar x_b - \\bar x_a = 9.71 - 8.89 = 0.82\\) °C (2011–2025 minus 1997–2010).\nIts SE: for independent means the variances add, \\(\\operatorname{Var}(\\bar X_b - \\bar X_a) = \\frac{\\sigma_b^2}{n_b} + \\frac{\\sigma_a^2}{n_a}\\), so\n\n\\[\\operatorname{SE}_{\\text{diff}} = \\sqrt{\\frac{s_b^2}{n_b} + \\frac{s_a^2}{n_a}} = \\sqrt{\\frac{0.62^2}{15} + \\frac{0.62^2}{14}} = 0.23 \\text{ °C}\\]\n\nInterval: \\(0.82 \\pm 1.96 \\cdot 0.23 = [0.37,\\ 1.27]\\) °C.\n\nThe whole interval is above zero: consistent with warming of 0.4 to 1.3 °C, not with no warming."
-  },
-  {
-    "objectID": "week-1/index.html#the-same-by-computer-the-bootstrap",
-    "href": "week-1/index.html#the-same-by-computer-the-bootstrap",
-    "title": "Reproducible analysis",
-    "section": "The same, by computer: the bootstrap",
-    "text": "The same, by computer: the bootstrap\n\n\nWhat is done\n\nDraw 14 years from the 14 of 1997–2010, with replacement: some years twice, some not at all.\nDo the same for the 15 years of 2011–2025.\nCompute the difference of the two means.\nRepeat 10,000 times.\nThe middle 95% of the 10,000 differences is the interval: [0.40, 1.26] °C.\n\n\n\n\n\ndata1997199819992000…2010\n\n\ndraw 11998199820001997…2004\n\n\ndraw 22010199920032003…1997\n\n\n\n\n\n\nWhy it works: the resampled datasets vary about as much as new real data would. No formula needed, and it works for almost any statistic."
-  },
-  {
-    "objectID": "week-1/index.html#could-it-be-chance-a-test-step-by-step",
-    "href": "week-1/index.html#could-it-be-chance-a-test-step-by-step",
-    "title": "Reproducible analysis",
-    "section": "Could it be chance? A test, step by step",
-    "text": "Could it be chance? A test, step by step\n\n\n\nHypothesis \\(H_0\\): \\(\\mu_b = \\mu_a\\). No warming: the 0.82 °C is weather alone.\nTest statistic: how many SEs is the difference from 0? \\(z = \\dfrac{0.82 - 0}{0.23} = 3.6\\).\nIf \\(H_0\\) is true, \\(Z \\approx N(0,1)\\): beyond ±1.96 only 5% of the time.\np-value: \\(P(|Z| \\ge 3.6) \\approx 0.0003\\). Without warming, a difference this large would turn up about 3 times in 10,000.\nConclusion: \\(p &lt; 0.05\\), so we reject \\(H_0\\). Same as: 0 is outside the 95% interval."
-  },
-  {
-    "objectID": "week-1/index.html#the-same-test-by-computer-shuffling",
-    "href": "week-1/index.html#the-same-test-by-computer-shuffling",
-    "title": "Reproducible analysis",
-    "section": "The same test, by computer: shuffling",
-    "text": "The same test, by computer: shuffling\n\n\nWhat is done\n\nIf \\(H_0\\) is true, it doesn’t matter which period a year belongs to. So:\n\n\nPut all 29 years in one pile.\nDeal them out at random: 14 to “1997–2010”, 15 to “2011–2025”.\nCompute the difference of the two means.\nRepeat 10,000 times.\nHow often is the difference at least as large as 0.82 °C? About 1 in 1,000: \\(p \\approx 0.001\\).\n\n\n\n\n\nNo normal distribution needed. Both ways, \\(p\\) is far below 0.05.\n\n\n\n\nThe normal approximation gives 0.0003, the shuffle 0.001: with 29 years they differ a little, but both say the same thing."
-  },
-  {
-    "objectID": "week-1/index.html#what-a-p-value-is-not",
-    "href": "week-1/index.html#what-a-p-value-is-not",
-    "title": "Reproducible analysis",
-    "section": "What a p-value is not",
-    "text": "What a p-value is not\n\nNot the probability that \\(H_0\\) is true.\nNot the size or importance of the effect: report the estimate and its interval.\n\\(p &gt; 0.05\\) does not show there is no effect: maybe too little data."
-  },
-  {
-    "objectID": "week-1/index.html#correlation-and-trend",
-    "href": "week-1/index.html#correlation-and-trend",
-    "title": "Reproducible analysis",
-    "section": "Correlation and trend",
-    "text": "Correlation and trend\n\n\nSlope 0.54 °C per decade (95% interval 0.28 to 0.79), \\(r = 0.62\\). Correlation is not causation: here the cause comes from physics, not from this data."
-  },
-  {
-    "objectID": "week-1/index.html#the-many-tests-trap",
-    "href": "week-1/index.html#the-many-tests-trap",
-    "title": "Reproducible analysis",
-    "section": "The many-tests trap",
-    "text": "The many-tests trap\n\n\nTwenty tests on pure noise: one comes out “significant”. Test many things and something always will. Decide what to test before you look."
-  },
-  {
-    "objectID": "week-1/index.html#writing-it-up",
-    "href": "week-1/index.html#writing-it-up",
-    "title": "Reproducible analysis",
-    "section": "Writing it up",
-    "text": "Writing it up\n\nThe years 2011–2025 were on average 0.82 °C warmer in Lund than 1997–2010 (95% confidence interval 0.37 to 1.27 °C).\n\n\nThe estimate, with units.\nIts uncertainty.\nWhat it does not show: why, or what happens next."
-  },
-  {
-    "objectID": "week-1/index.html#before-monday",
-    "href": "week-1/index.html#before-monday",
-    "title": "Reproducible analysis",
-    "section": "Before Monday",
-    "text": "Before Monday\n\nSet up your computer: follow the guide. Problems? Bring them to Monday’s session.\nAccept the invite to your &lt;username&gt;-assignments repository.\nRead week 1 and Statistics: the basics.\nHW1: “Your first reproducible report”, due Mon 9 Nov, 23:59.\n\n\nQuestions?\n\n\nSet up your computer · HW1 · Week 1"
+    "objectID": "week-2/index.html#also-this-week",
+    "href": "week-2/index.html#also-this-week",
+    "title": "Tables and honest plots",
+    "section": "Also this week",
+    "text": "Also this week\n\nHW1 peer review by Thu 12 Nov, 23:59; your final HW1 version by Fri 13 Nov, 23:59.\nProject groups: form a group of 2–3 now. The proposal is due on Moodle Thu 19 Nov, 23:59.\n\n\nQuestions? Then: work time."
   },
   {
     "objectID": "introduction/index.html#overview",
@@ -425,5 +362,173 @@
     "title": "Introduction to Statistical Data Processing",
     "section": "Next: week 1",
     "text": "Next: week 1\n\nAfter the break: reproducible analysis, and the statistics you need for HW1.\n\n\nThe week 1 slides · This lecture as a post"
+  },
+  {
+    "objectID": "week-1/index.html#can-someone-else-get-your-numbers",
+    "href": "week-1/index.html#can-someone-else-get-your-numbers",
+    "title": "Reproducible analysis",
+    "section": "Can someone else get your numbers?",
+    "text": "Can someone else get your numbers?\nIn 2010, an influential economics paper found that growth falls sharply when government debt passes 90% of GDP. Governments cited it.\nIn 2013 a student tried to reproduce it from the authors’ spreadsheet, and found rows left out of an average. The striking result shrank to a modest one.\n\nA result nobody can reproduce is, scientifically, just a claim.\n\n\nReinhart and Rogoff (2010), “Growth in a Time of Debt”; Herndon, Ash and Pollin (2013). The error was found because someone could rerun it. Make that possible for your own work."
+  },
+  {
+    "objectID": "week-1/index.html#why-analyses-dont-reproduce",
+    "href": "week-1/index.html#why-analyses-dont-reproduce",
+    "title": "Reproducible analysis",
+    "section": "Why analyses don’t reproduce",
+    "text": "Why analyses don’t reproduce\n\n\n\n\n\n\n\nWhat goes wrong\nThe habit that prevents it\n\n\n\n\nDifferent package versions\na locked environment\n\n\nA variable you made by hand, then deleted the code\nrender from scratch\n\n\nYou fixed a typo in the CSV, in Excel\nnever edit raw data; change it in code\n\n\nC:\\Users\\anna\\Downloads\\data.csv\nrelative paths: data/raw/data.csv\n\n\nA random sample differs every run\nset a seed\n\n\nThe data was never committed\ncommit it, and let the check catch it\n\n\n\n\nMore: Week 1"
+  },
+  {
+    "objectID": "week-1/index.html#start-with-a-question-data-can-answer",
+    "href": "week-1/index.html#start-with-a-question-data-can-answer",
+    "title": "Reproducible analysis",
+    "section": "Start with a question data can answer",
+    "text": "Start with a question data can answer\n\n\n\n\n\n\n\nVague\nAnswerable\n\n\n\n\n“Look at Stockholm’s weather.”\nHas Stockholm’s mean annual temperature changed since the late 1990s?\n\n\n“Analyse electricity prices.”\nHow much more did southern Sweden pay than the north in 2023–25?\n\n\n“Is AI a bubble?”\nHow do three signs of a bubble compare with 1929 and 2000?\n\n\n\n\nA good question names what you measure, where and when, and what you’ll compare."
+  },
+  {
+    "objectID": "week-1/index.html#your-repository",
+    "href": "week-1/index.html#your-repository",
+    "title": "Reproducible analysis",
+    "section": "Your repository",
+    "text": "Your repository\n&lt;username&gt;-assignments/\n├─ hw1/\n│  ├─ report.qmd     ← your report: text and code, seven sections\n│  ├─ report.md      ← the rendered report (made by Quarto)\n│  └─ data/raw/      ← data exactly as you got it, with its source\n├─ hw2/ … hw5/\n├─ example/          ← a worked example of a report\n├─ pyproject.toml + uv.lock   or   renv.lock   ← the locked environment\n└─ .github/workflows/check.yml                ← the reproducibility check\n\nSame structure every time: a reader knows where to look, and everything generated can be remade with one command."
+  },
+  {
+    "objectID": "week-1/index.html#lockfiles-works-on-my-machine-works-on-every-machine",
+    "href": "week-1/index.html#lockfiles-works-on-my-machine-works-on-every-machine",
+    "title": "Reproducible analysis",
+    "section": "Lockfiles: “works on my machine” → works on every machine",
+    "text": "Lockfiles: “works on my machine” → works on every machine\n\nYour code depends on packages, and packages change.\nA lockfile records the exact version of every package.\nAnyone can rebuild the same environment from it:\n\nuv sync                      # Python\nRscript -e \"renv::restore()\" # R\n\nAdd a package with uv add pandas or renv::install(\"dplyr\") + renv::snapshot(). Never edit the lockfile by hand."
+  },
+  {
+    "objectID": "week-1/index.html#quarto-text-and-code-in-one-file",
+    "href": "week-1/index.html#quarto-text-and-code-in-one-file",
+    "title": "Reproducible analysis",
+    "section": "Quarto: text and code in one file",
+    "text": "Quarto: text and code in one file\n## Analysis\n\n```{python}\nyearly = temps.groupby(\"year\")[\"temp\"].mean()\nyearly.loc[2011:].mean() - yearly.loc[:2010].mean()\n```\n\nThe later period is warmer by 0.82 °C.\n\nquarto render runs the code and writes report.md with the results and figures.\nThe numbers in your text come from the code, not copied by hand."
+  },
+  {
+    "objectID": "week-1/index.html#git-the-workflow",
+    "href": "week-1/index.html#git-the-workflow",
+    "title": "Reproducible analysis",
+    "section": "Git: the workflow",
+    "text": "Git: the workflow\n\nThe Git workflow: branch hw1 off main, commit small steps, push and open a pull request, the check and review, push fixes, merged into main when accepted; meanwhile hw2 is branched off main and worked on in parallel\n\n\n\n\n\n\n\nmain\nhw1\n\nPull request\n“HW1”: your hand-in\n\n\npush\n\nread data\n\nplot\n\nwrite up\n\nfixes\ncheck ✓\n\n\nmerged when accepted\nthe accepted version\n1 BRANCH\n2 COMMIT\n3 PUSH, OPEN A PR\n4 CHECK, REVIEW, FIX\n5 MERGE\nhw2\nstarts from main while hw1 is still in review\n\n\n\n\nread data\n\nplot\n\n\npush\n\nPull request\n“HW2”: in review\n\n\n\n\nbranch: a separate line of work per assignment, hw1 and hw2 next to main.\ncommit: save a snapshot, with a message saying why.\npush: send your commits to GitHub.\npull request: your hand-in; the check runs and the review happens there.\n\n\n\nPush fixes to the same branch and the pull request updates. The guide has every step in VS Code.\n\n\nMore: How to hand in"
+  },
+  {
+    "objectID": "week-1/index.html#the-check",
+    "href": "week-1/index.html#the-check",
+    "title": "Reproducible analysis",
+    "section": "The check",
+    "text": "The check\nWhen you open or update a pull request, GitHub starts a clean computer, installs your locked environment and renders your report.\n\nGreen: your analysis reproduces. Anyone can get your numbers.\nRed: something only works on your computer. The log says what.\n\n\nMore: When the check is red"
+  },
+  {
+    "objectID": "week-1/index.html#probability-statistics",
+    "href": "week-1/index.html#probability-statistics",
+    "title": "Reproducible analysis",
+    "section": "Probability ↔︎ statistics",
+    "text": "Probability ↔︎ statistics\n\n\n\n\n\n\n\nProbability (MT3001)\nStatistics (now)\n\n\n\n\nYou know the model: \\(X \\sim N(\\mu, \\sigma^2)\\)\nYou have the data: \\(x_1, \\dots, x_n\\)\n\n\nWhat will the data look like?\nWhat was the model? And how sure are you?\n\n\n\nData are observations of random variables. Your mean \\(\\bar x\\) is one value of the random variable \\(\\bar X\\): another sample would have given another value.\n\nMore: Statistics: the basics"
+  },
+  {
+    "objectID": "week-1/index.html#our-example-has-lund-got-warmer",
+    "href": "week-1/index.html#our-example-has-lund-got-warmer",
+    "title": "Reproducible analysis",
+    "section": "Our example: has Lund got warmer?",
+    "text": "Our example: has Lund got warmer?\n\nThe later period is 0.82 °C warmer. Is that real, or could weather alone do it?\n\nLund, not Stockholm: Stockholm is HW1, and we don’t give away the answer."
+  },
+  {
+    "objectID": "week-1/index.html#notation-what-is-bar-x",
+    "href": "week-1/index.html#notation-what-is-bar-x",
+    "title": "Reproducible analysis",
+    "section": "Notation: what is \\(\\bar X\\)?",
+    "text": "Notation: what is \\(\\bar X\\)?\n\n\n\n\n\n\n\n\n\nSymbol\nWhat it is\nLund, 1997–2010\n\n\n\n\n\\(n\\)\nthe number of years\n\\(n = 14\\)\n\n\n\\(X_1, \\dots, X_n\\)\neach year’s mean temperature, as a random variable: what the weather could give\n\n\n\n\\(x_1, \\dots, x_n\\)\nthe values we observed\n8.58, 8.43, 9.14, … °C (1997, 1998, 1999, …)\n\n\n\\(\\bar X = \\frac{1}{n}\\sum_i X_i\\)\nthe sample mean as a random variable: other years’ weather would give another value\n\n\n\n\\(\\bar x = \\frac{1}{n}\\sum_i x_i\\)\nthe number we computed: one value of \\(\\bar X\\)\n\\(\\bar x = 8.89\\) °C\n\n\n\\(\\mu\\)\nthe true mean of the period’s climate. Unknown: what we want to know\n?\n\n\n\\(\\sigma\\), \\(s\\)\nspread of single years: \\(\\sigma\\) the true value, \\(s\\) our estimate from the data\n\\(s = 0.62\\) °C\n\n\n\n\n\n\\(\\bar x\\) is our estimate of \\(\\mu\\). Statistics asks: how far from \\(\\mu\\) could \\(\\bar x\\) be?\n\n\nCapital letters are random variables (before we look), small letters are the numbers we got."
+  },
+  {
+    "objectID": "week-1/index.html#single-years-scatter-a-lot",
+    "href": "week-1/index.html#single-years-scatter-a-lot",
+    "title": "Reproducible analysis",
+    "section": "Single years scatter a lot",
+    "text": "Single years scatter a lot\n\n\nOne year varies by about \\(s = 0.62\\) °C. The difference we found, 0.82 °C, is not much larger."
+  },
+  {
+    "objectID": "week-1/index.html#means-scatter-much-less",
+    "href": "week-1/index.html#means-scatter-much-less",
+    "title": "Reproducible analysis",
+    "section": "Means scatter much less",
+    "text": "Means scatter much less\n\n\nWhat was simulated: grey, 100,000 single years drawn from \\(N(8.89,\\ 0.62^2)\\). Red, 100,000 times: draw 14 such years and take their mean \\(\\bar x\\). The means cluster far closer to \\(\\mu\\).\n\n\\[\\operatorname{SE} = \\operatorname{sd}(\\bar X) = \\frac{\\sigma}{\\sqrt n} \\approx \\frac{s}{\\sqrt n} = \\frac{0.62}{\\sqrt{14}} = 0.17 \\text{ °C}\\]\n\nThe standard error (SE) is the standard deviation of \\(\\bar X\\): how far \\(\\bar x\\) typically lands from \\(\\mu\\). To halve it, you need four times the data."
+  },
+  {
+    "objectID": "week-1/index.html#where-1.96-comes-from",
+    "href": "week-1/index.html#where-1.96-comes-from",
+    "title": "Reproducible analysis",
+    "section": "Where 1.96 comes from",
+    "text": "Where 1.96 comes from\n\n\n\nCLT: \\(\\bar X \\approx N(\\mu,\\ \\operatorname{SE}^2)\\).\nStandardise: \\(Z = \\dfrac{\\bar X - \\mu}{\\operatorname{SE}} \\approx N(0, 1)\\).\nFor \\(N(0,1)\\): \\(P(-1.96 \\le Z \\le 1.96) = 0.95\\). 1.96 leaves 2.5% in each tail.\nRearrange for \\(\\mu\\): \\(P\\big(\\bar X - 1.96\\,\\operatorname{SE} \\le \\mu \\le \\bar X + 1.96\\,\\operatorname{SE}\\big) = 0.95\\).\n\n\n\n\n\nOther levels: 90% → 1.64, 99% → 2.58.\n\n\n\n\n1.96 is the 97.5% quantile of the standard normal. With only 14 years the t-distribution gives 2.16, a slightly wider interval; 1.96 is the large-sample value, and the bootstrap avoids the choice."
+  },
+  {
+    "objectID": "week-1/index.html#a-confidence-interval-for-lund",
+    "href": "week-1/index.html#a-confidence-interval-for-lund",
+    "title": "Reproducible analysis",
+    "section": "A confidence interval for Lund",
+    "text": "A confidence interval for Lund\nPut in the numbers for 1997–2010:\n\\[\\bar x \\pm 1.96\\,\\operatorname{SE} = 8.89 \\pm 1.96 \\cdot 0.17 = [8.56,\\ 9.22] \\text{ °C}\\]\n\n\nThe interval is random, \\(\\mu\\) is fixed. “95%” is a property of the method: of 20 new samples, about 19 intervals cover \\(\\mu\\) and 1 misses."
+  },
+  {
+    "objectID": "week-1/index.html#the-difference-with-its-uncertainty",
+    "href": "week-1/index.html#the-difference-with-its-uncertainty",
+    "title": "Reproducible analysis",
+    "section": "The difference, with its uncertainty",
+    "text": "The difference, with its uncertainty\n\nEstimate: \\(\\bar x_b - \\bar x_a = 9.71 - 8.89 = 0.82\\) °C (2011–2025 minus 1997–2010).\nIts SE: for independent means the variances add, \\(\\operatorname{Var}(\\bar X_b - \\bar X_a) = \\frac{\\sigma_b^2}{n_b} + \\frac{\\sigma_a^2}{n_a}\\), so\n\n\\[\\operatorname{SE}_{\\text{diff}} = \\sqrt{\\frac{s_b^2}{n_b} + \\frac{s_a^2}{n_a}} = \\sqrt{\\frac{0.62^2}{15} + \\frac{0.62^2}{14}} = 0.23 \\text{ °C}\\]\n\nInterval: \\(0.82 \\pm 1.96 \\cdot 0.23 = [0.37,\\ 1.27]\\) °C.\n\nThe whole interval is above zero: consistent with warming of 0.4 to 1.3 °C, not with no warming."
+  },
+  {
+    "objectID": "week-1/index.html#the-same-by-computer-the-bootstrap",
+    "href": "week-1/index.html#the-same-by-computer-the-bootstrap",
+    "title": "Reproducible analysis",
+    "section": "The same, by computer: the bootstrap",
+    "text": "The same, by computer: the bootstrap\n\n\nWhat is done\n\nDraw 14 years from the 14 of 1997–2010, with replacement: some years twice, some not at all.\nDo the same for the 15 years of 2011–2025.\nCompute the difference of the two means.\nRepeat 10,000 times.\nThe middle 95% of the 10,000 differences is the interval: [0.40, 1.26] °C.\n\n\n\n\n\ndata1997199819992000…2010\n\n\ndraw 11998199820001997…2004\n\n\ndraw 22010199920032003…1997\n\n\n\n\n\n\nWhy it works: the resampled datasets vary about as much as new real data would. No formula needed, and it works for almost any statistic."
+  },
+  {
+    "objectID": "week-1/index.html#could-it-be-chance-a-test-step-by-step",
+    "href": "week-1/index.html#could-it-be-chance-a-test-step-by-step",
+    "title": "Reproducible analysis",
+    "section": "Could it be chance? A test, step by step",
+    "text": "Could it be chance? A test, step by step\n\n\n\nHypothesis \\(H_0\\): \\(\\mu_b = \\mu_a\\). No warming: the 0.82 °C is weather alone.\nTest statistic: how many SEs is the difference from 0? \\(z = \\dfrac{0.82 - 0}{0.23} = 3.6\\).\nIf \\(H_0\\) is true, \\(Z \\approx N(0,1)\\): beyond ±1.96 only 5% of the time.\np-value: \\(P(|Z| \\ge 3.6) \\approx 0.0003\\). Without warming, a difference this large would turn up about 3 times in 10,000.\nConclusion: \\(p &lt; 0.05\\), so we reject \\(H_0\\). Same as: 0 is outside the 95% interval."
+  },
+  {
+    "objectID": "week-1/index.html#the-same-test-by-computer-shuffling",
+    "href": "week-1/index.html#the-same-test-by-computer-shuffling",
+    "title": "Reproducible analysis",
+    "section": "The same test, by computer: shuffling",
+    "text": "The same test, by computer: shuffling\n\n\nWhat is done\n\nIf \\(H_0\\) is true, it doesn’t matter which period a year belongs to. So:\n\n\nPut all 29 years in one pile.\nDeal them out at random: 14 to “1997–2010”, 15 to “2011–2025”.\nCompute the difference of the two means.\nRepeat 10,000 times.\nHow often is the difference at least as large as 0.82 °C? About 1 in 1,000: \\(p \\approx 0.001\\).\n\n\n\n\n\nNo normal distribution needed. Both ways, \\(p\\) is far below 0.05.\n\n\n\n\nThe normal approximation gives 0.0003, the shuffle 0.001: with 29 years they differ a little, but both say the same thing."
+  },
+  {
+    "objectID": "week-1/index.html#what-a-p-value-is-not",
+    "href": "week-1/index.html#what-a-p-value-is-not",
+    "title": "Reproducible analysis",
+    "section": "What a p-value is not",
+    "text": "What a p-value is not\n\nNot the probability that \\(H_0\\) is true.\nNot the size or importance of the effect: report the estimate and its interval.\n\\(p &gt; 0.05\\) does not show there is no effect: maybe too little data."
+  },
+  {
+    "objectID": "week-1/index.html#correlation-and-trend",
+    "href": "week-1/index.html#correlation-and-trend",
+    "title": "Reproducible analysis",
+    "section": "Correlation and trend",
+    "text": "Correlation and trend\n\n\nSlope 0.54 °C per decade (95% interval 0.28 to 0.79), \\(r = 0.62\\). Correlation is not causation: here the cause comes from physics, not from this data."
+  },
+  {
+    "objectID": "week-1/index.html#the-many-tests-trap",
+    "href": "week-1/index.html#the-many-tests-trap",
+    "title": "Reproducible analysis",
+    "section": "The many-tests trap",
+    "text": "The many-tests trap\n\n\nTwenty tests on pure noise: one comes out “significant”. Test many things and something always will. Decide what to test before you look."
+  },
+  {
+    "objectID": "week-1/index.html#writing-it-up",
+    "href": "week-1/index.html#writing-it-up",
+    "title": "Reproducible analysis",
+    "section": "Writing it up",
+    "text": "Writing it up\n\nThe years 2011–2025 were on average 0.82 °C warmer in Lund than 1997–2010 (95% confidence interval 0.37 to 1.27 °C).\n\n\nThe estimate, with units.\nIts uncertainty.\nWhat it does not show: why, or what happens next."
+  },
+  {
+    "objectID": "week-1/index.html#before-monday",
+    "href": "week-1/index.html#before-monday",
+    "title": "Reproducible analysis",
+    "section": "Before Monday",
+    "text": "Before Monday\n\nSet up your computer: follow the guide. Problems? Bring them to Monday’s session.\nAccept the invite to your &lt;username&gt;-assignments repository.\nRead week 1 and Statistics: the basics.\nHW1: “Your first reproducible report”, due Mon 9 Nov, 23:59.\n\n\nQuestions?\n\n\nSet up your computer · HW1 · Week 1"
   }
 ]

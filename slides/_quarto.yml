@@ -8,6 +8,7 @@ project:
   render:
     - introduction/index.qmd
     - week-1/index.qmd
+    - week-2/index.qmd
 
 format:
   revealjs:
