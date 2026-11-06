@@ -1,0 +1,39 @@
+{
+  "model": "llama3.2:3b",
+  "model_digest": "a80c4f17acd55265feec403c7aef86be0c25983ab279d83f3bcd3abbcb5b8b72",
+  "ollama_version": "0.40.15",
+  "options": {
+    "temperature": 0,
+    "seed": 4008
+  },
+  "prompt_name": "b",
+  "prompt": "Classify this recipe review.\n\n- sentiment: positive, mixed or negative\n- made_it: did the reviewer cook it? (true/false)\n- changed_recipe: did the reviewer change the recipe? (true/false)\n\nReturn JSON.",
+  "schema": {
+    "type": "object",
+    "properties": {
+      "sentiment": {
+        "type": "string",
+        "enum": [
+          "positive",
+          "mixed",
+          "negative"
+        ]
+      },
+      "made_it": {
+        "type": "boolean"
+      },
+      "changed_recipe": {
+        "type": "boolean"
+      }
+    },
+    "required": [
+      "sentiment",
+      "made_it",
+      "changed_recipe"
+    ]
+  },
+  "input": "public/data/week-6/recipe-reviews.csv",
+  "n": 250,
+  "seconds": 143,
+  "run_at": "2026-11-06"
+}

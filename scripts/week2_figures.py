@@ -2,7 +2,7 @@
 # requires-python = ">=3.12"
 # dependencies = ["numpy", "pandas", "matplotlib"]
 # ///
-"""Figures and numbers for week 2 (/lectures/week-2 and slides/week-2).
+"""Figures and numbers for week 2 (/lectures/week-2).
 
 Run from the repository root:  uv run scripts/week2_figures.py
 Writes SVGs to public/img/week-2/ and prints every number the page quotes.

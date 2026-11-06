@@ -13,14 +13,14 @@ export const hours = { start: config.sessionStart, end: config.sessionEnd }
 const topics = [
   { title: 'Reproducible Analysis: Questions, Git and Quarto', hw: 'HW1' },
   { title: 'Tables and Honest Plots', hw: 'HW2' },
-  { title: 'Exploratory Data Analysis (EDA) & Processing Data', hw: 'HW3' },
-  { title: 'Joining Data, SQL, and an Introduction to RegEx', hw: 'HW4' },
+  { title: 'Cleaning and Exploring Messy Data', hw: 'HW3' },
+  { title: 'Combining Data: Joins and Databases', hw: 'HW4' },
   // TODO(owner): guest lecture in HT26? Add it as `note`.
-  { title: 'Retrieving Data from the Web (REST APIs & Web Scraping)', hw: 'HW5' },
-  { title: 'Extracting unstructured data with LLMs' },
+  { title: 'Data from the Web', hw: 'HW5' },
+  { title: 'Text as Data: Extracting Structure with LLMs' },
 ]
 
-const assignmentNames = ['Your first reproducible report', 'Tables and plots', 'Exploring and visualising data', 'SQL and regex', 'Data from the web']
+const assignmentNames = ['Your first reproducible report', 'Tables and plots', 'Cleaning and exploring messy data', 'Joins and SQL', 'Data from the Web']
 
 // The first session introduces the course. After that every session is work time, and Mondays start with a walkthrough.
 const sessionLabel = (date: string, i: number) => {

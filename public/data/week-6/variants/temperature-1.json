@@ -1,0 +1,39 @@
+{
+  "model": "llama3.2:3b",
+  "model_digest": "a80c4f17acd55265feec403c7aef86be0c25983ab279d83f3bcd3abbcb5b8b72",
+  "ollama_version": "0.40.15",
+  "options": {
+    "temperature": 1.0,
+    "seed": 4008
+  },
+  "prompt_name": "a",
+  "prompt": "You read reviews of recipes and fill in a form. Answer only from the review.\n\nsentiment: what the reviewer thinks of the recipe.\n  \"positive\" if they mainly like it, \"negative\" if they mainly dislike it,\n  \"mixed\" if they like some things and dislike others, or are lukewarm.\nmade_it: true if the reviewer says or clearly implies that they cooked the recipe, false otherwise.\nchanged_recipe: true if the reviewer says they changed ingredients, amounts or steps, false otherwise.\n\nReply with JSON only: {\"sentiment\": ..., \"made_it\": ..., \"changed_recipe\": ...}",
+  "schema": {
+    "type": "object",
+    "properties": {
+      "sentiment": {
+        "type": "string",
+        "enum": [
+          "positive",
+          "mixed",
+          "negative"
+        ]
+      },
+      "made_it": {
+        "type": "boolean"
+      },
+      "changed_recipe": {
+        "type": "boolean"
+      }
+    },
+    "required": [
+      "sentiment",
+      "made_it",
+      "changed_recipe"
+    ]
+  },
+  "input": "public/data/week-6/recipe-reviews.csv",
+  "n": 250,
+  "seconds": 126,
+  "run_at": "2026-11-06"
+}
