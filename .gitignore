@@ -2,3 +2,5 @@
 .vitepress/cache/
 digest.txt
 .DS_Store
+# API keys (week 6 extraction)
+.env

@@ -63,6 +63,8 @@ export default defineConfig({
   title: "MT4008",
   description: "Course page for MT4008 Statistical Data Processing at Stockholm University",
   srcExclude: ['docs/**', 'mt4008/**', 'templates/**', ...unpublished],
+  // Lecture pages may link to an assignment that isn't published yet; that link goes live with it.
+  ignoreDeadLinks: [(url: string) => unpublished.some((f) => url.replace(/#.*$/, '').replace(/\.html$/, '') === `/${f.replace(/\.md$/, '')}`)],
   head: [
     ['link', { rel: 'preconnect', href: 'https://fonts.googleapis.com' }],
     ['link', { rel: 'preconnect', href: 'https://fonts.gstatic.com', crossorigin: '' }],

@@ -1,3 +1,3 @@
-# Extracting unstructured data with LLMs
+# Text as Data: Extracting Structure with LLMs
 
 TBA
