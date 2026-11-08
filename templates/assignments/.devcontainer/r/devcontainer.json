@@ -1,6 +1,6 @@
 {
   "name": "MT4008 (R)",
-  "image": "ghcr.io/rocker-org/devcontainer/r-ver:4.5",
+  "image": "ghcr.io/rocker-org/devcontainer/r-ver:4.6@sha256:31838eb886b9c87e67f8e4592ca0acdac37d5735c18169ec6f9b74ae22ec8923",
   "features": {
     "ghcr.io/rocker-org/devcontainer-features/quarto-cli:1": { "version": "1.8.25" }
   },
