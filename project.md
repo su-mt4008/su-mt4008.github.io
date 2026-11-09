@@ -63,6 +63,15 @@ Each level includes everything in the levels below it.
 * Industry practice throughout: **one command** takes raw data to the final report, with **automated checks** on the data or code.
 * A polished, well-argued write-up for its audience.
 
+## Examples
+
+None of these is a course project, and none was written to our criteria: read them for scope, structure and style, not as a template. Each note says roughly where the work falls on the scale above and what a group of 2–3 would add to reach the next level. All of them use far more than 7 figures; yours should not.
+
+* **[Stoppage Time Matters](https://asa-scrollytelling.github.io/)** (Eliot McKinley, 2025). Does counting stoppage time change football player statistics? *Between E and C.* Bootstrapped confidence intervals, tests and an honest limitations section, but the data access isn't documented and the [repository](https://github.com/asa-scrollytelling/asa-scrollytelling.github.io) has no data, lockfile or pipeline. One public source and one sharp question: a realistic scope for a group.
+* **[Council housing and income inequality in Vienna](https://mschnetzer.github.io/scrollytell_gemeindebau/)** (Matthias Schnetzer and Tamara Premrov). Does social housing mix neighbourhoods or segregate them? *C-level analysis, A-level argument:* spatial regression with robustness checks and alternative explanations, but built on restricted tax data that isn't in the [repository](https://github.com/mschnetzer/scrollytell_gemeindebau), so it can't be reproduced. Read it for how to convince a sceptical reader.
+* **[Which Way Do You Ski?](https://openskistats.org/story/)** (Trang Le, Joshua and Daniel Himmelstein). Do ski runs face the poles? *C.* The [repository](https://github.com/dhimmel/openskistats) is the reproducibility standard we mean for an A (pinned environment, tests in CI, archived on Zenodo), but the analysis has no comparison against chance and no uncertainty. The whole project is too big for a group; one country's ski areas is not.
+* **[Crane observations at Lake Hornborgasjön](https://seanthimons.github.io/posts/2025-09-30-crane-observations-at-lake-hornborgasj-n-sweden-19/2025-09-30-crane-observations-at-lake-hornborgasj-n-sweden-19.html)** (Sean Thimons, 2025). Are the cranes arriving earlier? *Below E:* a ready-made dataset and description only. A group could turn it into a C by collecting weather data from SMHI and fitting a trend in peak day with a confidence interval. Check its prose against its own table: some of the dates disagree.
+
 ## Data
 
 During the course you’ve seen many ways to source data. Additional public, web-based sources include:
