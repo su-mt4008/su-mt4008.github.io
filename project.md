@@ -63,15 +63,6 @@ Each level includes everything in the levels below it.
 * Industry practice throughout: **one command** takes raw data to the final report, with **automated checks** on the data or code.
 * A polished, well-argued write-up for its audience.
 
-## Inspiration
-
-A few examples of scope and style:
-
-* [The Olympic Medal Table Visualized Gapminder Style](https://staff.math.su.se/hoehle/blog/2016/08/21/gapMedal.html)
-* [On a First Name Basis with Statistics Sweden](https://staff.math.su.se/hoehle/blog/2017/03/25/scbnames.html)
-* [Baby Weight Shiny app](https://shirinsplayground.netlify.app/2020/09/baby_weight_app/)
-* [Are #python users more likely to get into Slytherin?](https://masalmon.eu/2018/01/01/sortinghat/)
-
 ## Data
 
 During the course you’ve seen many ways to source data. Additional public, web-based sources include:
