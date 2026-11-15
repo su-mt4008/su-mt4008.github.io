@@ -43,7 +43,7 @@ export default {
   assignments: [
     { ready: true, due: '2026-11-09', peerReview: '2026-11-12', final: '2026-11-13' },
     { ready: true, due: '2026-11-16', peerReview: '2026-11-19', final: '2026-11-20' },
-    { ready: false, due: '2026-11-23', peerReview: '2026-11-26', final: '2026-11-27' },
+    { ready: true, due: '2026-11-23', peerReview: '2026-11-26', final: '2026-11-27' },
     { ready: false, due: '2026-11-30', peerReview: '2026-12-03', final: '2026-12-04' },
     { ready: false, due: '2026-12-07', peerReview: '2026-12-10', final: '2026-12-11' },
   ],
