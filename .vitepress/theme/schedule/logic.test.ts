@@ -138,12 +138,13 @@ describe('assignments that are not ready', () => {
     expect(link('HW1')).toBe('/homework/1')
     expect(link('HW2')).toBe('/homework/2')
     expect(link('HW3')).toBe('/homework/3')
-    expect(link('HW4')).toBeUndefined()
+    expect(link('HW4')).toBe('/homework/4')
+    expect(link('HW5')).toBeUndefined()
   })
   it('appear in Next up without a link', () => {
-    const items = getNextUp(at('2026-11-28T12:00'), schedule, 10)
-    const hw4 = items.find((i) => i.label === 'HW4 hand-in')!
-    expect(hw4).toBeDefined()
-    expect(hw4.link).toBeUndefined()
+    const items = getNextUp(at('2026-12-05T12:00'), schedule, 10)
+    const hw5 = items.find((i) => i.label === 'HW5 hand-in')!
+    expect(hw5).toBeDefined()
+    expect(hw5.link).toBeUndefined()
   })
 })
